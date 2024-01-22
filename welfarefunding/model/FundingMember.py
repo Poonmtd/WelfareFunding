@@ -1,13 +1,16 @@
 from xerial.Record import Record
 from xerial.IntegerColumn import IntegerColumn
 from xerial.DateColumn import DateColumn
+from xerial.StringColumn import StringColumn
 from gaimon.model.User import User
 
 from xerial.input.NumberInput import NumberInput
 from xerial.input.DateInput import DateInput
 from xerial.input.EnumSelectInput import EnumSelectInput
+from xerial.input.TextInput import TextInput
 
 from welfarefunding.model.Gender import Gender
+from welfarefunding.model.Status import Status
 # Record.appendGroup(User, 'Member', 50, '2.0')
 
 class FundingMember(Record):
@@ -16,10 +19,19 @@ class FundingMember(Record):
     citizenID = IntegerColumn(
         length=20,
         input=NumberInput(
-            label="เลขบัตรประชาชน",
+            label="เลขบัตรประชาชน (13 หลัก)",
             isTable=True,
             isRequired=True,
             order="1.0"
+        )
+    )
+
+    telephoneNumber = IntegerColumn(
+        length=20,
+        input=NumberInput(
+            label="หมายเลขโทรศัพท์",
+            isRequired=True,
+            order="1.1"
         )
     )
 
@@ -48,4 +60,27 @@ class FundingMember(Record):
         )
     )
 
-    
+    maritalStatus = IntegerColumn(
+        input=EnumSelectInput(
+            label="สถานภาพ",
+            isRequired=True,
+            enum=Status,
+            order="5.0"
+        )
+    )
+
+    grantee_one = StringColumn(
+        input=TextInput(
+            label="ผู้รับสิทธิ์คนที่ 1",
+            isRequired=True,
+            order="6.0"
+        )
+    )
+
+    grantee_two = StringColumn(
+        input=TextInput(
+            label="ผู้รับสิทธิ์คนที่ 2",
+            isRequired=True,
+            order="7.0"
+        )
+    )

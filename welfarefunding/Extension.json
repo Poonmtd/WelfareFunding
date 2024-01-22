@@ -4,7 +4,8 @@
 	"version" : "1.0",
 	"require" : [],
 	"role" : [
-		"FundingMember"
+		"FundingMember",
+		"Welfare"
 	],
 	"backend" : {
 		"script" : [
@@ -33,6 +34,22 @@
 					{
 						"ID": "FundingMemberBackend",
 						"label": "Member",
+						"icon": "welfarefunding.Default",
+						"order": "1.0"
+					}
+				]
+			},
+			{
+				"group": {
+					"ID": "WelfareBackend",
+					"label": "Welfare",
+					"icon": "welfarefunding.Default",
+					"order": "3.0"
+				},
+				"child": [
+					{
+						"ID": "WelfareTypeBackend",
+						"label": "ประเภทสวัสดิการ",
 						"icon": "welfarefunding.Default",
 						"order": "1.0"
 					}
