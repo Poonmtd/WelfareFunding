@@ -1,0 +1,43 @@
+{
+	"ID" : "welfarefunding",
+	"name" : "WelfareFunding",
+	"version" : "1.0",
+	"require" : [],
+	"role" : [
+		"FundingMember"
+	],
+	"backend" : {
+		"script" : [
+			"backend/WelfareFunding.js"
+		],
+		"css" : [
+		],
+		"menu" : [
+			{
+				"group": {
+					"ID": "WelfareFunding",
+					"label": "WelfareFunding",
+					"icon": "welfarefunding.Default",
+					"order": "1.0"
+				},
+				"child": []
+			},
+			{
+				"group": {
+					"ID": "FundingMember",
+					"label": "Member",
+					"icon": "welfarefunding.Default",
+					"order": "2.0"
+				},
+				"child": [
+					{
+						"ID": "FundingMemberBackend",
+						"label": "Member",
+						"icon": "welfarefunding.Default",
+						"order": "1.0"
+					}
+				]
+			}
+		]
+	}
+}
