@@ -52,6 +52,34 @@
 						"label": "ประเภทสวัสดิการ",
 						"icon": "welfarefunding.Default",
 						"order": "1.0"
+					},
+					{
+						"ID": "WelfareConditionBackend",
+						"label": "เงื่อนไขการรับสวัสดิการ",
+						"icon": "welfarefunding.Default",
+						"order": "2.0"
+					},
+					{
+						"ID": "WelfareApplianceBackend",
+						"label": "เบิกสวัสดิการ",
+						"icon": "welfarefunding.Default",
+						"order": "3.0"
+					}
+				]
+			},
+			{
+				"group": {
+					"ID": "SavingFund",
+					"label": "เงินออม",
+					"icon": "welfarefunding.Default",
+					"order": "4.0"
+				},
+				"child": [
+					{
+						"ID": "SavingFundBackend",
+						"label": "บันทึกออมเงิน",
+						"icon": "welfarefunding.Default",
+						"order": "1.0"
 					}
 				]
 			}
