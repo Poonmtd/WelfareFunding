@@ -54,6 +54,28 @@
 						"order": "1.0"
 					}
 				]
+			},
+			{
+				"group":{
+					"ID":"FundingIncomeBackend",
+					"label":"รายรับ-รายจ่าย",
+					"icon":"welfarefunding.Default",
+					"order":"4.0"
+				},
+				"child":[
+					{
+						"ID":"FundingExpenseBackend",
+						"label":"รายจ่าย",
+						"icon":"welfarefunding.Default",
+						"order":"1.0"
+					},
+					{
+						"ID":"FundingIncomeBackend",
+						"label":"รายรับ",
+						"icon":"welfarefunding.Default",
+						"order":"2.0"
+					}
+				]
 			}
 		]
 	}
