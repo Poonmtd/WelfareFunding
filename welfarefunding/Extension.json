@@ -5,7 +5,8 @@
 	"require" : [],
 	"role" : [
 		"FundingMember",
-		"Welfare"
+		"Welfare",
+		"Audit"
 	],
 	"backend" : {
 		"script" : [
@@ -26,14 +27,14 @@
 			{
 				"group": {
 					"ID": "FundingMember",
-					"label": "Member",
+					"label": "สมาชิก",
 					"icon": "welfarefunding.Default",
 					"order": "2.0"
 				},
 				"child": [
 					{
 						"ID": "FundingMemberBackend",
-						"label": "Member",
+						"label": "ข้อมูลสมาชิก",
 						"icon": "welfarefunding.Default",
 						"order": "1.0"
 					}
@@ -42,7 +43,7 @@
 			{
 				"group": {
 					"ID": "WelfareBackend",
-					"label": "Welfare",
+					"label": "สวัสดิการ",
 					"icon": "welfarefunding.Default",
 					"order": "3.0"
 				},
@@ -82,7 +83,46 @@
 						"order": "1.0"
 					}
 				]
+			},
+			{
+				"group": {
+					"ID": "AuditBackend",
+					"label": "รายรับ-รายจ่ายของกองทุน",
+					"icon": "welfarefunding.Default",
+					"order": "5.0"
+				},
+				"child": [
+					{
+						"ID": "ExpenseItemBackend",
+						"label": "รายจ่าย",
+						"icon": "welfarefunding.Default",
+						"order": "1.0"
+					},
+					{
+						"ID": "IncomeItemBackend",
+						"label": "รายรับ",
+						"icon": "welfarefunding.Default",
+						"order": "2.0"
+					}
+				]
+			},
+			{
+				"group": {
+					"ID": "BudgetFund",
+					"label": "งบประมาณ",
+					"icon": "welfarefunding.Default",
+					"order": "6.0"
+				},
+				"child": [
+					{
+						"ID": "BudgetFundBackend",
+						"label": "จัดการงบประมาณ",
+						"icon": "welfarefunding.Default",
+						"order": "1.0"
+					}
+				]
 			}
+
 		]
 	}
 }
