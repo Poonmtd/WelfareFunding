@@ -10,4 +10,9 @@ const WelfareTypeBackend = function(main, parent) {
 
 	object.role = ['Welfare'];
 	object.restURL = 'welfarefunding/welfaretype';
+
+	this.renderTableView = async function(modelName, config = {}){
+		config.hasAvatar = false;
+		await AbstractPage.prototype.renderTable.call(this, modelName, config);
+	}
 }

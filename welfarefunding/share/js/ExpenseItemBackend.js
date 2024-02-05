@@ -10,4 +10,9 @@ const ExpenseItemBackend = function(main, parent) {
 
 	object.role = ['Audit'];
 	object.restURL = 'welfarefunding/expenseitem';
+
+	this.renderTableView = async function(modelName, config = {}){
+		config.hasAvatar = false;
+		await AbstractPage.prototype.renderTable.call(this, modelName, config);
+	}
 }

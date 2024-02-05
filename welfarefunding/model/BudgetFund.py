@@ -26,12 +26,12 @@ class BudgetFund(Record):
         )
     )
 
-    BudgetStatus = IntegerColumn(
+    budgetStatus = IntegerColumn(
 		input=EnumSelectInput(
 			label="สถานะ",
 			isRequired=True,
 			enum=BudgetStatus,
-			order="3.0"
+			order="3.0",
 		)
 	)
 

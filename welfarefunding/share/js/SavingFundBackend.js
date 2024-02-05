@@ -10,4 +10,9 @@ const SavingFundBackend = function(main, parent) {
 
 	object.role = ['Saving'];
 	object.restURL = 'welfarefunding/savingfund';
+
+	this.renderTableView = async function(modelName, config = {}){
+		config.hasAvatar = false;
+		await AbstractPage.prototype.renderTable.call(this, modelName, config);
+	}
 }

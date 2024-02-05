@@ -10,4 +10,9 @@ const IncomeItemBackend = function(main, parent) {
 
 	object.role = ['Audit'];
 	object.restURL = 'welfarefunding/incomeitem';
+
+	this.renderTableView = async function(modelName, config = {}){
+		config.hasAvatar = false;
+		await AbstractPage.prototype.renderTable.call(this, modelName, config);
+	}
 }
