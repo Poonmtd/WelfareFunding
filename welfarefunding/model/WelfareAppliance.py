@@ -18,12 +18,12 @@ class WelfareAppliance(Record):
         )
     )
 
-    welfareCondition = IntegerColumn(
-        foreignKey="WelfareCondition.id",
-        input=ReferenceCheckBoxInput(
-            label="เงื่อนไขการรับสวัสดิการ",
-            order="2.0",
-            url="welfarefunding/welfarecondition/option/get",
-            isRequired=True
-        )
-    )
+    # welfareCondition = IntegerColumn(
+    #     foreignKey="WelfareCondition.id",
+    #     input=ReferenceCheckBoxInput(
+    #         label="เงื่อนไขการรับสวัสดิการ",
+    #         order="2.0",
+    #         url="welfarefunding/welfarecondition/option/get",
+    #         isRequired=True
+    #     )
+    # )

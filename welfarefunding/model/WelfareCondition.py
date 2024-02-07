@@ -2,6 +2,7 @@ from xerial.Record import Record
 
 from xerial.StringColumn import StringColumn
 from xerial.IntegerColumn import IntegerColumn
+from xerial.Children import Children
 
 from xerial.input.RichTextInput import RichTextInput
 from xerial.input.ReferenceRadioInput import ReferenceSelectInput
@@ -20,15 +21,21 @@ class WelfareCondition(Record):
 		)
 	)
 
-	welfareCondition = StringColumn(
-		isRepresentative=True,
-		input=RichTextInput(
-			label="เงื่อนไขการรับสวัสดิการ",
-			order="2.0",
-			isRequired=True,
-			isTable=True
-		)
-	)
+	# welfareCondition = StringColumn(
+	# 	isRepresentative=True,
+	# 	input=RichTextInput(
+	# 		label="เงื่อนไขการรับสวัสดิการ",
+	# 		order="2.0",
+	# 		isRequired=True,
+	# 		isTable=True
+	# 	)
+	# )
+
+	PaymentCondition = Children('PaymentCondition.id', isTableForm=True)
+
+	RightCondition = Children('RightCondition.id', isTableForm=True)
+
+
 
 	isDrop = IntegerColumn(
 		default=0
