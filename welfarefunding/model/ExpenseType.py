@@ -1,23 +1,30 @@
-from enum import IntEnum
+from xerial.Record import Record
 
-class ExpenseType(IntEnum):
-    BANKDEPOSIT = 1
-    CASH = 2
-    WELFAREBENEFIT = 3
-    COMPENSATION = 4
-    TRANSPORTATION = 5
-    DOCUMENTANDSTATIONERY = 6
-    ACTIVITY = 7
-    OTHER = 8
+from xerial.StringColumn import StringColumn
+from xerial.IntegerColumn import IntegerColumn
+
+from xerial.input.TextInput import TextInput
+from xerial.input.RichTextInput import RichTextInput
 
 
-ExpenseType.label = {
-    ExpenseType.BANKDEPOSIT: "เงินฝากในธนาคาร",
-    ExpenseType.CASH: "เงินสดในมือ",
-    ExpenseType.WELFAREBENEFIT: "จ่ายสวัสดิการให้กับสมาชิก",
-    ExpenseType.COMPENSATION: "ตอบเเทนคนทำงาน",
-    ExpenseType.TRANSPORTATION: "ค่าพาหนะ",
-    ExpenseType.DOCUMENTANDSTATIONERY: "ค่าเอกสาร/เครื่องเขียน",
-    ExpenseType.ACTIVITY: "ค่ากิจกรรม/ประชุม",
-    ExpenseType.OTHER: "อื่นๆ"
-}
+class ExpenseType(Record):
+	expenseName = StringColumn(
+		isRepresentative=True,
+		length=100,
+		input=TextInput(
+			label="ประเภทรายจ่าย",
+			isRequired=True,
+			isTable=True,
+			order="1.0"
+		)
+	)
+
+	expenseDescription = StringColumn(
+		length=200,
+		input=RichTextInput(
+			label="รายละเอียด",
+			isRequired=False,
+			isTable=True,
+			order="2.0"
+		)
+	)

@@ -10,15 +10,19 @@ from xerial.input.EnumSelectInput import EnumSelectInput
 from xerial.input.TextInput import TextInput
 
 from welfarefunding.model.ExpenseType import ExpenseType
+from xerial.input.ReferenceRadioInput import ReferenceSelectInput
+
 # Record.appendGroup(User, 'Member', 50, '2.0')
 
 class FundingExpense(Record):
 
     ExpenseType = IntegerColumn(
-        input=EnumSelectInput(
+        default=-1,
+        foreignKey="ExpenseType.id",
+        input=ReferenceSelectInput(
             label="ประเภทรายจ่าย",
+            url="welfarefunding/expensetype/option/get",
             isRequired=True,
-            enum=ExpenseType,
             order="1.0"
         )
     )
