@@ -11,7 +11,8 @@ from xerial.input.TextInput import TextInput
 
 from welfarefunding.model.Gender import Gender
 from welfarefunding.model.Status import Status
-# Record.appendGroup(User, 'Member', 50, '2.0')
+
+Record.appendGroup(User, 'Member', 50, '2.0')
 
 class FundingMember(Record):
 	uid = IntegerColumn(foreignKey="User.id")

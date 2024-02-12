@@ -23,4 +23,11 @@ class RightCondition(Record):
         )
     )
 
+    membership = IntegerColumn(
+        input=NumberInput(
+            label="เงื่อนไขการเป็นสมาชิก",
+            order="3.0"
+        )
+    )
+
     
