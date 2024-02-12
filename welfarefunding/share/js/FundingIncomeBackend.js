@@ -1,4 +1,4 @@
-const FundingExpenseBackend = function(main, parent) {
+const FundingIncomeBackend = function(main, parent) {
 	AbstractPage.call(this, main, parent);
 
 	let object = this;

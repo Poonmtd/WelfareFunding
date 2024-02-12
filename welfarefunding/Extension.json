@@ -109,6 +109,12 @@
 						"label": "ประเภทรายจ่าย",
 						"icon": "welfarefunding.Default",
 						"order": "3.0"
+					},
+					{
+						"ID": "IncomeTypeBackend",
+						"label": "ประเภทรายรับ",
+						"icon": "welfarefunding.Default",
+						"order": "4.0"
 					}
 				]
 			},
