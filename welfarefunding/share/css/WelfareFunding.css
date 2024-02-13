@@ -1,0 +1,44 @@
+.a4{
+    width: 21cm;
+    height: 29.7cm;
+    margin: 30mm 45mm 30mm 45mm;
+    background: white;
+    box-sizing: border-box;
+}
+
+.paper1 .text-center{
+    text-align: center;
+}
+
+.paper1 .text-end{
+    text-align: end;
+}
+
+.paper1 .signed{
+    margin-left: 280pt;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.savingTable table{
+    display: table;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    font-size: .9em;
+    border: solid 1px;
+    width: 100%;
+}
+
+.savingTable th{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.savingTable thead{
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border: 1px solid;
+}

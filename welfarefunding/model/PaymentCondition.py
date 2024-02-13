@@ -23,6 +23,13 @@ class PaymentCondition(Record):
         )
     )
 
+    amount = IntegerColumn(
+        input=NumberInput(
+            label="จำนวนเงิน",
+            order="1.5"
+        )
+    )
+
     perDay = IntegerColumn(
         input=NumberInput(
             label="ต่อวัน",
@@ -37,11 +44,17 @@ class PaymentCondition(Record):
         )
     )
 
-    perYear = IntegerColumn(
+    perMonth = IntegerColumn(
         input=NumberInput(
             label="ต่อเดือน",
             order="4.0"
         )
     )
 
-    
+    perYear = IntegerColumn(
+        input=NumberInput(
+            label="ต่อปี",
+            order="5.0"
+        )
+    )
+
