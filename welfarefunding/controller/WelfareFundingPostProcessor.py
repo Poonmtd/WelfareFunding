@@ -24,6 +24,13 @@ class WelfareFundingPostProcessor (PostProcessDecorator) :
 		model = FundingMember()
 		model.uid = data['id']
 		model.citizenID = data['additional']['citizenID']
+		model.telephoneNumber = data['additional']['telephoneNumber']
+		model.birthday = data['additional']['birthday']
+		model.applyDate = data['additional']['applyDate']
+		model.gender = data['additional']['gender']
+		model.maritalStatus = data['additional']['maritalStatus']
+		model.grantee_one = data['additional']['grantee_one']
+		model.grantee_two = data['additional']['grantee_two']
 		# add data ใส่ข้อมูลตาม model fundingmember
 		await self.session.insert(model)
 		return response
@@ -44,6 +51,13 @@ class WelfareFundingPostProcessor (PostProcessDecorator) :
 				model = model[0]
 		model.uid = data['id']
 		model.citizenID = data['additional']['citizenID']
+		model.telephoneNumber = data['additional']['telephoneNumber']
+		model.birthday = data['additional']['birthday']
+		model.applyDate = data['additional']['applyDate']
+		model.gender = data['additional']['gender']
+		model.maritalStatus = data['additional']['maritalStatus']
+		model.grantee_one = data['additional']['grantee_one']
+		model.grantee_two = data['additional']['grantee_two']
 		# add data ใส่ข้อมูลตาม model fundingmember
 		if isUpdate: await self.session.update(model)
 		else: await self.session.insert(model)
