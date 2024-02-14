@@ -55,14 +55,8 @@
 				},
 				"child": [
 					{
-						"ID": "WelfareTypeBackend",
-						"label": "ประเภทสวัสดิการ",
-						"icon": "welfarefunding.Default",
-						"order": "1.0"
-					},
-					{
 						"ID": "WelfareConditionBackend",
-						"label": "เงื่อนไขการรับสวัสดิการ",
+						"label": "จัดการสวัสดิการ",
 						"icon": "welfarefunding.Default",
 						"order": "2.0"
 					},
