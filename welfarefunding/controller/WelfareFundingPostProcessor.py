@@ -24,7 +24,7 @@ class WelfareFundingPostProcessor (PostProcessDecorator) :
 		model = FundingMember()
 		model.uid = data['id']
 		model.citizenID = data['additional']['citizenID']
-		# add data
+		# add data ใส่ข้อมูลตาม model fundingmember
 		await self.session.insert(model)
 		return response
 	
@@ -44,7 +44,7 @@ class WelfareFundingPostProcessor (PostProcessDecorator) :
 				model = model[0]
 		model.uid = data['id']
 		model.citizenID = data['additional']['citizenID']
-		# add data
+		# add data ใส่ข้อมูลตาม model fundingmember
 		if isUpdate: await self.session.update(model)
 		else: await self.session.insert(model)
 		return response

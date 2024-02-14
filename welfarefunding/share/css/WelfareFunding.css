@@ -20,7 +20,7 @@
     margin-top: 20px;
 }
 
-.savingTable table{
+.savingTable table, .billWelfare table, .billPayment table{
     display: table;
     border-collapse: collapse;
     box-sizing: border-box;
@@ -31,14 +31,32 @@
     width: 100%;
 }
 
-.savingTable th{
+.savingTable th, .billWelfare th, .billPayment th{
     border: 1px solid black;
     padding: 5px;
 }
 
-.savingTable thead{
+.savingTable thead, .billWelfare thead, .billPayment thead{
     display: table-header-group;
     vertical-align: middle;
     border-color: inherit;
     border: 1px solid;
+}
+
+.savingTable td, .billWelfare td, .billPayment td{
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
+.billWelfare .order, .billPayment .order{
+    width: 50pt;
+}
+
+.billWelfare .amount1, .billPayment .amount1{
+    width: 80pt;
+}
+
+.billWelfare .amount2, .billPayment .amount2{
+    width: 30pt;
 }
