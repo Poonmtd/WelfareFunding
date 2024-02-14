@@ -8,6 +8,7 @@ from xerial.input.NumberInput import NumberInput
 from xerial.input.EnumSelectInput import EnumSelectInput
 
 from welfarefunding.model.BudgetStatus import BudgetStatus
+from welfarefunding.model.BudgetType import BudgetType
 
 class BudgetFund(Record):
     budgetFundDate = DateColumn(
@@ -15,6 +16,15 @@ class BudgetFund(Record):
 			label="วัน/เดือน/ปีที่ทำการยื่นของบ",
 			isRequired=True,
 			order="1.0"
+		)
+	)
+    
+    budgetType = IntegerColumn(
+		input=EnumSelectInput(
+			label="ประเภทของงบประมาณ",
+			isRequired=True,
+			enum=BudgetType,
+			order="1.1"
 		)
 	)
 
@@ -34,14 +44,3 @@ class BudgetFund(Record):
 			order="3.0",
 		)
 	)
-
-    
-
-
-
-
-
-
-
-    
-

@@ -8,17 +8,23 @@ from xerial.input.NumberInput import NumberInput
 from xerial.input.DateInput import DateInput
 from xerial.input.EnumSelectInput import EnumSelectInput
 from xerial.input.TextInput import TextInput
+from xerial.input.ReferenceRadioInput import ReferenceSelectInput
+
 
 from welfarefunding.model.IncomeType import IncomeType
 # Record.appendGroup(User, 'Member', 50, '2.0')
 
 class FundingIncome(Record):
 
-    IncomeType = IntegerColumn(
-        input=EnumSelectInput(
-            label="ประเภทรายรับ",
+    incomeType = IntegerColumn(
+        default=-1,
+        foreignKey="IncomeType.id",
+        input=ReferenceSelectInput(
+            label="ประเภทรายจ่าย",
+            url="welfarefunding/incometype/option/get",
             isRequired=True,
-            enum=IncomeType,
+            isTable=True,
+            isSearch=True,
             order="1.0"
         )
     )
@@ -47,3 +53,4 @@ class FundingIncome(Record):
             order="4.0"
         )
     )
+    

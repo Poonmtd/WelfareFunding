@@ -25,36 +25,43 @@ class PaymentCondition(Record):
 
     amount = IntegerColumn(
         input=NumberInput(
-            label="จำนวนเงิน",
+            label="จำนวนเงิน(บาท)",
             order="1.5"
         )
     )
 
     perDay = IntegerColumn(
         input=NumberInput(
-            label="ต่อวัน",
+            label="ต่อวัน(บาท)",
             order="2.0"
         )
     )
 
     perWeek = IntegerColumn(
         input=NumberInput(
-            label="ต่อสัปดาห์",
+            label="ต่อสัปดาห์(บาท)",
             order="3.0"
         )
     )
 
     perMonth = IntegerColumn(
         input=NumberInput(
-            label="ต่อเดือน",
+            label="ต่อเดือน(บาท)",
             order="4.0"
         )
     )
 
     perYear = IntegerColumn(
         input=NumberInput(
-            label="ต่อปี",
+            label="ต่อปี(บาท)",
             order="5.0"
+        )
+    )
+    
+    maxperYear = IntegerColumn(
+        input=NumberInput(
+            label="จำนวนเงินสูงสุงต่อปี(บาท)",
+            order="6.0"
         )
     )
 
