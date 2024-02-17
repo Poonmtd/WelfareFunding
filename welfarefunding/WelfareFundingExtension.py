@@ -3,12 +3,6 @@ from gaimon.core.Extension import Extension, InputExtension
 from typing import Dict
 
 from xerial.input.NumberInput import NumberInput
-from xerial.input.DateInput import DateInput
-from xerial.input.EnumSelectInput import EnumSelectInput
-from xerial.input.TextInput import TextInput
-
-from welfarefunding.model.Gender import Gender
-from welfarefunding.model.Status import Status
 
 class WelfareFundingExtension (Extension) :
 	def __init__(self, resourcePath:str, configPath:str):
@@ -39,58 +33,6 @@ class WelfareFundingExtension (Extension) :
 					isTable=True,
 					isRequired=True,
 					group=50
-				),
-				NumberInput(
-					label="หมายเลขโทรศัพท์",
-					columnName="telephoneNumber",
-					isTable=True,
-					isRequired=True,
-					group=50
-				),
-				DateInput(
-					label="วัน/เดือน/ปีเกิด",
-					columnName="birthday",
-					isTable=True,
-					isRequired=True,
-					group=50
-				),
-				DateInput(
-					label="วัน/เดือน/ปี ที่สมัคร",
-					columnName="applyDate",
-					isTable=True,
-					isRequired=True,
-					group=50
-				),
-				EnumSelectInput(
-					label="เพศ",
-					columnName="gender",
-					isTable=True,
-					isRequired=True,
-					enum=Gender,
-					group=50
-				),
-				EnumSelectInput(
-					label="สถานภาพ",
-					columnName="maritalStatus",
-					isTable=True,
-					isRequired=True,
-					enum=Status,
-					group=50
-				),
-				TextInput(
-					label="ผู้รับสิทธิ์คนที่ 1",
-					columnName="grantee_one",
-					isTable=True,
-					isRequired=True,
-					group=50
-				),
-				TextInput(
-					label="ผู้รับสิทธิ์คนที่ 2",
-					columnName="grantee_two",
-					isTable=True,
-					isRequired=True,
-					group=50
 				)
-
 			]
 		}

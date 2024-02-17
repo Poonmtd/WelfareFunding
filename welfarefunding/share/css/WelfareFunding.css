@@ -60,3 +60,22 @@
 .billWelfare .amount2, .billPayment .amount2{
     width: 30pt;
 }
+
+.billPayment tr{
+    height: 25pt;
+}
+
+.box .list{
+    border-style: solid;
+    border-width: thin;
+    width: 15pt;
+}
+
+.box{
+    display: flex;
+    flex-direction: row;
+}
+
+.left{
+    width: 95pt;
+}

@@ -12,4 +12,10 @@
     <div rel="paper4">
         paper4
     </div>
+    <div rel="paper5">
+        paper5
+    </div>
+    <div rel="paper6">
+        paper6
+    </div>
 </div>
