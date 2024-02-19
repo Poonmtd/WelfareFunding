@@ -85,6 +85,8 @@ class FundingMember(Record):
 			order="7.0"
 		)
 	)
+ 
+	# test
 
 	isDrop = IntegerColumn(
 		default=0
