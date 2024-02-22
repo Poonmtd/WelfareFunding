@@ -16,8 +16,9 @@ Record.appendGroup(User, 'Member', 50, '2.0')
 
 class FundingMember(Record):
 	uid = IntegerColumn(foreignKey="User.id")
-
-	citizenID = IntegerColumn(
+ 
+	citizenID = StringColumn(
+		default='',
 		length=20,
 		input=NumberInput(
 			label="เลขบัตรประชาชน (13 หลัก)",
@@ -95,3 +96,5 @@ class FundingMember(Record):
 	def modify(self):
 		modification = self.createModification("2.0")
 		modification.add("isDrop", IntegerColumn(default=0))
+		modification = self.createModification('2.1')
+		modification.add("citizenID", StringColumn(default='', length=20))
