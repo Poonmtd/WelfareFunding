@@ -21,6 +21,7 @@ class WelfareFundingPostProcessor (PostProcessDecorator) :
 	async def insertUser(self, request:Request, response:RESTResponse) :
 		if not response.data['isSuccess']: return response
 		data = response.data['result']
+		print('---------', data['additional'])
 		model = FundingMember()
 		model.uid = data['id']
 		model.citizenID = data['additional']['citizenID']
