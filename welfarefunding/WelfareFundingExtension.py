@@ -61,6 +61,20 @@ class WelfareFundingExtension (Extension) :
 					isRequired=True,
 					group=50
 				),
+				DateInput(
+					label="วัน/เดือน/ปี ที่เสียชีวิต",
+					columnName="dateDeath",
+					isTable=True,
+					isRequired=False,
+					group=50
+          		),
+				DateInput(
+					label="วัน/เดือน/ปี ที่ลาออก",
+					columnName="resignDate",
+					isTable=True,
+					isRequired=False,
+					group=50
+          		),    
 				EnumSelectInput(
 					label="เพศ",
 					columnName="gender",

@@ -52,6 +52,22 @@ class FundingMember(Record):
 			order="3.0"
 		)
 	)
+ 
+	dateDeath = DateColumn(
+		input=DateInput(
+			label="วัน/เดือน/ปี เสียชีวิต",
+			isRequired=False,
+			order="3.1"
+		)
+	)
+ 
+	resignDate = DateColumn(
+		input=DateInput(
+			label="วัน/เดือน/ปี ลาออก",
+			isRequired=False,
+			order="3.2"
+		)
+	)
 
 	gender = IntegerColumn(
 		input=EnumSelectInput(
