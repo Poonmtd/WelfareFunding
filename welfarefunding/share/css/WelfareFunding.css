@@ -79,3 +79,14 @@
 .left{
     width: 95pt;
 }
+
+.welfare-list{
+    display: flex;
+    align-items: center;
+    gap: 10pt;
+    margin: 10pt;
+}
+
+.welfare-name{
+    width: 50%;
+}
