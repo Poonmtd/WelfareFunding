@@ -14,4 +14,4 @@ class MemberDataMigration:
 
 if __name__ == '__main__':
 	migration = MemberDataMigration()
-	migration.migrate('file/member12.csv')
+	migration.migrate('file/member.csv')
