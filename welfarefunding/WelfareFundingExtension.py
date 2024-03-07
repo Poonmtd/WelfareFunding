@@ -9,7 +9,7 @@ from xerial.input.TextInput import TextInput
 
 from welfarefunding.model.Gender import Gender
 from welfarefunding.model.Status import Status
-
+from welfarefunding.model.VulnerableGroup import VulnerableGroup
 
 class WelfareFundingExtension(Extension):
     def __init__(self, resourcePath: str, configPath: str):
@@ -91,25 +91,89 @@ class WelfareFundingExtension(Extension):
                     group=50,
                 ),
                 EnumSelectInput(
-                    label="สถานภาพ",
+                    label="สถานภาพทางการสมรส",
                     columnName="maritalStatus",
                     isTable=True,
                     isRequired=True,
                     enum=Status,
                     group=50,
                 ),
+                EnumSelectInput(
+                    label="กลุ่มเปราะบาง",
+                    columnName="VulnerableGroup",
+                    isTable=True,
+                    isRequired=False,
+                    enum=VulnerableGroup,
+                    group=50,
+                ),
+                NumberInput(
+                    label="บ้านเลขที่",
+                    columnName="addressNumber",
+                    isTable=True,
+                    isRequired=False,
+                    group=50
+                ),
+                NumberInput(
+                    label="หมู่",
+                    columnName="moo",
+                    isTable=True,
+                    isRequired=False,
+                    group=50    
+                ),
+                TextInput(
+                    label="ตรอก/ซอย",
+                    columnName="alley",
+                    isTable=True,
+                    isRequired=False,
+                    group=50,
+                ),
+                TextInput(
+                    label="ถนน",
+                    columnName="road",
+                    isTable=True,
+                    isRequired=False,
+                    group=50,
+                ),
+                TextInput(
+                    label="ตำบล/แขวง",
+                    columnName="subDistrictID",
+                    isTable=True,
+                    isRequired=False,
+                    group=50,
+                ),
+                TextInput(
+                    label="อำเภอ/เขต",
+                    columnName="districtID",
+                    isTable=True,
+                    isRequired=False,
+                    group=50,
+                ),
+                TextInput(
+                    label="จังหวัด",
+                    columnName="province",
+                    isTable=True,
+                    isRequired=False,
+                    group=50,
+                ),
+                TextInput(
+                    label="รหัสไปรษณีย์",
+                    columnName="postalCode",
+                    isTable=True,
+                    isRequired=False,
+                    group=50,
+                ),
                 TextInput(
                     label="ผู้รับสิทธิ์คนที่ 1",
                     columnName="grantee_one",
                     isTable=True,
-                    isRequired=True,
+                    isRequired=False,
                     group=50,
                 ),
                 TextInput(
                     label="ผู้รับสิทธิ์คนที่ 2",
                     columnName="grantee_two",
                     isTable=True,
-                    isRequired=True,
+                    isRequired=False,
                     group=50,
                 ),
             ]
