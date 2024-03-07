@@ -10,6 +10,7 @@ from xerial.input.TextInput import TextInput
 from welfarefunding.model.Gender import Gender
 from welfarefunding.model.Status import Status
 from welfarefunding.model.VulnerableGroup import VulnerableGroup
+from gaimon.model.User import UserInputGroup
 
 class WelfareFundingExtension(Extension):
     def __init__(self, resourcePath: str, configPath: str):
@@ -42,10 +43,11 @@ class WelfareFundingExtension(Extension):
             "User": [
                 NumberInput(
                     label="เลขบัตรประชาชน (13 หลัก)",
+                    order="2.1",
                     columnName="citizenID",
                     isTable=True,
                     isRequired=True,
-                    group=50,
+                    group=UserInputGroup.GENERIC
                 ),
                 NumberInput(
                     label="หมายเลขโทรศัพท์",
