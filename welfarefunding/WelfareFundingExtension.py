@@ -54,21 +54,24 @@ class WelfareFundingExtension(Extension):
                     columnName="telephoneNumber",
                     isTable=True,
                     isRequired=True,
-                    group=50,
+                    inputPerLine=4,
+                    group=UserInputGroup.GENERIC
                 ),
                 DateInput(
                     label="วัน/เดือน/ปีเกิด",
                     columnName="birthday",
                     isTable=True,
                     isRequired=True,
-                    group=50,
+                    inputPerLine=4,
+                    group=UserInputGroup.GENERIC
                 ),
                 DateInput(
                     label="วัน/เดือน/ปี ที่สมัคร",
                     columnName="applyDate",
                     isTable=True,
                     isRequired=True,
-                    group=50,
+                    inputPerLine=4,
+                    group=UserInputGroup.GENERIC
                 ),
                 DateInput(
                   label="วัน/เดือน/ปี ที่เสียชีวิต",
@@ -182,4 +185,5 @@ class WelfareFundingExtension(Extension):
         }
 
 
-#   test
+# test
+# จัดบรรทัดใช้  inputPerLine=4 เล็กสุดได้ 4ช่อง ต่อเเถว 
