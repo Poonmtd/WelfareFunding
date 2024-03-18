@@ -7,10 +7,10 @@ from xerial.input.ReferenceCheckBoxInput import ReferenceCheckBoxInput
 class WelfareAppliance(Record):
     welfareType = IntegerColumn(
         default=-1,
-        foreignKey="WelfareType.id",
+        foreignKey="WelfareCondition.id",
         input=ReferenceSelectInput(
             label="ประเภทสวัสดิการ",
-            url="welfarefunding/welfaretype/option/get",
+            url="welfarefunding/condition/option/get",
             order="1.0",
             isRequired=True,
             isTable=True,

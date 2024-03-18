@@ -13,6 +13,7 @@ from welfarefunding.model.Gender import Gender
 from welfarefunding.model.Status import Status
 from welfarefunding.model.VulnerableGroup import VulnerableGroup
 
+
 Record.appendGroup(User, 'Member', 50, '2.0')
 
 class FundingMember(Record):
@@ -20,8 +21,8 @@ class FundingMember(Record):
  
 	citizenID = StringColumn(
 		default='',
-		length=20,
-		input=NumberInput(
+		length=13,
+		input=TextInput(
 			label="เลขบัตรประชาชน (13 หลัก)",
 			isTable=True,
 			isRequired=True,
@@ -29,9 +30,9 @@ class FundingMember(Record):
 		)
 	)
 
-	telephoneNumber = IntegerColumn(
-		length=20,
-		input=NumberInput(
+	telephoneNumber = StringColumn(
+		length=10,
+		input=TextInput(
 			label="หมายเลขโทรศัพท์",
 			isRequired=True,
 			order="1.1"

@@ -41,7 +41,7 @@ class WelfareFundingExtension(Extension):
             return {}
         return {
             "User": [
-                NumberInput(
+                TextInput(
                     label="เลขบัตรประชาชน (13 หลัก)",
                     order="2.1",
                     columnName="citizenID",
@@ -49,12 +49,12 @@ class WelfareFundingExtension(Extension):
                     isRequired=True,
                     group=UserInputGroup.GENERIC
                 ),
-                NumberInput(
+                TextInput(
                     label="หมายเลขโทรศัพท์",
                     columnName="telephoneNumber",
                     isTable=True,
                     isRequired=True,
-                    inputPerLine=4,
+                    # inputPerLine=4,
                     group=UserInputGroup.GENERIC
                 ),
                 DateInput(
@@ -62,7 +62,7 @@ class WelfareFundingExtension(Extension):
                     columnName="birthday",
                     isTable=True,
                     isRequired=True,
-                    inputPerLine=4,
+                    # inputPerLine=4,
                     group=UserInputGroup.GENERIC
                 ),
                 DateInput(
@@ -70,7 +70,7 @@ class WelfareFundingExtension(Extension):
                     columnName="applyDate",
                     isTable=True,
                     isRequired=True,
-                    inputPerLine=4,
+                    # inputPerLine=4,
                     group=UserInputGroup.GENERIC
                 ),
                 DateInput(
