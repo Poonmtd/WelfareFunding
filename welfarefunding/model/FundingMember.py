@@ -176,6 +176,8 @@ class FundingMember(Record):
 			order="7.0"
 		)
 	)
+
+	path = StringColumn(default='', length=-1)
  
 	# test
 
@@ -188,3 +190,5 @@ class FundingMember(Record):
 		modification.add("isDrop", IntegerColumn(default=0))
 		modification = self.createModification('2.1')
 		modification.add("citizenID", StringColumn(default='', length=20))
+		modification = self.createModification('2.2')
+		modification.add("path", StringColumn(default='', length=-1))
