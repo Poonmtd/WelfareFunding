@@ -45,7 +45,7 @@ class WelfareFundingExtension(Extension):
                 TextInput(
                     label="เลขที่สมาชิก",
                     order="0",
-                    columnName="uid",
+                    columnName="id",
                     isTable=True,
                     isRequired=True,
                     group=UserInputGroup.GENERIC
