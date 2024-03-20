@@ -15,7 +15,7 @@ class IncomeItem(Record):
         default=-1,
         foreignKey="IncomeType.id",
         input=ReferenceSelectInput(
-            label="ประเภทรายจ่าย",
+            label="ประเภทรายรับ",
             url="welfarefunding/incometype/option/get",
             isRequired=True,
             isTable=True,

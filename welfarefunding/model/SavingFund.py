@@ -9,13 +9,23 @@ from xerial.input.DateTimeInput import DateTimeInput
 from xerial.input.DateInput import DateInput
 
 from welfarefunding.model.FundingMember import FundingMember
-
+from xerial.input.AutoCompleteInput import AutoCompleteInput
 
 class SavingFund(Record):
     memberID = IntegerColumn(
-        foreignKey="FundingMember.id",
-        # isSearch=True
-    )
+            default=-1,
+            foreignKey='User.id',
+            input=AutoCompleteInput(
+                label='สมาชิก',
+                order='1.0',
+                url='user/autoComplete/get',
+                template='{{{firstName}}} {{{lastName}}}',
+                tableURL='user/option/getByIDList',
+                isTable=True,
+                isSearch=True,
+                isRequired=True
+            )
+        )
 
     savingAmount = IntegerColumn(
         input=NumberInput(

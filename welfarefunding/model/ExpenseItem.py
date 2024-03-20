@@ -9,6 +9,7 @@ from xerial.input.DateInput import DateInput
 from xerial.input.TextInput import TextInput
 from xerial.input.RichTextInput import RichTextInput
 from xerial.input.NumberInput import NumberInput
+from xerial.input.AutoCompleteInput import AutoCompleteInput
 
 class ExpenseItem(Record):
     expenseType = IntegerColumn(
@@ -32,14 +33,20 @@ class ExpenseItem(Record):
 		)
 	)
 
-    memberID = StringColumn(
-        length=100,
-        input=TextInput(
-            label="ชื่อผู้รับเงิน",
-            isRequired=True,
-            order="3.0"
+    memberID = IntegerColumn(
+            default=-1,
+            foreignKey='User.id',
+            input=AutoCompleteInput(
+                label='สมาชิก',
+                order='1.0',
+                url='user/autoComplete/get',
+                template='{{{firstName}}} {{{lastName}}}',
+                tableURL='user/option/getByIDList',
+                isTable=True,
+                isSearch=True,
+                isRequired=True
+            )
         )
-    )
 
     expenseDescription = StringColumn(
 		length=200,
