@@ -3,18 +3,45 @@ from xerial.Record import Record
 from xerial.IntegerColumn import IntegerColumn
 from xerial.input.ReferenceSelectInput import ReferenceSelectInput
 from xerial.input.ReferenceCheckBoxInput import ReferenceCheckBoxInput
+from xerial.input.AutoCompleteInput import AutoCompleteInput
+from xerial.input.NumberInput import NumberInput
 
 class WelfareAppliance(Record):
+    member = IntegerColumn(
+            default=-1,
+            foreignKey='User.id',
+            input=AutoCompleteInput(
+                label='สมาชิก',
+                order='1.0',
+                url='user/autoComplete/get',
+                template='{{{firstName}}} {{{lastName}}}',
+                tableURL='user/option/getByIDList',
+                isTable=True,
+                isSearch=True,
+                isRequired=True
+            )
+        )
+
     welfareType = IntegerColumn(
         default=-1,
         foreignKey="WelfareCondition.id",
         input=ReferenceSelectInput(
             label="ประเภทสวัสดิการ",
-            url="welfarefunding/condition/option/get",
-            order="1.0",
+            url="welfarefunding/welfarecondition/option/get",
+            order="2.0",
             isRequired=True,
             isTable=True,
             isSearch=True
+        )
+    )
+    
+    Amount = IntegerColumn(
+        length=20,
+        input=NumberInput(
+            label="จำนวนเงิน",
+            isRequired=True,
+            order="3.0",
+            isTable=True
         )
     )
 

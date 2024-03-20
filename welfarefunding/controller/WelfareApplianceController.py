@@ -7,6 +7,7 @@ from gaimon.core.RESTResponse import(
     SuccessRESTResponse as Success
 )
 from welfarefunding.model.WelfareAppliance import WelfareAppliance
+from welfarefunding.model.WelfareCondition import WelfareCondition
 
 @BASE(WelfareAppliance, "/welfarefunding/welfareappliance", "welfarefunding.WelfareAppliance")
 class WelfareApplianceController(BaseController):

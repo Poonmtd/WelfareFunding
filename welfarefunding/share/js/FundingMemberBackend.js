@@ -79,14 +79,19 @@ const FundingMemberBackend = function(main, parent) {
 			count: result.count,
 			hasView: true,
 		}
+		// วิธีเพิ่มเอกสาร
+		option.operation = [
+			{label: 'PDF', ID: 'pdf', icon: 'welfarefunding.PDF'}
+		];
 		let table = await object.renderTableView(object.model, option, main.tableViewType);
-		if(table.dom.thead && table.dom.thead.salaryList_th){
-			table.dom.thead.salaryList_th.style.width = '0';
-		}
+		// if(table.dom.thead && table.dom.thead.salaryList_th){
+		// 	table.dom.thead.salaryList_th.style.width = '0';
+		// }
 		table.onCreateRecord = async function(record) {
-			let id = record.id;
-			if(!record.dom.salaryList) return;
-			await object.initSalaryRecord(record);
+			record.dom.pdf.onclick = async function(){
+				let blob = await GET(`welfarefunding/documentmember/by/id/get/${record.record.id}`, undefined, 'blob');
+				await OPEN_FILE(blob);
+			}
 		}
 		await table.createMultipleRecord(result.data);
 	}

@@ -7,8 +7,6 @@ from welfarefunding.model.Gender import Gender
 
 
 class RightCondition(Record):
-    welfareid = IntegerColumn(foreignKey="welfarecondition.id")
-
     gender = IntegerColumn(
 		input=EnumSelectInput(
 			label="เงื่อนไขเพศ",
@@ -30,7 +28,4 @@ class RightCondition(Record):
             order="3.0"
         )
     )
-    
-    
-
     

@@ -56,6 +56,12 @@ const WelfareFunding = function(){
         main.dom.paper9.onclick = async function(){
             await object.renderPaper9();
         }
+        main.dom.paper10.onclick = async function(){
+            await object.renderPaper10();
+        }
+        main.dom.paper11.onclick = async function(){
+            await object.renderPaper11();
+        }
     }
 
     this.renderPaper1 = async function(){
@@ -110,6 +116,18 @@ const WelfareFunding = function(){
         let template = await TEMPLATE.get('welfarefunding.Paper9', true);
         paper9 = new DOMObject(template);
         object.home.dom.container.html(paper9);
+    }
+
+    this.renderPaper10 = async function(){
+        let template = await TEMPLATE.get('welfarefunding.Paper10', true);
+        paper10 = new DOMObject(template);
+        object.home.dom.container.html(paper10);
+    }
+
+    this.renderPaper11 = async function(){
+        let template = await TEMPLATE.get('welfarefunding.Paper11', true);
+        paper10 = new DOMObject(template);
+        object.home.dom.container.html(paper10);
     }
 
     this.getParamsFromURL = function() {

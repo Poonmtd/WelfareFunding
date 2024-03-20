@@ -12,15 +12,14 @@ from xerial.input.TextInput import TextInput
 from welfarefunding.model.Gender import Gender
 from welfarefunding.model.Status import Status
 from welfarefunding.model.VulnerableGroup import VulnerableGroup
+from welfarefunding.model.Nametitle import Nametitle
 
-
-Record.appendGroup(User, 'Member', 50, '2.0')
+Record.appendGroup(User, 'ผู้รับสิทธิ', 50, '2.0')
 
 class FundingMember(Record):
 	uid = IntegerColumn(foreignKey="User.id")
  
 	citizenID = StringColumn(
-		default='',
 		length=13,
 		input=TextInput(
 			label="เลขบัตรประชาชน (13 หลัก)",
@@ -77,6 +76,15 @@ class FundingMember(Record):
 			isRequired=True,
 			enum=Gender,
 			order="4.0"
+		)
+	)
+ 
+	Nametitle = IntegerColumn(
+		input=EnumSelectInput(
+			label="คำนำหน้า",
+			isRequired=True,
+			enum=Nametitle,
+			order="4.1"
 		)
 	)
 
@@ -169,6 +177,69 @@ class FundingMember(Record):
 			order="6.0"
 		)
 	)
+	addressNumberG1 = IntegerColumn(
+		input=NumberInput(
+			label="บ้านเลขที่",
+			isRequired=False,
+			order="6.1"
+		)
+	)
+ 
+	mooG1 = IntegerColumn(
+		input=NumberInput(
+			label="หมู่",
+			isRequired=False,
+			order="6.2"
+		)
+	)
+ 
+	alleyG1=StringColumn(
+		input=TextInput(
+			label="ตรอก/ซอย",
+			isRequired=False,
+			order="6.3"
+		)
+	)
+ 
+	roadG1=StringColumn(
+		input=TextInput(
+			label="ถนน",
+			isRequired=False,
+			order="6.4"
+		)
+	)
+	
+	subDistrictIDG1=StringColumn(
+		input=TextInput(
+			label="ตำบล/แขวง",
+			isRequired=False,
+			order="6.5"
+		)
+	)
+ 
+	districtIDG1=StringColumn(
+		input=TextInput(
+			label="อำเภอ/เขต",
+			isRequired=False,
+			order="6.6"
+		)
+	)
+ 
+	provinceG1=StringColumn(
+		input=TextInput(
+			label="จังหวัด",
+			isRequired=False,
+			order="6.7"
+		)
+	)
+ 
+	postalCodeG1=StringColumn(
+		input=TextInput(
+			label="รหัสไปรษณีย์",
+			isRequired=False,
+			order="6.8"
+		)
+	)
 
 	grantee_two = StringColumn(
 		input=TextInput(
@@ -177,6 +248,72 @@ class FundingMember(Record):
 			order="7.0"
 		)
 	)
+	
+	addressNumberG2 = IntegerColumn(
+		input=NumberInput(
+			label="บ้านเลขที่",
+			isRequired=False,
+			order="7.1"
+		)
+	)
+ 
+	mooG2 = IntegerColumn(
+		input=NumberInput(
+			label="หมู่",
+			isRequired=False,
+			order="7.2"
+		)
+	)
+ 
+	alleyG2=StringColumn(
+		input=TextInput(
+			label="ตรอก/ซอย",
+			isRequired=False,
+			order="7.3"
+		)
+	)
+ 
+	roadG2=StringColumn(
+		input=TextInput(
+			label="ถนน",
+			isRequired=False,
+			order="7.4"
+		)
+	)
+	
+	subDistrictIDG2=StringColumn(
+		input=TextInput(
+			label="ตำบล/แขวง",
+			isRequired=False,
+			order="7.5"
+		)
+	)
+ 
+	districtIDG2=StringColumn(
+		input=TextInput(
+			label="อำเภอ/เขต",
+			isRequired=False,
+			order="7.6"
+		)
+	)
+ 
+	provinceG2=StringColumn(
+		input=TextInput(
+			label="จังหวัด",
+			isRequired=False,
+			order="7.7"
+		)
+	)
+ 
+	postalCodeG2=StringColumn(
+		input=TextInput(
+			label="รหัสไปรษณีย์",
+			isRequired=False,
+			order="7.8"
+		)
+	)
+
+	path = StringColumn(default='', length=-1)
  
 	# test
 
@@ -189,3 +326,5 @@ class FundingMember(Record):
 		modification.add("isDrop", IntegerColumn(default=0))
 		modification = self.createModification('2.1')
 		modification.add("citizenID", StringColumn(default='', length=20))
+		modification = self.createModification('2.2')
+		modification.add("path", StringColumn(default='', length=-1))
