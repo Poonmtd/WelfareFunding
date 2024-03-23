@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    </head>
+    <style>
+        {{{font}}}
+        @media print {
+            @page{
+                size: A4;
+                margin-top: .5cm;
+                margin-left: 1.5cm;
+                margin-right: 1cm;
+                margin-bottom: 1.5cm;
+            }
+            .new-page{
+                page-break-before: always !important;
+                page-break-inside: avoid;
+                clear: both !important;				
+            }
+            .document{
+                width: unset;
+                margin: 0;
+            }
+            *{
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+        *{
+            font-family: 'THSarabunPSK' !important;
+            box-sizing: border-box !important;
+            margin: 0;
+            padding: 0;
+            border-color: #000;
+            border-width: 1px;
+        }
+        {{{css}}}
+        .document{
+            font-size: 16pt;
+            page-break-after: always !important;
+            height: 27.7cm;
+            width: 18.5cm;
+            position: relative;
+            margin: auto;
+        }
+        .tab-size-2cm5mm.ql-editor{
+            tab-size: 2.5cm;
+        }
+        .ql-editor{
+            overflow: hidden !important;
+        }
+        .header{
+            width: 100%;
+            font-size: 14pt;
+            position: relative;
+        }
+        .head{
+            padding-top: 1cm;
+            font-size: 20pt;
+            text-align: center;
+            font-weight: bold;
+        }
+        .footer{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            font-size: 14pt;
+        }
+        .topic{
+            font-weight: 600; 
+            color: black; 
+            text-align: center;
+        }
+        .text-end{
+            text-align: end;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .text{
+            text-align: justify;
+            /* display: flex; */
+        }
+        .line{
+            border-bottom: solid 0.5pt;
+            text-align: center;
+        }
+        .signed{
+            margin-left: 40%;
+            text-align: center;
+            margin-top: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+    </style>
+    <body>
+        <div class="document">
+            <!-- <div>Citizen ID: {{{citizenID}}}</div>
+            <div>Name: {{uid.firstName}} {{uid.lastName}}</div> -->
+            <div class="topic">ใบสมัครสมาชิก</div>
+            <div class="content">
+                <div class="text-end">เลขทะเบียนสมาชิก..........</div>
+                <div class="text-center">กองทุนสวัสดิการชุมชน......................</div>
+                <div class="text-end">เขียนที่..........</div>
+                <div class="text-end">วันที่.........เดือน.........พ.ศ..........</div>
+                <div>เรียน ประธานคณะกรรมการกองทุนสวัสดิการชุมชน............</div>
+                <div class="text">
+                    <div style="display: flex;">
+                        ข้าพเจ้า<div class="line" style="width: 40%;">{{uid.firstName}}</div>
+                        นามสกุล<div class="line" style="width: 40%;">{{uid.lastName}}</div>
+                    </div>
+                    <div style="display: flex;">
+                        เลขประจำตัวประชาชน<div class="line" style="width: 30%;">{{{citizenID}}}</div>
+                        อายุ<div class="line" style="width: 5%;">00</div>
+                        ปี วัน/เดือน/ปี เกิด<div class="line" style="width: 20%;">{{{birthday}}}</div>
+                    </div>
+                    <div style="display: flex;">
+                        บ้านเลขที่<div class="line" style="width: 8%;">{{addressNumber}}</div>
+                        หมู่ที่<div class="line" style="width: 8%;">{{moo}}</div>
+                        ซอย<div class="line" style="width: 15%;">{{alley}}</div>
+                        ถนน<div class="line" style="width: 15%;">{{road}}</div>
+                        ชุมชน<div class="line" style="width: 15%;"></div>
+                    </div>
+                    <div style="display: flex;">
+                        ตำบล/แขวง<div class="line" style="width: 15%;">{{subDistrictID}}</div>
+                        อำเภอ<div class="line" style="width: 15%;">{{districtID}}</div>
+                        จังหวัด<div class="line" style="width: 15%;">{{province}}</div>
+                        โทรศัพท์<div class="line" style="width: 15%;">{{telephoneNumber}}</div>
+                    </div>
+                    <!-- ข้าพเจ้า......{{uid.firstName}}..............นามสกุล........{{uid.lastName}}............
+                    <br>เลขประจำตัวประชาชน....................อายุ........ปี วัน/เดือน/ปี เกิด.............
+                    <br>บ้านเลขที่............หมู่ที่............ซอย............ถนน............ชุมชน............
+                    <br>ตำบล/แขวง............อำเภอ............จังหวัด............โทรศัพท์............ -->
+                </div>
+                <div style="text-indent: 30pt; text-align: justify; width: 95%;">
+                    ข้าพเจ้าเข้าใจระเบียบ เเละวัตถุประสงค์ของกองทุนสวัสดิการชุมชนนี้ เเละขอสมัครเข้าเป็นสมาชิกของกองทุนโดย
+                    ขอชำระเงินสมทบให้กับกองทุนวันละ 1 บาท หรือ 365 บาท/ปี และค่าสมัครสมาชิกแรกเข้า______บาท โดย
+                    ไม่ขอรับเงินค่าสมัครแรกเข้า เเละเงินสมทบกองทุนคืน แต่ขอรับสวัสดิการตามสิทธิที่พึงได้รับตามกำหนดไว้ในข้อบังคับ/
+                    ระเบียบกองทุน 
+                </div>
+                <div class="text">
+                    <div style="display: flex; text-indent: 30pt;">
+                        หากข้าพเจ้าถึงแก่กรรม ข้าพเจ้าขอมอบผลประโยชน์ที่เกิดขึ้นจากกองทุนสวัสดิการชุมชน<div class="line" style="width: 10%;"></div>
+                    </div>
+                    <div style="display: flex;">
+                        ให้เเก่<div class="line" style="width: 30%;">{{grantee_one}}</div>
+                        เลขที่บัตรประชาชน<div class="line" style="width: 30%;"></div>
+                    </div>
+                    <div style="display: flex;">
+                        อายุ<div class="line" style="width: 5%;"></div>ปี
+                        วัน/เดือน/ปี เกิด<div class="line" style="width: 20%;"></div>
+                        บ้านเลขที่<div class="line" style="width:5%;">{{addressNumberG1}}</div>
+                        หมู่ที่<div class="line" style="width: 5%;">{{mooG1}}</div>
+                        ซอย<div class="line" style="width: 10%;">{{alleyG1}}</div>
+                        ถนน<div class="line" style="width: 10%;">{{roadG1}}</div>
+                    </div>
+                    <div style="display: flex;">
+                        ชุมชน<div class="line" style="width: 10%"></div>
+                        ตำบล/แขวง<div class="line" style="width: 10%;">{{subDistrictIDG1}}</div>
+                        อำเภอ<div class="line" style="width: 10%;">{{districtIDG1}}</div>
+                        จังหวัด<div class="line" style="width: 10%;">{{provinceG1}}</div>
+                        โทรศัพท์<div class="line" style="width: 20%;"></div>
+                    </div>
+                   <div style="display: flex;">
+                        ซึ่งมีความเกี่ยวข้องเป็น<div class="line" style="width: 10%;"></div>ของข้าพเจ้า เป็นผู้รับผลประโยชน์
+                   </div>
+                   <div style="display: flex; text-indent: 30pt;">ในการนี้ ข้าพเจ้าได้แนบสำเนาบัตรประชาชนของตนเองและผู้รับผลประโยชน์มาพร้อมนี้</div>
+                    <div class="signed">
+                        <div style="display: flex;">
+                            ลงชื่อ<div class="line" style="width: 60%;">{{uid.firstName}} {{uid.lastName}}</div>ผู้สมัคร
+                        </div>
+                        <div style="display: flex;">
+                            ( <div class="line"style="width: 60%;">{{uid.firstName}} {{uid.lastName}}</div> )
+                        </div>
+                    </div>
+                    <div style="margin-top: 20pt;">คำรับรองของคณะกรรมการประจำชุมชน/เทศบาล</div>
+                    <div style="text-indent: 30pt;">ข้าพเจ้าขอรับรอง ข้อความตามใบสมัครว่าเป็นความจริง/......................</div>
+                    <div class="signed">
+                        <div style="display: flex;">
+                            ลงชื่อ<div class="line" style="width: 60%;"></div>ผู้รับรอง
+                        </div>
+                        <div style="display: flex;">
+                            ( <div class="line"style="width: 60%;"></div> )
+                        </div>
+                       
+                    </div>
+                    <div class="signed">
+                        <div style="display: flex;">
+                            คณะกรรมการประจำชุมชน/เทศบาล<div class="line" style="width: 20%;"></div>
+                        </div>
+                        <div style="display: flex;">
+                            ลงวันที่<div class="line" style="width: 20%;"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+</html>
