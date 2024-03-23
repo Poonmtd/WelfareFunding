@@ -22,7 +22,7 @@ class FundingMemberController(BaseController):
 		self.static: StaticFileHandler = self.application.static
 
 	@GET('/welfarefunding/documentmember/by/id/get/<id>', role=['user'])
-	async def getDocument(self, request, id):
+	async def getDocumentMember(self, request, id):
 		model = await self.session.select(FundingMember, 'WHERE uid = ?', parameter=[int(id)], isRelated=True)
 		if len(model) == 0: return Error('Member does not exist.')
 		model = model[0]
@@ -30,13 +30,13 @@ class FundingMemberController(BaseController):
 		# if len(model.path): return await response.file(f"{self.resourcePath}upload/{model.path}")
 		if len(model.path):
 			await self.static.removeStaticShare(model.path) # remove old file before generate new file
-		path = await self.generatePDF(data)
+		path = await self.generateDocumentMemberPDF(data)
 		model.path = path
 		await self.session.update(model)
 		path = f"{self.resourcePath}upload/{path}"
 		return await response.file(path)
 
-	async def generatePDF(self, data):
+	async def generateDocumentMemberPDF(self, data):
 		print(data)
 		font = await self.getFont()
 		template = self.theme.getTemplate('welfarefunding/DocumentMember.tpl')

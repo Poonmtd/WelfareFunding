@@ -108,6 +108,7 @@ class WelfareFundingExtension(Extension):
                     # isTable=True,
                     isRequired=True,
                     enum=Gender,
+                    inputPerLine=3,
                     group=UserInputGroup.GENERIC,
                 ),
                 EnumSelectInput(
@@ -126,6 +127,7 @@ class WelfareFundingExtension(Extension):
                     # isTable=True,
                     isRequired=True,
                     enum=Status,
+                    inputPerLine=3,
                     group=UserInputGroup.GENERIC
                 ),
                 EnumSelectInput(
@@ -133,8 +135,9 @@ class WelfareFundingExtension(Extension):
                     order="4.2.3",
                     columnName="VulnerableGroup",
                     # isTable=True,
-                    isRequired=False,
+                    isRequired=True,
                     enum=VulnerableGroup,
+                    inputPerLine=3,
                     group=UserInputGroup.GENERIC
                 ),
                 NumberInput(
@@ -142,7 +145,8 @@ class WelfareFundingExtension(Extension):
                     order="4.3",
                     columnName="addressNumber",
                     # isTable=True,
-                    isRequired=False,
+                    isRequired=True,
+                    inputPerLine=4,
                     group=UserInputGroup.GENERIC
                 ),
                 NumberInput(
@@ -151,6 +155,7 @@ class WelfareFundingExtension(Extension):
                     columnName="moo",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=UserInputGroup.GENERIC  
                 ),
                 TextInput(
@@ -159,6 +164,7 @@ class WelfareFundingExtension(Extension):
                     columnName="alley",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=UserInputGroup.GENERIC
                 ),
                 TextInput(
@@ -167,6 +173,7 @@ class WelfareFundingExtension(Extension):
                     columnName="road",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=UserInputGroup.GENERIC
                 ),
                 TextInput(
@@ -175,6 +182,7 @@ class WelfareFundingExtension(Extension):
                     columnName="subDistrictID",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=UserInputGroup.GENERIC
                 ),
                 TextInput(
@@ -183,6 +191,7 @@ class WelfareFundingExtension(Extension):
                     columnName="districtID",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=UserInputGroup.GENERIC
                 ),
                 TextInput(
@@ -190,7 +199,8 @@ class WelfareFundingExtension(Extension):
                     order="4.9",
                     columnName="province",
                     # isTable=True,
-                    isRequired=False,
+                    isRequired=True,
+                    inputPerLine=4,
                     group=UserInputGroup.GENERIC
                 ),
                 TextInput(
@@ -198,7 +208,8 @@ class WelfareFundingExtension(Extension):
                     order="4.10",
                     columnName="postalCode",
                     # isTable=True,
-                    isRequired=False,
+                    isRequired=True,
+                    inputPerLine=4,
                     group=UserInputGroup.GENERIC
                 ),
                 
@@ -206,13 +217,15 @@ class WelfareFundingExtension(Extension):
                     label="ผู้รับสิทธิ์คนที่ 1",
                     columnName="grantee_one",
                     # isTable=True,
-                    isRequired=False,
+                    isRequired=True,
+                    inputPerLine=1,
                     group=50,
                 ),NumberInput(
                     label="บ้านเลขที่",
                     columnName="addressNumberG1",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 NumberInput(
@@ -220,6 +233,7 @@ class WelfareFundingExtension(Extension):
                     columnName="mooG1",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50 
                 ),
                 TextInput(
@@ -227,6 +241,7 @@ class WelfareFundingExtension(Extension):
                     columnName="alleyG1",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 TextInput(
@@ -234,6 +249,7 @@ class WelfareFundingExtension(Extension):
                     columnName="roadG1",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 TextInput(
@@ -241,12 +257,14 @@ class WelfareFundingExtension(Extension):
                     columnName="subDistrictIDG1",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 TextInput(
                     label="อำเภอ/เขต",
                     columnName="districtIDG1",
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 TextInput(
@@ -254,25 +272,29 @@ class WelfareFundingExtension(Extension):
                     columnName="provinceG1",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 TextInput(
                     label="รหัสไปรษณีย์",
                     columnName="postalCodeG1",
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 TextInput(
                     label="ผู้รับสิทธิ์คนที่ 2",
                     columnName="grantee_two",
                     # isTable=True,
-                    isRequired=False,
+                    isRequired=True,
+                    inputPerLine=1,
                     group=50,
                 ),NumberInput(
                     label="บ้านเลขที่",
                     columnName="addressNumberG2",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 NumberInput(
@@ -280,6 +302,7 @@ class WelfareFundingExtension(Extension):
                     columnName="mooG2",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 TextInput(
@@ -287,6 +310,7 @@ class WelfareFundingExtension(Extension):
                     columnName="alleyG2",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 TextInput(
@@ -294,6 +318,7 @@ class WelfareFundingExtension(Extension):
                     columnName="roadG2",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 TextInput(
@@ -301,6 +326,7 @@ class WelfareFundingExtension(Extension):
                     columnName="subDistrictIDG2",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 TextInput(
@@ -308,6 +334,7 @@ class WelfareFundingExtension(Extension):
                     columnName="districtIDG2",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 TextInput(
@@ -315,6 +342,7 @@ class WelfareFundingExtension(Extension):
                     columnName="provinceG2",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
                 TextInput(
@@ -322,6 +350,7 @@ class WelfareFundingExtension(Extension):
                     columnName="postalCodeG2",
                     # isTable=True,
                     isRequired=False,
+                    inputPerLine=4,
                     group=50
                 ),
             ]
