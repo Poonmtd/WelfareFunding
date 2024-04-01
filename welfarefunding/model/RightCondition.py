@@ -3,7 +3,9 @@ from xerial.IntegerColumn import IntegerColumn
 from xerial.input.EnumSelectInput import EnumSelectInput
 from xerial.input.NumberInput import NumberInput
 
+from datetime import datetime
 from welfarefunding.model.Gender import Gender
+from welfarefunding.model.FundingMember import FundingMember
 
 
 class RightCondition(Record):
@@ -29,3 +31,19 @@ class RightCondition(Record):
         )
     )
     
+    # def chckek(self, member:FundingMember) -> bool:
+    #     if not (self.gender == member.gender) or (self.checkage(member.birthday) >= self.age)  or (self.checkmembership(member.applyDate) >= self.membership):
+    #         return True
+    #     return False
+    
+    # def checkage(self, member:FundingMember) -> bool:
+    #     birthday = member.birthday
+    #     today = datetime.now()
+    #     differenceTime = today.year-birthday.year
+    #     return differenceTime
+    
+    # def checkmembership(self, member:FundingMember) -> bool:
+    #     applyday = member.applyDate
+    #     today = datetime.now()
+    #     differenceTime = today.year-applyday.year
+    #     return differenceTime

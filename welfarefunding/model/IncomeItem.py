@@ -41,7 +41,7 @@ class IncomeItem(Record):
         )
     )
 
-    expenseDescription = StringColumn(
+    incomeDescription = StringColumn(
 		length=200,
 		input=RichTextInput(
 			label="รายละเอียด",

@@ -37,12 +37,6 @@
 						"label": "ข้อมูลสมาชิก",
 						"icon": "welfarefunding.Default",
 						"order": "1.0"
-					},
-					{
-						"ID":"FundCommittreeBackend",
-						"label":"จัดการตำแหน่งในกองทุน",
-						"icon":"welfarefunding.Default",
-						"order":"2.0"
 					}
 				]
 			},

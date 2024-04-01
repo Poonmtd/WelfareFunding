@@ -31,6 +31,7 @@ class SavingFund(Record):
         input=NumberInput(
             label="จำนวนเงินออม",
 			isRequired=True,
+            isTable=True,
 			order="1.0"
         )
     )

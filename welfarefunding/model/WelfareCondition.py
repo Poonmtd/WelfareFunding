@@ -8,6 +8,9 @@ from xerial.input.RichTextInput import RichTextInput
 from xerial.input.TextInput import TextInput
 from xerial.input.ReferenceRadioInput import ReferenceSelectInput
 
+from welfarefunding.model.FundingMember import FundingMember
+from typing import List
+
 class WelfareCondition(Record):
 	welfareName = StringColumn(
 		isRepresentative=True,
@@ -52,15 +55,32 @@ class WelfareCondition(Record):
 	# 	)
 	# )
 
-	PaymentCondition = Children('PaymentCondition.id', isTableForm=True)
-
-	RightCondition = Children('RightCondition.id', isTableForm=True)
+	paymentCondition = Children('PaymentCondition.id', isTableForm=True)
+	rightCondition = Children('RightCondition.id', isTableForm=True)
 
 
 
 	isDrop = IntegerColumn(
 		default=0
 	)
+
+	# def chckek(self, member:FundingMember) -> bool:
+	# 	if not self.checkRight(member): return False
+	# 	return self.checkPayment(member)
+ 
+	# def chckekRight(self, member:FundingMember) -> bool:
+	# 	from welfarefunding.model.RightCondition import RightCondition
+	# 	i: RightCondition
+	# 	for i in self.rightCondition:
+	# 		if not i.check(member): return False
+	# 	return True
+  
+	# def chckekPayment(self, member:FundingMember) -> bool:
+	# 	from welfarefunding.model.PaymentCondition import PaymentCondition
+	# 	i: PaymentCondition
+	# 	for i in self.paymentCondition:
+	# 		if not i.check(member): return False
+	# 	return True
 
 	def modify(self):
 		modification = self.createModification("2.0")
