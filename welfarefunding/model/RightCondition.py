@@ -28,4 +28,8 @@ class RightCondition(Record):
             order="3.0"
         )
     )
+
+    welfareID = IntegerColumn(
+        foreignKey="WelfareCondition.id"
+    )
     

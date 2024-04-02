@@ -15,7 +15,7 @@ from weasyprint import HTML
 
 from sanic import response
 
-@BASE(FundingMember, "/welfarefunding/fundingmemmber", "welfarefunding.FundingMember")
+@BASE(FundingMember, "/welfarefunding/fundingmember", "welfarefunding.FundingMember")
 class FundingMemberController(BaseController):
 	def __init__(self, application):
 		super().__init__(application)

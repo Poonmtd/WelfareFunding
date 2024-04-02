@@ -65,3 +65,7 @@ class PaymentCondition(Record):
         )
     )
 
+    welfareID = IntegerColumn(
+        foreignKey="WelfareCondition.id"
+    )
+
