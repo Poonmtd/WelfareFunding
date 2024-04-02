@@ -20,7 +20,7 @@ class FundingIncome(Record):
         default=-1,
         foreignKey="IncomeType.id",
         input=ReferenceSelectInput(
-            label="ประเภทรายจ่าย",
+            label="ประเภทรายรับ",
             url="welfarefunding/incometype/option/get",
             isRequired=True,
             isTable=True,
@@ -42,6 +42,7 @@ class FundingIncome(Record):
         input=NumberInput(
             label="จำนวนเงิน",
             isRequired=True,
+            isTable=True,
             order="3.0"
         )
     )
@@ -50,6 +51,7 @@ class FundingIncome(Record):
         input=DateInput(
             label="วัน/เดือน/ปี",
             isRequired=True,
+            isTable=True,
             order="4.0"
         )
     )

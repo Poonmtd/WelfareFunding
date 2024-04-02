@@ -28,3 +28,11 @@ class IncomeType(Record):
 			order="2.0"
 		)
 	)
+       
+	isDrop = IntegerColumn(
+        default=0
+	)
+        
+	def modify(self):
+			modification = self.createModification("2.0")
+			modification.add("isDrop", IntegerColumn(default=0))

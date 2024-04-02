@@ -23,6 +23,7 @@ class BudgetFund(Record):
 		input=EnumSelectInput(
 			label="ประเภทของงบประมาณ",
 			isRequired=True,
+            isTable=True,
 			enum=BudgetType,
 			order="1.1"
 		)
@@ -32,6 +33,7 @@ class BudgetFund(Record):
         input=NumberInput(
             label="จำนวนงบประมาณ",
             isRequired=True,
+            isTable=True,
             order="2.0"
         )
     )

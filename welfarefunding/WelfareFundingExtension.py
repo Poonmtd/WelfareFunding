@@ -45,7 +45,7 @@ class WelfareFundingExtension(Extension):
                 TextInput(
                     label="เลขที่สมาชิก",
                     order="0",
-                    columnName="id",
+                    columnName="memberNumber",
                     isTable=True,
                     isRequired=True,
                     group=UserInputGroup.GENERIC
@@ -135,7 +135,7 @@ class WelfareFundingExtension(Extension):
                     order="4.2.3",
                     columnName="VulnerableGroup",
                     # isTable=True,
-                    isRequired=True,
+                    isRequired=False,
                     enum=VulnerableGroup,
                     inputPerLine=3,
                     group=UserInputGroup.GENERIC
@@ -154,7 +154,7 @@ class WelfareFundingExtension(Extension):
                     order="4.4",
                     columnName="moo",
                     # isTable=True,
-                    isRequired=False,
+                    isRequired=True,
                     inputPerLine=4,
                     group=UserInputGroup.GENERIC  
                 ),
@@ -181,7 +181,7 @@ class WelfareFundingExtension(Extension):
                     order="4.7",
                     columnName="subDistrictID",
                     # isTable=True,
-                    isRequired=False,
+                    isRequired=True,
                     inputPerLine=4,
                     group=UserInputGroup.GENERIC
                 ),
@@ -190,7 +190,7 @@ class WelfareFundingExtension(Extension):
                     order="4.8",
                     columnName="districtID",
                     # isTable=True,
-                    isRequired=False,
+                    isRequired=True,
                     inputPerLine=4,
                     group=UserInputGroup.GENERIC
                 ),

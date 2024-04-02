@@ -28,6 +28,7 @@ class IncomeItem(Record):
 		input=DateInput(
 			label="วัน/เดือน/ปี",
 			isRequired=True,
+            isTable=True,
 			order="2.0"
 		)
 	)
@@ -56,6 +57,15 @@ class IncomeItem(Record):
         input=NumberInput(
             label="จำนวนเงิน",
             isRequired=True,
+            isTable=True,
             order="5.0"
         )
     )
+
+    isDrop = IntegerColumn(
+	    default=0
+	)
+    
+    def modify(self):
+            modification = self.createModification("2.0")
+            modification.add("isDrop", IntegerColumn(default=0))

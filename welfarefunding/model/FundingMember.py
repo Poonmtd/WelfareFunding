@@ -38,6 +38,15 @@ class FundingMember(Record):
 		)
 	)
 
+	memberNumber = StringColumn(
+		input=TextInput(
+			label="เลขที่สมาชิก",
+			isTable=True,
+			isRequired=True,
+			order="1.2"
+		)
+	)
+
 	birthday = DateColumn(
 		input=DateInput(
 			label="วัน/เดือน/ปีเกิด",

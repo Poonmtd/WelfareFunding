@@ -11,7 +11,7 @@ class Nametitle(IntEnum):
 Nametitle.label = {
     Nametitle.MR : "นาย",
     Nametitle.MRS : "นาง",
-    Nametitle.MISS : "นางสาว",
+    Nametitle.MISS : "นม",
     Nametitle.BOY : "เด็กชาย",
     Nametitle.GIRL : "เด็กหญิง",
     Nametitle.MISS : "พระ"

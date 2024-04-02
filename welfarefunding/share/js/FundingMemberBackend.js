@@ -38,6 +38,7 @@ const FundingMemberBackend = function(main, parent) {
 			config.data = await main.protocol.user.getUserByID({id: config.data.id});
 		}
 		let view = await AbstractPage.prototype.renderView.call(this, modelName, config, viewType);
+		console.log(view.id);
 		view.onSubmit = async function() {
 			let result = await AbstractPage.prototype.submit.call(this, view);
 			if(!result.isPass) return;
@@ -60,6 +61,7 @@ const FundingMemberBackend = function(main, parent) {
 			// if(view.dom.avatar.files.length) formData = result.file;
 			result.data.avatarRemoved = view.dom.avatar.removed;
 			formData.append('data', JSON.stringify(data));
+			console.log(data);
 			let handle = ('id' in data) ? main.protocol.user.update : main.protocol.user.insert;
 			let response = await handle(formData);
 			if (response.isSuccess) view.close();
