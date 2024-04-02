@@ -14,5 +14,5 @@ Nametitle.label = {
     Nametitle.MISS : "นางสาว",
     Nametitle.BOY : "เด็กชาย",
     Nametitle.GIRL : "เด็กหญิง",
-    Nametitle.MISS : "พระ"
+    Nametitle.MONK : "พระ"
 }

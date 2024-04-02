@@ -31,19 +31,19 @@ class RightCondition(Record):
         )
     )
     
-    # def chckek(self, member:FundingMember) -> bool:
-    #     if not (self.gender == member.gender) or (self.checkage(member.birthday) >= self.age)  or (self.checkmembership(member.applyDate) >= self.membership):
-    #         return True
-    #     return False
+    def chckek(self, member:FundingMember) -> bool:
+        if not (self.gender == member.gender) or (self.checkage(member.birthday) >= self.age)  or (self.checkmembership(member.applyDate) >= self.membership):
+            return True
+        else : return False
     
-    # def checkage(self, member:FundingMember) -> bool:
-    #     birthday = member.birthday
-    #     today = datetime.now()
-    #     differenceTime = today.year-birthday.year
-    #     return differenceTime
+    def checkage(self, member:FundingMember) -> bool:
+        birthday = member.birthday
+        today = datetime.now()
+        differenceTime = today.year-birthday.year
+        return differenceTime
     
-    # def checkmembership(self, member:FundingMember) -> bool:
-    #     applyday = member.applyDate
-    #     today = datetime.now()
-    #     differenceTime = today.year-applyday.year
-    #     return differenceTime
+    def checkmembership(self, member:FundingMember) -> bool:
+        applyday = member.applyDate
+        today = datetime.now()
+        differenceTime = today.year-applyday.year
+        return differenceTime

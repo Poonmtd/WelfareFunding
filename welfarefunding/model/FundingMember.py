@@ -13,6 +13,7 @@ from welfarefunding.model.Gender import Gender
 from welfarefunding.model.Status import Status
 from welfarefunding.model.VulnerableGroup import VulnerableGroup
 from welfarefunding.model.Nametitle import Nametitle
+from welfarefunding.model.Grentee import Grentee
 
 Record.appendGroup(User, 'ผู้รับสิทธิ', 50, '2.0')
 
@@ -35,6 +36,15 @@ class FundingMember(Record):
 			label="หมายเลขโทรศัพท์",
 			isRequired=True,
 			order="1.1"
+		)
+	)
+
+	memberNumber = StringColumn(
+		input=TextInput(
+			label="เลขที่สมาชิก",
+			isTable=True,
+			isRequired=True,
+			order="1.2"
 		)
 	)
 
@@ -169,6 +179,8 @@ class FundingMember(Record):
 			order="5.9"
 		)
 	)
+ 
+	# grantee = IntegerColumn(foreignKey = "Grentee.id")
 
 	# grantee_one = StringColumn(
 	# 	input=TextInput(
