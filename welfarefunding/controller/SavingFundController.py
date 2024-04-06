@@ -25,6 +25,24 @@ class SavingFundController(BaseController):
         if len(model) == 0: return Error('Member does not exist.')
         model = model[0]
         data = model.toDict()
+        date = model.savingDate.day
+        month = model.savingDate.month
+        if month == 1: month = 'มกราคม'
+        elif month == 2: month = 'กุมภาพันธ์'
+        elif month == 3: month = 'มีนาคม'
+        elif month == 4: month = 'เมษายน'
+        elif month == 5: month = 'พฤษภาคม'
+        elif month == 6: month = 'มิถุนายน'
+        elif month == 7: month = 'กรกฎาคม'
+        elif month == 8: month = 'สิงหาคม'
+        elif month == 9: month = 'กันยายน'
+        elif month == 10: month = 'ตุลาคม'
+        elif month == 11: month = 'พฤศจิกายน'
+        elif month == 12: month = 'ธันวาคม'
+        year = model.savingDate.year + 543
+        data['date'] = date
+        data['month'] = month
+        data['year'] = year
         # if len(model.path): return await response.file(f"{self.resourcePath}upload/{model.path}")
         # if len(model.path):
         #     await self.static.removeStaticShare(model.path) # remove old file before generate new file
@@ -54,3 +72,4 @@ class SavingFundController(BaseController):
         font = self.theme.getTemplate('welfarefunding/FontFamily.tpl')
         font = self.renderer.render(font, {})
         return font
+    

@@ -73,10 +73,136 @@
             color: black; 
             text-align: center;
         }
+        .billPayment table{
+            display: table;
+            border-collapse: collapse;
+            box-sizing: border-box;
+            text-indent: initial;
+            border-spacing: 2px;
+            font-size: .9em;
+            border: solid 1px;
+            width: 100%;
+        }
+        .billPayment th{
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+        .billPayment thead{
+            display: table-header-group;
+            vertical-align: middle;
+            border-color: inherit;
+            border: 1px solid;
+        }
+        .billPayment td{
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+        .billPayment .order{
+            width: 50pt;
+        }
+        .billPayment .amount1{
+            width: 80pt;
+        }
+        .billPayment .amount2{
+            width: 30pt;
+        }
+
+        .billPayment tr{
+            height: 25pt;
+        }
+        .line{
+            border-bottom: solid 0.5pt;
+            text-align: center;
+        }
     </style>
     <body>
         <div class="document">
-            test saving
+            <div style="display: flex; justify-content: space-between;">
+                <div>เล่มที่..........</div>
+                <div>เลขที่..........</div>
+            </div>
+            <div class="topic">ใบเสร็จรับเงิน</div>
+            <div style="text-align: center;">
+                <div style="margin-top: 20pt;">เลขที่............ถนน............ตำบล............อำเภอ............จังหวัด............</div>
+                <div style="display: flex; justify-content: center;">วัน<div class="line" style="width: 10%;">{{{date}}}</div>เดือน<div class="line" style="width: 15%;">{{{month}}}</div>ปี<div class="line" style="width: 10%;">{{{year}}}</div></div>
+                <div style="display: flex; justify-content: center;">ได้รับเงินจาก <div class="line" style="width: 30%;">{{memberID.firstName}} {{memberID.lastName}}</div></div>
+                <div style="font-weight: 600; margin-top: 20pt;">ตามรายละเอียดดังนี้</div>
+            </div>
+            <div class="billPayment">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ลำดับที่</th>
+                            <th>รายการ</th>
+                            <th colspan="2">จำนวนเงิน</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="order">1</td>
+                            <td style="text-align: start;">เงินสมทบกองทุนของสมาชิก</td>
+                            <td class="amount1">{{{savingAmount}}}</td>
+                            <td class="amount2"></td>
+                        </tr>
+                        <tr>
+                            <td class="order"></td>
+                            <td style="text-align: start;"></td>
+                            <td class="amount1"></td>
+                            <td class="amount2"></td>
+                        </tr>
+                        <tr>
+                            <td class="order"></td>
+                            <td style="text-align: start;"></td>
+                            <td class="amount1"></td>
+                            <td class="amount2"></td>
+                        </tr>
+                        <tr>
+                            <td class="order"></td>
+                            <td style="text-align: start;"></td>
+                            <td class="amount1"></td>
+                            <td class="amount2"></td>
+                        </tr>
+                        <tr>
+                            <td class="order"></td>
+                            <td style="text-align: start;"></td>
+                            <td class="amount1"></td>
+                            <td class="amount2"></td>
+                        </tr>
+                        <tr>
+                            <td class="order"></td>
+                            <td style="text-align: start;"></td>
+                            <td class="amount1"></td>
+                            <td class="amount2"></td>
+                        </tr>
+                        <tr>
+                            <td class="order"></td>
+                            <td style="text-align: start;"></td>
+                            <td class="amount1"></td>
+                            <td class="amount2"></td>
+                        </tr>
+                        <tr>
+                            <td class="order"></td>
+                            <td style="text-align: start;"></td>
+                            <td class="amount1"></td>
+                            <td class="amount2"></td>
+                        </tr>
+                        <tr>
+                            <td class="order"></td>
+                            <td style="text-align: start;"></td>
+                            <td class="amount1"></td>
+                            <td class="amount2"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="display: flex; text-align: center; margin-top: 20pt; justify-content: center;">ตัวอักษร<div class="line" style="width: 60%;">({{{savingAmountText}}})</div></div>
+            <div style="text-align: center; margin-top: 50pt;">
+                ลงชื่อ.................................................................................ผู้รับเงิน
+                <br>(.......................................................................)
+                <br>................/................/................
+            </div>
         </div>  
     </body>
 </html>
