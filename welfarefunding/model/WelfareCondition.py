@@ -64,23 +64,23 @@ class WelfareCondition(Record):
 		default=0
 	)
 
-	# def chckek(self, member:FundingMember) -> bool:
-	# 	if not self.checkRight(member): return False
-	# 	return self.checkPayment(member)
+	def check(self, member:FundingMember) -> bool:
+		if not self.checkRight(member): return False
+		return self.checkPayment(member)
  
-	# def chckekRight(self, member:FundingMember) -> bool:
-	# 	from welfarefunding.model.RightCondition import RightCondition
-	# 	i: RightCondition
-	# 	for i in self.rightCondition:
-	# 		if not i.check(member): return False
-	# 	return True
+	def checkRight(self, member:FundingMember) -> bool:
+		from welfarefunding.model.RightCondition import RightCondition
+		i: RightCondition
+		for i in self.rightCondition:
+			if not i.check(member): return False
+		return True
   
-	# def chckekPayment(self, member:FundingMember) -> bool:
-	# 	from welfarefunding.model.PaymentCondition import PaymentCondition
-	# 	i: PaymentCondition
-	# 	for i in self.paymentCondition:
-	# 		if not i.check(member): return False
-	# 	return True
+	def checkPayment(self, member:FundingMember) -> bool:
+		from welfarefunding.model.PaymentCondition import PaymentCondition
+		i: PaymentCondition
+		for i in self.paymentCondition:
+			if not i.check(member): return False
+		return True
 
 	def modify(self):
 		modification = self.createModification("2.0")

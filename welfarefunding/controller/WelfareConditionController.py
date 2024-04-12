@@ -16,23 +16,25 @@ class WelfareConditionController(BaseController):
     def __init__(self, application):
         super().__init__(application)
 
-    @GET("/welfarefunding/welfarecondition/option/get", role=['Welfare'])
-    async def getUpdatesConditionOption(self, request) :
-        clause = 'WHERE isDrop = ? ORDER BY id DESC'
-        models:List[WelfareCondition] = await self.session.select(WelfareCondition, clause, parameter=[0])
-        return Success([i.toOption() for i in models])
+    # @GET("/welfarefunding/welfarecondition/option/get", role=['Welfare'])
+    # async def getUpdatesConditionOption(self, request) :
+    #     clause = 'WHERE isDrop = ? ORDER BY id DESC'
+    #     models:List[WelfareCondition] = await self.session.select(WelfareCondition, clause, parameter=[0])
+    #     return Success([i.toOption() for i in models])
     
-    # @POST("/welfarefunding/welfareappliance/option/get", role=['Welfare'])
-    # async def getOption(self, request):
-    #     id = request.json[id]
-    #     member = await self.session.selectByID(FundingMember,int(id))
-    #     if member is None: return Error()
+    @POST("/welfarefunding/welfarecondition/option/get", role=['Welfare'])
+    async def getOption(self, request):
+        id = request.json['id']
+        member = await self.session.selectByID(FundingMember,int(id))
+        if member is None: return Error('')
         
-    #     clause = 'WHERE isDrop = ?'
-    #     model:List[WelfareCondition] = await self.session.select(WelfareCondition, clause, parameter=[0], hasChilden=True)
-    #     if len(model) == 0: return Error()
-    #     result = True
-    #     for i in model:
-    #         if not i.chckek(member):
-    #             result = False
-    #             break
+        clause = 'WHERE isDrop = ? ORDER BY id DESC'
+        model:List[WelfareCondition] = await self.session.select(WelfareCondition, clause, parameter=[0], hasChildren=True)
+        if len(model) == 0: return Error('')
+        # result = True
+        # for i in model:
+        #     if not i.check(member):
+        #         result = False
+        #         break
+        filtered_models = [i for i in model if i.check(member)]
+        return Success([i.toOption() for i in filtered_models])

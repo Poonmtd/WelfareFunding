@@ -2,7 +2,7 @@ const IncomeTypeBackend = function(main, parent) {
 	AbstractPage.call(this, main, parent);
 
 	let object = this;
-	this.title = 'ประเภทรายจ่าย';
+	this.title = 'ประเภทรายรับ';
 	this.model = "IncomeType";
 	this.pageNumber = 1;
 	this.limit = 10;
