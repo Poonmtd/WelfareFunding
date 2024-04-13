@@ -125,9 +125,14 @@
             </div>
             <div class="topic">ใบเสร็จรับเงิน</div>
             <div style="text-align: center;">
-                <div style="margin-top: 20pt;">เลขที่............ถนน............ตำบล............อำเภอ............จังหวัด............</div>
-                <div style="display: flex; justify-content: center;">วัน<div class="line" style="width: 10%;">{{{date}}}</div>เดือน<div class="line" style="width: 15%;">{{{month}}}</div>ปี<div class="line" style="width: 10%;">{{{year}}}</div></div>
-                <div style="display: flex; justify-content: center;">ได้รับเงินจาก <div class="line" style="width: 30%;">{{memberID.firstName}} {{memberID.lastName}}</div></div>
+                <div style="margin-top: 10pt; display: flex; justify-content: center;">กองทุนสวัสดิการชุมชน<div class="line" style="width: 20%;">ตำบลทรัพย์อนันต์</div></div>
+                <div style="margin-top: 5pt; display: flex; justify-content: center;">
+                    เลขที่<div class="line" style="width: 10%;">119</div>ถนน<div class="line" style="width: 10%;">-</div>
+                    ตำบล<div class="line" style="width: 15%;">ทรัพย์อนนันต์</div>อำเภอ<div class="line" style="width: 10%;">ท่าเเซะ</div>
+                    จังหวัด<div class="line" style="width: 10%;">ชุมพร</div>
+                </div>
+                <div style="display: flex; justify-content: center; margin-top: 5pt;">วัน<div class="line" style="width: 10%;">{{{date}}}</div>เดือน<div class="line" style="width: 15%;">{{{month}}}</div>ปี<div class="line" style="width: 10%;">{{{year}}}</div></div>
+                <div style="display: flex; justify-content: center; margin-top: 5pt;">ได้รับเงินจาก <div class="line" style="width: 30%;">{{memberID.firstName}} {{memberID.lastName}}</div></div>
                 <div style="font-weight: 600; margin-top: 20pt;">ตามรายละเอียดดังนี้</div>
             </div>
             <div class="billPayment">

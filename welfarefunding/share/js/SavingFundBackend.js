@@ -13,17 +13,8 @@ const SavingFundBackend = function(main, parent) {
 
 	this.renderTableView = async function(modelName, config = {}){
 		config.hasAvatar = false;
-		//await AbstractPage.prototype.renderTable.call(this, modelName, config);
-		// let limit=10;
-		// object.limit = limit;
-		// let data = {
-		// 	pageNumber: object.pageNumber,
-		// 	limit: limit,
-		// 	data : object.filter
-		// }
-		// let result = await main.protocol.user.getAllUser(data);
 		config.operation = [
-			{label: 'PDF', ID: 'pdf', icon: 'welfarefunding.PDF'}
+			{label: 'ใบเสร็จรับเงิน', ID: 'pdf', icon: 'welfarefunding.PDF'}
 		];
 		let table = await AbstractPage.prototype.renderTable.call(this, modelName, config);
 		for(let i in table.records){
@@ -34,14 +25,5 @@ const SavingFundBackend = function(main, parent) {
 				await OPEN_FILE(blob);
 			}
 		}
-		// table.onCreateRecord = async function(record) {
-		// 	console.log(record);
-		// 	record.dom.pdf.onclick = async function(){
-		// 		let blob = await GET(`welfarefunding/documentsaving/by/id/get/${record.record.id}`, undefined, 'blob');
-		// 		await OPEN_FILE(blob);
-		// 	}
-		// }
-		// await table.createMultipleRecord(result.data);
-
 	}
 }

@@ -62,7 +62,7 @@ class WelfareFundingExtension(Extension):
                     label="หมายเลขโทรศัพท์",
                     order="4.11",
                     columnName="telephoneNumber",
-                    isTable=True,
+                    isTable=False,
                     isRequired=True,
                     # inputPerLine=4,
                     group=UserInputGroup.GENERIC

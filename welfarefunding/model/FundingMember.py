@@ -88,7 +88,7 @@ class FundingMember(Record):
 		)
 	)
  
-	Nametitle = IntegerColumn(
+	nameTitle = IntegerColumn(
 		input=EnumSelectInput(
 			label="คำนำหน้า",
 			isRequired=True,

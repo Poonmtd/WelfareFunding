@@ -60,19 +60,46 @@ const BudgetFundBackend = function(main, parent) {
 				'order': "99.0"
 			}
 		]));
-		let table = await object.renderTableView(object.model, option, main.tableViewType);
-		await table.createMultipleRecord(result.data);
+		option.data = result.data;
+		await object.renderTableView(object.model, option);
 	}
 
-	this.renderTableView = async function(modelName, config) {
+	this.renderTableView = async function(modelName, config = {}){
+		config.operation = [
+			{label: 'เเบบเสนอขอเงินสนับสนุน', ID: 'pdf', icon: 'welfarefunding.PDF'}
+		];
 		let table = await AbstractPage.prototype.renderTable.call(this, modelName, config);
-		table.onCreateRecord = async function(record){
+		for(let i in table.records){
+			let record = table.records[i];
+			console.log(record.record);
+			record.dom.pdf.onclick = async function(){
+				let blob = await GET(`welfarefunding/documentbudget/by/id/get/${record.record.id}`, undefined, 'blob');
+				await OPEN_FILE(blob);
+			}
+			// console.log(record.record.statusRecord);
+			console.log("testttt");
+			console.log(record.record.budgetType);
+			//ON PROCESS
+			if(record.record.statusRecord.color == "YELLOW"){
+				record.dom.pdf.remove();
+			}
+			//CANCEL
+			else if(record.record.statusRecord.color == "RED"){
+				record.dom.edit.remove();
+				record.dom.pdf.remove();
+			}
+			//SUCCESS
+			else if(record.record.statusRecord.color == "GREEN"){
+				record.dom.edit.remove();
+			}
+			//DRAFT
+			else if(record.record.statusRecord.color == "GRAY"){
+				record.dom.pdf.remove();
+			}
 			// if(record.record.documentStatus == BUDGET_STATUS.RELEASE){
 			// 	record.dom.edit.remove();
 			// 	record.dom.delete.remove();				
 			// }
 		}
-		return table;
 	}
-
 }
