@@ -13,6 +13,7 @@ from welfarefunding.model.Gender import Gender
 from welfarefunding.model.Status import Status
 from welfarefunding.model.VulnerableGroup import VulnerableGroup
 from welfarefunding.model.Nametitle import Nametitle
+from welfarefunding.model.Grentee import Grentee
 
 Record.appendGroup(User, 'ผู้รับสิทธิ', 50, '2.0')
 
@@ -178,149 +179,151 @@ class FundingMember(Record):
 			order="5.9"
 		)
 	)
+ 
+	# grantee = IntegerColumn(foreignKey = "Grentee.id")
 
-	grantee_one = StringColumn(
-		input=TextInput(
-			label="ผู้รับสิทธิ์คนที่ 1",
-			isRequired=True,
-			order="6.0"
-		)
-	)
-	addressNumberG1 = IntegerColumn(
-		input=NumberInput(
-			label="บ้านเลขที่",
-			isRequired=False,
-			order="6.1"
-		)
-	)
+	# grantee_one = StringColumn(
+	# 	input=TextInput(
+	# 		label="ผู้รับสิทธิ์คนที่ 1",
+	# 		isRequired=True,
+	# 		order="6.0"
+	# 	)
+	# )
+	# addressNumberG1 = IntegerColumn(
+	# 	input=NumberInput(
+	# 		label="บ้านเลขที่",
+	# 		isRequired=False,
+	# 		order="6.1"
+	# 	)
+	# )
  
-	mooG1 = IntegerColumn(
-		input=NumberInput(
-			label="หมู่",
-			isRequired=False,
-			order="6.2"
-		)
-	)
+	# mooG1 = IntegerColumn(
+	# 	input=NumberInput(
+	# 		label="หมู่",
+	# 		isRequired=False,
+	# 		order="6.2"
+	# 	)
+	# )
  
-	alleyG1=StringColumn(
-		input=TextInput(
-			label="ตรอก/ซอย",
-			isRequired=False,
-			order="6.3"
-		)
-	)
+	# alleyG1=StringColumn(
+	# 	input=TextInput(
+	# 		label="ตรอก/ซอย",
+	# 		isRequired=False,
+	# 		order="6.3"
+	# 	)
+	# )
  
-	roadG1=StringColumn(
-		input=TextInput(
-			label="ถนน",
-			isRequired=False,
-			order="6.4"
-		)
-	)
+	# roadG1=StringColumn(
+	# 	input=TextInput(
+	# 		label="ถนน",
+	# 		isRequired=False,
+	# 		order="6.4"
+	# 	)
+	# )
 	
-	subDistrictIDG1=StringColumn(
-		input=TextInput(
-			label="ตำบล/แขวง",
-			isRequired=False,
-			order="6.5"
-		)
-	)
+	# subDistrictIDG1=StringColumn(
+	# 	input=TextInput(
+	# 		label="ตำบล/แขวง",
+	# 		isRequired=False,
+	# 		order="6.5"
+	# 	)
+	# )
  
-	districtIDG1=StringColumn(
-		input=TextInput(
-			label="อำเภอ/เขต",
-			isRequired=False,
-			order="6.6"
-		)
-	)
+	# districtIDG1=StringColumn(
+	# 	input=TextInput(
+	# 		label="อำเภอ/เขต",
+	# 		isRequired=False,
+	# 		order="6.6"
+	# 	)
+	# )
  
-	provinceG1=StringColumn(
-		input=TextInput(
-			label="จังหวัด",
-			isRequired=False,
-			order="6.7"
-		)
-	)
+	# provinceG1=StringColumn(
+	# 	input=TextInput(
+	# 		label="จังหวัด",
+	# 		isRequired=False,
+	# 		order="6.7"
+	# 	)
+	# )
  
-	postalCodeG1=StringColumn(
-		input=TextInput(
-			label="รหัสไปรษณีย์",
-			isRequired=False,
-			order="6.8"
-		)
-	)
+	# postalCodeG1=StringColumn(
+	# 	input=TextInput(
+	# 		label="รหัสไปรษณีย์",
+	# 		isRequired=False,
+	# 		order="6.8"
+	# 	)
+	# )
 
-	grantee_two = StringColumn(
-		input=TextInput(
-			label="ผู้รับสิทธิ์คนที่ 2",
-			isRequired=True,
-			order="7.0"
-		)
-	)
+	# grantee_two = StringColumn(
+	# 	input=TextInput(
+	# 		label="ผู้รับสิทธิ์คนที่ 2",
+	# 		isRequired=True,
+	# 		order="7.0"
+	# 	)
+	# )
 	
-	addressNumberG2 = IntegerColumn(
-		input=NumberInput(
-			label="บ้านเลขที่",
-			isRequired=False,
-			order="7.1"
-		)
-	)
+	# addressNumberG2 = IntegerColumn(
+	# 	input=NumberInput(
+	# 		label="บ้านเลขที่",
+	# 		isRequired=False,
+	# 		order="7.1"
+	# 	)
+	# )
  
-	mooG2 = IntegerColumn(
-		input=NumberInput(
-			label="หมู่",
-			isRequired=False,
-			order="7.2"
-		)
-	)
+	# mooG2 = IntegerColumn(
+	# 	input=NumberInput(
+	# 		label="หมู่",
+	# 		isRequired=False,
+	# 		order="7.2"
+	# 	)
+	# )
  
-	alleyG2=StringColumn(
-		input=TextInput(
-			label="ตรอก/ซอย",
-			isRequired=False,
-			order="7.3"
-		)
-	)
+	# alleyG2=StringColumn(
+	# 	input=TextInput(
+	# 		label="ตรอก/ซอย",
+	# 		isRequired=False,
+	# 		order="7.3"
+	# 	)
+	# )
  
-	roadG2=StringColumn(
-		input=TextInput(
-			label="ถนน",
-			isRequired=False,
-			order="7.4"
-		)
-	)
+	# roadG2=StringColumn(
+	# 	input=TextInput(
+	# 		label="ถนน",
+	# 		isRequired=False,
+	# 		order="7.4"
+	# 	)
+	# )
 	
-	subDistrictIDG2=StringColumn(
-		input=TextInput(
-			label="ตำบล/แขวง",
-			isRequired=False,
-			order="7.5"
-		)
-	)
+	# subDistrictIDG2=StringColumn(
+	# 	input=TextInput(
+	# 		label="ตำบล/แขวง",
+	# 		isRequired=False,
+	# 		order="7.5"
+	# 	)
+	# )
  
-	districtIDG2=StringColumn(
-		input=TextInput(
-			label="อำเภอ/เขต",
-			isRequired=False,
-			order="7.6"
-		)
-	)
+	# districtIDG2=StringColumn(
+	# 	input=TextInput(
+	# 		label="อำเภอ/เขต",
+	# 		isRequired=False,
+	# 		order="7.6"
+	# 	)
+	# )
  
-	provinceG2=StringColumn(
-		input=TextInput(
-			label="จังหวัด",
-			isRequired=False,
-			order="7.7"
-		)
-	)
+	# provinceG2=StringColumn(
+	# 	input=TextInput(
+	# 		label="จังหวัด",
+	# 		isRequired=False,
+	# 		order="7.7"
+	# 	)
+	# )
  
-	postalCodeG2=StringColumn(
-		input=TextInput(
-			label="รหัสไปรษณีย์",
-			isRequired=False,
-			order="7.8"
-		)
-	)
+	# postalCodeG2=StringColumn(
+	# 	input=TextInput(
+	# 		label="รหัสไปรษณีย์",
+	# 		isRequired=False,
+	# 		order="7.8"
+	# 	)
+	# )
 
 	path = StringColumn(default='', length=-1)
  

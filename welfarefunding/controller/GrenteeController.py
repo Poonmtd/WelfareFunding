@@ -6,9 +6,9 @@ from gaimon.core.RESTResponse import(
     ErrorRESTResponse as Error,
     SuccessRESTResponse as Success
 )
-from welfarefunding.model.FundCommittee import FundCommittee
+from welfarefunding.model.Grentee import Grentee
 
-@BASE(FundCommittee, "/welfarefunding/fundcommittee", "welfarefunding.FundCommittee")
-class FundCommitteeController(BaseController):
+@BASE(Grentee, "/welfarefunding/grentee", "welfarefunding.Grentee")
+class GrenteeController(BaseController):
     def __init__(self, application):
         super().__init__(application)

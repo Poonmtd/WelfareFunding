@@ -1,15 +1,15 @@
-const IncomeTypeBackend = function(main, parent) {
+const GrenteeBackend = function(main, parent) {
 	AbstractPage.call(this, main, parent);
 
 	let object = this;
-	this.title = 'ประเภทรายรับ';
-	this.model = "IncomeType";
+	this.title = 'ผู้รับสิทธิ์';
+	this.model = "Grentee";
 	this.pageNumber = 1;
 	this.limit = 10;
 	this.filter = {};
 
-	object.role = ['Audit'];
-	object.restURL = 'welfarefunding/incometype';
+	object.role = ['FundingMember'];
+	object.restURL = 'welfarefunding/grentee';
 
 	this.renderTableView = async function(modelName, config = {}){
 		config.hasAvatar = false;
