@@ -3,10 +3,12 @@ from xerial.Record import Record
 from xerial.IntegerColumn import IntegerColumn
 from xerial.DateTimeColumn import DateTimeColumn
 from xerial.DateColumn import DateColumn
+from xerial.StringColumn import StringColumn
 
 from xerial.input.NumberInput import NumberInput
 from xerial.input.DateTimeInput import DateTimeInput
 from xerial.input.DateInput import DateInput
+from xerial.input.TextInput import TextInput
 
 from welfarefunding.model.FundingMember import FundingMember
 from xerial.input.AutoCompleteInput import AutoCompleteInput
@@ -33,6 +35,15 @@ class SavingFund(Record):
 			isRequired=True,
             isTable=True,
 			order="1.0"
+        )
+    )
+
+    savingAmountText = StringColumn(
+        input=TextInput(
+            label="จำนวนเงินออม(ตัวอักษร)",
+            isTable=False,
+            isRequired=True,
+            order="1.1"
         )
     )
 

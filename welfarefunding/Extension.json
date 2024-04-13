@@ -127,22 +127,6 @@
 						"order": "1.0"
 					}
 				]
-			},
-			{
-				"group": {
-					"ID": "Fund",
-					"label": "เกี่ยวกับกองทุน",
-					"icon": "welfarefunding.Default",
-					"order": "6.0"
-				},
-				"child":[
-					{
-						"ID": "FundBackend",
-						"label": "ข้อมูลกองทุน",
-						"icon": "welfarefunding.Default",
-						"order": "1.0"
-					}
-				]
 			}
 		]
 	}
