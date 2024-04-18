@@ -6,6 +6,7 @@ from gaimon.core.RESTResponse import(
     ErrorRESTResponse as Error,
     SuccessRESTResponse as Success
 )
+
 from welfarefunding.model.FundingIncome import FundingIncome
 
 @BASE(FundingIncome, "/welfarefunding/fundingincome", "welfarefunding.FundingIncome")

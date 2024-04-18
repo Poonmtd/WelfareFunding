@@ -14,7 +14,7 @@ from welfarefunding.model.FundingMember import FundingMember
 from xerial.input.AutoCompleteInput import AutoCompleteInput
 
 class SavingFund(Record):
-    memberID = IntegerColumn(
+    uid = IntegerColumn(
             default=-1,
             foreignKey='User.id',
             input=AutoCompleteInput(
@@ -34,7 +34,7 @@ class SavingFund(Record):
             label="จำนวนเงินออม",
 			isRequired=True,
             isTable=True,
-			order="1.0"
+			order="1.2"
         )
     )
 
@@ -43,7 +43,7 @@ class SavingFund(Record):
             label="จำนวนเงินออม(ตัวอักษร)",
             isTable=False,
             isRequired=True,
-            order="1.1"
+            order="1.3"
         )
     )
 

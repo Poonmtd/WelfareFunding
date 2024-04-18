@@ -67,6 +67,16 @@ class ExpenseItem(Record):
         )
     )
 
+    expenseAmountText = StringColumn(
+        input=TextInput(
+            label="จำนวนเงิน(ตัวอักษร)",
+            isTable=False,
+            isRequired=True,
+            order="1.3"
+        )
+    )
+
+
     isDrop = IntegerColumn(
 	    default=0
 	)

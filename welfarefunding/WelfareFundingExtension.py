@@ -62,7 +62,7 @@ class WelfareFundingExtension(Extension):
                     label="หมายเลขโทรศัพท์",
                     order="4.11",
                     columnName="telephoneNumber",
-                    isTable=True,
+                    isTable=False,
                     isRequired=True,
                     # inputPerLine=4,
                     group=UserInputGroup.GENERIC
@@ -213,75 +213,75 @@ class WelfareFundingExtension(Extension):
                     group=UserInputGroup.GENERIC
                 ),
                 
-                # TextInput(
-                #     label="ผู้รับสิทธิ์คนที่ 1",
-                #     columnName="grantee_one",
-                #     # isTable=True,
-                #     isRequired=True,
-                #     # inputPerLine=1,
-                #     group=50,
-                # ),NumberInput(
-                #     label="บ้านเลขที่",
-                #     columnName="addressNumberG1",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
-                # NumberInput(
-                #     label="หมู่",
-                #     columnName="mooG1",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50 
-                # ),
-                # TextInput(
-                #     label="ตรอก/ซอย",
-                #     columnName="alleyG1",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
-                # TextInput(
-                #     label="ถนน",
-                #     columnName="roadG1",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
-                # TextInput(
-                #     label="ตำบล/แขวง",
-                #     columnName="subDistrictIDG1",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
-                # TextInput(
-                #     label="อำเภอ/เขต",
-                #     columnName="districtIDG1",
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
-                # TextInput(
-                #     label="จังหวัด",
-                #     columnName="provinceG1",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
-                # TextInput(
-                #     label="รหัสไปรษณีย์",
-                #     columnName="postalCodeG1",
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
+                TextInput(
+                    label="ผู้รับสิทธิ์",
+                    columnName="grantee_one",
+                    # isTable=True,
+                    isRequired=True,
+                    # inputPerLine=1,
+                    group=50,
+                ),NumberInput(
+                    label="บ้านเลขที่",
+                    columnName="addressNumberG1",
+                    # isTable=True,
+                    isRequired=False,
+                    # inputPerLine=4,
+                    group=50
+                ),
+                NumberInput(
+                    label="หมู่",
+                    columnName="mooG1",
+                    # isTable=True,
+                    isRequired=False,
+                    # inputPerLine=4,
+                    group=50 
+                ),
+                TextInput(
+                    label="ตรอก/ซอย",
+                    columnName="alleyG1",
+                    # isTable=True,
+                    isRequired=False,
+                    # inputPerLine=4,
+                    group=50
+                ),
+                TextInput(
+                    label="ถนน",
+                    columnName="roadG1",
+                    # isTable=True,
+                    isRequired=False,
+                    # inputPerLine=4,
+                    group=50
+                ),
+                TextInput(
+                    label="ตำบล/แขวง",
+                    columnName="subDistrictIDG1",
+                    # isTable=True,
+                    isRequired=False,
+                    # inputPerLine=4,
+                    group=50
+                ),
+                TextInput(
+                    label="อำเภอ/เขต",
+                    columnName="districtIDG1",
+                    isRequired=False,
+                    # inputPerLine=4,
+                    group=50
+                ),
+                TextInput(
+                    label="จังหวัด",
+                    columnName="provinceG1",
+                    # isTable=True,
+                    isRequired=False,
+                    # inputPerLine=4,
+                    group=50
+                ),
+                TextInput(
+                    label="รหัสไปรษณีย์",
+                    columnName="postalCodeG1",
+                    isRequired=False,
+                    # inputPerLine=4,
+                    group=50
+                ),
                 # TextInput(
                 #     label="ผู้รับสิทธิ์คนที่ 2",
                 #     columnName="grantee_two",

@@ -11,6 +11,10 @@ from typing import List
 from welfarefunding.model.SavingFund import SavingFund
 from welfarefunding.model.BudgetFund import BudgetFund
 
+from sanic import response
+import os, string, random
+from weasyprint import HTML
+
 @BASE(IncomeItem, "/welfarefunding/incomeitem", "welfarefunding.IncomeItem")
 class IncomeItemController(BaseController):
     def __init__(self, application):
@@ -79,15 +83,15 @@ class IncomeItemController(BaseController):
             income_dict[income_type] += paymentAmount
             
         for budget in models_budget :
-            income_type = budget.budgetType
+            # income_type = budget.budgetType
             # paymentAmount = saving.savingAmount
             
             if budget.budgetStatus == "SUCCESS" :
-                income_dict.setdefault(income_type,0)
+                income_type = budget.budgetType
                 paymentAmount = budget.budgetFundAmount
             
-            # income_dict.setdefault(income_type,0)
-            # income_dict[income_type] += paymentAmount
+                income_dict.setdefault(income_type,0)
+                income_dict[income_type] += paymentAmount
                         
         combined_data = [(income_type,paymentAmount) for income_type,paymentAmount in income_dict.items()]
 
@@ -95,3 +99,35 @@ class IncomeItemController(BaseController):
         
         return Success(combined_data)
          
+    @GET('/welfarefunding/documentincome/by/id/get/<id>', role=['user'])
+    async def getDocumentIncome(self, request, id):
+        model = await self.session.select(IncomeItem, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
+        if len(model) == 0: return Error('Member does not exist.')
+        model = model[0]
+        data = model.toDict()
+        path = await self.generateDocumentIncomePDF(data)
+        model.path = path
+        await self.session.update(model)
+        path = f"{self.resourcePath}upload/{path}"
+        return await response.file(path)
+
+    async def generateDocumentIncomePDF(self, data):
+        font = await self.getFont()
+        template = self.theme.getTemplate('welfarefunding/DocumentIncome.tpl')
+        data['font'] = font
+        html = self.renderer.render(template, data)
+        letters = string.ascii_lowercase
+        fileName = ''.join(random.choice(letters) for i in range(20))
+        path = self.resourcePath + "upload/welfarefunding/document"
+        os.makedirs(path, exist_ok=True)
+        pathFile = path + "/%s.pdf" % (fileName)
+        html = HTML(string=html)
+        html.write_pdf(pathFile)
+        pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
+        print('--------------- GENERATE PDF FINISHED ---------------')
+        return pathUpload
+
+    async def getFont(self):
+        font = self.theme.getTemplate('welfarefunding/FontFamily.tpl')
+        font = self.renderer.render(font, {})
+        return font

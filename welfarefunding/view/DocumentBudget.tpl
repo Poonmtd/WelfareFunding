@@ -132,7 +132,7 @@
                     จังหวัด<div class="line" style="width: 10%;">ชุมพร</div>
                 </div>
                 <div style="display: flex; justify-content: center; margin-top: 5pt;">วัน<div class="line" style="width: 10%;">{{{date}}}</div>เดือน<div class="line" style="width: 15%;">{{{month}}}</div>ปี<div class="line" style="width: 10%;">{{{year}}}</div></div>
-                <div style="display: flex; justify-content: center; margin-top: 5pt;">ได้รับเงินจาก <div class="line" style="width: 30%;">{{uid.firstName}} {{uid.lastName}}</div></div>
+                <!-- <div style="display: flex; justify-content: center; margin-top: 5pt;">ได้รับเงินจาก <div class="line" style="width: 30%;">{{memberID.firstName}} {{memberID.lastName}}</div></div> -->
                 <div style="font-weight: 600; margin-top: 20pt;">ตามรายละเอียดดังนี้</div>
             </div>
             <div class="billPayment">
@@ -147,8 +147,8 @@
                     <tbody>
                         <tr>
                             <td class="order">1</td>
-                            <td style="text-align: start;">เงินสมทบกองทุนของสมาชิก</td>
-                            <td class="amount1">{{{savingAmount}}}</td>
+                            <td style="text-align: start;">งบประมาณสนันสนุนจาก{{{budgetType}}}</td>
+                            <td class="amount1">{{{budgetFundAmount}}}</td>
                             <td class="amount2"></td>
                         </tr>
                         <tr>

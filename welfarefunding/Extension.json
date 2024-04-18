@@ -127,6 +127,22 @@
 						"order": "1.0"
 					}
 				]
+			},
+			{
+				"group": {
+					"ID": "FundDocument",
+					"label": "เอกสารกองทุน",
+					"icon": "welfarefunding.Default",
+					"order": "7.0"
+				},
+				"child": [
+					{
+						"ID": "FundDocumentBackend",
+						"label": "เอกสารกองทุนประจำปี",
+						"icon": "welfarefunding.Default",
+						"order": "1.0"
+					}
+				]
 			}
 		]
 	}

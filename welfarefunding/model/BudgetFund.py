@@ -4,6 +4,7 @@ from xerial.DateColumn import DateColumn
 from xerial.IntegerColumn import IntegerColumn
 from xerial.input.DateInput import DateInput
 from xerial.input.NumberInput import NumberInput
+from xerial.StringColumn import StringColumn
 
 from xerial.input.EnumSelectInput import EnumSelectInput
 

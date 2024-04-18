@@ -73,7 +73,7 @@
             color: black; 
             text-align: center;
         }
-        .billPayment table{
+        .billWelfare table{
             display: table;
             border-collapse: collapse;
             box-sizing: border-box;
@@ -83,47 +83,48 @@
             border: solid 1px;
             width: 100%;
         }
-        .billPayment th{
+        .billWelfare th{
             border: 1px solid black;
             padding: 5px;
             text-align: center;
         }
-        .billPayment thead{
+        .billWelfare thead{
             display: table-header-group;
             vertical-align: middle;
             border-color: inherit;
             border: 1px solid;
         }
-        .billPayment td{
+        .billWelfare td{
             border: 1px solid black;
             padding: 5px;
             text-align: center;
         }
-        .billPayment .order{
+        .billWelfare .order{
             width: 50pt;
         }
-        .billPayment .amount1{
+        .billWelfare .amount1{
             width: 80pt;
         }
-        .billPayment .amount2{
+        .billWelfare .amount2{
             width: 30pt;
         }
 
-        .billPayment tr{
+        .billWelfare tr{
             height: 25pt;
         }
         .line{
             border-bottom: solid 0.5pt;
             text-align: center;
         }
+        .topic{
+            font-weight: 600; 
+            color: black; 
+            text-align: center;
+        }
     </style>
     <body>
         <div class="document">
-            <div style="display: flex; justify-content: space-between;">
-                <div>เล่มที่..........</div>
-                <div>เลขที่..........</div>
-            </div>
-            <div class="topic">ใบเสร็จรับเงิน</div>
+            <div class="topic">ใบสำคัญจ่ายเงิน</div>
             <div style="text-align: center;">
                 <div style="margin-top: 10pt; display: flex; justify-content: center;">กองทุนสวัสดิการชุมชน<div class="line" style="width: 20%;">ตำบลทรัพย์อนันต์</div></div>
                 <div style="margin-top: 5pt; display: flex; justify-content: center;">
@@ -131,11 +132,16 @@
                     ตำบล<div class="line" style="width: 15%;">ทรัพย์อนนันต์</div>อำเภอ<div class="line" style="width: 10%;">ท่าเเซะ</div>
                     จังหวัด<div class="line" style="width: 10%;">ชุมพร</div>
                 </div>
-                <div style="display: flex; justify-content: center; margin-top: 5pt;">วัน<div class="line" style="width: 10%;">{{{date}}}</div>เดือน<div class="line" style="width: 15%;">{{{month}}}</div>ปี<div class="line" style="width: 10%;">{{{year}}}</div></div>
-                <div style="display: flex; justify-content: center; margin-top: 5pt;">ได้รับเงินจาก <div class="line" style="width: 30%;">{{uid.firstName}} {{uid.lastName}}</div></div>
+            </div>
+            <div style="text-align: end; margin-top: 20pt; margin-right: 15pt;">วัน......... เดือน............... พ.ศ..........</div>
+            <div style="text-align: center;">
+                <div>ข้าพเจ้า..................................เลขบัตรประจำตัวประชาชน...........................</div>
+                <div>ที่อยู่เลขที่......... หมู่ที่......... ตรอก/ถนน......... ตำบล.........
+                อำเภอ......... จังหวัด......... โทร.........</div>
+                <div>ได้รับเงินจาก.................................</div>
                 <div style="font-weight: 600; margin-top: 20pt;">ตามรายละเอียดดังนี้</div>
             </div>
-            <div class="billPayment">
+            <div class="billWelfare">
                 <table>
                     <thead>
                         <tr>
@@ -147,66 +153,88 @@
                     <tbody>
                         <tr>
                             <td class="order">1</td>
-                            <td style="text-align: start;">เงินสมทบกองทุนของสมาชิก</td>
-                            <td class="amount1">{{{savingAmount}}}</td>
-                            <td class="amount2"></td>
-                        </tr>
-                        <tr>
-                            <td class="order"></td>
-                            <td style="text-align: start;"></td>
+                            <td style="text-align: start;">ค่าสวัสดิการเรื่อง.................................</td>
                             <td class="amount1"></td>
                             <td class="amount2"></td>
                         </tr>
                         <tr>
-                            <td class="order"></td>
-                            <td style="text-align: start;"></td>
+                            <td class="order">2</td>
+                            <td></td>
                             <td class="amount1"></td>
                             <td class="amount2"></td>
                         </tr>
                         <tr>
-                            <td class="order"></td>
-                            <td style="text-align: start;"></td>
+                            <td class="order">3</td>
+                            <td></td>
                             <td class="amount1"></td>
                             <td class="amount2"></td>
                         </tr>
                         <tr>
-                            <td class="order"></td>
-                            <td style="text-align: start;"></td>
+                            <td class="order">4</td>
+                            <td></td>
                             <td class="amount1"></td>
                             <td class="amount2"></td>
                         </tr>
                         <tr>
-                            <td class="order"></td>
-                            <td style="text-align: start;"></td>
+                            <td class="order">5</td>
+                            <td></td>
                             <td class="amount1"></td>
                             <td class="amount2"></td>
                         </tr>
                         <tr>
-                            <td class="order"></td>
-                            <td style="text-align: start;"></td>
+                            <td class="order">6</td>
+                            <td></td>
                             <td class="amount1"></td>
                             <td class="amount2"></td>
                         </tr>
                         <tr>
-                            <td class="order"></td>
-                            <td style="text-align: start;"></td>
+                            <td class="order">7</td>
+                            <td></td>
                             <td class="amount1"></td>
                             <td class="amount2"></td>
                         </tr>
                         <tr>
-                            <td class="order"></td>
-                            <td style="text-align: start;"></td>
+                            <td class="order">8</td>
+                            <td></td>
+                            <td class="amount1"></td>
+                            <td class="amount2"></td>
+                        </tr>
+                        <tr>
+                            <td class="order">9</td>
+                            <td></td>
+                            <td class="amount1"></td>
+                            <td class="amount2"></td>
+                        </tr>
+                        <tr>
+                            <td class="order">10</td>
+                            <td></td>
+                            <td class="amount1"></td>
+                            <td class="amount2"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">รวมทั้งสิ้น</td>
                             <td class="amount1"></td>
                             <td class="amount2"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div style="display: flex; text-align: center; margin-top: 20pt; justify-content: center;">ตัวอักษร<div class="line" style="width: 60%;">({{{savingAmountText}}})</div></div>
-            <div style="text-align: center; margin-top: 50pt;">
-                ลงชื่อ.................................................................................ผู้รับเงิน
-                <br>(.......................................................................)
-                <br>................/................/................
+            <div style="display: flex; text-align: center; margin-top: 20pt; justify-content: center;">ตัวอักษร<div class="line" style="width: 60%;">({{{expenseAmountText}}})</div></div>
+            <div>
+                <div style="display: flex; justify-content: space-around; margin-top: 50pt;">
+                    <div style="text-align: center;">
+                        ลงชื่อ............................................................ผู้รับเงิน
+                        <br>(.........................................)
+                    </div>
+                    <div style="text-align: center;">
+                        ลงชื่อ............................................................ผู้จ่ายเงิน
+                        <br>(.........................................)
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 50pt;">
+                    ลงชื่อ............................................................พยาน
+                    <br>(.........................................)
+                </div>
             </div>
         </div>  
     </body>

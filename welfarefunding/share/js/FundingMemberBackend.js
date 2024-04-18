@@ -79,11 +79,15 @@ const FundingMemberBackend = function(main, parent) {
 		let result = await main.protocol.user.getAllUser(data);
 		let option = {
 			count: result.count,
+			hasAvatar: false,
 			hasView: true,
 		}
+		option.excludeInput = ['email', 'username', 'Nametitle', 'displayName', 'gid'];
+		// option.excludeInput = ['username'];
 		// วิธีเพิ่มเอกสาร
 		option.operation = [
-			{label: 'PDF', ID: 'pdf', icon: 'welfarefunding.PDF'}
+			{label: 'PDF', ID: 'pdf', icon: 'welfarefunding.PDF'},
+			{label: 'สมุดประจำตัวสมาชิก', ID: 'savingList', icon: 'welfarefunding.PDF'}
 		];
 		let table = await object.renderTableView(object.model, option, main.tableViewType);
 		// if(table.dom.thead && table.dom.thead.salaryList_th){
@@ -93,6 +97,11 @@ const FundingMemberBackend = function(main, parent) {
 			record.dom.pdf.onclick = async function(){
 				let blob = await GET(`welfarefunding/documentmember/by/id/get/${record.record.id}`, undefined, 'blob');
 				await OPEN_FILE(blob);
+			}
+			record.dom.savingList.onclick = async function(){
+				let blob = await GET(`welfarefunding/documentsavinglist/by/id/get/${record.record.id}`, undefined, 'blob');
+				await OPEN_FILE(blob);
+				console.log(record.record);
 			}
 		}
 		await table.createMultipleRecord(result.data);

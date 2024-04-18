@@ -13,7 +13,19 @@ const IncomeItemBackend = function(main, parent) {
 
 	this.renderTableView = async function(modelName, config = {}){
 		config.hasAvatar = false;
-		await AbstractPage.prototype.renderTable.call(this, modelName, config);
+		// await AbstractPage.prototype.renderTable.call(this, modelName, config);
+		config.operation = [
+			{label: 'ใบเสร็จรับเงิน', ID: 'pdf', icon: 'welfarefunding.PDF'}
+		]
+		let table = await AbstractPage.prototype.renderTable.call(this, modelName, config);
+		for(let i in table.records){
+			let record = table.records[i];
+			console.log(record.record);
+			record.dom.pdf.onclick = async function(){
+				let blob = await GET(`welfarefunding/documentincome/by/id/get/${record.record.id}`, undefined, 'blob');
+				await OPEN_FILE(blob);
+			}
+		}
 	}
 
 	// this.renderTableView = async function(modelName, config = {}) {

@@ -6,32 +6,32 @@ from gaimon.core.RESTResponse import(
     ErrorRESTResponse as Error,
     SuccessRESTResponse as Success
 )
-from welfarefunding.model.ExpenseItem import ExpenseItem
+from welfarefunding.model.FundDocument import FundDocument
 
 from sanic import response
 import os, string, random
 from weasyprint import HTML
 
-@BASE(ExpenseItem, "/welfarefunding/expenseitem", "welfarefunding.ExpenseItem")
-class ExpenseItemController(BaseController):
+@BASE(FundDocument, "/welfarefunding/funddocument", "welfarefunding.FundDocument")
+class FundDocumentController(BaseController):
     def __init__(self, application):
         super().__init__(application)
 
-    @GET('/welfarefunding/documentexpense/by/id/get/<id>', role=['user'])
-    async def getDocumentExpense(self, request, id):
-        model = await self.session.select(ExpenseItem, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
+    @GET('/welfarefunding/documentfundperyear/by/id/get/<id>', role=['user'])
+    async def getDocumentFundPerYear(self, request, id):
+        model = await self.session.select(FundDocument, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
         if len(model) == 0: return Error('Member does not exist.')
         model = model[0]
         data = model.toDict()
-        path = await self.generateDocumentExpensePDF(data)
+        path = await self.generateDocumentFundPerYearPDF(data)
         model.path = path
         await self.session.update(model)
         path = f"{self.resourcePath}upload/{path}"
         return await response.file(path)
     
-    async def generateDocumentExpensePDF(self, data):
+    async def generateDocumentFundPerYearPDF(self, data):
         font = await self.getFont()
-        template = self.theme.getTemplate('welfarefunding/DocumentExpense.tpl')
+        template = self.theme.getTemplate('welfarefunding/DocumentFundPerYear.tpl')
         data['font'] = font
         html = self.renderer.render(template, data)
         letters = string.ascii_lowercase
