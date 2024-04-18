@@ -7,7 +7,7 @@ from gaimon.core.RESTResponse import(
     SuccessRESTResponse as Success
 )
 from welfarefunding.model.IncomeItem import IncomeItem
-from typing import List
+from typing import List, Dict
 from welfarefunding.model.SavingFund import SavingFund
 from welfarefunding.model.BudgetFund import BudgetFund
 
@@ -56,7 +56,8 @@ class IncomeItemController(BaseController):
     
 
     @GET("/welfarefunding/incomeitem/get/all/income")
-    async def getIncomeItemOption(self, request) :
+    async def getIncomeItemOption(self, requests) :
+        print("-----------------------------------TEST-----------------------------------------------------")
         income_clause = 'WHERE isDrop = ? ORDER BY id DESC'
         models_income:List[IncomeItem] = await self.session.select(IncomeItem, income_clause, parameter=[0])
         
@@ -66,7 +67,7 @@ class IncomeItemController(BaseController):
         budget_clause = 'WHERE isDROP = ?'
         models_budget:List[BudgetFund] = await self.session.select(BudgetFund, budget_clause, parameter=[0])
         
-        income_dict = {}
+        income_dict: Dict[str, float] = {}
         
         for income in models_income :
             income_type = income.incomeType
@@ -83,21 +84,19 @@ class IncomeItemController(BaseController):
             income_dict[income_type] += paymentAmount
             
         for budget in models_budget :
-            # income_type = budget.budgetType
-            # paymentAmount = saving.savingAmount
-            
             if budget.budgetStatus == "SUCCESS" :
                 income_type = budget.budgetType
                 paymentAmount = budget.budgetFundAmount
             
                 income_dict.setdefault(income_type,0)
                 income_dict[income_type] += paymentAmount
-                        
+        
         combined_data = [(income_type,paymentAmount) for income_type,paymentAmount in income_dict.items()]
 
-        print(combined_data)    
+        print(combined_data)   
         
         return Success(combined_data)
+        
          
     @GET('/welfarefunding/documentincome/by/id/get/<id>', role=['user'])
     async def getDocumentIncome(self, request, id):
@@ -110,7 +109,7 @@ class IncomeItemController(BaseController):
         await self.session.update(model)
         path = f"{self.resourcePath}upload/{path}"
         return await response.file(path)
-
+    
     async def generateDocumentIncomePDF(self, data):
         font = await self.getFont()
         template = self.theme.getTemplate('welfarefunding/DocumentIncome.tpl')
