@@ -49,3 +49,31 @@ class FundDocumentController(BaseController):
         font = self.theme.getTemplate('welfarefunding/FontFamily.tpl')
         font = self.renderer.render(font, {})
         return font
+    
+    @GET('/welfarefunding/testcalculate/by/id/get/<id>', role=['user'])
+    async def getDocumentTestCalculate(self, request, id):
+        model = await self.session.select(FundDocument, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
+        if len(model) == 0: return Error('Member does not exist.')
+        model = model[0]
+        data = model.toDict()
+        path = await self.generateDocumentTestCalculatePDF(data)
+        model.path = path
+        await self.session.update(model)
+        path = f"{self.resourcePath}upload/{path}"
+        return await response.file(path)
+    
+    async def generateDocumentTestCalculatePDF(self, data):
+        font = await self.getFont()
+        template = self.theme.getTemplate('welfarefunding/TestCalculate.tpl')
+        data['font'] = font
+        html = self.renderer.render(template, data)
+        letters = string.ascii_lowercase
+        fileName = ''.join(random.choice(letters) for i in range(20))
+        path = self.resourcePath + "upload/welfarefunding/document"
+        os.makedirs(path, exist_ok=True)
+        pathFile = path + "/%s.pdf" % (fileName)
+        html = HTML(string=html)
+        html.write_pdf(pathFile)
+        pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
+        print('--------------- GENERATE PDF FINISHED ---------------')
+        return pathUpload

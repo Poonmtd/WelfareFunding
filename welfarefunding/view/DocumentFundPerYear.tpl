@@ -143,7 +143,19 @@
             </div>
             <div style="margin-top: 20pt;">
                 <div style="display: flex;"><p style="font-weight: 600; margin-right: 5pt;">2. ก่อตั้งเมื่อ</p>วันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ<div class="line" style="width: 10%;"></div></div>
-                <div><p style="font-weight: 600;">ชื่อองค์กรที่สนับสนุนการจัดตั้ง</p><div class="line" style="width: 20%;"></div></div>
+                <div style="display: flex;"><p style="font-weight: 600;">ชื่อองค์กรที่สนับสนุนการจัดตั้ง</p><div class="line" style="width: 20%;"></div></div>
+                <div><p style="font-weight: 600;">วัตถุประสงค์ของการจัดตั้งกลุ่ม/กองทุน</p></div>
+                <div class="line" style="width: 80%; text-align: start;">1. ส่งเสริมให้สมาชิกรู้จักออมเงินเพื่อเบ่งปันช่วยเหลือซึ่งกันเเละกัน</div>
+                <div class="line" style="width: 80%; text-align: start;">2. เพื่อจัดสวัสดิการเเก่สมาชิกตลอดชีวิตในเรื่องการเกิด การเเก่ การเจ็บ การตาย เเละอื่น ๆ</div>
+                <div class="line" style="width: 80%; text-align: start;">3. เพื่อให้เกิดคุณธรรม ความสามัคคีมีน้ำใจ ร่วมกันเเก้ไขปัญหา สร้างสัมพันธภาพที่ดีเเก่สมาชิก</div>
+                <div class="line" style="width: 80%; text-align: start;">4. เพื่อให้ชุมชนเข้มเเข็ง มีองค์กรคอยช่วยเหลือ</div>
+            </div>
+            <div style="margin-top: 20pt;">
+                <div style="font-weight: 600; display: flex;">3. ข้อมูลสมาชิกกองทุน</div>
+                <div style="display: flex;">
+                    <div>จำนวนสมาชิกเเรกตั้ง<div class="line" style="width: 15%;"></div>สมาชิกสะสมถึงปัจจุบัน<div class="line" style="width: 15%;"></div></div>
+                    <div>จำนวนสมาชิกคงเหลือ(หักตาย ลาออกเเละพ้นสภาพการเป็นสมาชิก)</div>
+                </div>
             </div>
         </div>  
     </body>

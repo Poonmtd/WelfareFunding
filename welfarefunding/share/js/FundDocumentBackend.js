@@ -14,7 +14,8 @@ const FundDocumentBackend = function(main, parent) {
 	this.renderTableView = async function(modelName, config={}){
 		config.hasAvatar = false;
 		config.operation = [
-			{label: 'เอกสารกองทุน', ID: 'pdf', icon: 'welfarefunding.PDF'}
+			{label: 'เอกสารกองทุน', ID: 'pdf', icon: 'welfarefunding.PDF'},
+			{label: 'ลองคำนวณ', ID: 'calculate', icon: 'welfarefunding.PDF'}
 		]
 		let table = await AbstractPage.prototype.renderTable.call(this, modelName, config);
 		for(let i in table.records){
@@ -22,6 +23,10 @@ const FundDocumentBackend = function(main, parent) {
 			console.log(record.record);
 			record.dom.pdf.onclick = async function(){
 				let blob = await  GET(`welfarefunding/documentfundperyear/by/id/get/${record.record.id}`, undefined, 'blob');
+				await OPEN_FILE(blob);
+			}
+			record.dom.calculate.onclick = async function(){
+				let blob = await GET(`welfarefunding/testcalculate/by/id/get/${record.record.id}`, undefined, 'blob');
 				await OPEN_FILE(blob);
 			}
 		}
