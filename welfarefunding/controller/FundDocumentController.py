@@ -11,6 +11,7 @@ from welfarefunding.model.IncomeItem import IncomeItem
 from welfarefunding.model.ExpenseItem import ExpenseItem
 from welfarefunding.model.BudgetFund import BudgetFund
 from welfarefunding.model.SavingFund import SavingFund
+from welfarefunding.model.IncomeType import IncomeType
 
 from sanic import response
 import os, string, random
@@ -83,6 +84,9 @@ class FundDocumentController(BaseController):
         html.write_pdf(pathFile)
         pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
         print('--------------- GENERATE PDF FINISHED ---------------')
+        print(calculate)
+        print(data)
+        print('------------------------------------------------------')
         return pathUpload
     
     @GET("/welfarefunding/incomeitem/get/all/income")
@@ -90,7 +94,7 @@ class FundDocumentController(BaseController):
         return self.calculateIncome()
     
     async def calculateIncome(self):
-        print("-----------------------------------TEST-----------------------------------------------------")
+        print("-----------------------------------TEST CALCURATE-----------------------------------------------------")
         income_clause = 'WHERE isDrop = ? ORDER BY id DESC'
         models_income:List[IncomeItem] = await self.session.select(IncomeItem, income_clause, parameter=[0])
         
@@ -98,7 +102,7 @@ class FundDocumentController(BaseController):
         models_saving:List[SavingFund] = await self.session.select(SavingFund, saving_clause, parameter=[0])
         
         budget_clause = 'WHERE isDROP = ?'
-        models_budget:List[BudgetFund] = await self.session.select(BudgetFund, budget_clause, parameter=[0])
+        models_budget:List[BudgetFund] = await self.session.select(BudgetFund, budget_clause, parameter=[0]) 
         
         income_dict: Dict[str, float] = {}
         
@@ -110,7 +114,7 @@ class FundDocumentController(BaseController):
             income_dict[income_type] += paymentAmount
             
         for saving in models_saving :
-            income_type = '1'
+            income_type = 'เงินสมทบจากสมาชิก'
             paymentAmount = saving.savingAmount
             
             income_dict.setdefault(income_type,0)
@@ -125,7 +129,7 @@ class FundDocumentController(BaseController):
                 income_dict[income_type] += paymentAmount
         
         combined_data = [(income_type,paymentAmount) for income_type,paymentAmount in income_dict.items()]
-
-        print(combined_data)   
+        print(income_dict)
+        return income_dict
         
-        return Success(combined_data)
+        # return Success(income_dict)

@@ -56,8 +56,10 @@ class IncomeItemController(BaseController):
     
 
     @GET("/welfarefunding/incomeitem/get/all/income")
-    async def getIncomeItemOption(self, requests) :
-        print("-----------------------------------TEST-----------------------------------------------------")
+    async def getIncomeItemOption(self, request) :
+        return 
+    async def calculateincome(self, request):
+        print("-----------------------------------TEST------------------------------------------")
         income_clause = 'WHERE isDrop = ? ORDER BY id DESC'
         models_income:List[IncomeItem] = await self.session.select(IncomeItem, income_clause, parameter=[0])
         
