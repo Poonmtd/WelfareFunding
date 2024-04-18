@@ -8,43 +8,45 @@ from gaimon.core.RESTResponse import(
 )
 from welfarefunding.model.IncomeItem import IncomeItem
 from typing import List
-from welfarefunding.model.SavingFund import SavingFund
+
+from sanic import response
+import os, string, random
+from weasyprint import HTML
 
 @BASE(IncomeItem, "/welfarefunding/incomeitem", "welfarefunding.IncomeItem")
 class IncomeItemController(BaseController):
     def __init__(self, application):
         super().__init__(application)
         
-    # @GET("/welfarefunding/incomeitem/get/all/income")
-    # async def getIncomeItemOption(self, request) :
-    #     income_clause = 'WHERE isDrop = ? ORDER BY id DESC'
-    #     models_income:List[IncomeItem] = await self.session.select(IncomeItem, income_clause, parameter=[0])
-        
-    #     saving_clause = 'WHERE isDrop = ?'
-    #     models_saving:List[SavingFund] = await self.session.select(SavingFund, saving_clause, parameter=[0])
-        
-    #     combined_data = []
-        
-    #     for income in models_income :
-    #         combined_data.append({
-    #             'incomeType': income.incomeType,
-    #             'PaymentDate': income.PaymentDate,
-    #             'memberID' : income.memberID,
-    #             'Amount' : income.Amount,
-    #             'incomeDescription' : income.incomeDescription
-    #         })
-            
-    #     for saving in models_saving :
-    #         combined_data.append({
-    #             'incomeType': '4',
-    #             'PaymentDate': saving.savingDate,
-    #             'memberID' : saving.memberID,
-    #             'Amount' : saving.savingAmount,
-    #             'incomeDescription' : 'เงินสมทบจากสมาชิก'
-    #         })
-        
-    #         combined_data.sort(key=lambda x: x['PaymentDate'], reverse=True)    
-            
-    #     print(combined_data)    
-        
-    #     return Success(combined_data)
+    @GET('/welfarefunding/documentincome/by/id/get/<id>', role=['user'])
+    async def getDocumentIncome(self, request, id):
+        model = await self.session.select(IncomeItem, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
+        if len(model) == 0: return Error('Member does not exist.')
+        model = model[0]
+        data = model.toDict()
+        path = await self.generateDocumentIncomePDF(data)
+        model.path = path
+        await self.session.update(model)
+        path = f"{self.resourcePath}upload/{path}"
+        return await response.file(path)
+
+    async def generateDocumentIncomePDF(self, data):
+        font = await self.getFont()
+        template = self.theme.getTemplate('welfarefunding/DocumentIncome.tpl')
+        data['font'] = font
+        html = self.renderer.render(template, data)
+        letters = string.ascii_lowercase
+        fileName = ''.join(random.choice(letters) for i in range(20))
+        path = self.resourcePath + "upload/welfarefunding/document"
+        os.makedirs(path, exist_ok=True)
+        pathFile = path + "/%s.pdf" % (fileName)
+        html = HTML(string=html)
+        html.write_pdf(pathFile)
+        pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
+        print('--------------- GENERATE PDF FINISHED ---------------')
+        return pathUpload
+
+    async def getFont(self):
+        font = self.theme.getTemplate('welfarefunding/FontFamily.tpl')
+        font = self.renderer.render(font, {})
+        return font

@@ -34,7 +34,7 @@ class SavingFund(Record):
             label="จำนวนเงินออม",
 			isRequired=True,
             isTable=True,
-			order="1.0"
+			order="1.2"
         )
     )
 
@@ -43,7 +43,7 @@ class SavingFund(Record):
             label="จำนวนเงินออม(ตัวอักษร)",
             isTable=False,
             isRequired=True,
-            order="1.1"
+            order="1.3"
         )
     )
 

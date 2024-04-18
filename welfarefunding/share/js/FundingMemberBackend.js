@@ -101,6 +101,7 @@ const FundingMemberBackend = function(main, parent) {
 			record.dom.savingList.onclick = async function(){
 				let blob = await GET(`welfarefunding/documentsavinglist/by/id/get/${record.record.id}`, undefined, 'blob');
 				await OPEN_FILE(blob);
+				console.log(record.record);
 			}
 		}
 		await table.createMultipleRecord(result.data);
