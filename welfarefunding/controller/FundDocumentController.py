@@ -7,10 +7,15 @@ from gaimon.core.RESTResponse import(
     SuccessRESTResponse as Success
 )
 from welfarefunding.model.FundDocument import FundDocument
+from welfarefunding.model.IncomeItem import IncomeItem
+from welfarefunding.model.ExpenseItem import ExpenseItem
+from welfarefunding.model.BudgetFund import BudgetFund
+from welfarefunding.model.SavingFund import SavingFund
 
 from sanic import response
 import os, string, random
 from weasyprint import HTML
+from typing import List, Dict
 
 @BASE(FundDocument, "/welfarefunding/funddocument", "welfarefunding.FundDocument")
 class FundDocumentController(BaseController):
@@ -64,8 +69,10 @@ class FundDocumentController(BaseController):
     
     async def generateDocumentTestCalculatePDF(self, data):
         font = await self.getFont()
+        calculate = await self.getIncomeItemOption()
         template = self.theme.getTemplate('welfarefunding/TestCalculate.tpl')
         data['font'] = font
+        data['calculate'] = calculate
         html = self.renderer.render(template, data)
         letters = string.ascii_lowercase
         fileName = ''.join(random.choice(letters) for i in range(20))
@@ -77,3 +84,45 @@ class FundDocumentController(BaseController):
         pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
         print('--------------- GENERATE PDF FINISHED ---------------')
         return pathUpload
+    
+    @GET("/welfarefunding/incomeitem/get/all/income")
+    async def getIncomeItemOption(self) :
+        print("-----------------------------------TEST-----------------------------------------------------")
+        income_clause = 'WHERE isDrop = ? ORDER BY id DESC'
+        models_income:List[IncomeItem] = await self.session.select(IncomeItem, income_clause, parameter=[0])
+        
+        saving_clause = 'WHERE isDrop = ?'
+        models_saving:List[SavingFund] = await self.session.select(SavingFund, saving_clause, parameter=[0])
+        
+        budget_clause = 'WHERE isDROP = ?'
+        models_budget:List[BudgetFund] = await self.session.select(BudgetFund, budget_clause, parameter=[0])
+        
+        income_dict: Dict[str, float] = {}
+        
+        for income in models_income :
+            income_type = income.incomeType
+            paymentAmount = income.Amount
+            
+            income_dict.setdefault(income_type,0)
+            income_dict[income_type] += paymentAmount
+            
+        for saving in models_saving :
+            income_type = '1'
+            paymentAmount = saving.savingAmount
+            
+            income_dict.setdefault(income_type,0)
+            income_dict[income_type] += paymentAmount
+            
+        for budget in models_budget :
+            if budget.budgetStatus == "SUCCESS" :
+                income_type = budget.budgetType
+                paymentAmount = budget.budgetFundAmount
+            
+                income_dict.setdefault(income_type,0)
+                income_dict[income_type] += paymentAmount
+        
+        combined_data = [(income_type,paymentAmount) for income_type,paymentAmount in income_dict.items()]
+
+        print(combined_data)   
+        
+        return Success(combined_data)

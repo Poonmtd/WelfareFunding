@@ -152,10 +152,18 @@
             </div>
             <div style="margin-top: 20pt;">
                 <div style="font-weight: 600; display: flex;">3. ข้อมูลสมาชิกกองทุน</div>
+                <div style="display: flex;">3.1 จำนวนสมาชิกเเรกตั้ง<div class="line" style="width: 15%;"></div>สมาชิกสะสมถึงปัจจุบัน<div class="line" style="width: 15%;"></div></div>
+                <div style="display: flex;">จำนวนสมาชิกคงเหลือ (หักตาย ลาออกเเละพ้นสภาพการเป็นสมาชิก) ปัจจุบัน<div class="line" style="width: 15%;"></div>คน</div>
                 <div style="display: flex;">
-                    <div>จำนวนสมาชิกเเรกตั้ง<div class="line" style="width: 15%;"></div>สมาชิกสะสมถึงปัจจุบัน<div class="line" style="width: 15%;"></div></div>
-                    <div>จำนวนสมาชิกคงเหลือ(หักตาย ลาออกเเละพ้นสภาพการเป็นสมาชิก)</div>
+                    ณ วันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ<div class="line" style="width: 10%;"></div>
+                    จากจำนวนประชากรในชุมชนทั้งหมด<div class="line" style="width: 10%;"></div>คน
                 </div>
+                <div style="display: flex; flex-direction: column; margin-left: 20pt;">
+                    <div>- สมาชิกสะสม หมายถึง สมาชิกสะสมนับตั้งเเต่วันก่อตั้งถึงปัจจุบัน</div>
+                    <div>- สมาชิกปัจจุบัน หมายถึง สมาชิกที่หัก ตาย ลาออก ขาดคุณสมบัติการเป็นสมาชิก</div>
+                    <div>- สมาชิกที่ขอรับการสมทบ หมายถึง สมาชิกครบปีเเละเป็นไปตามเกณฑ์เงื่อนไขการสมทบงบสวัสดิการ</div>
+                </div>
+                <div style="display: flex;">3.2 จำนวนผู้ที่เป็นสมาชิก (เลือกเพียง 1 ข้อ)</div>
             </div>
         </div>  
     </body>

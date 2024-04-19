@@ -121,6 +121,7 @@
         <div class="document">
             test calculate
             {{{income_type}}}
+            {{{combined_data}}}
         </div>  
     </body>
 </html>
