@@ -120,8 +120,7 @@
     <body>
         <div class="document">
             test calculate
-            {{{income_type}}}
-            {{{combined_data}}}
+            {{calculate}}  
         </div>  
     </body>
 </html>

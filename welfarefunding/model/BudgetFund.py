@@ -55,4 +55,3 @@ class BudgetFund(Record):
 	def modify(self):
 		modification = self.createModification("2.1")
 		modification.add("isDrop", IntegerColumn(default=0))
-		modification.drop("iaDrop")
