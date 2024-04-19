@@ -12,6 +12,9 @@ from welfarefunding.model.SavingFund import SavingFund
 
 import os, string, random, mimetypes, base64
 
+from datetime import datetime
+
+
 from weasyprint import HTML
 
 from sanic import response
@@ -28,6 +31,8 @@ class FundingMemberController(BaseController):
 		if len(model) == 0: return Error('Member does not exist.')
 		model = model[0]
 		data = model.toDict()
+		age = model.applyDate.year - model.birthday.year - ((model.applyDate.month, model.applyDate.day) < (model.birthday.month, model.birthday.day))
+		data['age'] = age
 		# if len(model.path): return await response.file(f"{self.resourcePath}upload/{model.path}")
 		if len(model.path):
 			await self.static.removeStaticShare(model.path) # remove old file before generate new file

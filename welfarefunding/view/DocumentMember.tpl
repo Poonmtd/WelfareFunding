@@ -114,7 +114,7 @@
                     </div>
                     <div style="display: flex;">
                         เลขประจำตัวประชาชน<div class="line" style="width: 30%;">{{{citizenID}}}</div>
-                        อายุ<div class="line" style="width: 5%;">00</div>
+                        อายุ<div class="line" style="width: 5%;">{{age}}</div>
                         ปี วัน/เดือน/ปี เกิด<div class="line" style="width: 20%;">{{{birthday}}}</div>
                     </div>
                     <div style="display: flex;">
