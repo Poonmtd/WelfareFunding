@@ -69,7 +69,7 @@ class FundDocumentController(BaseController):
     
     async def generateDocumentTestCalculatePDF(self, data):
         font = await self.getFont()
-        calculate = await self.getIncomeItemOption()
+        calculate = await self.calculateIncome()
         template = self.theme.getTemplate('welfarefunding/TestCalculate.tpl')
         data['font'] = font
         data['calculate'] = calculate
@@ -86,7 +86,10 @@ class FundDocumentController(BaseController):
         return pathUpload
     
     @GET("/welfarefunding/incomeitem/get/all/income")
-    async def getIncomeItemOption(self) :
+    async def getIncomeItemOption(self, request) :
+        return self.calculateIncome()
+    
+    async def calculateIncome(self):
         print("-----------------------------------TEST-----------------------------------------------------")
         income_clause = 'WHERE isDrop = ? ORDER BY id DESC'
         models_income:List[IncomeItem] = await self.session.select(IncomeItem, income_clause, parameter=[0])
