@@ -62,6 +62,7 @@ class FundDocumentController(BaseController):
         if len(model) == 0: return Error('Member does not exist.')
         model = model[0]
         data = model.toDict()
+        # data = await self.calculateIncome()
         path = await self.generateDocumentTestCalculatePDF(data)
         model.path = path
         await self.session.update(model)
@@ -100,14 +101,14 @@ class FundDocumentController(BaseController):
         
         saving_clause = 'WHERE isDrop = ?'
         models_saving:List[SavingFund] = await self.session.select(SavingFund, saving_clause, parameter=[0])
-        
+
         budget_clause = 'WHERE isDROP = ?'
         models_budget:List[BudgetFund] = await self.session.select(BudgetFund, budget_clause, parameter=[0]) 
         
         income_dict: Dict[str, float] = {}
         
         for income in models_income :
-            income_type = income.incomeType
+            income_type = str(income.incomeType)
             paymentAmount = income.Amount
             
             income_dict.setdefault(income_type,0)
@@ -121,15 +122,18 @@ class FundDocumentController(BaseController):
             income_dict[income_type] += paymentAmount
             
         for budget in models_budget :
-            if budget.budgetStatus == "SUCCESS" :
-                income_type = budget.budgetType
-                paymentAmount = budget.budgetFundAmount
-            
+            income_type = str(budget.budgetType)
+            paymentAmount = budget.budgetFundAmount
+            if budget.budgetStatus == 3 :
                 income_dict.setdefault(income_type,0)
-                income_dict[income_type] += paymentAmount
+                income_dict[income_type] += paymentAmount   # budtype ยังไปรวมกัน income type อยู่เพราะว่าตัวเลขเป็นตัวเลขเดียวกัน
         
-        combined_data = [(income_type,paymentAmount) for income_type,paymentAmount in income_dict.items()]
+        # combined_data = [(income_type,paymentAmount) for income_type,paymentAmount in income_dict.items()]
         print(income_dict)
         return income_dict
         
         # return Success(income_dict)
+        
+    async def calculateExpense(self) :
+        
+        return
