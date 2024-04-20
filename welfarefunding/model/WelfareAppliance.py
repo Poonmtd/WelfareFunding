@@ -44,6 +44,14 @@ class WelfareAppliance(Record):
             isTable=True
         )
     )
+    
+    isDrop = IntegerColumn(
+        default=0
+	)
+    
+    def modify(self):
+        modification = self.createModification("2.1")
+        modification.add("isDrop", IntegerColumn(default=0))
 
     # welfareCondition = IntegerColumn(
     #     foreignKey="WelfareCondition.id",
