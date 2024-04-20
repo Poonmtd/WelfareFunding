@@ -120,7 +120,8 @@
     <body>
         <div class="document">
             test calculate
-            {{calculate}}  
+            {{calculate}}
+            {{calculate.เงินสมทบจากสมาชิก}}  
         </div>  
     </body>
 </html>
