@@ -1,10 +1,10 @@
 from enum import IntEnum
 
 class BudgetType(IntEnum):
-    CODI = 1
-    GOVERNMENTCONTRIBUTION = 2 
-    LOCALGOVERNMENT = 3
-    OTHERGOVERNMENT = 4
+    CODI = 100
+    GOVERNMENTCONTRIBUTION = 200
+    LOCALGOVERNMENT = 300
+    OTHERGOVERNMENT = 400
 
 
 BudgetType.label = {
