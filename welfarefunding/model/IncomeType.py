@@ -6,7 +6,6 @@ from xerial.IntegerColumn import IntegerColumn
 from xerial.input.TextInput import TextInput
 from xerial.input.RichTextInput import RichTextInput
 
-
 class IncomeType(Record):
 	incomeName = StringColumn(
 		isRepresentative=True,
