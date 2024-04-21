@@ -73,12 +73,14 @@ class FundDocumentController(BaseController):
         font = await self.getFont()
         calculateIncome, calculateAllIncome = await self.calculateIncome()
         calculateExpense ,calculateAllExpense = await self.calculateExpense()
+        calculateWelfareAppliance = await self.calculateWelfareAppliance()
         template = self.theme.getTemplate('welfarefunding/TestCalculate.tpl')
         data['font'] = font
         data['calculateIncome'] = calculateIncome
         data['calculateAllIncome'] = calculateAllIncome
         data['calculateExpense'] = calculateExpense
         data['calculateAllExpense'] = calculateAllExpense
+        data['calculateWelfareAppliance'] = calculateWelfareAppliance
         html = self.renderer.render(template, data)
         letters = string.ascii_lowercase
         fileName = ''.join(random.choice(letters) for i in range(20))
@@ -210,3 +212,21 @@ class FundDocumentController(BaseController):
         # combined_data = [(income_type,paymentAmount) for income_type,paymentAmount in income_dict.items()]
         # print(expense_dict)
         return expense_dict, expenseAll_dict
+    
+    async def calculateWelfareAppliance(self) :
+        clause = 'WHERE isDrop = ?'
+        models:List[WelfareAppliance] = await self.session.select(WelfareAppliance, clause, parameter=[0])
+        
+        appliancs_dict: Dict[str, float] = {}
+        
+        for appliance in models :
+            welfare_type = str(appliance.welfareType)
+            paymentAmount = appliance.Amount
+            
+            appliancs_dict.setdefault(welfare_type,0.00)
+            appliancs_dict[welfare_type] += paymentAmount
+            
+            appliancs_dict.setdefault('จำนวนคนของ'+welfare_type, 0.00)
+            appliancs_dict['จำนวนคนของ'+welfare_type] += 1  
+        
+        return appliancs_dict

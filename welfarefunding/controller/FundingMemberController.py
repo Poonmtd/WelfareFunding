@@ -31,7 +31,7 @@ class FundingMemberController(BaseController):
 		if len(model) == 0: return Error('Member does not exist.')
 		model = model[0]
 		data = model.toDict()
-		age = model.applyDate.year - model.birthday.year - ((model.applyDate.month, model.applyDate.day) < (model.birthday.month, model.birthday.day))
+		age = await self.calculateAge(model.applyDate, model.birthday)
 		data['age'] = age
 		# if len(model.path): return await response.file(f"{self.resourcePath}upload/{model.path}")
 		if len(model.path):
@@ -63,6 +63,11 @@ class FundingMemberController(BaseController):
 		font = self.theme.getTemplate('welfarefunding/FontFamily.tpl')
 		font = self.renderer.render(font, {})
 		return font
+
+	# Calculate Age
+	async def calculateAge(self, applyDate, birthday):
+		age = applyDate.year - birthday.year - ((applyDate.month, applyDate.day) < (birthday.month, birthday.day))
+		return age
 	
 	@GET('/welfarefunding/documentsavinglist/by/id/get/<id>', role=['user'])
 	async def getDocumentSavingList(self, request, id):
