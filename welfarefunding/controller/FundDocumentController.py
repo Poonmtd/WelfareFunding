@@ -13,11 +13,15 @@ from welfarefunding.model.BudgetFund import BudgetFund
 from welfarefunding.model.SavingFund import SavingFund
 from welfarefunding.model.WelfareAppliance import WelfareAppliance
 from welfarefunding.model.AboutFund import AboutFund
+from welfarefunding.model.FundingMember import FundingMember
+from welfarefunding.model.VulnerableGroup import VulnerableGroup
 
 from sanic import response
 import os, string, random
 from weasyprint import HTML
 from typing import List, Dict
+from datetime import datetime
+
 
 @BASE(FundDocument, "/welfarefunding/funddocument", "welfarefunding.FundDocument")
 class FundDocumentController(BaseController):
@@ -74,11 +78,13 @@ class FundDocumentController(BaseController):
         calculateIncome = await self.calculateIncome()
         calculateExpense = await self.calculateExpense()
         calculateWelfareAppliance = await self.calculateWelfareAppliance()
+        calculateTypeMember = await self.CalculateTypeMember()
         template = self.theme.getTemplate('welfarefunding/TestCalculate.tpl')
         data['font'] = font
-        data['calculateIncome'] = calculateIncome
-        data['calculateExpense'] = calculateExpense
-        data['calculateWelfareAppliance'] = calculateWelfareAppliance
+        data['calculateIncome'] = calculateIncome 
+        data['calculateExpense'] = calculateExpense 
+        data['calculateWelfareAppliance'] = calculateWelfareAppliance 
+        data['calculateTypeMember'] = calculateTypeMember
         html = self.renderer.render(template, data)
         letters = string.ascii_lowercase
         fileName = ''.join(random.choice(letters) for i in range(20))
@@ -89,7 +95,7 @@ class FundDocumentController(BaseController):
         html.write_pdf(pathFile)
         pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
         print('--------------- GENERATE PDF FINISHED ---------------')
-        print(calculateIncome)
+        print(calculateTypeMember)
         print(data)
         print('------------------------------------------------------')
         return pathUpload
@@ -218,3 +224,44 @@ class FundDocumentController(BaseController):
             appliancs_dict['จำนวนคนของ'+welfare_type] += 1  
         
         return appliancs_dict
+    
+    async def CalculateTypeMember(self):
+        print("-----------------------------------TEST TYPE-----------------------------------------------------")
+
+        clause = 'WHERE isDrop = ?'
+        models:List[FundingMember] = await self.session.select(FundingMember, clause, parameter=[0])
+        
+        typeMember_dict: Dict[str, float] = {}
+        typeMemberAll_dict: Dict[str, float] = {}
+        
+        typeMember_dict.setdefault('รวม',0)
+        
+        for member in models:
+            if (member.VulnerableGroup != -1) :
+                memberType = VulnerableGroup.label[member.VulnerableGroup]
+                
+                typeMember_dict.setdefault(memberType, 0)
+                typeMember_dict[memberType] += 1 
+                typeMember_dict['รวม'] += 1
+            else :
+                age = await self.calculateAge(member.birthday)
+                typeMember_dict['รวม'] += 1
+                if age <=18 :
+                    typeMember_dict.setdefault('เด็ก',0)
+                    typeMember_dict['เด็ก'] += 1
+                elif age >=60 :
+                    typeMember_dict.setdefault('ผู้สูงอายุ',0)
+                    typeMember_dict['ผู้สูงอายุ'] += 1
+                else :
+                    typeMember_dict.setdefault('ทั่วไป',0)
+                    typeMember_dict['ทั่วไป'] += 1
+            
+        return typeMember_dict
+    
+    async def calculateAge(self, birthday):
+        print("-----------------------------------TEST AGE-----------------------------------------------------")
+        today = datetime.now()
+        print("----------------------------------------",today.year)
+        # differenceTime = today.year-applyDate.year
+        age = today.year - birthday.year - ((today.month, today.day) < (birthday.month, birthday.day))
+        return age
