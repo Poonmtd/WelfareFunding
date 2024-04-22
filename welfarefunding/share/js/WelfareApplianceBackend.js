@@ -26,6 +26,7 @@ const WelfareApplianceBackend = function(main, parent) {
 			let value = this.currentValue;
 			let response = await POST('welfarefunding/welfarecondition/option/get', value);
 			if(response.isSuccess) object.setWelfareTypeOption(form, response.result);
+
 			// let value = this.value;
 			// let option = await POST('/welfarefunding/welfarecondition/option',{id: value});
 			// form.dom.welfareCondition.appen(`<option value="${option[i].id}">${option[i].name}</option>`)

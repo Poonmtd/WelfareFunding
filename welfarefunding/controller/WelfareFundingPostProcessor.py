@@ -41,9 +41,13 @@ class WelfareFundingPostProcessor (PostProcessDecorator) :
  async def updateUser(self, request:Request, response:RESTResponse) :
   if not response.data['isSuccess']: return response
   data = response.data['result']
-  print(data)
+  print(data['additional']['applyDate'])
+  print("------------------------------------")
+  print(data['isDrop'])
+  
   isUpdate = False
   model = FundingMember()
+  print(model.isDrop)
   if 'id' in data:    
    model = await self.session.select(FundingMember, 'WHERE uid=?', parameter=[data['id']], limit=1)
    if len(model) == 0:
@@ -65,6 +69,16 @@ class WelfareFundingPostProcessor (PostProcessDecorator) :
   # add data ใส่ข้อมูลตาม model fundingmember
   if isUpdate: await self.session.update(model)
   else: await self.session.insert(model)
+  return response
+
+ @POST('/user/drop')
+ async def dropUser(self, request:Request, response:RESTResponse):
+  data = response.data['result']
+  model = await self.session.select(FundingMember, "WHERE uid=?", parameter=[data['id']], limit=1, isRelated=True)
+  if len(model) == 0: return response
+  model = model[0]
+  model.isDrop = 1
+  await self.session.update(model)
   return response
  
  @POST('/user/get/by/id')
