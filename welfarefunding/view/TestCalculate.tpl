@@ -126,6 +126,7 @@
             <div>{{calculateExpense}}</div>
             <div>{{calculateAllExpense}}</div>
             <div>{{calculateWelfareAppliance}}</div>
+            <div>{{calculateAllWelfareAppliance}}</div>
             <div>{{calculateTypeMember}}</div>
             <div>{{calculateAllTypeMember}}</div>
         </div>

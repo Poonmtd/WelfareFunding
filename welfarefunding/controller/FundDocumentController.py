@@ -74,16 +74,19 @@ class FundDocumentController(BaseController):
         return await response.file(path)
     
     async def generateDocumentTestCalculatePDF(self, data):
+        date_start = datetime.strptime(data['startYear'], '%Y-%m-%d')
+        date_end =datetime.strptime(data['endYear'], '%Y-%m-%d')
         font = await self.getFont()
-        calculateIncome = await self.calculateIncome()
-        calculateExpense = await self.calculateExpense()
-        calculateWelfareAppliance = await self.calculateWelfareAppliance()
-        calculateTypeMember, calculateAllTypeMember = await self.CalculateTypeMember()
+        calculateIncome = await self.calculateIncome(date_end)
+        calculateExpense = await self.calculateExpense(date_end)
+        calculateWelfareAppliance, calculateAllwelfareAppliance = await self.calculateWelfareAppliance(date_start,date_end)
+        calculateTypeMember, calculateAllTypeMember = await self.CalculateTypeMember(date_start,date_end)
         template = self.theme.getTemplate('welfarefunding/TestCalculate.tpl')
         data['font'] = font
         data['calculateIncome'] = calculateIncome 
         data['calculateExpense'] = calculateExpense 
         data['calculateWelfareAppliance'] = calculateWelfareAppliance 
+        data['calculateAllWelfareAppliance'] = calculateAllwelfareAppliance
         data['calculateTypeMember'] = calculateTypeMember
         data['calculateAllTypeMember'] = calculateAllTypeMember
         html = self.renderer.render(template, data)
@@ -105,16 +108,16 @@ class FundDocumentController(BaseController):
     async def getIncomeItemOption(self, request) :
         return self.calculateIncome()
     
-    async def calculateIncome(self):
+    async def calculateIncome(self, endDate:datetime):
         print("-----------------------------------TEST CALCURATE-----------------------------------------------------")
-        income_clause = 'WHERE isDrop = ? ORDER BY id DESC'
-        models_income:List[IncomeItem] = await self.session.select(IncomeItem, income_clause, parameter=[0])
+        income_clause = 'WHERE isDrop = ? AND PaymentDate <= ?'
+        models_income:List[IncomeItem] = await self.session.select(IncomeItem, income_clause, parameter=[0, endDate])
         
-        saving_clause = 'WHERE isDrop = ?'
-        models_saving:List[SavingFund] = await self.session.select(SavingFund, saving_clause, parameter=[0])
+        saving_clause = 'WHERE isDrop = ? AND savingDate <= ?'
+        models_saving:List[SavingFund] = await self.session.select(SavingFund, saving_clause, parameter=[0,endDate])
 
-        budget_clause = 'WHERE isDROP = ?'
-        models_budget:List[BudgetFund] = await self.session.select(BudgetFund, budget_clause, parameter=[0]) 
+        budget_clause = 'WHERE isDROP = ? AND BudgetFundDate <= ?'
+        models_budget:List[BudgetFund] = await self.session.select(BudgetFund, budget_clause, parameter=[0,endDate]) 
         
         income_dict: Dict[str, float] = {}
         
@@ -155,14 +158,14 @@ class FundDocumentController(BaseController):
         
         # return Success(income_dict)
         
-    async def calculateExpense(self) :
+    async def calculateExpense(self, endDete:datetime) :
         print("-----------------------------------TEST EXPENSE-----------------------------------------------------")
         
-        expense_clause = 'WHERE isDrop = ? ORDER BY id DESC'
-        models_expense:List[ExpenseItem] = await self.session.select(ExpenseItem, expense_clause, parameter=[0])
+        expense_clause = 'WHERE isDrop = ? AND PaymentDate <= ?'
+        models_expense:List[ExpenseItem] = await self.session.select(ExpenseItem, expense_clause, parameter=[0, endDete])
         
-        walfareAppliance_clause = 'WHERE isDrop = ?'
-        models_welfareAppliance:List[WelfareAppliance] = await self.session.select(WelfareAppliance, walfareAppliance_clause, parameter=[0])
+        walfareAppliance_clause = 'WHERE isDrop = ? AND ApplianceDate <= ?'
+        models_welfareAppliance:List[WelfareAppliance] = await self.session.select(WelfareAppliance, walfareAppliance_clause, parameter=[0, endDete])
         
         aboutfund_clause = 'WHERE isDrop = ?'
         models_aboutfund:List[AboutFund] = await self.session.select(AboutFund, aboutfund_clause, parameter=[0])
@@ -208,13 +211,25 @@ class FundDocumentController(BaseController):
         # print(expense_dict)
         return expense_dict
     
-    async def calculateWelfareAppliance(self) :
-        clause = 'WHERE isDrop = ?'
-        models:List[WelfareAppliance] = await self.session.select(WelfareAppliance, clause, parameter=[0])
+    async def calculateWelfareAppliance(self, startDate:datetime, endDate:datetime) :        
+        clause = 'WHERE isDrop = ? AND ApplianceDate >= ? AND ApplianceDate <= ?'
+        models:List[WelfareAppliance] = await self.session.select(WelfareAppliance, clause, parameter=[0,startDate,endDate])
+        
+        clause_all = 'WHERE isDrop = ?'
+        models_all:List[WelfareAppliance] = await self.session.select(WelfareAppliance, clause_all, parameter=[0])
         
         appliancs_dict: Dict[str, float] = {}
+        applianceAll_dict : Dict[str, float] = {}
+        
+        appliancs_dict.setdefault('จำนวนคนรวม',0.00)
+        appliancs_dict.setdefault('จำนวนเงินรวม',0.00)
+        
+        applianceAll_dict.setdefault('จำนวนคนรวมสะสม',0.00)
+        applianceAll_dict.setdefault('จำนวนเงินรวมสะสม',0.00)
+        
         
         for appliance in models :
+            
             welfare_type = str(appliance.welfareType)
             paymentAmount = appliance.Amount
             
@@ -223,15 +238,27 @@ class FundDocumentController(BaseController):
             
             appliancs_dict.setdefault('จำนวนคนของ'+welfare_type, 0.00)
             appliancs_dict['จำนวนคนของ'+welfare_type] += 1  
+            
+        for appliance_all in models_all:
+            welfare_type = str(appliance_all.welfareType)
+            paymentAmount = appliance_all.Amount
+            
+            applianceAll_dict.setdefault(welfare_type,0.00)
+            applianceAll_dict[welfare_type] += paymentAmount
+            
+            applianceAll_dict.setdefault('จำนวนคนของ'+welfare_type, 0.00)
+            applianceAll_dict['จำนวนคนของ'+welfare_type] += 1
         
-        return appliancs_dict
+        return appliancs_dict, applianceAll_dict
     
-    async def CalculateTypeMember(self):
+    async def CalculateTypeMember(self, stareDate:datetime, endDate:datetime):
         print("-----------------------------------TEST TYPE-----------------------------------------------------")
 
-        clause = 'WHERE isDrop IN (?,?)'
-        # clause = 'WHERE isDrop = ?'
-        models:List[FundingMember] = await self.session.select(FundingMember, clause, parameter=[0,1])
+        clause = 'WHERE isDrop IN (?,?) AND applyDate >= ? AND applyDate <= ?'
+        models:List[FundingMember] = await self.session.select(FundingMember, clause, parameter=[0,1,stareDate,endDate])
+        
+        clauseAll = 'WHERE isDrop IN (?,?)'
+        models_all:list[FundingMember] = await self.session.select(FundingMember, clauseAll, parameter=[0,1])
         
         typeMember_dict: Dict[str, float] = {}
         typeMemberAll_dict: Dict[str, float] = {}
@@ -239,67 +266,53 @@ class FundDocumentController(BaseController):
         typeMember_dict.setdefault('รวม',0)
         
         typeMemberAll_dict.setdefault('รวมสะสม',0)
-                
+        
         for member in models:
-            if member.isDrop == 1:
-                if (member.VulnerableGroup != -1) :
+            if member.isDrop == 0:
+                if(member.VulnerableGroup != -1) :
                     memberType = VulnerableGroup.label[member.VulnerableGroup]
                     
-                    typeMemberAll_dict.setdefault(memberType, 0)
-                    typeMemberAll_dict[memberType] += 1 
-                    typeMemberAll_dict['รวมสะสม'] += 1
-                else :
-                    age = await self.calculateAge(member.birthday)
-                    typeMemberAll_dict['รวมสะสม'] += 1
-                    if age <=18 :
-                        typeMemberAll_dict.setdefault('เด็ก',0)
-                        typeMemberAll_dict['เด็ก'] += 1
-                    elif age >=60 :
-                        typeMemberAll_dict.setdefault('ผู้สูงอายุ',0)
-                        typeMemberAll_dict['ผู้สูงอายุ'] += 1
-                    else :
-                        typeMemberAll_dict.setdefault('ทั่วไป',0)
-                        typeMemberAll_dict['ทั่วไป'] += 1
-            elif member.isDrop == 0:    
-                if (member.VulnerableGroup != -1) :
-                    memberType = VulnerableGroup.label[member.VulnerableGroup]
-                    
-                    typeMember_dict.setdefault(memberType, 0)
-                    typeMember_dict[memberType] += 1 
+                    typeMember_dict.setdefault(memberType,0)
+                    typeMember_dict[memberType] += 1
                     typeMember_dict['รวม'] += 1
-                    
-                    typeMemberAll_dict.setdefault(memberType, 0)
-                    typeMemberAll_dict[memberType] += 1 
-                    typeMemberAll_dict['รวมสะสม'] += 1
                 else :
-                    age = await self.calculateAge(member.birthday)
+                    age = await self.calculateAge(member.birthday ,endDate)
                     typeMember_dict['รวม'] += 1
-                    typeMemberAll_dict['รวมสะสม'] += 1
-                    if age <=18 :
+                    if age <= 18:
                         typeMember_dict.setdefault('เด็ก',0)
                         typeMember_dict['เด็ก'] += 1
-                        
-                        typeMemberAll_dict.setdefault('เด็ก',0)
-                        typeMemberAll_dict['เด็ก'] += 1
-                    elif age >=60 :
+                    elif age >= 60 :
                         typeMember_dict.setdefault('ผู้สูงอายุ',0)
                         typeMember_dict['ผู้สูงอายุ'] += 1
-                        
-                        typeMemberAll_dict.setdefault('ผู้สูงอายุ',0)
-                        typeMemberAll_dict['ผู้สูงอายุ'] += 1
                     else :
                         typeMember_dict.setdefault('ทั่วไป',0)
                         typeMember_dict['ทั่วไป'] += 1
-                        
-                        typeMemberAll_dict.setdefault('ทั่วไป',0)
-                        typeMemberAll_dict['ทั่วไป'] += 1
+        
+        for memberall in models_all :
+            if (memberall.VulnerableGroup != -1) :
+                memberType = VulnerableGroup.label[memberall.VulnerableGroup]
+                typeMemberAll_dict.setdefault(memberType,0)
+                typeMemberAll_dict[memberType] += 1
+                typeMemberAll_dict['รวมสะสม'] += 1
+            else :
+                age = await self.calculateAge(memberall.birthday, endDate)
+                typeMemberAll_dict['รวมสะสม'] += 1
+                if age <=18 :
+                    typeMemberAll_dict.setdefault('เด็ก',0)
+                    typeMemberAll_dict['เด็ก'] += 1
+                elif age >=60 :
+                    typeMemberAll_dict.setdefault('ผู้สูงอายุ',0)
+                    typeMemberAll_dict['ผู้สูงอายุ'] += 1
+                else :
+                    typeMemberAll_dict.setdefault('ทั่วไป',0)
+                    typeMemberAll_dict['ทั่วไป'] += 1
             
         return typeMember_dict ,typeMemberAll_dict
     
-    async def calculateAge(self, birthday):
+    async def calculateAge(self, birthday ,endday):
         print("-----------------------------------TEST AGE-----------------------------------------------------")
-        today = datetime.now()
-        print("----------------------------------------",today.year)
+        # today = datetime.now()
+        print("----------------------------------------",endday)
         # differenceTime = today.year-applyDate.year
-        age = today.year - birthday.year - ((today.month, today.day) < (birthday.month, birthday.day))
+        age = endday.year - birthday.year - ((endday.month, endday.day) < (birthday.month, birthday.day))
         return age
