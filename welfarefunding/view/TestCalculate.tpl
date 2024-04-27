@@ -129,6 +129,7 @@
             <div>{{calculateAllWelfareAppliance}}</div>
             <div>{{calculateTypeMember}}</div>
             <div>{{calculateAllTypeMember}}</div>
+            <div>{{calculateAllTypeMember.รวมสะสม}}</div>
         </div>
         </div>  
     </body>

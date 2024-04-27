@@ -25,7 +25,10 @@ class WelfareConditionController(BaseController):
     @POST("/welfarefunding/welfarecondition/option/get", role=['Welfare'])
     async def getOption(self, request):
         id = request.json['id']
-        member = await self.session.selectByID(FundingMember,int(id))
+        print('------------------------',id)
+        # member = await self.session.selectByID(FundingMember,int(id))
+        # print(member)
+        member = await self.session.select(FundingMember, 'WHERE uid = ?', parameter=[int(id)], limit=1)
         if member is None: return Error('')
         
         clause = 'WHERE isDrop = ? ORDER BY id DESC'
@@ -37,4 +40,5 @@ class WelfareConditionController(BaseController):
         #         result = False
         #         break
         filtered_models = [i for i in model if i.check(member)]
+        print("type:",filtered_models)
         return Success([i.toOption() for i in filtered_models])
