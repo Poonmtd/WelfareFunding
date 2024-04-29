@@ -5,6 +5,8 @@ from xerial.input.ReferenceSelectInput import ReferenceSelectInput
 from xerial.input.ReferenceCheckBoxInput import ReferenceCheckBoxInput
 from xerial.input.AutoCompleteInput import AutoCompleteInput
 from xerial.input.NumberInput import NumberInput
+from xerial.DateColumn import DateColumn
+from xerial.input.DateInput import DateInput
 
 class WelfareAppliance(Record):
     member = IntegerColumn(
@@ -44,6 +46,24 @@ class WelfareAppliance(Record):
             isTable=True
         )
     )
+    
+    ApplianceDate = DateColumn(
+		input=DateInput(
+			label="วัน/เดือน/ปี ที่ทำการเบิกสวัสดิการ",
+			isRequired=True,
+			order="3.1"
+		)
+	)
+    
+    isDrop = IntegerColumn(
+        default=0
+	)
+    
+    def modify(self):
+        modification = self.createModification("2.1")
+        modification.add("isDrop", IntegerColumn(default=0))
+        modification = self.createModification("2.2")
+        modification.add("ApplianceDate", DateColumn(default=''))
 
     # welfareCondition = IntegerColumn(
     #     foreignKey="WelfareCondition.id",

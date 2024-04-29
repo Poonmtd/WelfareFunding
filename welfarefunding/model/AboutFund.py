@@ -3,6 +3,7 @@ from xerial.Record import Record
 from xerial.FloatColumn import FloatColumn
 
 from xerial.input.NumberInput import NumberInput
+from xerial.IntegerColumn import IntegerColumn
 
 class AboutFund(Record):
     bankBalance = FloatColumn(
@@ -20,4 +21,12 @@ class AboutFund(Record):
             order='2.0'
         )
     )
+    
+    isDrop = IntegerColumn(
+        default=0
+	)
+    
+    def modify(self):
+        modification = self.createModification("2.1")
+        modification.add("isDrop", IntegerColumn(default=0))
 

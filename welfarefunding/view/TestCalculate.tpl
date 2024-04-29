@@ -119,9 +119,18 @@
     </style>
     <body>
         <div class="document">
-            test calculate
-            {{calculate}}
-            {{calculate.เงินสมทบจากสมาชิก}}  
+        <div style="display: flex; flex-direction: column">
+            <div>test calculate</div>
+            <div>{{calculateIncome}}</div>
+            <div>{{calculateAllIncome}}</div>
+            <div>{{calculateExpense}}</div>
+            <div>{{calculateAllExpense}}</div>
+            <div>{{calculateWelfareAppliance}}</div>
+            <div>{{calculateAllWelfareAppliance}}</div>
+            <div>{{calculateTypeMember}}</div>
+            <div>{{calculateAllTypeMember}}</div>
+            <div>{{calculateAllTypeMember.รวมสะสม}}</div>
+        </div>
         </div>  
     </body>
 </html>

@@ -6,6 +6,10 @@ from xerial.IntegerColumn import IntegerColumn
 from xerial.input.CheckBoxInput import CheckBoxInput
 from xerial.input.NumberInput import NumberInput
 from xerial.input.TextInput import TextInput
+from typing import List
+from datetime import datetime, timedelta
+
+
 
 from welfarefunding.model.FundingMember import FundingMember
 from welfarefunding.model.WelfareAppliance import WelfareAppliance
@@ -70,11 +74,39 @@ class PaymentCondition(Record):
  
 	welfareID = IntegerColumn(foreignKey="WelfareCondition.id")
 	
-	def check(self, member:FundingMember ,appliance:WelfareAppliance) -> bool:
-		sameappliance:list[appliance] = appliance.session.selectByID(WelfareAppliance ,int(self.welfareID))
-		totalAmount = sum(appliance.Amount for i in sameappliance)
-  
-		if totalAmount > self.maxperYear :
-			return False
+	# async def check(self, member:FundingMember) -> bool:
+	# 	sameappliance:list[WelfareAppliance] = await self.session.selectByID(WelfareAppliance ,int(self.welfareID))
+	# 	totalAmount = sum(WelfareAppliance.Amount for i in sameappliance)
 
+	# 	print('printAmoutn:',totalAmount)
+  
+	# 	if totalAmount > self.maxperYear :
+	# 		return False
+	# 	return True
+ 
+	async def check(self, member:FundingMember) -> bool:
+		# from welfarefunding.model.WelfareAppliance import WelfareAppliance
+		for memberapply in member :
+			memberid = memberapply.id
+   
+		today = datetime.today()
+		desired_date = today.replace(year=today.year - 1,month=10, day=1)
+  
+		clause = 'WHERE isDrop = ? AND member = ? AND ApplianceDate >= ?'
+		model:List[WelfareAppliance] = await self.session.select(WelfareAppliance, clause, parameter=[0,memberid,desired_date])
+
+		print('check payment')
+  
+		for memberAppliance in model:
+			print('WelfareAppliance Select')
+			if model.welfareType == self.welfareID:
+				amount += memberAppliance.Amount
+		# if WelfareAppliance.member == memberid:
+		# 	amount = sum(WelfareAppliance.Amount for i in WelfareAppliance)
+   
+		if amount > self.maxperYear :
+			return False
+		# # i: WelfareAppliance
+		# # for i in self.rightCondition:
+		# # 	if not i.check(member): return False
 		return True
