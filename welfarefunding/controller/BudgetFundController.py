@@ -8,6 +8,7 @@ from gaimon.core.RESTResponse import(
 )
 from welfarefunding.model.BudgetFund import BudgetFund
 from welfarefunding.model.BudgetStatus import BudgetStatus
+from welfarefunding.model.BudgetType import BudgetType
 
 from sanic import response
 from weasyprint import HTML
@@ -35,6 +36,7 @@ class BudgetFundController(BaseController):
 		if len(model) == 0: return Error('Member does not exist.')
 		model = model[0]
 		data = model.toDict()
+		data['budgetType'] = BudgetType.label[model.budgetType]
 		path = await self.generateDocumentSavingPDF(data)
 		model.path = path
 		await self.session.update(model)

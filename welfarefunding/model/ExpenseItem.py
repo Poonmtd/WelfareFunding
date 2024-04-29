@@ -4,7 +4,7 @@ from xerial.DateColumn import DateColumn
 from xerial.IntegerColumn import IntegerColumn
 from xerial.StringColumn import StringColumn
 
-from xerial.input.ReferenceRadioInput import ReferenceSelectInput
+from xerial.input.ReferenceSelectInput import ReferenceSelectInput
 from xerial.input.DateInput import DateInput
 from xerial.input.TextInput import TextInput
 from xerial.input.RichTextInput import RichTextInput

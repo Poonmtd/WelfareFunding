@@ -36,7 +36,8 @@ class RightCondition(Record):
     )
     
     def check(self, member:FundingMember) -> bool:
-        if not ((self.gender == member.gender) and (self.checkage(member.birthday) >= self.age)  and (self.checkmembership(member.applyDate) >= self.membership)):
+        if not ((self.gender == member.gender) and (self.checkage(member.birthday) >= self.age)  
+                and (self.checkmembership(member.applyDate) >= self.membership)):
             return False
         return True
     

@@ -15,7 +15,9 @@ const FundDocumentBackend = function(main, parent) {
 		config.hasAvatar = false;
 		config.operation = [
 			{label: 'เอกสารกองทุน', ID: 'pdf', icon: 'welfarefunding.PDF'},
-			{label: 'ลองคำนวณ', ID: 'calculate', icon: 'welfarefunding.PDF'}
+			{label: 'ลองคำนวณ', ID: 'calculate', icon: 'welfarefunding.PDF'},
+			{label: 'แบบประสงค์ขอโอน', ID: 'transfer', icon: 'welfarefunding.PDF'},
+			{label: 'หนังสือร้องเรียน', ID: 'complaint', icon: 'welfarefunding.PDF'}
 		]
 		let table = await AbstractPage.prototype.renderTable.call(this, modelName, config);
 		for(let i in table.records){
@@ -27,6 +29,14 @@ const FundDocumentBackend = function(main, parent) {
 			}
 			record.dom.calculate.onclick = async function(){
 				let blob = await GET(`welfarefunding/testcalculate/by/id/get/${record.record.id}`, undefined, 'blob');
+				await OPEN_FILE(blob);
+			}
+			record.dom.transfer.onclick = async function(){
+				let blob = await GET(`welfarefunding/transferrequestform/by/id/get/${record.record.id}`, undefined, 'blob');
+				await OPEN_FILE(blob);
+			}
+			record.dom.complaint.onclick = async function(){
+				let blob = await GET(`welfarefunding/complaintletter/by/id/get/${record.record.id}`, undefined, 'blob');
 				await OPEN_FILE(blob);
 			}
 		}

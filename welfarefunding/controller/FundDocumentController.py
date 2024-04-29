@@ -137,3 +137,62 @@ class FundDocumentController(BaseController):
     async def calculateExpense(self) :
         
         return
+    
+    @GET('/welfarefunding/transferrequestform/by/id/get/<id>', role=['user'])
+    async def getDocumentTransferRequestForm(self, request, id):
+        model = await self.session.select(FundDocument, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
+        if len(model) == 0: return Error('Member does not exist.')
+        model = model[0]
+        data = model.toDict()
+        # data = await self.calculateIncome()
+        path = await self.generateDocumentTransferRequestFormPDF(data)
+        model.path = path
+        await self.session.update(model)
+        path = f"{self.resourcePath}upload/{path}"
+        return await response.file(path)
+    
+    async def generateDocumentTransferRequestFormPDF(self, data):
+        font = await self.getFont()
+        template = self.theme.getTemplate('welfarefunding/TransferRequestForm.tpl')
+        data['font'] = font
+        html = self.renderer.render(template, data)
+        letters = string.ascii_lowercase
+        fileName = ''.join(random.choice(letters) for i in range(20))
+        path = self.resourcePath + "upload/welfarefunding/document"
+        os.makedirs(path, exist_ok=True)
+        pathFile = path + "/%s.pdf" % (fileName)
+        html = HTML(string=html)
+        html.write_pdf(pathFile)
+        pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
+        print('--------------- GENERATE PDF FINISHED ---------------')
+        return pathUpload
+    
+    @GET('/welfarefunding/complaintletter/by/id/get/<id>', role=['user'])
+    async def getDocumentComplaintLetter(self, request, id):
+        model = await self.session.select(FundDocument, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
+        if len(model) == 0: return Error('Member does not exist.')
+        model = model[0]
+        data = model.toDict()
+        # data = await self.calculateIncome()
+        path = await self.generateDocumentComplaintLetterPDF(data)
+        model.path = path
+        await self.session.update(model)
+        path = f"{self.resourcePath}upload/{path}"
+        return await response.file(path)
+    
+    async def generateDocumentComplaintLetterPDF(self, data):
+        font = await self.getFont()
+        template = self.theme.getTemplate('welfarefunding/ComplaintLetter.tpl')
+        data['font'] = font
+        html = self.renderer.render(template, data)
+        letters = string.ascii_lowercase
+        fileName = ''.join(random.choice(letters) for i in range(20))
+        path = self.resourcePath + "upload/welfarefunding/document"
+        os.makedirs(path, exist_ok=True)
+        pathFile = path + "/%s.pdf" % (fileName)
+        html = HTML(string=html)
+        html.write_pdf(pathFile)
+        pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
+        print('--------------- GENERATE PDF FINISHED ---------------')
+        return pathUpload
+    
