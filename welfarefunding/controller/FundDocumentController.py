@@ -41,9 +41,22 @@ class FundDocumentController(BaseController):
         return await response.file(path)
     
     async def generateDocumentFundPerYearPDF(self, data):
+        date_start = datetime.strptime(data['startYear'], '%Y-%m-%d')
+        date_end = datetime.strptime(data['endYear'], '%Y-%m-%d')
+        print('date start------------------',date_start)
         font = await self.getFont()
+        calculateIncome = await self.calculateIncome(date_end)
+        calculateExpense = await self.calculateExpense(date_start,date_end)
+        calculateWelfareAppliance, calculateAllwelfareAppliance = await self.calculateWelfareAppliance(date_start,date_end)
+        calculateTypeMember, calculateAllTypeMember = await self.CalculateTypeMember(date_start,date_end)
         template = self.theme.getTemplate('welfarefunding/DocumentFundPerYear.tpl')
         data['font'] = font
+        data['calculateIncome'] = calculateIncome 
+        data['calculateExpense'] = calculateExpense 
+        data['calculateWelfareAppliance'] = calculateWelfareAppliance 
+        data['calculateAllWelfareAppliance'] = calculateAllwelfareAppliance
+        data['calculateTypeMember'] = calculateTypeMember
+        data['calculateAllTypeMember'] = calculateAllTypeMember
         html = self.renderer.render(template, data)
         letters = string.ascii_lowercase
         fileName = ''.join(random.choice(letters) for i in range(20))
@@ -78,7 +91,7 @@ class FundDocumentController(BaseController):
         date_end =datetime.strptime(data['endYear'], '%Y-%m-%d')
         font = await self.getFont()
         calculateIncome = await self.calculateIncome(date_end)
-        calculateExpense = await self.calculateExpense(date_end)
+        calculateExpense = await self.calculateExpense(date_start,date_end)
         calculateWelfareAppliance, calculateAllwelfareAppliance = await self.calculateWelfareAppliance(date_start,date_end)
         calculateTypeMember, calculateAllTypeMember = await self.CalculateTypeMember(date_start,date_end)
         template = self.theme.getTemplate('welfarefunding/TestCalculate.tpl')
@@ -158,7 +171,7 @@ class FundDocumentController(BaseController):
         
         # return Success(income_dict)
         
-    async def calculateExpense(self, endDete:datetime) :
+    async def calculateExpense(self,startDate:datetime, endDete:datetime) :
         print("-----------------------------------TEST EXPENSE-----------------------------------------------------")
         
         expense_clause = 'WHERE isDrop = ? AND PaymentDate <= ?'
@@ -167,8 +180,8 @@ class FundDocumentController(BaseController):
         walfareAppliance_clause = 'WHERE isDrop = ? AND ApplianceDate <= ?'
         models_welfareAppliance:List[WelfareAppliance] = await self.session.select(WelfareAppliance, walfareAppliance_clause, parameter=[0, endDete])
         
-        aboutfund_clause = 'WHERE isDrop = ?'
-        models_aboutfund:List[AboutFund] = await self.session.select(AboutFund, aboutfund_clause, parameter=[0])
+        aboutfund_clause = 'WHERE isDrop = ? AND applyDate >= ? AND applyDate <= ?'
+        models_aboutfund:List[AboutFund] = await self.session.select(AboutFund, aboutfund_clause, parameter=[0,startDate,endDete])
         
         expense_dict: Dict[str, float] = {}
         expense_dict.setdefault('รวมรายจ่าย',0.00)
@@ -197,14 +210,14 @@ class FundDocumentController(BaseController):
             if aboutfund.bankBalance is not None:
                 expense_dict.setdefault('เงินฝากธนาคาร',0.00)
                 expense_dict['เงินฝากธนาคาร'] += aboutfund.bankBalance
-                expense_dict['รวมรายจ่าย'] += paymentAmount
-                expense_dict['รายจ่าย'] += paymentAmount
+                expense_dict['รวมรายจ่าย'] += aboutfund.bankBalance
+                expense_dict['รายจ่าย'] += aboutfund.bankBalance
             
             if aboutfund.cash is not None:
                 expense_dict.setdefault('เงินสดในมือ',0.00)
                 expense_dict['เงินสดในมือ'] += aboutfund.cash
-                expense_dict['รวมรายจ่าย'] += paymentAmount
-                expense_dict['รายจ่าย'] += paymentAmount
+                expense_dict['รวมรายจ่าย'] += aboutfund.cash
+                expense_dict['รายจ่าย'] += aboutfund.cash
             
                 
         # combined_data = [(income_type,paymentAmount) for income_type,paymentAmount in income_dict.items()]

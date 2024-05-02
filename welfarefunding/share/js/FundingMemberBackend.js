@@ -38,7 +38,7 @@ const FundingMemberBackend = function(main, parent) {
 			config.data = await main.protocol.user.getUserByID({id: config.data.id});
 		}
 		let view = await AbstractPage.prototype.renderView.call(this, modelName, config, viewType);
-		console.log(view.id);
+		console.log('VIEW IDDDDDDDDD :',view.id);
 		view.onSubmit = async function() {
 			let result = await AbstractPage.prototype.submit.call(this, view);
 			if(!result.isPass) return;
@@ -46,6 +46,7 @@ const FundingMemberBackend = function(main, parent) {
 			if (view.id != undefined) {
 				if (data.passwordHash.length > 0 || data.confirm_passwordHash.length > 0) {
 					if (data.passwordHash != data.confirm_passwordHash) {
+						console.log('check password')
 						view.dom.passwordHash.classList.add('error');
 						view.dom.confirm_passwordHash.classList.add('error');
 						return;
