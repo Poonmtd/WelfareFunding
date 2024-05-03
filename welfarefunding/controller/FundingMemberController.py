@@ -32,7 +32,9 @@ class FundingMemberController(BaseController):
 		model = model[0]
 		data = model.toDict()
 		age = await self.calculateAge(model.applyDate, model.birthday)
+		community = await self.calculateCommunity(model.moo)
 		data['age'] = age
+		data['community'] = community
 		# if len(model.path): return await response.file(f"{self.resourcePath}upload/{model.path}")
 		if len(model.path):
 			await self.static.removeStaticShare(model.path) # remove old file before generate new file
@@ -68,6 +70,22 @@ class FundingMemberController(BaseController):
 	async def calculateAge(self, applyDate, birthday):
 		age = applyDate.year - birthday.year - ((applyDate.month, applyDate.day) < (birthday.month, birthday.day))
 		return age
+
+	async def calculateCommunity(self, moo):
+		if moo == 1:
+			return 'บ้านนาเมือง'
+		elif moo == 2:
+			return 'บ้านนาหวาน'
+		elif moo == 3:
+			return 'บ้านแก่งเพกา'
+		elif moo == 4:
+			return 'บ้านเกาะอม'
+		elif moo == 5:
+			return 'บ้านนาโครงช้าง'
+		elif moo == 6:
+			return 'บ้านทรัพย์อนันต์'
+		elif moo == 7:
+			return 'บ้านทรัพย์สมบูรณ์'
 	
 	@GET('/welfarefunding/documentsavinglist/by/id/get/<id>', role=['user'])
 	async def getDocumentSavingList(self, request, id):

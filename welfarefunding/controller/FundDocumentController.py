@@ -42,10 +42,11 @@ class FundDocumentController(BaseController):
     
     async def generateDocumentFundPerYearPDF(self, data):
         date_start = datetime.strptime(data['startYear'], '%Y-%m-%d')
-        date_end =datetime.strptime(data['endYear'], '%Y-%m-%d')
+        date_end = datetime.strptime(data['endYear'], '%Y-%m-%d')
+        print('date start------------------',date_start)
         font = await self.getFont()
         calculateIncome = await self.calculateIncome(date_end)
-        calculateExpense = await self.calculateExpense(date_end)
+        calculateExpense = await self.calculateExpense(date_start,date_end)
         calculateWelfareAppliance, calculateAllwelfareAppliance = await self.calculateWelfareAppliance(date_start,date_end)
         calculateTypeMember, calculateAllTypeMember = await self.CalculateTypeMember(date_start,date_end)
         template = self.theme.getTemplate('welfarefunding/DocumentFundPerYear.tpl')
@@ -90,7 +91,7 @@ class FundDocumentController(BaseController):
         date_end =datetime.strptime(data['endYear'], '%Y-%m-%d')
         font = await self.getFont()
         calculateIncome = await self.calculateIncome(date_end)
-        calculateExpense = await self.calculateExpense(date_end)
+        calculateExpense = await self.calculateExpense(date_start,date_end)
         calculateWelfareAppliance, calculateAllwelfareAppliance = await self.calculateWelfareAppliance(date_start,date_end)
         calculateTypeMember, calculateAllTypeMember = await self.CalculateTypeMember(date_start,date_end)
         template = self.theme.getTemplate('welfarefunding/TestCalculate.tpl')
@@ -170,7 +171,7 @@ class FundDocumentController(BaseController):
         
         # return Success(income_dict)
         
-    async def calculateExpense(self, endDete:datetime) :
+    async def calculateExpense(self,startDate:datetime, endDete:datetime) :
         print("-----------------------------------TEST EXPENSE-----------------------------------------------------")
         
         expense_clause = 'WHERE isDrop = ? AND PaymentDate <= ?'
@@ -179,8 +180,8 @@ class FundDocumentController(BaseController):
         walfareAppliance_clause = 'WHERE isDrop = ? AND ApplianceDate <= ?'
         models_welfareAppliance:List[WelfareAppliance] = await self.session.select(WelfareAppliance, walfareAppliance_clause, parameter=[0, endDete])
         
-        aboutfund_clause = 'WHERE isDrop = ?'
-        models_aboutfund:List[AboutFund] = await self.session.select(AboutFund, aboutfund_clause, parameter=[0])
+        aboutfund_clause = 'WHERE isDrop = ? AND applyDate >= ? AND applyDate <= ?'
+        models_aboutfund:List[AboutFund] = await self.session.select(AboutFund, aboutfund_clause, parameter=[0,startDate,endDete])
         
         expense_dict: Dict[str, float] = {}
         expense_dict.setdefault('รวมรายจ่าย',0.00)

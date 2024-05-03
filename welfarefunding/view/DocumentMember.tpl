@@ -122,7 +122,7 @@
                         หมู่ที่<div class="line" style="width: 8%;">{{moo}}</div>
                         ซอย<div class="line" style="width: 15%;">{{alley}}</div>
                         ถนน<div class="line" style="width: 15%;">{{road}}</div>
-                        ชุมชน<div class="line" style="width: 15%;"></div>
+                        ชุมชน<div class="line" style="width: 15%;">{{{community}}}</div>
                     </div>
                     <div style="display: flex;">
                         ตำบล/แขวง<div class="line" style="width: 15%;">{{subDistrictID}}</div>
