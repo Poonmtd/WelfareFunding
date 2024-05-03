@@ -115,7 +115,7 @@
     </style>
     <body>
         <div class="document">
-            <div class="topic" style="margin-top: 20pt;">1. แบบเเสดงสถานะกองทุน {{calculateIncome}}</div>
+            <div class="topic" style="margin-top: 20pt;">1. แบบเเสดงสถานะกองทุน</div>
             <div style="font-weight: 600; text-align: center; margin-top: 20pt;">
                 <div>แบบเเสดงสถานะกองทุนสวัสดิการชุมชน</div>
                 <div style="display: flex; justify-content: center;">ตำบล/เทศบาล<div class="line" style="width: 30%;">ตำบลทรัพย์อนันต์</div></div>
@@ -276,28 +276,28 @@
                     <tbody>
                         <tr>
                             <td>บุคคลทั่วไป</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{calculateAllTypeMember.ทั่วไป}}</td>
+                            <td>{{calculateTypeMember.ทั่วไป}}</td>
                         </tr>
                         <tr>
                             <td>เด็ก/เยาวชน</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{calculateAllTypeMember.เด็ก}}</td>
+                            <td>{{calculateTypeMember.เด็ก}}</td>
                         </tr>
                         <tr>
                             <td>ผู้สูงอายุ</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{calculateAllTypeMember.ผู้สูงอายุ}}</td>
+                            <td>{{calculateTypeMember.ผู้สูงอายุ}}</td>
                         </tr>
                         <tr>
                             <td>ผู้ด้อยโอกาส</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{calculateAllTypeMember.ด้อยโอกาส}}</td>
+                            <td>{{calculateTypeMember.ด้อยโอกาส}}</td>
                         </tr>
                         <tr>
                             <td>ผู้พิการ</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{calculateAllTypeMember.พิการ}}</td>
+                            <td>{{calculateTypeMember.พิการ}}</td>
                         </tr>
                         <tr>
                             <td>อื่นๆ</td>
@@ -306,8 +306,8 @@
                         </tr>
                         <tr>
                             <td>รวม</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{calculateAllTypeMember.รวมสะสม}}</td>
+                            <td>{{calculateTypeMember.รวม}}</td>
                         </tr>
                     </tbody>
                 </table>

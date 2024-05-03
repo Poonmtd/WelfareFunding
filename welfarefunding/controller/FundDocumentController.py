@@ -41,9 +41,21 @@ class FundDocumentController(BaseController):
         return await response.file(path)
     
     async def generateDocumentFundPerYearPDF(self, data):
+        date_start = datetime.strptime(data['startYear'], '%Y-%m-%d')
+        date_end =datetime.strptime(data['endYear'], '%Y-%m-%d')
         font = await self.getFont()
+        calculateIncome = await self.calculateIncome(date_end)
+        calculateExpense = await self.calculateExpense(date_end)
+        calculateWelfareAppliance, calculateAllwelfareAppliance = await self.calculateWelfareAppliance(date_start,date_end)
+        calculateTypeMember, calculateAllTypeMember = await self.CalculateTypeMember(date_start,date_end)
         template = self.theme.getTemplate('welfarefunding/DocumentFundPerYear.tpl')
         data['font'] = font
+        data['calculateIncome'] = calculateIncome 
+        data['calculateExpense'] = calculateExpense 
+        data['calculateWelfareAppliance'] = calculateWelfareAppliance 
+        data['calculateAllWelfareAppliance'] = calculateAllwelfareAppliance
+        data['calculateTypeMember'] = calculateTypeMember
+        data['calculateAllTypeMember'] = calculateAllTypeMember
         html = self.renderer.render(template, data)
         letters = string.ascii_lowercase
         fileName = ''.join(random.choice(letters) for i in range(20))
@@ -197,14 +209,14 @@ class FundDocumentController(BaseController):
             if aboutfund.bankBalance is not None:
                 expense_dict.setdefault('เงินฝากธนาคาร',0.00)
                 expense_dict['เงินฝากธนาคาร'] += aboutfund.bankBalance
-                expense_dict['รวมรายจ่าย'] += paymentAmount
-                expense_dict['รายจ่าย'] += paymentAmount
+                expense_dict['รวมรายจ่าย'] += aboutfund.bankBalance
+                expense_dict['รายจ่าย'] += aboutfund.bankBalance
             
             if aboutfund.cash is not None:
                 expense_dict.setdefault('เงินสดในมือ',0.00)
                 expense_dict['เงินสดในมือ'] += aboutfund.cash
-                expense_dict['รวมรายจ่าย'] += paymentAmount
-                expense_dict['รายจ่าย'] += paymentAmount
+                expense_dict['รวมรายจ่าย'] += aboutfund.cash
+                expense_dict['รายจ่าย'] += aboutfund.cash
             
                 
         # combined_data = [(income_type,paymentAmount) for income_type,paymentAmount in income_dict.items()]
@@ -361,6 +373,35 @@ class FundDocumentController(BaseController):
     async def generateDocumentComplaintLetterPDF(self, data):
         font = await self.getFont()
         template = self.theme.getTemplate('welfarefunding/ComplaintLetter.tpl')
+        data['font'] = font
+        html = self.renderer.render(template, data)
+        letters = string.ascii_lowercase
+        fileName = ''.join(random.choice(letters) for i in range(20))
+        path = self.resourcePath + "upload/welfarefunding/document"
+        os.makedirs(path, exist_ok=True)
+        pathFile = path + "/%s.pdf" % (fileName)
+        html = HTML(string=html)
+        html.write_pdf(pathFile)
+        pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
+        print('--------------- GENERATE PDF FINISHED ---------------')
+        return pathUpload
+    
+    @GET('/welfarefunding/requestbudget/by/id/get/<id>', role=['user'])
+    async def getDocumentRequestBudget(self, request, id):
+        model = await self.session.select(FundDocument, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
+        if len(model) == 0: return Error('Member does not exist.')
+        model = model[0]
+        data = model.toDict()
+        # data = await self.calculateIncome()
+        path = await self.generateDocumentRequestBudgetPDF(data)
+        model.path = path
+        await self.session.update(model)
+        path = f"{self.resourcePath}upload/{path}"
+        return await response.file(path)
+    
+    async def generateDocumentRequestBudgetPDF(self, data):
+        font = await self.getFont()
+        template = self.theme.getTemplate('welfarefunding/DocumentRequestBudget.tpl')
         data['font'] = font
         html = self.renderer.render(template, data)
         letters = string.ascii_lowercase

@@ -48,12 +48,6 @@ class RightCondition(Record):
     #     print('------------------------------Condition  TRUE--------------------------------------------------')
     #     return True
     def check(self, member:FundingMember) -> bool:
-<<<<<<< HEAD
-        if not ((self.gender == member.gender) and (self.checkage(member.birthday) >= self.age)  
-                and (self.checkmembership(member.applyDate) >= self.membership)):
-            return False
-        return True
-=======
         print('member condition------------------------------------')
         # for memberprint in member:
         #     print('gender:',memberprint.gender)
@@ -71,11 +65,11 @@ class RightCondition(Record):
         #     return False
         
         # print(member.birthday)
-        if ((self.gender == gender or self.gender is None) and (age >= self.age or self.age is None)  and (membership >= self.membership or self.membership is None)):
+        if ((self.gender == gender or self.gender is None) and (age >= self.age or self.age is None)  
+            and (membership >= self.membership or self.membership is None)):
             print('------------------------------Condition--------------------------------------------------')
             return True
         return False
->>>>>>> 4c45802708e60dca98af0104524c11708fac9a87
     
     def checkage(self, birthday) -> bool:
         today = datetime.now()
