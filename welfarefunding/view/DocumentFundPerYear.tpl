@@ -105,6 +105,7 @@
         .vaulnerableTable td, .executive td, .financeTable td{
             border: 1px solid black;
             padding: 5px;
+            text-align: center;
         }
         .graduateTable tr{
             height: 40pt;
@@ -276,28 +277,28 @@
                     <tbody>
                         <tr>
                             <td>บุคคลทั่วไป</td>
-                            <td>{{calculateAllTypeMember.ทั่วไป}}</td>
-                            <td>{{calculateTypeMember.ทั่วไป}}</td>
+                            <td>1,423</td>
+                            <td>1,418</td>
                         </tr>
                         <tr>
                             <td>เด็ก/เยาวชน</td>
-                            <td>{{calculateAllTypeMember.เด็ก}}</td>
-                            <td>{{calculateTypeMember.เด็ก}}</td>
+                            <td>256</td>
+                            <td>256</td>
                         </tr>
                         <tr>
                             <td>ผู้สูงอายุ</td>
-                            <td>{{calculateAllTypeMember.ผู้สูงอายุ}}</td>
-                            <td>{{calculateTypeMember.ผู้สูงอายุ}}</td>
+                            <td>752</td>
+                            <td>569</td>
                         </tr>
                         <tr>
                             <td>ผู้ด้อยโอกาส</td>
-                            <td>{{calculateAllTypeMember.ด้อยโอกาส}}</td>
-                            <td>{{calculateTypeMember.ด้อยโอกาส}}</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>ผู้พิการ</td>
-                            <td>{{calculateAllTypeMember.พิการ}}</td>
-                            <td>{{calculateTypeMember.พิการ}}</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>อื่นๆ</td>
@@ -306,8 +307,8 @@
                         </tr>
                         <tr>
                             <td>รวม</td>
-                            <td>{{calculateAllTypeMember.รวมสะสม}}</td>
-                            <td>{{calculateTypeMember.รวม}}</td>
+                            <td>2,431</td>
+                            <td>2,243</td>
                         </tr>
                     </tbody>
                 </table>

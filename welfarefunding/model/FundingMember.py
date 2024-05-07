@@ -21,7 +21,7 @@ class FundingMember(Record):
 	uid = IntegerColumn(foreignKey="User.id")
  
 	citizenID = StringColumn(
-		length=13,
+		length=20,
 		input=TextInput(
 			label="เลขบัตรประชาชน (13 หลัก)",
 			isTable=True,
@@ -116,8 +116,8 @@ class FundingMember(Record):
 		)
 	)
  
-	addressNumber = IntegerColumn(
-		input=NumberInput(
+	addressNumber = StringColumn(
+		input=TextInput(
 			label="บ้านเลขที่",
 			isRequired=False,
 			order="5.2"
