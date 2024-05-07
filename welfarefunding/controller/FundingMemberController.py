@@ -91,14 +91,15 @@ class FundingMemberController(BaseController):
 	async def getDocumentSavingList(self, request, id):
 		print('-----------------', id)
 		model = await self.session.select(SavingFund, 'WHERE uid = ? ORDER BY id ASC', parameter=[int(id)], isRelated=True)
-		if len(model) == 0: return Error('Member does not exist.')
-		# # if len(model.path): return await response.file(f"{self.resourcePath}upload/{model.path}")
-		# if len(model.path):
-		# 	await self.static.removeStaticShare(model.path) # remove old file before generate new file
-		data = [i.toDict() for i in model]
-		path = await self.generateDocumentSavingListPDF({'savingList': data})
-		# model.path = path
-		# await self.session.update(model)
+		if len(model) == 0: path = await self.generateDocumentSavingListPDF({'savingList': {}})
+		else:
+			# # if len(model.path): return await response.file(f"{self.resourcePath}upload/{model.path}")
+			# if len(model.path):
+			# 	await self.static.removeStaticShare(model.path) # remove old file before generate new file
+			data = [i.toDict() for i in model]
+			path = await self.generateDocumentSavingListPDF({'savingList': data})
+			# model.path = path
+			# await self.session.update(model)
 		path = f"{self.resourcePath}upload/{path}"
 		return await response.file(path)				
 	

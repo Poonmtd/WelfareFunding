@@ -321,7 +321,7 @@
         </div> 
         <div class="document">
             <div style="margin-left: 20pt; margin-top:20pt">
-                <div style="text-indent: 20pt;">
+                <div style="text-indent: 15pt;">
                     ครอบคลุมกลุ่มคน รวมถึงเยาวชน คนชรา คนพิการ เเละผู้ด้อยโอกาส สมาชิกกระจายพื้นที่ในตำบลมีหมู่บ้าน/ชุมชนทั้งหมดในตำบล
                     มีหมู่บ้าน/ชุมชนเข้าร่วมไม่น้อยกว่าร้อยละ 50 ของจำนวนหมู่บ้าน/ชุมชนทั้งหมดในตำบล/ท้องถิ่นหรือมีหมู่บ้าน/ชุมชนเข้าร่วมไม่น้อยกว่า
                     ร้อยละ 20 ของจำนวนหมู่บ้าน/ชุมชนทั้งหมดในเขตเทศบาล/เทศบาลนคร คือ
@@ -367,9 +367,81 @@
                     เมื่อวันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ<div class="line" style="width: 10%;"></div>
                     &nbsp;&nbsp;&nbsp;จำนวนเงินเดิม<div class="line" style="width: 25%;"></div>บาท
                 </div>
-                <div style="display: flex;">
+                <div style="display: flex; margin-left: 15pt;">
                     จำนวนเงินที่เสนอรับการสมทบรอบนี้<div class="line" style="width: 15%;"></div>บาท
                 </div>
+                <div style="display: flex; width: 100%;">
+                    <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                    </svg>
+                    <p>กองทุนเดิมเสนอรับการสมทบรอบที่สาม</p>
+                    <div style="margin-left: 5pt;">จากการได้รับอนุมัติงบประมาณสมทบของคณะอนุกรรมการประสานงาน</div>
+                </div>
+                <div style="margin-left: 15pt;">ขบวนองค์กรชุมชน/คณะทำงานพิจารณาโครงการของภาคฯ รอบสอง</div>
+                <div style="display: flex; margin-left: 15pt;">
+                    เมื่อวันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ<div class="line" style="width: 10%;"></div>
+                    &nbsp;&nbsp;&nbsp;จำนวนเงินเดิม<div class="line" style="width: 25%;"></div>บาท
+                </div>
+                <div style="display: flex; margin-left: 15pt;">
+                    จำนวนเงินที่เสนอรับการสมทบรอบนี้<div class="line" style="width: 15%;"></div>บาท
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                    </svg>
+                    <p style="display: flex;">กองทุนเดิมเสนอรับการสมทบในปีที่<div class="line" style="width: 10%;"></div></p>
+                    <div style="margin-left: 5pt;">จากการได้รับอนุมัติงบประมาณสมทบของคณะอนุกรรมการ</div>
+                </div>
+                <div style="margin-left: 15pt; display: flex;">
+                    ประสานงานขบวนองค์กรชุมชน/คณะทำงานพิจารณาโครงการของภาคฯ รอบ<div class="line" style="width: 10%;"></div></div>
+                <div style="display: flex; margin-left: 15pt;">
+                    เมื่อวันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ<div class="line" style="width: 10%;"></div>
+                    &nbsp;&nbsp;&nbsp;จำนวนเงินเดิม<div class="line" style="width: 25%;"></div>บาท
+                </div>
+                <div style="display: flex; margin-left: 15pt;">
+                    จำนวนเงินที่เสนอรับการสมทบรอบนี้<div class="line" style="width: 15%;"></div>บาท
+                </div>
+            </div>
+            <div style="margin-left: 20pt; margin-top:10pt">
+                <div style="text-indent: 15pt; display: flex;">
+                    รวมเงินสมทบจากสมาชิกทั้งหมด<div class="line" style="width: 25%;"></div>บาท เเละได้รับการสนับสนุนการดำเนินงาน
+                </div>
+                <div style="display: flex;">
+                    เกี่ยวกับสวัสดิการชุมชนจากองค์กรปกครองส่วนท้องถิ่นรวมในรอบปีที่ผ่านมา<div class="line" style="width: 25%;"></div>บาท
+                </div>
+                <div style="display: flex;"> 
+                    และ/หรือได้รับการสนับสนุนการดำเนินงานจากอปท.โดยการ<div class="line" style="width: 40%;"></div>
+                </div>
+            </div>
+            <div style="margin-left: 10pt; margin-top: 10pt;">
+                4.4) มีระบบการบริหารกองทุนที่ดีมีความชัดเจน ทั้งคณะกรรมการ สมาชิก ทะเบียน/ข้อมูลสมาชิก ระเบียบหลักเกณฑ์ของกองทุน 
+                ระบบบัญชีการเงิน เเผนการพัฒนาองค์กร การติดตามประเมินผลเเละรายงานผลการดำเนินงานต่อสาธารณะ
+            </div>
+            <div style="margin-left: 20pt;">
+                <li>
+                    <div style="display: flex;">
+                        มีคณะกรรมการ<div class="line" style="width: 20%;"></div>คน เป็นกรรมการจากชุมชน<div class="line" style="width: 20%;"></div>คน 
+                    </div>
+                    <div style="display: flex;">
+                        กรรมการ/ที่ปรึกษาจากผู้ทรงคุณวุฒิ/หน่วยงานที่เกี่ยวข้อง<div class="line" style="width: 20%;"></div>คน
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex; flex-direction: row; width: 100%;">
+                        <div style="display: flex; width: 30%;">
+                            <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                                <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                            </svg>
+                            <div>มีทะเบียข้อมูลสมาชิก</div>
+                        </div>
+                        <div style="display: flex; width: 50%;">
+                            <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                                <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                            </svg>
+                            <div>มีระเบียบหลักเกณฑ์ของกองทุนที่ชัดเจน</div>
+                        </div>
+                    </div>
+                </li>
             </div>
         </div> 
     </body>
