@@ -116,7 +116,7 @@
     </style>
     <body>
         <div class="document">
-            <div class="topic" style="margin-top: 20pt;">1. แบบเเสดงสถานะกองทุน {{calculateIncome}}</div>
+            <div class="topic" style="margin-top: 20pt;">1. แบบเเสดงสถานะกองทุน</div>
             <div style="font-weight: 600; text-align: center; margin-top: 20pt;">
                 <div>แบบเเสดงสถานะกองทุนสวัสดิการชุมชน</div>
                 <div style="display: flex; justify-content: center;">ตำบล/เทศบาล<div class="line" style="width: 30%;">ตำบลทรัพย์อนันต์</div></div>

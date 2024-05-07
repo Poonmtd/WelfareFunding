@@ -44,7 +44,8 @@ class RightCondition(Record):
             membership = self.checkmembership(memberapply.applyDate)
         
         # print(member.birthday)
-        if ((self.gender == gender or self.gender is None) and (age >= self.age or self.age is None)  and (membership >= self.membership or self.membership is None)):
+        if ((self.gender == gender or self.gender is None) and (age >= self.age or self.age is None)  
+            and (membership >= self.membership or self.membership is None)):
             print('------------------------------Condition--------------------------------------------------')
             return False
         return True

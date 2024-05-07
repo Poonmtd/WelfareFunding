@@ -17,15 +17,6 @@
 		"menu" : [
 			{
 				"group": {
-					"ID": "WelfareFunding",
-					"label": "WelfareFunding",
-					"icon": "welfarefunding.Default",
-					"order": "1.0"
-				},
-				"child": []
-			},
-			{
-				"group": {
 					"ID": "FundingMember",
 					"label": "สมาชิก",
 					"icon": "welfarefunding.Default",
