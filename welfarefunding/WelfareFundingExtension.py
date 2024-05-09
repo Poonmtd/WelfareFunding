@@ -114,7 +114,7 @@ class WelfareFundingExtension(Extension):
                 EnumSelectInput(
                     label="คำนำหน้า",
                     order="2.1",
-                    columnName="Nametitle",
+                    columnName="nameTitle",
                     isTable=True,
                     isRequired=True,
                     enum=Nametitle,

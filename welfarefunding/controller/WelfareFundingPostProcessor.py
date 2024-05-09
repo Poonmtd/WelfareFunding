@@ -50,6 +50,7 @@ class WelfareFundingPostProcessor (PostProcessDecorator) :
   print(model.isDrop)
   if 'id' in data:    
    model = await self.session.select(FundingMember, 'WHERE uid=?', parameter=[data['id']], limit=1)
+   print(data)
    if len(model) == 0:
     isUpdate = False
     model = FundingMember()

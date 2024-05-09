@@ -106,7 +106,7 @@ const FundingMemberBackend = function(main, parent) {
 			hasAvatar: false,
 			hasView: true,
 		}
-		option.excludeInput = ['email', 'username', 'Nametitle', 'displayName', 'gid'];
+		option.excludeInput = ['email', 'username', 'nameTitle', 'displayName', 'gid'];
 		// option.excludeInput = ['username'];
 		// วิธีเพิ่มเอกสาร
 		option.operation = [
