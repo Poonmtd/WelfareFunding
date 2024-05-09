@@ -43,6 +43,8 @@ const FundingMemberBackend = function(main, parent) {
 			let result = await AbstractPage.prototype.submit.call(this, view);
 			if(!result.isPass) return;
 			let data = result.data;
+			console.log('VIEW :' ,view)
+			console.log('VIEW DATA : ',data);
 			if (view.id != undefined) {
 				if (data.passwordHash.length > 0 || data.confirm_passwordHash.length > 0) {
 					if (data.passwordHash != data.confirm_passwordHash) {
@@ -55,7 +57,28 @@ const FundingMemberBackend = function(main, parent) {
 						view.dom.confirm_passwordHash.classList.remove('error');
 					}
 				}
+				// if(data.citizenID.length != 13){
+				// 	console.log('check citizen');
+				// 	view.dom.citizenID.classList.add('error');
+				// 	return;
+				// } else {
+				// 	view.dom.citizenID.classList.remove('error');
+				// }
+				// if(data.telephoneNumber.length != 10) {
+				// 	console.log('check telephone');
+				// 	view.dom.telephoneNumber.classList.add('error');
+				// 	return;
+				// } else {
+				// 	view.dom.telephoneNumber.classList.remove('error');
+				// }
+				// if(data.postalCode.length > 5 || data.postalCode < 5){
+				// 	view.dom.telephoneNumber.classList.add('error');
+				// 	return;
+				// } else {
+				// 	view.dom.postalCode.classList.remove('error');
+				// }
 				data.id = view.id;
+				console.log(data.id)
 			}
 			delete data.avatar;
 			let formData = result.file;

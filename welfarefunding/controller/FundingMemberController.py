@@ -31,6 +31,11 @@ class FundingMemberController(BaseController):
 		if len(model) == 0: return Error('Member does not exist.')
 		model = model[0]
 		data = model.toDict()
+  
+		for key,value in data.items() :
+			if value is None:
+				data[key] = ''
+  
 		age = await self.calculateAge(model.applyDate, model.birthday)
 		community = await self.calculateCommunity(model.moo)
 		data['age'] = age
