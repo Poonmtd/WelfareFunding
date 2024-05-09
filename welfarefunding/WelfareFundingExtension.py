@@ -213,7 +213,6 @@ class WelfareFundingExtension(Extension):
                     inputPerLine=4,
                     group=UserInputGroup.GENERIC
                 ),
-                
                 TextInput(
                     label="ผู้รับสิทธิ์",
                     columnName="grantee_one",
@@ -221,7 +220,8 @@ class WelfareFundingExtension(Extension):
                     isRequired=True,
                     inputPerLine=1,
                     group=50,
-                ),NumberInput(
+                ),
+                NumberInput(
                     label="บ้านเลขที่",
                     columnName="addressNumberG1",
                     # isTable=True,

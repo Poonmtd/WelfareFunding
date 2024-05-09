@@ -19,3 +19,4 @@ class ExpenseTypeController(BaseController):
         clause = 'WHERE isDrop = ? ORDER BY id DESC'
         models:List[ExpenseType] = await self.session.select(ExpenseType, clause, parameter=[0])
         return Success([i.toOption() for i in models])
+    # test commit 
