@@ -18,4 +18,6 @@ class ExpenseTypeController(BaseController):
     async def getExpenseTypeOption(self, request) :
         clause = 'WHERE isDrop = ? ORDER BY id DESC'
         models:List[ExpenseType] = await self.session.select(ExpenseType, clause, parameter=[0])
+        print(models)
         return Success([i.toOption() for i in models])
+    # test commit 
