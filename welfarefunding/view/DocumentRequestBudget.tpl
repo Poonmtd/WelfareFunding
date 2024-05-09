@@ -432,7 +432,7 @@
                             <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
                                 <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
                             </svg>
-                            <div>มีทะเบียข้อมูลสมาชิก</div>
+                            <div>มีทะเบียนข้อมูลสมาชิก</div>
                         </div>
                         <div style="display: flex; width: 50%;">
                             <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
@@ -442,7 +442,155 @@
                         </div>
                     </div>
                 </li>
+                <li>
+                    <div style="display: flex; flex-direction: row; width: 100%;">
+                        <div style="display: flex; width: 30%;">
+                            <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                                <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                            </svg>
+                            <div>มีระบบบัญชีที่เป็นปัจจุบัน</div>
+                        </div>
+                        <div style="display: flex; width: 50%;">
+                            <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                                <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                            </svg>
+                            <div>มีเเผนพัฒนาองค์กร/กองทุน</div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex;">
+                        <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                        </svg>
+                        <div style="display: flex; width: 100%;">มีระบบติดตามผลประเมินผลโดยการ<div class="line" style="width: 60%;"></div></div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex;">
+                        <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                        </svg>
+                        <div style="width: 100%;">
+                            <div style="display: flex;">มีรายงานผลการดำเนินงานให้สมาชิกเเละผู้ที่เกี่ยวข้องทราบโดยการประชุมกรรมการ จำนวน<div class="line" style="width: 10%;"></div>ครั้ง</div>
+                            <div style="display: flex;"> ประชุมสมาชิก<div class="line" style="width: 10%;"></div>&nbsp;&nbsp;ครั้งเมื่อวันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ<div class="line" style="width: 10%;"></div></div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <div style="margin-left: 10pt; margin-top: 10pt;">
+                4.5) มีการจัดสวัสดิการชุมชนพื้นฐานไม่น้อยกว่า 3 เรื่อง เช่น เกิด เจ็บ ตาย การศึกษา อาชีพ ที่ดูเเลสมาชิก
+                เเละคนในชุมชน เเละเชื่อมโยงสวัสดิการกับงานพัฒนาอื่นๆ ในชุมชน เช่น องค์กรการเงินชุมชน ฯลฯ
+            </div>
+            <div style="margin-left: 20pt;">
+                <li>
+                    <div style="display: flex;">ประเภทสวัสดิการที่จัดไปเเล้ว&nbsp;<p>ในรอบปีที่ผ่านมา</p>&nbsp;ได้เเก่</div>
+                </li>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 50%; display: flex;">1.) สวัสดิการ<div class="line" style="width: 70%;"></div></div>
+                    <div style="width: 30%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>ราย</div>
+                    <div style="width: 30%; display: flex;">เป็นเงิน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 50%; display: flex;">2.) สวัสดิการ<div class="line" style="width: 70%;"></div></div>
+                    <div style="width: 30%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>ราย</div>
+                    <div style="width: 30%; display: flex;">เป็นเงิน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 50%; display: flex;">3.) สวัสดิการ<div class="line" style="width: 70%;"></div></div>
+                    <div style="width: 30%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>ราย</div>
+                    <div style="width: 30%; display: flex;">เป็นเงิน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+        </div>
+        <div class="document">
+            <div style="margin-left: 20pt; margin-top: 20pt;">
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 50%; display: flex;">4.) สวัสดิการ<div class="line" style="width: 70%;"></div></div>
+                    <div style="width: 30%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>ราย</div>
+                    <div style="width: 30%; display: flex;">เป็นเงิน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 50%; display: flex;">5.) สวัสดิการ<div class="line" style="width: 70%;"></div></div>
+                    <div style="width: 30%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>ราย</div>
+                    <div style="width: 30%; display: flex;">เป็นเงิน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 50%; display: flex;">6.) สวัสดิการ<div class="line" style="width: 70%;"></div></div>
+                    <div style="width: 30%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>ราย</div>
+                    <div style="width: 30%; display: flex;">เป็นเงิน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 50%; display: flex;">7.) สวัสดิการ<div class="line" style="width: 70%;"></div></div>
+                    <div style="width: 30%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>ราย</div>
+                    <div style="width: 30%; display: flex;">เป็นเงิน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 50%; display: flex;">8.) สวัสดิการ<div class="line" style="width: 70%;"></div></div>
+                    <div style="width: 30%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>ราย</div>
+                    <div style="width: 30%; display: flex;">เป็นเงิน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 50%; display: flex;">9.) สวัสดิการ<div class="line" style="width: 70%;"></div></div>
+                    <div style="width: 30%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>ราย</div>
+                    <div style="width: 30%; display: flex;">เป็นเงิน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 50%; display: flex;">10.) สวัสดิการ<div class="line" style="width: 70%;"></div></div>
+                    <div style="width: 30%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>ราย</div>
+                    <div style="width: 30%; display: flex;">เป็นเงิน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 50%; text-align: center;">รวม</div>
+                    <div style="width: 30%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>ราย</div>
+                    <div style="width: 30%; display: flex;">เป็นเงิน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="margin-left: 10pt; margin-top: 10pt; display: flex; width: 100%;">
+                4.6) มีการจัดสวัสดิการที่ไม่เป็นตัวเงิน ได้เเก่<div class="line" style="width: 60%;"></div>
+            </div>
+            <div style="margin-left: 40pt;">
+                <li>
+                    <div>มีการเชื่อมโยงสวัสดิการกับการทำงานพัฒนาด้านอื่นๆ ได้แก่</div>
+                </li>
+            </div>
+            <div class="line" style="width: 100%;">-</div>
+            <div style="display: flex;">
+                <div style="width: 10%;">โดยการ</div><div class="line" style="width: 100%;"></div>
+            </div>
+            <div class="line" style="width: 100%;">-</div>
+            <div style="display: flex;">
+                <div style="width: 10%;">โดยการ</div><div class="line" style="width: 100%;"></div>
+            </div>
+            <div class="line" style="width: 100%;">-</div>
+            <div style="font-weight: 600; display: flex;">
+                5. งบประมาณที่เสนอสมทบกองทุนสวัสดิการ &nbsp;&nbsp; รวม<div class="line" style="width: 40%;"></div>บาท
+            </div>
+            <div style="font-weight: 600;">6. จุดเด่น/ผลการดำเนินงานสวัสดิการที่กลุ่มภาคภูมิใจ ได้เเก่</div>
+            <div class="line" style="width: 100;">-</div>
+            <div class="line" style="width: 100;">-</div>
+            <div class="line" style="width: 100;">-</div>
+            <div style="font-weight: 600;">7. กองทุนสวัสดิการชุมชนมีเเนวทางบริหารจัดการ เงินสมทบกองทุนสวัสดิการชุมชนจากโครงการของรัฐให้เกิดความยั่งยืน ดังต่อไปนี้</div>
+            <div style="margin-left: 20pt;">
+                <div>1.) กองทุนจัดสรรงบประมาณที่ได้รับการสมทบเพื่อกิจกรรม ดังต่อไปนี้</div>
+                <div style="margin-left: 20pt; display: flex;">1.1) กิจกรรมสมทบเพื่อจัดสวัสดิการชุมชนตามระเบียบข้อบังคับของกองทุนงบประมาณ<div class="line" style="width: 20%;"></div>บาท</div>
+                <div style="margin-left: 20pt;">1.2) กองทุนจะมีระบบการกำกับติดตามให้ใช้เงินสมทบตามที่เสนอให้เป็นจริง ดังนี้</div>
+                <div class="line" style="width: 100%;">-</div>
+                <div class="line" style="width: 100%;">-</div>
+                <div class="line" style="width: 100%;">-</div>
+                <div style="margin-left: 20pt;">1.3) แผนพัฒนากองทุนฯที่จะดำเนินการ ในระยะ 1 ปี ต่อไป มีดังต่อไปนี้</div>
+                <div class="line" style="width: 100%;">-</div>
+                <div class="line" style="width: 100%;">-</div>
+                <div class="line" style="width: 100%;">-</div>
+            </div>
+            <div style="text-align: justify;">
+                8. เพื่อประโยชน์ในการพิจารณาของคณะอนุกรรมการโครงการสนับสนุนการจัดสวัสดิการชุมชน จึงได้แนบเอกสารตามที่กำหนดเเละขอรับรองว่าข้อมูลนี้เป็นจริงทุกประการเเละขอรับผิดชอบต่อคณะกรรมการสนับสนุนขับเคลื่อนสวัสดิการชุมชนจังหวัดเเละกรุงเทพมหานคร ในการเสนอรับการสนับสนุนครั้งนี้ ในกรณีที่ข้อมูลขององค์กรที่เสนอมีความคลาดเคลื่อนเเละกระทบต่อการคำนวณเงินสมทบกองทุนสวัสดิการชุมชน ทางคณะกรรมการยินดีให้มีการปรับปรุงจำนวนเงินให้เป็นไปตามหลักเกณฑ์ของโครงการ เเละหากได้รับเงินสมทบเกินกว่าหลักเกณฑ์กำหนดยินดีจะคืนเงินส่วนเกินให้กับสถาบันโดยเร็ว
             </div>
         </div> 
+        <div class="document">
+            <div style="margin-top: 20pt; display: flex;">
+                <p>ผูับริหาร อปท. หมายถึง</p>&nbsp;นายก อบต., รองนายก อบต., นายกเทศมนตรี รองนายกเทศมนตรี ผู้อำนวยการเขต, รองผู้อำนวย
+            </div>
+        </div>
     </body>
 </html>

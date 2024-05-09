@@ -189,8 +189,8 @@ class FundingMember(Record):
 			order="6.0"
 		)
 	)
-	addressNumberG1 = IntegerColumn(
-		input=NumberInput(
+	addressNumberG1 = StringColumn(
+		input=TextInput(
 			label="บ้านเลขที่",
 			isRequired=False,
 			order="6.1"
@@ -340,3 +340,9 @@ class FundingMember(Record):
 		modification.add("citizenID", StringColumn(default='', length=20))
 		modification = self.createModification('2.2')
 		modification.add("path", StringColumn(default='', length=-1))
+		modification = self.createModification('2.3')
+		modification.drop("addressNumberG1")
+		modification.add("addressNumberG1",StringColumn(default=''))
+		modification = self.createModification('2.4')
+		modification.drop("addressNumber")
+		modification.add("addressNumber",StringColumn(default=''))
