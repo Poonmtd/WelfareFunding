@@ -219,7 +219,7 @@ class WelfareFundingExtension(Extension):
                     columnName="grantee_one",
                     # isTable=True,
                     isRequired=True,
-                    inputPerLine=1,
+                    inputPerLine=2,
                     group=50,
                 ),NumberInput(
                     label="บ้านเลขที่",
@@ -287,19 +287,24 @@ class WelfareFundingExtension(Extension):
                     label="เลขบัตรประชาชน (13 หลัก)",
                     columnName="citizenIDG1",
                     isRequired=True,
-                    # inputPerLine=4,
+                    inputPerLine=2,
+                    order="29.1",
                     group=50
                 ),
                 DateInput(
                     label="วัน/เดือน/ปีเกิด",
                     columnName="birthdayG1",
                     isRequired=True,
+                    inputPerLine=3,
+                    order="29.2",
                     group=50
                 ),
                 TextInput(
                     label="หมายเลขโทรศัพท์",
                     columnName="telephoneNumberG1",
                     isRequired=True,
+                    inputPerLine=3,
+                    order="29.3",
                     group=50
                 ),
                 EnumSelectInput(
@@ -307,6 +312,8 @@ class WelfareFundingExtension(Extension):
                     columnName="relationships",
                     isRequired=True,
                     enum=Relationships,
+                    inputPerLine=3,
+                    order="29.4",
                     group=50
                 )
                 
