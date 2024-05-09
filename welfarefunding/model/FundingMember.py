@@ -189,8 +189,8 @@ class FundingMember(Record):
 			order="6.0"
 		)
 	)
-	addressNumberG1 = IntegerColumn(
-		input=NumberInput(
+	addressNumberG1 = StringColumn(
+		input=TextInput(
 			label="บ้านเลขที่",
 			isRequired=False,
 			order="6.1"
@@ -253,8 +253,8 @@ class FundingMember(Record):
 		)
 	)
  
-	citizenIDG1=IntegerColumn(
-		input=NumberInput(
+	citizenIDG1=StringColumn(
+		input=TextInput(
 			label="เลขบัตรประชาชน (13 หลัก)",
 			isRequired=True,
 			order="7.0"
@@ -303,5 +303,22 @@ class FundingMember(Record):
 		modification.add("citizenID", StringColumn(default='', length=20))
 		modification = self.createModification('2.2')
 		modification.add("path", StringColumn(default='', length=-1))
-		modification = self.createModification("2.3")
-		modification.add("citizenIDG1", IntegerColumn(default=''))
+		modification = self.createModification('2.3')
+		modification.drop("addressNumberG1")
+		modification.add("addressNumberG1",StringColumn(default=''))
+		modification = self.createModification('2.4')
+		modification.drop("addressNumber")
+		modification.add("addressNumber",StringColumn(default=''))
+		modification = self.createModification('2.5')
+		modification.add("citizenIDG1", StringColumn(default='',length=20))
+		modification = self.createModification('2.6')
+		modification.add("telephoneNumberG1",StringColumn(default=''))
+		modification = self.createModification("2.11")
+		modification.add("birthdayG1",DateColumn(default=''))
+		modification = self.createModification("2.12")
+		modification.add("relationships",IntegerColumn(default=''))
+		# modification = self.createModification('2.8')
+		# modification.add("relationships",IntegerColumn(default=''))
+		# modification = self.createModification('2.10')
+		# modification.add("birthdayG1",DateColumn(default=''))
+

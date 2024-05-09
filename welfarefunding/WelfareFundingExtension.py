@@ -12,6 +12,7 @@ from welfarefunding.model.Status import Status
 from welfarefunding.model.VulnerableGroup import VulnerableGroup
 from gaimon.model.User import UserInputGroup
 from welfarefunding.model.Nametitle import Nametitle
+from welfarefunding.model.Relationships import Relationships
 
 class WelfareFundingExtension(Extension):
     def __init__(self, resourcePath: str, configPath: str):
@@ -282,80 +283,45 @@ class WelfareFundingExtension(Extension):
                     inputPerLine=4,
                     group=50
                 ),
-                # TextInput(
-                #     label="ผู้รับสิทธิ์คนที่ 2",
-                #     columnName="grantee_two",
-                #     # isTable=True,
-                #     isRequired=True,
-                #     # inputPerLine=1,
-                #     group=50,
-                # ),NumberInput(
-                #     label="บ้านเลขที่",
-                #     columnName="addressNumberG2",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
-                # NumberInput(
-                #     label="หมู่",
-                #     columnName="mooG2",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
-                # TextInput(
-                #     label="ตรอก/ซอย",
-                #     columnName="alleyG2",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
-                # TextInput(
-                #     label="ถนน",
-                #     columnName="roadG2",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
-                # TextInput(
-                #     label="ตำบล/แขวง",
-                #     columnName="subDistrictIDG2",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
-                # TextInput(
-                #     label="อำเภอ/เขต",
-                #     columnName="districtIDG2",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
-                # TextInput(
-                #     label="จังหวัด",
-                #     columnName="provinceG2",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
-                # TextInput(
-                #     label="รหัสไปรษณีย์",
-                #     columnName="postalCodeG2",
-                #     # isTable=True,
-                #     isRequired=False,
-                #     # inputPerLine=4,
-                #     group=50
-                # ),
+                TextInput(
+                    label="เลขบัตรประชาชน (13 หลัก)",
+                    columnName="citizenIDG1",
+                    isRequired=True,
+                    # inputPerLine=4,
+                    group=50
+                ),
+                DateInput(
+                    label="วัน/เดือน/ปีเกิด",
+                    columnName="birthdayG1",
+                    isRequired=True,
+                    group=50
+                ),
+                TextInput(
+                    label="หมายเลขโทรศัพท์",
+                    columnName="telephoneNumberG1",
+                    isRequired=True,
+                    group=50
+                ),
+                EnumSelectInput(
+                    label="ความสัมพันธ์",
+                    columnName="relationships",
+                    isRequired=True,
+                    enum=Relationships,
+                    group=50
+                )
+                
             ]
         }
 
 
 # test
 # จัดบรรทัดใช้  inputPerLine=4 เล็กสุดได้ 4ช่อง ต่อเเถว 
+ 
+# 	relationships = IntegerColumn(
+# 		input = EnumSelectInput(
+# 			label="ความสัมพันธ์",
+# 			isRequired=False,
+# 			enum=Relationships,
+# 			order="10.0"
+# 		)
+# 	)
