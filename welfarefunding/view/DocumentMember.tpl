@@ -100,13 +100,13 @@
         <div class="document">
             <!-- <div>Citizen ID: {{{citizenID}}}</div>
             <div>Name: {{uid.firstName}} {{uid.lastName}}</div> -->
-            <div class="topic">ใบสมัครสมาชิก</div>
+            <div class="topic" style="font-size: 20pt;">ใบสมัครสมาชิก</div>
             <div class="content">
-                <div class="text-end">เลขทะเบียนสมาชิก..........</div>
-                <div class="text-center">กองทุนสวัสดิการชุมชน......................</div>
-                <div class="text-end">เขียนที่..........</div>
-                <div class="text-end">วันที่.........เดือน.........พ.ศ..........</div>
-                <div>เรียน ประธานคณะกรรมการกองทุนสวัสดิการชุมชน............</div>
+                <div class="text-end" style="display: flex; justify-content: end;">เลขทะเบียนสมาชิก<div class="line" style="width: 10%;">{{{memberNumber}}}</div></div>
+                <div class="text-center" style="display: flex; justify-content: center;">กองทุนสวัสดิการชุมชนตำบลทรัพย์อนันต์</div>
+                <div class="text-end" style="display: flex; justify-self: end;">เขียนที่<div class="line" style="width: 10%;"></div></div>
+                <div class="text-end" style="display: flex;">วันที่<div class="line" style="width: 10%;">{{{date}}}</div>เดือน<div class="line" style="width: 15%;">{{{month}}}</div>พ.ศ.<div class="line" style="width: 10%;">{{{year}}}</div></div>
+                <div style="display: flex; margin-top: 10pt; margin-bottom: 10pt;">เรียน ประธานคณะกรรมการกองทุนสวัสดิการชุมชน<div class="line" style="width: 20%;">ตำบลทรัพย์อนันต์</div></div>
                 <div class="text">
                     <div style="display: flex;">
                         ข้าพเจ้า<div class="line" style="width: 40%;">{{uid.firstName}}</div>
@@ -137,13 +137,12 @@
                 </div>
                 <div style="text-indent: 30pt; text-align: justify; width: 95%;">
                     ข้าพเจ้าเข้าใจระเบียบ เเละวัตถุประสงค์ของกองทุนสวัสดิการชุมชนนี้ เเละขอสมัครเข้าเป็นสมาชิกของกองทุนโดย
-                    ขอชำระเงินสมทบให้กับกองทุนวันละ 1 บาท หรือ 365 บาท/ปี และค่าสมัครสมาชิกแรกเข้า______บาท โดย
-                    ไม่ขอรับเงินค่าสมัครแรกเข้า เเละเงินสมทบกองทุนคืน แต่ขอรับสวัสดิการตามสิทธิที่พึงได้รับตามกำหนดไว้ในข้อบังคับ/
-                    ระเบียบกองทุน 
+                    ขอชำระเงินสมทบให้กับกองทุนวันละ 1 บาท หรือ 365 บาท/ปี และค่าสมัครสมาชิกแรกเข้า 20 บาท โดย
+                    ไม่ขอรับเงินค่าสมัครแรกเข้าเเละเงินสมทบกองทุนคืนแต่ขอรับสวัสดิการตามสิทธิที่พึงได้รับตามกำหนดไว้ในข้อบังคับ/ระเบียบกองทุน 
                 </div>
                 <div class="text">
-                    <div style="display: flex; text-indent: 30pt;">
-                        หากข้าพเจ้าถึงแก่กรรม ข้าพเจ้าขอมอบผลประโยชน์ที่เกิดขึ้นจากกองทุนสวัสดิการชุมชน<div class="line" style="width: 10%;"></div>
+                    <div style="display: flex; text-indent: 30pt; text-align: justify;">
+                        หากข้าพเจ้าถึงแก่กรรม ข้าพเจ้าขอมอบผลประโยชน์ที่เกิดขึ้นจากกองทุนสวัสดิการชุมชนตำบลทรัพย์อนันต์
                     </div>
                     <div style="display: flex;">
                         ให้เเก่<div class="line" style="width: 30%;">{{grantee_one}}</div>
@@ -165,33 +164,32 @@
                         โทรศัพท์<div class="line" style="width: 20%;"></div>
                     </div>
                    <div style="display: flex;">
-                        ซึ่งมีความเกี่ยวข้องเป็น<div class="line" style="width: 10%;"></div>ของข้าพเจ้า เป็นผู้รับผลประโยชน์
+                        ซึ่งมีความเกี่ยวข้องเป็น<div class="line" style="width: 20%;">{{{relationships}}}</div>ของข้าพเจ้า เป็นผู้รับผลประโยชน์
                    </div>
                    <div style="display: flex; text-indent: 30pt;">ในการนี้ ข้าพเจ้าได้แนบสำเนาบัตรประชาชนของตนเองและผู้รับผลประโยชน์มาพร้อมนี้</div>
                     <div class="signed">
-                        <div style="display: flex;">
+                        <div style="display: flex; justify-content: center;">
                             ลงชื่อ<div class="line" style="width: 60%;">{{uid.firstName}} {{uid.lastName}}</div>ผู้สมัคร
                         </div>
-                        <div style="display: flex;">
+                        <div style="display: flex; justify-content: center;">
                             ( <div class="line"style="width: 60%;">{{uid.firstName}} {{uid.lastName}}</div> )
                         </div>
                     </div>
                     <div style="margin-top: 20pt;">คำรับรองของคณะกรรมการประจำชุมชน/เทศบาล</div>
                     <div style="text-indent: 30pt;">ข้าพเจ้าขอรับรอง ข้อความตามใบสมัครว่าเป็นความจริง/......................</div>
                     <div class="signed">
-                        <div style="display: flex;">
+                        <div style="display: flex; justify-content: center;">
                             ลงชื่อ<div class="line" style="width: 60%;"></div>ผู้รับรอง
                         </div>
-                        <div style="display: flex;">
+                        <div style="display: flex; justify-content: center;">
                             ( <div class="line"style="width: 60%;"></div> )
                         </div>
-                       
                     </div>
                     <div class="signed">
-                        <div style="display: flex;">
+                        <div style="display: flex; justify-content: center;">
                             คณะกรรมการประจำชุมชน/เทศบาล<div class="line" style="width: 20%;"></div>
                         </div>
-                        <div style="display: flex;">
+                        <div style="display: flex; justify-content: center;">
                             ลงวันที่<div class="line" style="width: 20%;"></div>
                         </div>
                         

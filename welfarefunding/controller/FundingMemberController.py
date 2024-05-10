@@ -31,12 +31,39 @@ class FundingMemberController(BaseController):
 		if len(model) == 0: return Error('Member does not exist.')
 		model = model[0]
 		data = model.toDict()
-  
+		date = model.applyDate.day
+		month = model.applyDate.month
+		if month == 1: month = 'มกราคม'
+		elif month == 2: month = 'กุมภาพันธ์'
+		elif month == 3: month = 'มีนาคม'
+		elif month == 4: month = 'เมษายน'
+		elif month == 5: month = 'พฤษภาคม'
+		elif month == 6: month = 'มิถุนายน'
+		elif month == 7: month = 'กรกฎาคม'
+		elif month == 8: month = 'สิงหาคม'
+		elif month == 9: month = 'กันยายน'
+		elif month == 10: month = 'ตุลาคม'
+		elif month == 11: month = 'พฤศจิกายน'
+		elif month == 12: month = 'ธันวาคม'
+		year = model.applyDate.year + 543
+		data['date'] = date
+		data['month'] = month
+		data['year'] = year
+
+		relationships = model.relationships
+		if relationships == 1: relationships = 'บุตร'
+		elif relationships == 2: relationships = 'มารดา'
+		elif relationships == 3: relationships = 'บิดา'
+		elif relationships == 4: relationships = 'พี่/น้อง'
+		elif relationships == 5: relationships = 'หลาน'
+		elif relationships == 6: relationships = 'ญาติ'
+		data['relationships'] = relationships
 		for key,value in data.items() :
 			if value is None:
 				data[key] = ''
   
 		age = await self.calculateAge(model.applyDate, model.birthday)
+		# ageGrantee = await self.calculateAge(model.) 
 		community = await self.calculateCommunity(model.moo)
 		data['age'] = age
 		data['community'] = community
@@ -105,10 +132,13 @@ class FundingMemberController(BaseController):
 			path = await self.generateDocumentSavingListPDF({'savingList': data})
 			# model.path = path
 			# await self.session.update(model)
+		print('listttttttttttttttttttttttttttttttttttttttttttttttttt')
+		print(data)
 		path = f"{self.resourcePath}upload/{path}"
 		return await response.file(path)				
 	
 	async def generateDocumentSavingListPDF(self, data):
+		print('loveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
 		print(data)
 		font = await self.getFont()
 		template = self.theme.getTemplate('welfarefunding/DocumentSavingList.tpl')
