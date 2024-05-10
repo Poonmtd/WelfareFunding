@@ -25,4 +25,3 @@ class IncomeTypeController(BaseController):
             name = i.incomeName
             print(name)
         return Success([i.toOption() for i in models])
-        # test commit 

@@ -15,7 +15,6 @@ from weasyprint import HTML
 
 import os, string, random
 
-
 @BASE(BudgetFund, "/welfarefunding/budgetfund", "welfarefunding.BudgetFund")
 class BudgetFundController(BaseController):
 	def __init__(self, application):
