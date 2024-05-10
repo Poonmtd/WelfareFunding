@@ -18,5 +18,10 @@ class IncomeTypeController(BaseController):
     async def getIncomeTypeOption(self, request) :
         clause = 'WHERE isDrop = ? ORDER BY id DESC'
         models:List[IncomeType] = await self.session.select(IncomeType, clause, parameter=[0])
+        print(models)
+        print('--------------------------------')
+        # print(i for i in models)
+        for i in models :
+            name = i.incomeName
+            print(name)
         return Success([i.toOption() for i in models])
-        # test commit 

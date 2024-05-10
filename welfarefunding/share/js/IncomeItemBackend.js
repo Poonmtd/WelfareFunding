@@ -27,18 +27,4 @@ const IncomeItemBackend = function(main, parent) {
 			}
 		}
 	}
-
-	// this.renderTableView = async function(modelName, config = {}) {
-    //     config.hasAvatar = false;
-    //     const response = await GET('/welfarefunding/incomeitem/get/all/income');
-
-    //     if (response.status == 'success') {
-    //         const data = response.data;
-	// 		console.log(data)
-    //         await AbstractPage.prototype.renderTable.call(this, modelName, data);
-    //     } else {
-    //         console.error('Error fetching data:', response.message);
-    //     }
-    // }
-
 }
