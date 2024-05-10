@@ -2,7 +2,7 @@ const FundDocumentBackend = function(main, parent) {
 	AbstractPage.call(this, main, parent);
 
 	let object = this;
-	this.title = 'FundDocument';
+	this.title = 'เอกสารกองทุนประจำปี';
 	this.model = "FundDocument";
 	this.pageNumber = 1;
 	this.limit = 10;
