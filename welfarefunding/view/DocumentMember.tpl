@@ -146,30 +146,30 @@
                     </div>
                     <div style="display: flex;">
                         ให้เเก่<div class="line" style="width: 30%;">{{grantee_one}}</div>
-                        เลขที่บัตรประชาชน<div class="line" style="width: 30%;"></div>
+                        เลขที่บัตรประชาชน<div class="line" style="width: 30%;">{{citizenIDG1}}</div>
                     </div>
                     <div style="display: flex;">
-                        อายุ<div class="line" style="width: 5%;"></div>ปี
-                        วัน/เดือน/ปี เกิด<div class="line" style="width: 20%;"></div>
+                        อายุ<div class="line" style="width: 5%;">{{ageG1}}</div>ปี
+                        วัน/เดือน/ปี เกิด<div class="line" style="width: 20%;">{{birthdayG1}}</div>
                         บ้านเลขที่<div class="line" style="width:5%;">{{addressNumberG1}}</div>
                         หมู่ที่<div class="line" style="width: 5%;">{{mooG1}}</div>
                         ซอย<div class="line" style="width: 10%;">{{alleyG1}}</div>
                         ถนน<div class="line" style="width: 10%;">{{roadG1}}</div>
                     </div>
                     <div style="display: flex;">
-                        ชุมชน<div class="line" style="width: 10%"></div>
+                        ชุมชน<div class="line" style="width: 10%">{{communityG1}}</div>
                         ตำบล/แขวง<div class="line" style="width: 10%;">{{subDistrictIDG1}}</div>
                         อำเภอ<div class="line" style="width: 10%;">{{districtIDG1}}</div>
                         จังหวัด<div class="line" style="width: 10%;">{{provinceG1}}</div>
-                        โทรศัพท์<div class="line" style="width: 20%;"></div>
+                        โทรศัพท์<div class="line" style="width: 20%;">{{telephoneNumberG1}}</div>
                     </div>
                    <div style="display: flex;">
-                        ซึ่งมีความเกี่ยวข้องเป็น<div class="line" style="width: 20%;">{{{relationships}}}</div>ของข้าพเจ้า เป็นผู้รับผลประโยชน์
+                        ซึ่งมีความเกี่ยวข้องเป็น<div class="line" style="width: 20%;">{{relationships}}</div>ของข้าพเจ้า เป็นผู้รับผลประโยชน์
                    </div>
                    <div style="display: flex; text-indent: 30pt;">ในการนี้ ข้าพเจ้าได้แนบสำเนาบัตรประชาชนของตนเองและผู้รับผลประโยชน์มาพร้อมนี้</div>
                     <div class="signed">
                         <div style="display: flex; justify-content: center;">
-                            ลงชื่อ<div class="line" style="width: 60%;">{{uid.firstName}} {{uid.lastName}}</div>ผู้สมัคร
+                            ลงชื่อ<div class="line" style="width: 60%;"></div>ผู้สมัคร
                         </div>
                         <div style="display: flex; justify-content: center;">
                             ( <div class="line"style="width: 60%;">{{uid.firstName}} {{uid.lastName}}</div> )

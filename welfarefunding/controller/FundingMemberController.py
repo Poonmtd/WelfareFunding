@@ -57,16 +57,25 @@ class FundingMemberController(BaseController):
 		elif relationships == 4: relationships = 'พี่/น้อง'
 		elif relationships == 5: relationships = 'หลาน'
 		elif relationships == 6: relationships = 'ญาติ'
+		elif relationships == 7: relationships = 'สามี/ภรรยา'
+		elif relationships == -1: relationships = ''
 		data['relationships'] = relationships
 		for key,value in data.items() :
 			if value is None:
 				data[key] = ''
   
 		age = await self.calculateAge(model.applyDate, model.birthday)
-		# ageGrantee = await self.calculateAge(model.) 
+		ageG1 = await self.calculateAge(model.applyDate, model.birthdayG1)
+		subDistrictG1 = model.subDistrictIDG1
+		if subDistrictG1 == 'ทรัพย์อนันต์' :
+			communityG1 = await self.calculateCommunity(model.mooG1)
+		else :
+			communityG1 = ''
 		community = await self.calculateCommunity(model.moo)
 		data['age'] = age
 		data['community'] = community
+		data['ageG1'] = ageG1
+		data['communityG1'] = communityG1
 		# if len(model.path): return await response.file(f"{self.resourcePath}upload/{model.path}")
 		if len(model.path):
 			await self.static.removeStaticShare(model.path) # remove old file before generate new file
@@ -138,11 +147,7 @@ class FundingMemberController(BaseController):
 		return await response.file(path)				
 	
 	async def generateDocumentSavingListPDF(self, data):
-<<<<<<< HEAD
-		print("test print data")
-=======
 		print('loveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
->>>>>>> 0d19f7f9c50b17a141f4c468569224f1ec9c1d60
 		print(data)
 		font = await self.getFont()
 		template = self.theme.getTemplate('welfarefunding/DocumentSavingList.tpl')
