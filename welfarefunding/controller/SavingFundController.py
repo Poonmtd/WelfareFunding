@@ -7,6 +7,7 @@ from gaimon.core.RESTResponse import(
     SuccessRESTResponse as Success
 )
 from welfarefunding.model.SavingFund import SavingFund
+from welfarefunding.model.FundingMember import FundingMember
 
 from weasyprint import HTML
 

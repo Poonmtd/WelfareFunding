@@ -2,7 +2,7 @@ const FundingMemberBackend = function(main, parent) {
 	AbstractPage.call(this, main, parent);
 
 	let object = this;
-	this.title = 'Member';
+	this.title = 'ข้อมูลสมาชิก';
 	this.model = "User";
 	this.pageNumber = 1;
 	this.limit = 10;
