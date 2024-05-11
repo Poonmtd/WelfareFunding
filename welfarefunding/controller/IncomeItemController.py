@@ -30,10 +30,10 @@ class IncomeItemController(BaseController):
         if len(model) == 0: return Error('Member does not exist.')
         model = model[0]
         data = model.toDict()
-        # namerole = 'เหรัญญิก'
-        # user = await self.getuserrole(namerole)
-        # print('listtttttttttttttttttttttttttttttttttttttttttttttttttttttttt')
-        # print(user)
+        namerole = 'เหรัญญิก'
+        user = await self.getuserrole(namerole)
+        print('listtttttttttttttttttttttttttttttttttttttttttttttttttttttttt')
+        print(user)
         path = await self.generateDocumentIncomePDF(data)
         model.path = path
         await self.session.update(model)
@@ -61,14 +61,12 @@ class IncomeItemController(BaseController):
         font = self.renderer.render(font, {})
         return font
     
-    # async def getuserrole(self,data):
-    #     print('name role get')
-    #     group = await self.session.select(UserGroup, 'WHERE name LIKE ?',parameter=[data],limit=1)
-    #     if len(group) == 0: 
-    #         return Error('')
-    #     print(group[0].id)
-    #     user = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
-    #     print('--------------------------------',user)
-    #     for i in user:
-    #         print(i)
-    #     return name
+    async def getuserrole(self,data):
+        print('name role get')
+        group = await self.session.select(UserGroup, 'WHERE name LIKE ?',parameter=[data],limit=1)
+        if len(group) == 0: 
+            return Error('')
+        print(group[0].id)
+        user = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
+        print('--------------------------------',user)
+        return user
