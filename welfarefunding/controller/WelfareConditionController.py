@@ -28,12 +28,14 @@ class WelfareConditionController(BaseController):
         print('------------------------',id)
         # member = await self.session.selectByID(FundingMember,int(id))
         # print(member)
-        member = await self.session.select(FundingMember, 'WHERE uid = ?', parameter=[int(id)], limit=1)
+        member = await self.session.select(FundingMember, 'WHERE id = ?', parameter=[int(id)], limit=1)
         if member is None: return Error('')
         
         clause = 'WHERE isDrop = ? ORDER BY id DESC'
         model:List[WelfareCondition] = await self.session.select(WelfareCondition, clause, parameter=[0], hasChildren=True)
         if len(model) == 0: return Error('')
+        
+        
         # result = True
         # for i in model:
         #     if not i.check(member):

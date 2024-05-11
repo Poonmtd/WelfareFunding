@@ -33,6 +33,7 @@ const FundingMemberBackend = function(main, parent) {
 	}
 
 	this.renderView = async function(modelName, config = {}, viewType='Form') {
+		console.log(config);
 		if(config.data != undefined){
 			delete config.data.localize;
 			config.data = await main.protocol.user.getUserByID({id: config.data.id});
