@@ -130,7 +130,7 @@
                         ถนน<div class="line"style="width: 10%;" >-</div>
                     </div>
                     <div style="display: flex;">
-                        ตำบล/เเขวง<div class="line" style="width: 15%;">ทรัพย์อนนันต์</div>อำเภอ/เขต<div class="line" style="width: 15%;">ท่าเเซะ</div>
+                        ตำบล/เเขวง<div class="line" style="width: 15%;">ทรัพย์อนันต์</div>อำเภอ/เขต<div class="line" style="width: 15%;">ท่าเเซะ</div>
                         จังหวัด<div class="line" style="width: 15%;">ชุมพร</div>รหัสไปรษณีย์<div class="line" style="width: 10%;">86140</div>
                     </div>
                     <div style="display: flex;">
@@ -187,11 +187,11 @@
             <div style="margin-top: 20pt;">
                 <div style="font-weight: 600; display: flex;">3. ข้อมูลสมาชิกกองทุน</div>
                 <div style="margin-left: 10pt; margin-top: 10pt;">
-                    <div style="display: flex;">3.1 จำนวนสมาชิกเเรกตั้ง<div class="line" style="width: 15%;"></div>สมาชิกสะสมถึงปัจจุบัน<div class="line" style="width: 15%;"></div></div>
-                    <div style="display: flex;">จำนวนสมาชิกคงเหลือ (หักตาย ลาออกเเละพ้นสภาพการเป็นสมาชิก) ปัจจุบัน<div class="line" style="width: 15%;"></div>คน</div>
+                    <div style="display: flex;">3.1 จำนวนสมาชิกเเรกตั้ง<div class="line" style="width: 15%;">276</div>สมาชิกสะสมถึงปัจจุบัน<div class="line" style="width: 15%;">{{calculateAllTypeMember.รวมสะสม}}</div></div>
+                    <div style="display: flex;">จำนวนสมาชิกคงเหลือ (หักตาย ลาออกเเละพ้นสภาพการเป็นสมาชิก) ปัจจุบัน<div class="line" style="width: 15%;">{{calculateTypeMember.รวม}}</div>คน</div>
                     <div style="display: flex;">
-                        ณ วันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ<div class="line" style="width: 10%;"></div>
-                        จากจำนวนประชากรในชุมชนทั้งหมด<div class="line" style="width: 15%;"></div>คน
+                        ณ วันที่<div class="line" style="width: 10%;">3</div>เดือน<div class="line" style="width: 15%;">สิงหาคม</div>พ.ศ<div class="line" style="width: 10%;">2566</div>
+                        จากจำนวนประชากรในชุมชนทั้งหมด<div class="line" style="width: 15%;">3,950</div>คน
                     </div>
                     <div style="display: flex; flex-direction: column; margin-left: 20pt;">
                         <div>- สมาชิกสะสม หมายถึง สมาชิกสะสมนับตั้งเเต่วันก่อตั้งถึงปัจจุบัน</div>
@@ -277,38 +277,38 @@
                     <tbody>
                         <tr>
                             <td>บุคคลทั่วไป</td>
-                            <td>1,423</td>
-                            <td>1,418</td>
+                            <td>{{calculateAllTypeMember.ทั่วไป}}</td>
+                            <td>{{calculateTypeMember.ทั่วไป}}</td>
                         </tr>
                         <tr>
                             <td>เด็ก/เยาวชน</td>
-                            <td>256</td>
-                            <td>256</td>
+                            <td>{{calculateAllTypeMember.เด็ก}}</td>
+                            <td>{{calculateTypeMember.เด็ก}}</td>
                         </tr>
                         <tr>
                             <td>ผู้สูงอายุ</td>
-                            <td>752</td>
-                            <td>569</td>
+                            <td>{{calculateAllTypeMember.ผู้สูงอายุ}}</td>
+                            <td>{{calculateTypeMember.ผู้สูงอายุ}}</td>
                         </tr>
                         <tr>
                             <td>ผู้ด้อยโอกาส</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{calculateAllTypeMember.ด้อยโอกาส}}</td>
+                            <td>{{calculateTypeMember.ด้อยโอกาส}}</td>
                         </tr>
                         <tr>
                             <td>ผู้พิการ</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{calculateAllTypeMember.พิการ}}</td>
+                            <td>{{calculateTypeMember.พิการ}}</td>
                         </tr>
                         <tr>
-                            <td>อื่นๆ</td>
-                            <td></td>
-                            <td></td>
+                            <td>กำพร้า</td>
+                            <td>{{calculateAllTypeMember.กำพร้า}}</td>
+                            <td>{{calculateTypeMember.กำพร้า}}</td>
                         </tr>
                         <tr>
                             <td>รวม</td>
-                            <td>2,431</td>
-                            <td>2,243</td>
+                            <td>{{calculateAllTypeMember.รวมสะสม}}</td>
+                            <td>{{calculateTypeMember.รวม}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -324,8 +324,8 @@
                 </div>
             </div>
             <div style="margin-top: 20pt; font-weight: 600;">4. ข้อมูลกองทุนสวัสดิการชุมชน</div>
-            <div style="margin-left: 10pt; margin-top: 10pt; display: flex;">4.1 จำนวนเงินกองทุนสวัสดิการ ณ วันเริ่มวันเเรก<div class="line" style="width: 10%;"></div></div>
-            <div style="display: flex;">จำนวนเงินกองทุนสวัสดิการสะสมถึงปัจจุบัน รวม<div class="line" style="width: 15%;"></div>บาท</div>
+            <div style="margin-left: 10pt; margin-top: 10pt; display: flex;">4.1 จำนวนเงินกองทุนสวัสดิการ ณ วันเริ่มวันเเรก<div class="line" style="width: 10%;">30,660</div></div>
+            <div style="display: flex;">จำนวนเงินกองทุนสวัสดิการสะสมถึงปัจจุบัน รวม<div class="line" style="width: 15%;">{{calculateIncome.รวมรายรับ}}</div>บาท</div>
             <div style="display: flex;">จำนวนเงินกองทุนสวัสดิการคงเหลือ<div class="line" style="width: 15%;"></div>บาท ณ วันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ<div class="line" style="width: 10%;"></div></div>
         </div>
         <div class="document">
@@ -894,137 +894,137 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>1</td>
+                            <td>สมพิศ  หนูขวัญ</td>
+                            <td>ประธานฯ</td>
+                            <td>ตัวแทนสมาชิก ม.4</td>
+                            <td>0892319075</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>2</td>
+                            <td>จงใจ  จอดประสงค์</td>
+                            <td>รองประธานฯ</td>
+                            <td>ตัวแทนสมาชิก ม.7</td>
+                            <td>0872835976</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>3</td>
+                            <td>สุภาวดี  ชุมพูนุช</td>
+                            <td>เหรัญญิกฯ</td>
+                            <td>ตัวแทนสมาชิก ม.4</td>
+                            <td>0937459339</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>4</td>
+                            <td>ธวัชชัย  เมฆหมอก</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.1</td>
+                            <td>0828188969</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>5</td>
+                            <td>ดารุณี  เมฆหมอก</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.1</td>
+                            <td>0937587484</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>6</td>
+                            <td>ขนิษฐา  อารีราษฎ์</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.1</td>
+                            <td>0625412811</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>7</td>
+                            <td>จำรัส  นุ้ยมาก</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.2</td>
+                            <td>0986704725</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>8</td>
+                            <td>สุนิพร  อินทวาด</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.2</td>
+                            <td>0817924050</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>9</td>
+                            <td>พัชรียา  ดำภูผา</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.2</td>
+                            <td>0884438358</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>10</td>
+                            <td>โสภา  วรรณเผือก</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.3</td>
+                            <td>0822803019</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>11</td>
+                            <td>อัจฉราพร  ด้วงเผือก</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.3</td>
+                            <td>0613029686</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>12</td>
+                            <td>ประเสริฐ  จินดามณี</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.4</td>
+                            <td>0878886272</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>13</td>
+                            <td>บัญหาร  กิ้มเซียะ</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.5</td>
+                            <td>0987102935</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>14</td>
+                            <td>มนฑา  นุชพรหม</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.5</td>
+                            <td>0828134789</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>15</td>
+                            <td>นันทิกานต์  เมฆหมอก</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.6</td>
+                            <td>0622434997</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>16</td>
+                            <td>มนเฑียร  จันทดี</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.6</td>
+                            <td>0817883096</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>17</td>
+                            <td>สมศรี  ดำภูผา</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.7</td>
+                            <td>0623151035</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>18</td>
+                            <td>อังขณา  บัวสารบรรณ์</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.7</td>
+                            <td>0872722849</td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>19</td>
+                            <td>เตือนใจ  พุ่มสร้าง</td>
+                            <td>เลขานุการฯ</td>
+                            <td>ตัวแทนสมาชิก ม.3</td>
+                            <td>0638684613</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -1433,31 +1433,31 @@
                         </tr>
                         <tr>
                             <td>เงินสมทบจากมาชิก</td>
-                            <td></td>
+                            <td>{{calculateIncome.เงินสมทบจากสมาชิก}}</td>
                             <td></td>
                             <td>เงินฝากธนาคาร</td>
-                            <td></td>
+                            <td>{{calculateExpense.เงินฝากธนาคาร}}</td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>สถาบันพัฒนาองค์กรชุมชน (พอช.) (55,000/100,000)</td>
-                            <td></td>
+                            <td>{{calculateIncome.100}}</td>
                             <td></td>
                             <td>เงินสดในมือ</td>
-                            <td></td>
+                            <td>{{calculateExpense.เงินสดในมือ}}</td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>สถาบันพัฒนาองค์กรชุมชน (พอช.) (งบสมทบจากรัฐบาลผ่าน พอช.)</td>
-                            <td></td>
+                            <td>{{calculateIncome.200}}</td>
                             <td></td>
                             <td>จ่ายสวัสดิการให้กับสมาชิก</td>
-                            <td></td>
+                            <td>{{calculateExpense.จ่ายสวัสดิการให้สมาชิก}}</td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>องค์กรปกครองส่วนท้องถิ่น (อบต./เทศบาล/อบจ.)</td>
-                            <td></td>
+                            <td>{{calculateIncome.300}}</td>
                             <td></td>
                             <td><div style="display: flex;">เงินลงทุนอื่นๆ<div class="line" style="width: 50%;"></div></div></td>
                             <td></td>
@@ -1465,7 +1465,7 @@
                         </tr>
                         <tr>
                             <td>หน่วยงานภาครัฐอื่นๆ (ที่นอกเหนือจากการสมทบที่ผ่าน พอช.)</td>
-                            <td></td>
+                            <td>{{calculateIncome.400}}</td>
                             <td></td>
                             <td><div style="display: flex;">อื่นๆ<div class="line" style="width: 50%;"></div></div></td>
                             <td></td>
@@ -1481,10 +1481,10 @@
                         </tr>
                         <tr>
                             <td style="font-weight: 600; text-align: center;">1. รวมรายรับ</td>
-                            <td></td>
+                            <td>{{calculateIncome.รายรับ}}</td>
                             <td></td>
                             <td style="font-weight: 600; text-align: center;">1. สินทรัพย์/เงินคงเหลือ</td>
-                            <td></td>
+                            <td>{{calculateExpense.รายจ่าย}}</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -1537,18 +1537,18 @@
                         </tr>
                         <tr>
                             <td style="font-weight: 600; text-align: center;">2. รวมรายได้</td>
-                            <td></td>
+                            <td>{{calculateIncome.รายได้}}</td>
                             <td></td>
                             <td style="font-weight: 600; text-align: center;">2. รวมค่าใช้จ่าย</td>
-                            <td></td>
+                            <td>{{calculateExpense.ค่าใช้จ่าย}}</td>
                             <td></td>
                         </tr>
                         <tr>
                             <td style="font-weight: 600;">รวมยอดบัญชีรายรับ</td>
-                            <td></td>
+                            <td>{{calculateIncome.รวมรายรับ}}</td>
                             <td></td>
                             <td style="font-weight: 600;">รวมยอดบัญชีรายจ่าย</td>
-                            <td></td>
+                            <td>{{calculateExpense.รวมรายจ่าย}}</td>
                             <td></td>
                         </tr>
                     </tbody>

@@ -266,8 +266,8 @@ class FundDocumentController(BaseController):
     async def CalculateTypeMember(self, stareDate:datetime, endDate:datetime):
         print("-----------------------------------TEST TYPE-----------------------------------------------------")
 
-        clause = 'WHERE isDrop IN (?,?) AND applyDate >= ? AND applyDate <= ?'
-        models:List[FundingMember] = await self.session.select(FundingMember, clause, parameter=[0,1,stareDate,endDate])
+        clause = 'WHERE isDrop = ?'
+        models:List[FundingMember] = await self.session.select(FundingMember, clause, parameter=[0])
         
         clauseAll = 'WHERE isDrop IN (?,?)'
         models_all:list[FundingMember] = await self.session.select(FundingMember, clauseAll, parameter=[0,1])
@@ -326,7 +326,7 @@ class FundDocumentController(BaseController):
         # today = datetime.now()
         print("----------------------------------------",endday)
         # differenceTime = today.year-applyDate.year
-        age = 0
+        age = ''
         try : 
             age = endday.year - birthday.year - ((endday.month, endday.day) < (birthday.month, birthday.day))
         except: age = 0
