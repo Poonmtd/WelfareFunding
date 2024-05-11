@@ -15,12 +15,6 @@ from typing import List
 class WelfareConditionController(BaseController):
     def __init__(self, application):
         super().__init__(application)
-
-    # @GET("/welfarefunding/welfarecondition/option/get", role=['Welfare'])
-    # async def getUpdatesConditionOption(self, request) :
-    #     clause = 'WHERE isDrop = ? ORDER BY id DESC'
-    #     models:List[WelfareCondition] = await self.session.select(WelfareCondition, clause, parameter=[0])
-    #     return Success([i.toOption() for i in models])
     
     @POST("/welfarefunding/welfarecondition/option/get", role=['Welfare'])
     async def getOption(self, request):

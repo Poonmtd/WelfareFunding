@@ -302,7 +302,6 @@ class FundDocumentController(BaseController):
         
         for memberall in models_all :
             if (memberall.VulnerableGroup != -1 and memberall.VulnerableGroup != None) :
-                print(memberall.VulnerableGroup)
                 memberType = VulnerableGroup.label[memberall.VulnerableGroup]
                 typeMemberAll_dict.setdefault(memberType,0)
                 typeMemberAll_dict[memberType] += 1
@@ -327,7 +326,10 @@ class FundDocumentController(BaseController):
         # today = datetime.now()
         print("----------------------------------------",endday)
         # differenceTime = today.year-applyDate.year
-        age = endday.year - birthday.year - ((endday.month, endday.day) < (birthday.month, birthday.day))
+        age = ''
+        try : 
+            age = endday.year - birthday.year - ((endday.month, endday.day) < (birthday.month, birthday.day))
+        except: age = ''
         return age
 
     @GET('/welfarefunding/transferrequestform/by/id/get/<id>', role=['user'])

@@ -140,7 +140,7 @@ class FundingMemberController(BaseController):
 		model = await self.session.select(SavingFund, 'WHERE uid = ? ORDER BY id ASC', parameter=[int(id)], isRelated=True)
 		user = await self.session.selectByID(User, int(id))
 		if user is None: return Error('User does not exist.')
-		if len(model) == 0: path = await self.generateDocumentSavingListPDF({'savingList': {}})
+		if len(model) == 0: path = await self.generateDocumentSavingListPDF({'user': user.toDict(), 'savingList': {}})
 		else:
 			# # if len(model.path): return await response.file(f"{self.resourcePath}upload/{model.path}")
 			# if len(model.path):
@@ -149,14 +149,10 @@ class FundingMemberController(BaseController):
 			path = await self.generateDocumentSavingListPDF({'user': user.toDict(), 'savingList': data})
 			# model.path = path
 			# await self.session.update(model)
-		print('listttttttttttttttttttttttttttttttttttttttttttttttttt')
-		print(data)
 		path = f"{self.resourcePath}upload/{path}"
 		return await response.file(path)				
 	
 	async def generateDocumentSavingListPDF(self, data):
-		print('loveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
-		print(data)
 		font = await self.getFont()
 		template = self.theme.getTemplate('welfarefunding/DocumentSavingList.tpl')
 		data['font'] = font
