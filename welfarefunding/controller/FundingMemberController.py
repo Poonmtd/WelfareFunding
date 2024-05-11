@@ -150,8 +150,6 @@ class FundingMemberController(BaseController):
 		return await response.file(path)				
 	
 	async def generateDocumentSavingListPDF(self, data):
-		print('loveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
-		print(data)
 		font = await self.getFont()
 		template = self.theme.getTemplate('welfarefunding/DocumentSavingList.tpl')
 		data['font'] = font
