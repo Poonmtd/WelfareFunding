@@ -203,11 +203,14 @@
                 </table>
             </div>
             <div style="display: flex; text-align: center; margin-top: 20pt; justify-content: center;">ตัวอักษร<div class="line" style="width: 60%;">({{{savingAmountText}}})</div></div>
-            <div style="text-align: center; margin-top: 50pt;">
+            <!-- <div style="text-align: center; margin-top: 50pt;">
                 ลงชื่อ.................................................................................ผู้รับเงิน
                 <br>(.......................................................................)
                 <br>................/................/................
-            </div>
+            </div> -->
+            <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 40%;">{{rolename.firstName}}  {{rolename.lastName}}</div>ผู้รับเงิน</div>
+            <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 30%;">{{rolename.firstName}}  {{rolename.lastName}}</div>)</div>
+            <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;"><div class="line" style="width: 10%;">{{{date}}}</div>/ <div class="line" style="width: 15%;">{{{month}}}</div>/ <div class="line" style="width: 10%;">{{{year}}}</div></div>
         </div>  
     </body>
 </html>

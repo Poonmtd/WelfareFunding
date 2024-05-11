@@ -118,7 +118,6 @@
         }
     </style>
     <body>
-    {{rolename.firstName}}
         <div class="document">
             <div style="display: flex; justify-content: space-between;">
                 <div>เล่มที่..........</div>
@@ -148,8 +147,8 @@
                     <tbody>
                         <tr>
                             <td class="order">1</td>
-                            <td style="text-align: start;">งบประมาณสนันสนุนจาก{{{budgetType}}}</td>
-                            <td class="amount1">{{{budgetFundAmount}}}</td>
+                            <td style="text-align: start;">{{{incomeType.incomeName}}}</td>
+                            <td class="amount1">{{{Amount}}}</td>
                             <td class="amount2"></td>
                         </tr>
                         <tr>
@@ -203,12 +202,16 @@
                     </tbody>
                 </table>
             </div>
-            <div style="display: flex; text-align: center; margin-top: 20pt; justify-content: center;">ตัวอักษร<div class="line" style="width: 60%;">({{{savingAmountText}}})</div></div>
-            <div style="text-align: center; margin-top: 50pt;">
-                ลงชื่อ.................................................................................ผู้รับเงิน
-                <br>(.......................................................................)
+            <div style="display: flex; text-align: center; margin-top: 20pt; justify-content: center;">ตัวอักษร<div class="line" style="width: 60%;">({{{incomeAmountText}}})</div></div>
+            <!-- <div style="text-align: center; margin-top: 50pt; display: flex; flex-direction: column; width: 100%;">
+                <div style="display: flex; width: 100%;">ลงชื่อ<div class="line" style="width: 50%;">{{rolename.firstName}}  {{rolename.lastName}}</div>ผู้รับเงิน</div>
+                <div style="display: flex; width: 100%;">(<div class="line" style="width: 40%;">{{rolename.firstName}}  {{rolename.lastName}}</div>)</div>
                 <br>................/................/................
-            </div>
+            </div> -->
+            
+            <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 40%;">{{rolename.firstName}}  {{rolename.lastName}}</div>ผู้รับเงิน</div>
+            <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 30%;">{{rolename.firstName}}  {{rolename.lastName}}</div>)</div>
+            <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;"><div class="line" style="width: 10%;">{{{date}}}</div>/ <div class="line" style="width: 15%;">{{{month}}}</div>/ <div class="line" style="width: 10%;">{{{year}}}</div></div>
         </div>  
     </body>
 </html>

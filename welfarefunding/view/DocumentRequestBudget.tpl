@@ -127,6 +127,13 @@
         ul .li-square{
             list-style-type: square;
         }
+        .signed{
+            margin-left: 20%;
+            text-align: center;
+            margin-top: 20px;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
     <body>
         <div class="document">
@@ -149,24 +156,24 @@
             </div>
             <div style="display: flex;"><p style="width: 70%;">2. องค์กรผู้เสนอขอรับการสนับสนุนคณะทำงาน</p><div class="line" style="width: 100%;">กองทุนสวัสดิการชุมชน ตำบลทรัพย์อนันต์</div></div>
             <div style="display: flex;">
-                <p style="width: 25%;">3. ประธานกองทุนฯ ชื่อ</p><div class="line" style="width: 100%;"></div>
+                <p style="width: 25%;">3. ประธานกองทุนฯ ชื่อ</p><div class="line" style="width: 100%;">นายสมพิศ  หนูขวัญ</div>
             </div>
             <div style="display: flex;">
-                เลขประจำตัวบัตรประชาชน<div class="line" style="width: 25%;"></div>
-                โทรศัพท์ (บ้าน) <div class="line" style="width: 20%;">077-6517178</div>
+                เลขประจำตัวบัตรประชาชน<div class="line" style="width: 25%;">3860200144402</div>
+                โทรศัพท์ (บ้าน) <div class="line" style="width: 20%;">-</div>
             </div>
             <div style="display: flex;">
-                โทรศัพท์ (มือถือ) <div class="line" style="width: 20%;"></div>
+                โทรศัพท์ (มือถือ) <div class="line" style="width: 20%;">089-2319075</div>
             </div>
             <div style="display: flex;">
-                <p style="width: 30%;">ผู้ประสานงาน ชื่อ/นามสกุล</p><div class="line" style="width: 100%;"></div>
+                <p style="width: 30%;">ผู้ประสานงาน ชื่อ/นามสกุล</p><div class="line" style="width: 100%;">นายชัยพร  อู่มาลา</div>
             </div>
             <div style="display: flex;">
-                เลขประจำตัวบัตรประชาชน<div class="line" style="width: 25%;"></div>
-                โทรศัพท์ (บ้าน) <div class="line" style="width: 20%;">077-6517178</div>
+                เลขประจำตัวบัตรประชาชน<div class="line" style="width: 25%;">186990092288</div>
+                โทรศัพท์ (บ้าน) <div class="line" style="width: 20%;">-</div>
             </div>
             <div style="display: flex;">
-                โทรศัพท์ (มือถือ) <div class="line" style="width: 20%;"></div>
+                โทรศัพท์ (มือถือ) <div class="line" style="width: 20%;">080-5982977</div>
             </div>
             <div style="font-weight: 600;">
                 4. กองทุนสวัสดิการชุมชนได้ดำเนินการจัดสวัสดิการชุมชนเเละพัฒนากองทุนสวัสดิการชุมชนจนมีคุณภาพตามหลักเกณฑ์ที่กำหนดไว้ในโครงการทั้ง 6 ประการ คือ
@@ -175,7 +182,7 @@
                 4.1) เป็นกองทุนที่มีการจัดตั้งเเละดำเนินการสวัสดิการชุมชนไม่ต่ำกว่า 1 ปี
                 <div style="margin-left: 10pt;">
                     <li>
-                        <div style="display: flex;">ก่อตั้งเมื่อ<div class="line" style="width: 60%;"></div></div>
+                        <div style="display: flex;">ก่อตั้งเมื่อ<div class="line" style="width: 60%;">1 มกราคม พ.ศ. 2549</div></div>
                     </li>
                     <li>
                         <div style="display: flex; flex-direction: row;">
@@ -202,8 +209,8 @@
                     </div>
                 </div>
             </div>
-            <div style="display: flex;">
-                ปัจจุบันมีสมาชิกกองทุนทั้งหมด<div class="line"></div>คน ณ วันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ.<div class="line" style="width: 10%;"></div>
+            <div style="display: flex; width: 100%;">
+                ปัจจุบันมีสมาชิกกองทุนทั้งหมด<div class="line" style="width: 20%;"></div>คน ณ วันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ.<div class="line" style="width: 10%;"></div>
             </div>
             <div style="margin-left: 20pt; display: flex; flex-direction: column;">
                 <li>
@@ -236,7 +243,7 @@
                         </svg>
                         <div style="display: flex; width: 100%;">
                             <div style="width: 20%;">รายปี</div>
-                            <div class="line" style="width: 50%;"></div>บาท
+                            <div class="line" style="width: 50%;">365</div>บาท
                         </div>
                     </div>
                     <div style="display: flex; width: 50%;">
@@ -586,14 +593,65 @@
             <div style="text-align: justify;">
                 8. เพื่อประโยชน์ในการพิจารณาของคณะอนุกรรมการโครงการสนับสนุนการจัดสวัสดิการชุมชน จึงได้แนบเอกสารตามที่กำหนดเเละขอรับรองว่าข้อมูลนี้เป็นจริงทุกประการเเละขอรับผิดชอบต่อคณะกรรมการสนับสนุนขับเคลื่อนสวัสดิการชุมชนจังหวัดเเละกรุงเทพมหานคร ในการเสนอรับการสนับสนุนครั้งนี้ ในกรณีที่ข้อมูลขององค์กรที่เสนอมีความคลาดเคลื่อนเเละกระทบต่อการคำนวณเงินสมทบกองทุนสวัสดิการชุมชน ทางคณะกรรมการยินดีให้มีการปรับปรุงจำนวนเงินให้เป็นไปตามหลักเกณฑ์ของโครงการ เเละหากได้รับเงินสมทบเกินกว่าหลักเกณฑ์กำหนดยินดีจะคืนเงินส่วนเกินให้กับสถาบันโดยเร็ว
             </div>
+            <div class="signed">
+                <div style="display: flex; justify-content: center;">
+                    ลงชื่อ<div class="line" style="width: 60%;"></div>ตำแหน่งประธานการกองทุนฯ
+                </div>
+                <div style="display: flex; margin-left: 10%;">
+                    ( <div class="line"style="width: 60%;"></div> )
+                </div>
+            </div>
         </div> 
         <div class="document">
-            <div style="margin-top: 20pt; display: flex;">
+            <div style="margin-top: 30pt;">
+                <div class="signed">
+                    <div style="display: flex; justify-content: center;">
+                        ลงชื่อ<div class="line" style="width: 60%;"></div>ตำแหน่งกรรมการกองทุนฯ
+                    </div>
+                    <div style="display: flex; margin-left: 10%;">
+                        ( <div class="line"style="width: 60%;"></div> )
+                    </div>
+                </div>
+                <div class="signed">
+                    <div style="display: flex; justify-content: center;">
+                        ลงชื่อ<div class="line" style="width: 60%;"></div>ตำแหน่งกรรมการกองทุนฯ
+                    </div>
+                    <div style="display: flex; margin-left: 10%;">
+                        ( <div class="line"style="width: 60%;"></div> )
+                    </div>
+                </div>
+                <div class="signed">
+                    <div style="display: flex; justify-content: center;">
+                        ลงชื่อ<div class="line" style="width: 60%;"></div>ตำแหน่งกรรมการกองทุนฯ
+                    </div>
+                    <div style="display: flex; margin-left: 10%;">
+                        ( <div class="line"style="width: 60%;"></div> )
+                    </div>
+                </div>
+                <div class="signed">
+                    <div style="display: flex; justify-content: center;">
+                        ลงชื่อ<div class="line" style="width: 60%;"></div>ตำแหน่งกรรมการกองทุนฯ
+                    </div>
+                    <div style="display: flex; margin-left: 10%;">
+                        ( <div class="line"style="width: 60%;"></div> ) ผู้เสนอโครงการ
+                    </div>
+                </div>
+                <div class="signed">
+                    <div style="display: flex; justify-content: center;">
+                        ลงชื่อ<div class="line" style="width: 60%;"></div>ผู้บริหารองค์กรส่วนท้องถิ่น
+                    </div>
+                    <div style="display: flex; margin-left: 10%;">
+                        ( <div class="line"style="width: 60%;"></div> )
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <div style="margin-top: 20pt; display: flex;">
                 <p>ผูับริหาร อปท. หมายถึง</p>&nbsp;นายก อบต., รองนายก อบต., นายกเทศมนตรี รองนายกเทศมนตรี ผู้อำนวยการเขต, รองผู้อำนวย
             </div>
             <div>
                 การเขต, กรณีปลัด อปท. ลงนามทำได้ 2 กรณี คือ มีการมอบหมายหรือปฏิบัติราชการแทน
-            </div>
+            </div> -->
         </div>
     </body>
 </html>

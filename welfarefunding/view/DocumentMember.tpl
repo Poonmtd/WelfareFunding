@@ -102,10 +102,10 @@
             <div>Name: {{uid.firstName}} {{uid.lastName}}</div> -->
             <div class="topic" style="font-size: 20pt;">ใบสมัครสมาชิก</div>
             <div class="content">
-                <div class="text-end" style="display: flex; justify-content: end;">เลขทะเบียนสมาชิก<div class="line" style="width: 10%;">{{{memberNumber}}}</div></div>
+                <div class="text-end" style="display: flex; justify-content: end; margin-left: 75%; width: 100%;">เลขทะเบียนสมาชิก<div class="line" style="width: 10%;">{{{memberNumber}}}</div></div>
                 <div class="text-center" style="display: flex; justify-content: center;">กองทุนสวัสดิการชุมชนตำบลทรัพย์อนันต์</div>
-                <div class="text-end" style="display: flex; justify-self: end;">เขียนที่<div class="line" style="width: 10%;"></div></div>
-                <div class="text-end" style="display: flex;">วันที่<div class="line" style="width: 10%;">{{{date}}}</div>เดือน<div class="line" style="width: 15%;">{{{month}}}</div>พ.ศ.<div class="line" style="width: 10%;">{{{year}}}</div></div>
+                <div class="text-end" style="text-align: end;">เขียนที่ทำการกองทุนสวัสดิการชุมชน</div>
+                <div class="text-end" style="display: flex; margin-left: 54%; width: 100%;">วันที่<div class="line" style="width: 10%;">{{{date}}}</div>เดือน<div class="line" style="width: 15%;">{{{month}}}</div>พ.ศ.<div class="line" style="width: 10%;">{{{year}}}</div></div>
                 <div style="display: flex; margin-top: 10pt; margin-bottom: 10pt;">เรียน ประธานคณะกรรมการกองทุนสวัสดิการชุมชน<div class="line" style="width: 20%;">ตำบลทรัพย์อนันต์</div></div>
                 <div class="text">
                     <div style="display: flex;">
@@ -145,7 +145,7 @@
                         หากข้าพเจ้าถึงแก่กรรม ข้าพเจ้าขอมอบผลประโยชน์ที่เกิดขึ้นจากกองทุนสวัสดิการชุมชนตำบลทรัพย์อนันต์
                     </div>
                     <div style="display: flex;">
-                        ให้เเก่<div class="line" style="width: 30%;">{{grantee_one}}</div>
+                        ให้เเก่<div class="line" style="width: 40%;">{{grantee_one}}</div>
                         เลขที่บัตรประชาชน<div class="line" style="width: 30%;">{{citizenIDG1}}</div>
                     </div>
                     <div style="display: flex;">
@@ -169,14 +169,14 @@
                    <div style="display: flex; text-indent: 30pt;">ในการนี้ ข้าพเจ้าได้แนบสำเนาบัตรประชาชนของตนเองและผู้รับผลประโยชน์มาพร้อมนี้</div>
                     <div class="signed">
                         <div style="display: flex; justify-content: center;">
-                            ลงชื่อ<div class="line" style="width: 60%;"></div>ผู้สมัคร
+                            ลงชื่อ<div class="line" style="width: 60%;">{{uid.firstName}} {{uid.lastName}}</div>ผู้สมัคร
                         </div>
                         <div style="display: flex; justify-content: center;">
-                            ( <div class="line"style="width: 60%;">{{uid.firstName}} {{uid.lastName}}</div> )
+                            ( <div class="line"style="width: 50%;">{{uid.firstName}} {{uid.lastName}}</div> )
                         </div>
                     </div>
-                    <div style="margin-top: 20pt;">คำรับรองของคณะกรรมการประจำชุมชน/เทศบาล</div>
-                    <div style="text-indent: 30pt;">ข้าพเจ้าขอรับรอง ข้อความตามใบสมัครว่าเป็นความจริง/......................</div>
+                    <div style="margin-top: 15pt;">คำรับรองของคณะกรรมการประจำชุมชน/เทศบาล</div>
+                    <div style="text-indent: 30pt;">ข้าพเจ้าขอรับรอง ข้อความตามใบสมัครว่าเป็นความจริง</div>
                     <div class="signed">
                         <div style="display: flex; justify-content: center;">
                             ลงชื่อ<div class="line" style="width: 60%;"></div>ผู้รับรอง
@@ -190,9 +190,46 @@
                             คณะกรรมการประจำชุมชน/เทศบาล<div class="line" style="width: 20%;"></div>
                         </div>
                         <div style="display: flex; justify-content: center;">
-                            ลงวันที่<div class="line" style="width: 20%;"></div>
+                            ลงวันที่<div class="line" style="width: 40%;"></div>
                         </div>
-                        
+                    </div>
+                    <div style="margin-top: 15pt;">มติคณะกรรมการบริหาร</div>
+                    <div style="text-indent: 30pt;">
+                        ในการประชุมคณะกรรมการบริหาร ชุดที่_____ ครั้งที่_____  วันที่______เดือน____________ปี_______
+                    </div>
+                    <div style="display: flex; width: 100%;">
+                        พิจารณาเเล้ว เห็นว่าผู้สมัครมีคุณสมบัติ 
+                        <svg style="margin-top: 2pt; margin-left: 5pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                        </svg> ครบถ้วนถูกต้อง
+                        <svg style="margin-top: 2pt; margin-left: 5pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                        </svg>ไม่ถูกต้อง ตามระเบียบกองทุน
+                    </div>
+                    <div style="display: flex; width: 100%;">
+                        จึงมีมติ
+                        <svg style="margin-top: 2pt; margin-left: 5pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                        </svg> รับ
+                        <svg style="margin-top: 2pt; margin-left: 5pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                        </svg>ไม่รับ  เข้าเป็นสมาชิกกองทุนสวัสดิการชุมชนตำบลทรัพย์อนันต์
+                    </div>
+                    <div class="signed">
+                        <div style="display: flex; justify-content: center;">
+                            ลงชื่อ<div class="line" style="width: 60%;"></div>ผู้รับรอง
+                        </div>
+                        <div style="display: flex; justify-content: center;">
+                            ( <div class="line"style="width: 60%;"></div> )
+                        </div>
+                    </div>
+                    <div class="signed">
+                        <div style="text-align: center;">
+                            ประธานกองทุน
+                        </div>
+                        <div style="display: flex; justify-content: center;">
+                            ลงวันที่<div class="line" style="width: 40%;"></div>
+                        </div>
                     </div>
                 </div>
             </div>

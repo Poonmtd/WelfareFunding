@@ -111,7 +111,7 @@ const FundingMemberBackend = function(main, parent) {
 		// option.excludeInput = ['username'];
 		// วิธีเพิ่มเอกสาร
 		option.operation = [
-			{label: 'PDF', ID: 'pdf', icon: 'welfarefunding.PDF'},
+			{label: 'ใบสมัครสมาชิก', ID: 'pdf', icon: 'welfarefunding.PDF'},
 			{label: 'สมุดประจำตัวสมาชิก', ID: 'savingList', icon: 'welfarefunding.PDF'}
 		];
 		let table = await object.renderTableView(object.model, option, main.tableViewType);

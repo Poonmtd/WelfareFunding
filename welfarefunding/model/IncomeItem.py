@@ -62,6 +62,15 @@ class IncomeItem(Record):
         )
     )
 
+    incomeAmountText = StringColumn(
+        input=TextInput(
+            label="จำนวนเงิน(ตัวอักษร)",
+            isTable=False,
+            isRequired=True,
+            order="5.1"
+        )
+    ) 
+
     isDrop = IntegerColumn(
 	    default=0
 	)
