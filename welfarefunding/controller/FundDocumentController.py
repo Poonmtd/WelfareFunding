@@ -281,7 +281,7 @@ class FundDocumentController(BaseController):
         
         for member in models:
             if member.isDrop == 0:
-                if(member.VulnerableGroup != -1) :
+                if(member.VulnerableGroup != -1 and member.VulnerableGroup != None) :
                     memberType = VulnerableGroup.label[member.VulnerableGroup]
                     
                     typeMember_dict.setdefault(memberType,0)
@@ -301,7 +301,8 @@ class FundDocumentController(BaseController):
                         typeMember_dict['ทั่วไป'] += 1
         
         for memberall in models_all :
-            if (memberall.VulnerableGroup != -1) :
+            if (memberall.VulnerableGroup != -1 and memberall.VulnerableGroup != None) :
+                print(memberall.VulnerableGroup)
                 memberType = VulnerableGroup.label[memberall.VulnerableGroup]
                 typeMemberAll_dict.setdefault(memberType,0)
                 typeMemberAll_dict[memberType] += 1

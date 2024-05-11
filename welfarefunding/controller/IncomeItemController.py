@@ -33,7 +33,8 @@ class IncomeItemController(BaseController):
         namerole = 'เหรัญญิก'
         user = await self.getuserrole(namerole)
         print('listtttttttttttttttttttttttttttttttttttttttttttttttttttttttt')
-        print(user)
+        data['role name'] = user
+        ############# ปริ้น user ###########
         path = await self.generateDocumentIncomePDF(data)
         model.path = path
         await self.session.update(model)
@@ -67,6 +68,9 @@ class IncomeItemController(BaseController):
         if len(group) == 0: 
             return Error('')
         print(group[0].id)
+        user:List[User] = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
         user = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
-        print('--------------------------------',user)
+        user = user[0]
+        data = user.toDict()
+        # print('--------------------------------',data)
         return user
