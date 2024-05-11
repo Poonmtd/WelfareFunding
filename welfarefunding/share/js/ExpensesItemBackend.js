@@ -1,4 +1,4 @@
-const ExpenseItemBackend = function(main, parent) {
+const ExpensesItemBackend = function(main, parent) {
 	AbstractPage.call(this, main, parent);
 
 	let object = this;

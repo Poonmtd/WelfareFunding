@@ -110,7 +110,7 @@
     <body>
         <div class="document">
             <div class="topic">สมุดประจำตัวสมาชิก</div>
-            <div style="display: flex;">ชื่อผู้ให้เงินสมทบ<div class="line" style="width: 30%;">{{firstName}}</div></div>
+            <div style="display: flex;">ชื่อผู้ให้เงินสมทบ<div class="line" style="width: 30%;">{{user.firstName}} {{user.lastName}}</div></div>
             <div class="savingTable" style="margin-top: 20pt;">
                 <table>
                     <thead>

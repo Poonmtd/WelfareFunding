@@ -1,4 +1,4 @@
-const ExpenseTypeBackend = function(main, parent) {
+const ExpensesTypeBackend = function(main, parent) {
 	AbstractPage.call(this, main, parent);
 
 	let object = this;

@@ -9,6 +9,7 @@ from gaimon.core.RESTResponse import(
 from gaimon.core.StaticFileHandler import StaticFileHandler
 from welfarefunding.model.FundingMember import FundingMember
 from welfarefunding.model.SavingFund import SavingFund
+from gaimon.model.User import User
 
 import os, string, random, mimetypes, base64
 
@@ -137,13 +138,15 @@ class FundingMemberController(BaseController):
 	async def getDocumentSavingList(self, request, id):
 		print('-----------------', id)
 		model = await self.session.select(SavingFund, 'WHERE uid = ? ORDER BY id ASC', parameter=[int(id)], isRelated=True)
+		user = await self.session.selectByID(User, int(id))
+		if user is None: return Error('User does not exist.')
 		if len(model) == 0: path = await self.generateDocumentSavingListPDF({'savingList': {}})
 		else:
 			# # if len(model.path): return await response.file(f"{self.resourcePath}upload/{model.path}")
 			# if len(model.path):
 			# 	await self.static.removeStaticShare(model.path) # remove old file before generate new file
 			data = [i.toDict() for i in model]
-			path = await self.generateDocumentSavingListPDF({'savingList': data})
+			path = await self.generateDocumentSavingListPDF({'user': user.toDict(), 'savingList': data})
 			# model.path = path
 			# await self.session.update(model)
 		print('listttttttttttttttttttttttttttttttttttttttttttttttttt')
