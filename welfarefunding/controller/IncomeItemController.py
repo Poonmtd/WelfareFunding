@@ -33,8 +33,8 @@ class IncomeItemController(BaseController):
         namerole = 'เหรัญญิก'
         user = await self.getuserrole(namerole)
         print('listtttttttttttttttttttttttttttttttttttttttttttttttttttttttt')
-        data['role name'] = user
-        ############# ปริ้น user ###########
+        data['rolename'] = user
+        print(data)
         path = await self.generateDocumentIncomePDF(data)
         model.path = path
         await self.session.update(model)
@@ -73,4 +73,4 @@ class IncomeItemController(BaseController):
         user = user[0]
         data = user.toDict()
         # print('--------------------------------',data)
-        return user
+        return data
