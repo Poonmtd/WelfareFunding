@@ -326,10 +326,10 @@ class FundDocumentController(BaseController):
         # today = datetime.now()
         print("----------------------------------------",endday)
         # differenceTime = today.year-applyDate.year
-        age = ''
+        age = 0
         try : 
             age = endday.year - birthday.year - ((endday.month, endday.day) < (birthday.month, birthday.day))
-        except: age = ''
+        except: age = 0
         return age
 
     @GET('/welfarefunding/transferrequestform/by/id/get/<id>', role=['user'])
