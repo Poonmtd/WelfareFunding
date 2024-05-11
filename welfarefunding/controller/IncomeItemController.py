@@ -10,7 +10,10 @@ from welfarefunding.model.IncomeItem import IncomeItem
 from typing import List, Dict
 from welfarefunding.model.SavingFund import SavingFund
 from welfarefunding.model.BudgetFund import BudgetFund
-from welfarefunding.model.FundingMember import FundingMember
+
+from gaimon.model.UserGroup import UserGroup
+from gaimon.model.User import User
+
 
 from sanic import response
 import os, string, random
@@ -24,13 +27,13 @@ class IncomeItemController(BaseController):
     @GET('/welfarefunding/documentincome/by/id/get/<id>', role=['user'])
     async def getDocumentIncome(self, request, id):
         model = await self.session.select(IncomeItem, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
-        modelRole = await self.session.select(FundingMember, 'WHERE isDrop = ? and role = ?', parameter=[0, 'เหรัญญิก'], isRelated=True, limit=1)
         if len(model) == 0: return Error('Member does not exist.')
         model = model[0]
         data = model.toDict()
-        dataRole = modelRole.role
-        data['dataRole'] = dataRole
-        print(dataRole)
+        namerole = 'เหรัญญิก'
+        user = await self.getuserrole(namerole)
+        print('listtttttttttttttttttttttttttttttttttttttttttttttttttttttttt')
+        print(user)
         path = await self.generateDocumentIncomePDF(data)
         model.path = path
         await self.session.update(model)
@@ -57,3 +60,13 @@ class IncomeItemController(BaseController):
         font = self.theme.getTemplate('welfarefunding/FontFamily.tpl')
         font = self.renderer.render(font, {})
         return font
+    
+    async def getuserrole(self,data):
+        print('name role get')
+        group = await self.session.select(UserGroup, 'WHERE name LIKE ?',parameter=[data],limit=1)
+        if len(group) == 0: 
+            return Error('')
+        print(group[0].id)
+        user = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
+        print('--------------------------------',user)
+        return user

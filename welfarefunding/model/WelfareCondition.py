@@ -65,6 +65,7 @@ class WelfareCondition(Record):
 	)
 
 	def check(self, member:FundingMember) -> bool:
+		print('-------------check' , member)
 		if not self.checkRight(member): return False
 		return self.checkPayment(member)
  

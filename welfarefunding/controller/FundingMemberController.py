@@ -110,7 +110,12 @@ class FundingMemberController(BaseController):
 
 	# Calculate Age
 	async def calculateAge(self, applyDate, birthday):
-		age = applyDate.year - birthday.year - ((applyDate.month, applyDate.day) < (birthday.month, birthday.day))
+		print(applyDate)
+		print(birthday)
+		age = ''
+		try:
+			age = applyDate.year - birthday.year - ((applyDate.month, applyDate.day) < (birthday.month, birthday.day))
+		except: age = ''
 		return age
 
 	async def calculateCommunity(self, moo):

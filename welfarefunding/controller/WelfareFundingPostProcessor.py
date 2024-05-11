@@ -57,8 +57,11 @@ class WelfareFundingPostProcessor (PostProcessDecorator) :
    else:
     isUpdate = True
     model = model[0]
+  uid = data['id']
+  del data['id']
+  del data['additional']['id']
   model.fromDict(data['additional'])
-  model.uid = data['id']
+  model.uid = uid
   # model.citizenID = data['additional']['citizenID']
   # model.telephoneNumber = data['additional']['telephoneNumber']
   # model.birthday = data['additional']['birthday']
