@@ -149,8 +149,6 @@ class FundingMemberController(BaseController):
 			path = await self.generateDocumentSavingListPDF({'user': user.toDict(), 'savingList': data})
 			# model.path = path
 			# await self.session.update(model)
-		print('listttttttttttttttttttttttttttttttttttttttttttttttttt')
-		print(data)
 		path = f"{self.resourcePath}upload/{path}"
 		return await response.file(path)				
 	
