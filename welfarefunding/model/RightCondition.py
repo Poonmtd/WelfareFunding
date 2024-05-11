@@ -37,8 +37,9 @@ class RightCondition(Record):
     
     def check(self, member:FundingMember) -> bool:
         print('member condition------------------------------------')
-        
+        print('member', '===================', member)
         for memberapply in member:
+            print(memberapply)
             gender = memberapply.gender
             age = self.checkage(memberapply.birthday)
             membership = self.checkmembership(memberapply.applyDate)

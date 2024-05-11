@@ -78,7 +78,7 @@
 				},
 				"child": [
 					{
-						"ID": "ExpenseItemBackend",
+						"ID": "ExpensesItemBackend",
 						"label": "รายจ่าย",
 						"icon": "welfarefunding.Expense",
 						"order": "1.0"
@@ -90,7 +90,7 @@
 						"order": "2.0"
 					},
 					{
-						"ID": "ExpenseTypeBackend",
+						"ID": "ExpensesTypeBackend",
 						"label": "ประเภทรายจ่าย",
 						"icon": "welfarefunding.Type",
 						"order": "3.0"
