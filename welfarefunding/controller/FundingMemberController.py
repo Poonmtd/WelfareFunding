@@ -140,6 +140,7 @@ class FundingMemberController(BaseController):
 		model = await self.session.select(SavingFund, 'WHERE uid = ? ORDER BY id ASC', parameter=[int(id)], isRelated=True)
 		user = await self.session.selectByID(User, int(id))
 		if user is None: return Error('User does not exist.')
+		print(user.toDict())
 		if len(model) == 0: path = await self.generateDocumentSavingListPDF({'user': user.toDict(), 'savingList': {}})
 		else:
 			# # if len(model.path): return await response.file(f"{self.resourcePath}upload/{model.path}")
