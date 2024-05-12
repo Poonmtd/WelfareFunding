@@ -266,8 +266,8 @@ class FundDocumentController(BaseController):
     async def CalculateTypeMember(self, stareDate:datetime, endDate:datetime):
         print("-----------------------------------TEST TYPE-----------------------------------------------------")
 
-        clause = 'WHERE isDrop = ?'
-        models:List[FundingMember] = await self.session.select(FundingMember, clause, parameter=[0])
+        clause = 'WHERE isDrop = ? AND applyDate <= ?'
+        models:List[FundingMember] = await self.session.select(FundingMember, clause, parameter=[0,endDate])
         
         clauseAll = 'WHERE isDrop IN (?,?)'
         models_all:list[FundingMember] = await self.session.select(FundingMember, clauseAll, parameter=[0,1])

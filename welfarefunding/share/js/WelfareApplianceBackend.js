@@ -71,7 +71,7 @@ const WelfareApplianceBackend = function(main, parent) {
 		for(let i in table.records){
 			let record = table.records[i];
 			record.dom.pdf.onclick = async function(){
-				let blob = await GET(`/welfarefunding/documentappliance/by/id/get/${record.record.id}`, undefined, 'blob');
+				let blob = await GET(`welfarefunding/documentappliance/by/id/get/${record.record.id}`, undefined, 'blob');
 				await OPEN_FILE(blob);
 			}
 		}
@@ -82,5 +82,4 @@ const WelfareApplianceBackend = function(main, parent) {
 		// 	if(response.isSuccess) object.setWelfareTypeOption(form, response.result);
 		// }
 	}
-	
 }
