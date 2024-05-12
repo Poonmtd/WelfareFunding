@@ -30,6 +30,7 @@ class WelfareAppliance(Record):
         input=ReferenceSelectInput(
             label="ประเภทสวัสดิการ",
             url="welfarefunding/welfarecondition/option/get",
+            tableURL="welfarefunding/welfarecondition/option/getByIDList",
             order="2.0",
             isRequired=True,
             isTable=True,
