@@ -133,12 +133,12 @@
                     จังหวัด<div class="line" style="width: 10%;">ชุมพร</div>
                 </div>
             </div>
-            <div style="text-align: end; margin-top: 20pt; margin-right: 15pt;">วัน......... เดือน............... พ.ศ..........</div>
+            <div style="display: flex; margin-top: 5pt; width: 100%; margin-left: 55%; margin-top: 10pt;">วัน<div class="line" style="width: 10%;">{{{date}}}</div>เดือน<div class="line" style="width: 15%;">{{{month}}}</div>ปี<div class="line" style="width: 10%;">{{{year}}}</div></div>
             <div style="text-align: center;">
-                <div>ข้าพเจ้า..................................เลขบัตรประจำตัวประชาชน...........................</div>
-                <div>ที่อยู่เลขที่......... หมู่ที่......... ตรอก/ถนน......... ตำบล.........
-                อำเภอ......... จังหวัด......... โทร.........</div>
-                <div>ได้รับเงินจาก.................................</div>
+                <div style="display: flex; width: 100%; justify-content: center;">ข้าพเจ้า<div class="line" style="width: 40%;">{{{memberID.firstName}}} {{{memberID.lastName}}}</div></div>
+                <!-- <div>ที่อยู่เลขที่......... หมู่ที่......... ตรอก/ถนน......... ตำบล.........
+                อำเภอ......... จังหวัด......... โทร.........</div> -->
+                <div style="display: flex; width: 100%; justify-content: center;">ได้รับเงินจาก<div class="line" style="width: 30%;">{{rolename.firstName}}  {{rolename.lastName}}</div></div>
                 <div style="font-weight: 600; margin-top: 20pt;">ตามรายละเอียดดังนี้</div>
             </div>
             <div class="billWelfare">
@@ -153,8 +153,8 @@
                     <tbody>
                         <tr>
                             <td class="order">1</td>
-                            <td style="text-align: start;">ค่าสวัสดิการเรื่อง.................................</td>
-                            <td class="amount1"></td>
+                            <td style="text-align: start;">{{{expenseType.expenseName}}}</td>
+                            <td class="amount1">{{{Amount}}}</td>
                             <td class="amount2"></td>
                         </tr>
                         <tr>
@@ -213,7 +213,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">รวมทั้งสิ้น</td>
-                            <td class="amount1"></td>
+                            <td class="amount1">{{{Amount}}}</td>
                             <td class="amount2"></td>
                         </tr>
                     </tbody>
@@ -221,20 +221,28 @@
             </div>
             <div style="display: flex; text-align: center; margin-top: 20pt; justify-content: center;">ตัวอักษร<div class="line" style="width: 60%;">({{{expenseAmountText}}})</div></div>
             <div>
-                <div style="display: flex; justify-content: space-around; margin-top: 50pt;">
-                    <div style="text-align: center;">
-                        ลงชื่อ............................................................ผู้รับเงิน
-                        <br>(.........................................)
+                <!-- <div style="display: flex; justify-content: space-around; margin-top: 50pt;">
+                    <div style="display: flex; width: 50%; flex-direction: column;">
+                        <div style="display: flex; justify-content: center; width: 100%;">ลงชื่อ<div class="line" style="width: 50%;">{{{memberID.firstName}}} {{{memberID.lastName}}}</div>ผู้รับเงิน</div>
+                        <div style="display: flex; justify-content: center; width: 100%;">(<div class="line" style="width: 40%;">{{{memberID.firstName}}} {{{memberID.lastName}}}</div>)</div>
                     </div>
                     <div style="text-align: center;">
                         ลงชื่อ............................................................ผู้จ่ายเงิน
                         <br>(.........................................)
                     </div>
+                </div> -->
+                <div style="display: flex; flex-direction: row; justify-content: space-around;">
+                    <div style="width: 100%;">
+                        <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 40%;">{{memberID.firstName}}  {{memberID.lastName}}</div>ผู้รับเงิน</div>
+                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 30%;">{{memberID.firstName}}  {{memberID.lastName}}</div>)</div>
+                    </div>
+                    <div style="width: 100%;">
+                        <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 40%;">{{rolename.firstName}}  {{rolename.lastName}}</div>ผู้จ่ายเงิน</div>
+                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 30%;">{{rolename.firstName}}  {{rolename.lastName}}</div>)</div>
+                    </div>
                 </div>
-                <div style="text-align: center; margin-top: 50pt;">
-                    ลงชื่อ............................................................พยาน
-                    <br>(.........................................)
-                </div>
+                <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 30%;"></div>พยาน</div>
+                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 20%;"></div>)</div>
             </div>
         </div>  
     </body>

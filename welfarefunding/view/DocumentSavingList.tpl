@@ -109,8 +109,8 @@
     </style>
     <body>
         <div class="document">
-            <div class="topic">สมุดประจำตัวสมาชิก</div>
-            <div style="display: flex;">ชื่อผู้ให้เงินสมทบ<div class="line" style="width: 30%;">{{user.firstName}} {{user.lastName}}</div></div>
+            <div class="topic" style="font-size: 20pt;">สมุดประจำตัวสมาชิก</div>
+            <div style="display: flex; justify-content: center; margin-top: 10pt;">ชื่อผู้ให้เงินสมทบ<div class="line" style="width: 80%;">{{user.firstName}} {{user.lastName}}</div></div>
             <div class="savingTable" style="margin-top: 20pt;">
                 <table>
                     <thead>
@@ -133,8 +133,8 @@
                             <td></td>
                             <td>{{savingDate}}</td>
                             <td>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
-                                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt" ><title>checkbox-blank-outline</title>
+                                    <path fill="black" d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
                                 </svg>
                             </td>
                             <td>

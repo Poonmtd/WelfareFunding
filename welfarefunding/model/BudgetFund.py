@@ -7,6 +7,7 @@ from xerial.input.NumberInput import NumberInput
 from xerial.StringColumn import StringColumn
 
 from xerial.input.EnumSelectInput import EnumSelectInput
+from xerial.input.TextInput import TextInput
 
 from welfarefunding.model.BudgetStatus import BudgetStatus
 from welfarefunding.model.BudgetType import BudgetType
@@ -39,6 +40,15 @@ class BudgetFund(Record):
 		)
 	)
 
+	amountText = StringColumn(
+        input=TextInput(
+            label="จำนวนเงิน(ตัวอักษร)",
+            isTable=False,
+            isRequired=True,
+            order="2.3"
+        )
+    )
+
 	budgetStatus = IntegerColumn(
 		input=EnumSelectInput(
 			label="สถานะ",
@@ -55,3 +65,5 @@ class BudgetFund(Record):
 	def modify(self):
 		modification = self.createModification("2.1")
 		modification.add("isDrop", IntegerColumn(default=0))
+		modification = self.createModification("2.2")
+		modification.add("amountText", StringColumn(''))

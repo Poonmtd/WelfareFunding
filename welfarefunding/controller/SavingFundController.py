@@ -15,6 +15,9 @@ from sanic import response
 
 import os, string, random, mimetypes, base64
 
+from gaimon.model.UserGroup import UserGroup
+from gaimon.model.User import User
+
 @BASE(SavingFund, "/welfarefunding/savingfund", "welfarefunding.SavingFund")
 class SavingFundController(BaseController):
     def __init__(self, application):
@@ -26,6 +29,9 @@ class SavingFundController(BaseController):
         if len(model) == 0: return Error('Member does not exist.')
         model = model[0] 
         data = model.toDict()
+        namerole = 'เหรัญญิก'
+        user = await self.getuserrole(namerole)
+        data['rolename'] = user
         date = model.savingDate.day
         month = model.savingDate.month
         if month == 1: month = 'มกราคม'
@@ -73,4 +79,17 @@ class SavingFundController(BaseController):
         font = self.theme.getTemplate('welfarefunding/FontFamily.tpl')
         font = self.renderer.render(font, {})
         return font
+    
+    async def getuserrole(self,data):
+        print('name role get')
+        group = await self.session.select(UserGroup, 'WHERE name LIKE ?',parameter=[data],limit=1)
+        if len(group) == 0: 
+            return Error('')
+        print(group[0].id)
+        user:List[User] = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
+        user = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
+        user = user[0]
+        data = user.toDict()
+        # print('--------------------------------',data)
+        return data
     

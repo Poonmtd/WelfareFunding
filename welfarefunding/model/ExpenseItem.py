@@ -63,7 +63,7 @@ class ExpenseItem(Record):
         input=NumberInput(
             label="จำนวนเงิน",
             isRequired=True,
-            order="5.0"
+            order="2.1"
         )
     )
 
@@ -72,7 +72,7 @@ class ExpenseItem(Record):
             label="จำนวนเงิน(ตัวอักษร)",
             isTable=False,
             isRequired=True,
-            order="1.3"
+            order="2.3"
         )
     )
 

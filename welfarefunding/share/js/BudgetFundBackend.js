@@ -66,7 +66,8 @@ const BudgetFundBackend = function(main, parent) {
 
 	this.renderTableView = async function(modelName, config = {}){
 		config.operation = [
-			{label: 'เเบบเสนอขอเงินสนับสนุน', ID: 'pdf', icon: 'welfarefunding.PDF'}
+			{label: 'ใบเสร็จรับเงิน', ID: 'pdf', icon: 'welfarefunding.PDF'},
+			{label: 'แบบเสนอขอรับเงินสนับสนุน', ID: 'budget', icon: 'welfarefunding.PDF'}
 		];
 		let table = await AbstractPage.prototype.renderTable.call(this, modelName, config);
 		for(let i in table.records){
@@ -74,6 +75,10 @@ const BudgetFundBackend = function(main, parent) {
 			console.log(record.record);
 			record.dom.pdf.onclick = async function(){
 				let blob = await GET(`welfarefunding/documentbudget/by/id/get/${record.record.id}`, undefined, 'blob');
+				await OPEN_FILE(blob);
+			}
+			record.dom.budget.onclick = async function(){
+				let blob = await GET(`welfarefunding/requestbudget/by/id/get/${record.record.id}`, undefined, 'blob');
 				await OPEN_FILE(blob);
 			}
 			// console.log(record.record.statusRecord);
@@ -87,6 +92,7 @@ const BudgetFundBackend = function(main, parent) {
 			else if(record.record.statusRecord.color == "RED"){
 				record.dom.edit.remove();
 				record.dom.pdf.remove();
+				record.dom.budget.remove();
 			}
 			//SUCCESS
 			else if(record.record.statusRecord.color == "GREEN"){

@@ -32,8 +32,25 @@ class IncomeItemController(BaseController):
         data = model.toDict()
         namerole = 'เหรัญญิก'
         user = await self.getuserrole(namerole)
-        print('listtttttttttttttttttttttttttttttttttttttttttttttttttttttttt')
         data['rolename'] = user
+        date = model.PaymentDate.day
+        month = model.PaymentDate.month
+        if month == 1: month = 'มกราคม'
+        elif month == 2: month = 'กุมภาพันธ์'
+        elif month == 3: month = 'มีนาคม'
+        elif month == 4: month = 'เมษายน'
+        elif month == 5: month = 'พฤษภาคม'
+        elif month == 6: month = 'มิถุนายน'
+        elif month == 7: month = 'กรกฎาคม'
+        elif month == 8: month = 'สิงหาคม'
+        elif month == 9: month = 'กันยายน'
+        elif month == 10: month = 'ตุลาคม'
+        elif month == 11: month = 'พฤศจิกายน'
+        elif month == 12: month = 'ธันวาคม'
+        year = model.PaymentDate.year + 543
+        data['date'] = date
+        data['month'] = month
+        data['year'] = year
         print(data)
         path = await self.generateDocumentIncomePDF(data)
         model.path = path
