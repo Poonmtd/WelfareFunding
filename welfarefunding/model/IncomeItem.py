@@ -29,7 +29,7 @@ class IncomeItem(Record):
 			label="วัน/เดือน/ปี",
 			isRequired=True,
             isTable=True,
-			order="2.0"
+			order="2.0"  
 		)
 	)
 

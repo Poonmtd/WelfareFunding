@@ -15,7 +15,8 @@ class AboutFund(Record):
         input=NumberInput(
             label="เงินเก็บในธนาคาร",
             isRequired=False,
-            order='1.0'
+            isTable = True,
+            order='13.1'
         )
     )
 
@@ -23,7 +24,8 @@ class AboutFund(Record):
         input=NumberInput(
             label='เงินสด',
             isRequired=False,
-            order='2.0'
+            isTable = True,
+            order='13.2'
         )
     )
     
@@ -31,6 +33,7 @@ class AboutFund(Record):
         input=DateInput(
             label='วันที่บันทึก',
             isRequired=True,
+            isTable = True,
             order='2.2'
         )
     )
@@ -39,6 +42,7 @@ class AboutFund(Record):
         input = TextInput(
             label = "ชื่อกลุ่ม/กองทุน",
             isRequired = False,
+            isTable = True,
             order = "3.0"
         )
     )
@@ -47,6 +51,7 @@ class AboutFund(Record):
 		input=TextInput(
 			label="ที่ตั้งเลขที่",
 			isRequired=False,
+            inputPerLine=4,
 			order="4.0"
 		)
 	)
@@ -55,6 +60,7 @@ class AboutFund(Record):
 		input=NumberInput(
 			label="หมู่",
 			isRequired=False,
+            inputPerLine=4,
 			order="5.0"
 		)
 	)
@@ -63,6 +69,7 @@ class AboutFund(Record):
 		input=TextInput(
 			label="ตรอก/ซอย",
 			isRequired=False,
+            inputPerLine=4,
 			order="6.0"
 		)
 	)
@@ -71,6 +78,7 @@ class AboutFund(Record):
 		input=TextInput(
 			label="ถนน",
 			isRequired=False,
+            inputPerLine=4,
 			order="7.0"
 		)
 	)
@@ -79,6 +87,7 @@ class AboutFund(Record):
 		input=TextInput(
 			label="ตำบล/แขวง",
 			isRequired=False,
+            inputPerLine=4,
 			order="8.0"
 		)
 	)
@@ -87,6 +96,7 @@ class AboutFund(Record):
 		input=TextInput(
 			label="อำเภอ/เขต",
 			isRequired=False,
+            inputPerLine=4,
 			order="9.0"
 		)
 	)
@@ -95,6 +105,7 @@ class AboutFund(Record):
 		input=TextInput(
 			label="จังหวัด",
 			isRequired=False,
+            inputPerLine=4,
 			order="10.0"
 		)
 	)
@@ -103,6 +114,7 @@ class AboutFund(Record):
 		input=TextInput(
 			label="รหัสไปรษณีย์",
 			isRequired=False,
+            inputPerLine=4,
 			order="11.0"
 		)
 	)
@@ -111,6 +123,7 @@ class AboutFund(Record):
 		input=TextInput(
 			label="หมายเลขโทรศัพท์",
 			isRequired=True,
+            inputPerLine=2,
 			order="12.0"
 		)
     )
@@ -119,6 +132,7 @@ class AboutFund(Record):
 		input=TextInput(
 			label="หมายเลขโทรสาร",
 			isRequired=True,
+            inputPerLine=2,
 			order="13.0"
 		)
     )
