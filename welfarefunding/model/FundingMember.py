@@ -315,4 +315,4 @@ class FundingMember(Record):
 		modification.add("telephoneNumberG1",StringColumn(default=''))
 		modification.add("birthdayG1",DateColumn())
 		modification.add("relationships",IntegerColumn(default=-1))
-		print(modification.generateQuery())
+		# print(modification.generateQuery())

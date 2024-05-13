@@ -85,6 +85,7 @@ class PaymentCondition(Record):
 	# 	return True
  
 	async def check(self, member:FundingMember) -> bool:
+		print('paymentttttttttttttttttttttttttttttttttttttttttttttt')
 		# from welfarefunding.model.WelfareAppliance import WelfareAppliance
 		for memberapply in member :
 			memberid = memberapply.id

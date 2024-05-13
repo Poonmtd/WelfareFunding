@@ -39,7 +39,7 @@ class RightCondition(Record):
         print('member condition------------------------------------')
         print('-----------',member,'----------------')
         for memberapply in member:
-            print(memberapply)
+            # print(memberapply)
             gender = memberapply.gender
             age = self.checkage(memberapply.birthday)
             membership = self.checkmembership(memberapply.applyDate)
@@ -47,8 +47,9 @@ class RightCondition(Record):
         # print(member.birthday)
         if ((self.gender == gender or self.gender is None) and (age >= self.age or self.age is None)  
             and (membership >= self.membership or self.membership is None)):
-            print('------------------------------Condition--------------------------------------------------')
+            # print('------------------------------Condition--------------------------------------------------')
             return False
+        print('Right True')
         return True
     # def check(self, member:FundingMember) -> bool:
     #     if not ((self.gender == member.gender) and (self.checkage(member.birthday) >= self.age)  
