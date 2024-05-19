@@ -179,10 +179,10 @@
                     <div style="text-indent: 30pt;">ข้าพเจ้าขอรับรอง ข้อความตามใบสมัครว่าเป็นความจริง</div>
                     <div class="signed">
                         <div style="display: flex; justify-content: center;">
-                            ลงชื่อ<div class="line" style="width: 60%;"></div>ผู้รับรอง
+                            ลงชื่อ<div class="line" style="width: 60%;">{{roleFundingMember.firstName}}  {{roleFundingMember.lastName}}</div>ผู้รับรอง
                         </div>
                         <div style="display: flex; justify-content: center;">
-                            ( <div class="line"style="width: 60%;"></div> )
+                            ( <div class="line"style="width: 60%;">{{roleFundingMember.firstName}}  {{roleFundingMember.lastName}}</div> )
                         </div>
                     </div>
                     <div class="signed">
@@ -217,10 +217,10 @@
                     </div>
                     <div class="signed">
                         <div style="display: flex; justify-content: center;">
-                            ลงชื่อ<div class="line" style="width: 60%;"></div>ผู้รับรอง
+                            ลงชื่อ<div class="line" style="width: 60%;">{{rolenamechairman.firstName}}  {{rolenamechairman.lastName}}</div>ผู้รับรอง
                         </div>
                         <div style="display: flex; justify-content: center;">
-                            ( <div class="line"style="width: 60%;"></div> )
+                            ( <div class="line"style="width: 60%;">{{rolenamechairman.firstName}}  {{rolenamechairman.lastName}}</div> )
                         </div>
                     </div>
                     <div class="signed">

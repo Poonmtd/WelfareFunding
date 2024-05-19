@@ -9,7 +9,7 @@ from gaimon.core.RESTResponse import(
 from gaimon.core.StaticFileHandler import StaticFileHandler
 from welfarefunding.model.FundingMember import FundingMember
 from welfarefunding.model.SavingFund import SavingFund
-from gaimon.model.User import User
+from typing import List, Dict
 
 import os, string, random, mimetypes, base64
 
@@ -18,6 +18,8 @@ from datetime import date
 from weasyprint import HTML
 
 from sanic import response
+from gaimon.model.UserGroup import UserGroup
+from gaimon.model.User import User
 
 @BASE(FundingMember, "/welfarefunding/fundingmember", "welfarefunding.FundingMember")
 class FundingMemberController(BaseController):
@@ -72,6 +74,19 @@ class FundingMemberController(BaseController):
 		else :
 			communityG1 = ''
 		community = await self.calculateCommunity(model.moo)
+
+		nameMember = 'ทะเบียน'
+		roleFundingMember = ''
+		try: 
+			roleFundingMember = await self.getuserrole(nameMember)
+		except: roleFundingMember = ''
+		namechairman = 'ประธาน'
+		rolenamechairman = ''
+		try: 
+			rolenamechairman = await self.getuserrole(namechairman)
+		except: rolenamechairman = ''
+		data['roleFundingMember'] = roleFundingMember
+		data['rolenamechairman'] = rolenamechairman
 		data['age'] = age
 		data['community'] = community
 		data['ageG1'] = ageG1
@@ -115,7 +130,7 @@ class FundingMemberController(BaseController):
 		print(today)
 		print(today.year)
 		age = ''
-		try:
+		try: 
 			age = applyDate.year - birthday.year - ((applyDate.month, applyDate.day) < (birthday.month, birthday.day))
 		except: age = ''
 		return age
@@ -169,3 +184,17 @@ class FundingMemberController(BaseController):
 		pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
 		print('--------------- GENERATE PDF FINISHED ---------------')
 		return pathUpload
+
+	async def getuserrole(self,data):
+		print('name role get')
+		print(data)
+		group = await self.session.select(UserGroup, 'WHERE name LIKE ?',parameter=[data],limit=1)
+		if len(group) == 0: 
+			return Error('')
+		print(group[0].id)
+		user:List[User] = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
+		user = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
+		user = user[0]
+		data = user.toDict()
+		# print('--------------------------------',data)
+		return data

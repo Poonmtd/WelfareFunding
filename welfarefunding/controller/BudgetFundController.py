@@ -41,7 +41,11 @@ class BudgetFundController(BaseController):
 		model = model[0]
 		data = model.toDict()
 		namerole = 'เหรัญญิก'
-		user = await self.getuserrole(namerole)
+		user = ''
+		try: 
+			user = await self.getuserrole(namerole)
+		except: user = ''
+		# user = await self.getuserrole(namerole)
 		data['rolename'] = user
 		date = model.budgetFundDate.day
 		month = model.budgetFundDate.month

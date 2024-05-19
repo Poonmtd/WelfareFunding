@@ -31,8 +31,27 @@ class IncomeItemController(BaseController):
         model = model[0]
         data = model.toDict()
         namerole = 'เหรัญญิก'
-        user = await self.getuserrole(namerole)
+        user = ''
+        try:
+            user = await self.getuserrole(namerole)
+        except: user = ''
+        # user = await self.getuserrole(namerole)
         data['rolename'] = user
+        # nameAudit = 'เหรัญญิก'
+        # roleroleAudit = ''
+        # try: 
+        #     roleroleAudit = await self.getuserrole(nameAudit)
+        # except: roleroleAudit = ''
+        
+        # namechairman = 'ประธาน'
+        # rolenamechairman = ''
+        # try: 
+        #     rolenamechairman = await self.getuserrole(namechairman)
+        # except: rolenamechairman = ''
+        
+        # data['roleAudit'] = roleroleAudit
+        # data['roleAudit'] = rolenamechairman
+        
         date = model.PaymentDate.day
         month = model.PaymentDate.month
         if month == 1: month = 'มกราคม'

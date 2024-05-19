@@ -28,9 +28,24 @@ class WelfareApplianceController(BaseController):
         if len(model) == 0: return Error('Member does not exist.')
         model = model[0]
         data = model.toDict()
-        namerole = 'เหรัญญิก'
-        user = await self.getuserrole(namerole)
-        data['rolename'] = user
+        # namerole = 'เหรัญญิก'
+        # user = await self.getuserrole(namerole)
+        # data['rolename'] = user
+        nameAudit = 'เหรัญญิก'
+        roleAudit = ''
+        try: 
+            roleAudit = await self.getuserrole(nameAudit)
+        except: roleAudit = ''
+		# user = await self.getuserrole(namerole)
+        data['roleAudit'] = roleAudit
+        
+        namechairman = 'ประธาน'
+        rolenamechairman = ''
+        try: 
+            rolenamechairman = await self.getuserrole(namechairman)
+        except: rolenamechairman = ''
+        data['rolenamechairman'] = rolenamechairman
+        
         date = model.ApplianceDate.day
         month = model.ApplianceDate.month
         if month == 1: month = 'มกราคม'
