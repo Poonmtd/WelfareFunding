@@ -8,6 +8,6 @@ const FundingExpenseBackend = function(main, parent) {
 	this.limit = 10;
 	this.filter = {};
 
-	object.role = ['FundingExpense'];
+	object.role = ['Audit'];
 	object.restURL = 'welfarefunding/fundingexpense';
 }

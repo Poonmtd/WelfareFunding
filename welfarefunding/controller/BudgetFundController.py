@@ -12,6 +12,8 @@ from welfarefunding.model.BudgetType import BudgetType
 
 from sanic import response
 from weasyprint import HTML
+from typing import List
+
 
 import os, string, random
 
@@ -23,7 +25,7 @@ class BudgetFundController(BaseController):
 	def __init__(self, application):
 		super().__init__(application)
 		
-	@GET("/welfarefunding/budgetfund/enum/get", role=['guest'])
+	@GET("/welfarefunding/budgetfund/enum/get", role=['Audit'])
 	async def getENUM(self, request) :
 		result = {
 			'BUDGET_STATUS': {i:BudgetStatus.__members__[i].value for i in BudgetStatus.__members__},
@@ -32,7 +34,7 @@ class BudgetFundController(BaseController):
 		}
 		return Success(result)
 	
-	@GET('/welfarefunding/documentbudget/by/id/get/<id>', role=['user'])
+	@GET('/welfarefunding/documentbudget/by/id/get/<id>', role=['Audit'])
 	async def getDocumentSaving(self, request, id):
 		model = await self.session.select(BudgetFund, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
 		if len(model) == 0: return Error('Member does not exist.')

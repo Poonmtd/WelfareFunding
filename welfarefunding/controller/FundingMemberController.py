@@ -13,8 +13,7 @@ from gaimon.model.User import User
 
 import os, string, random, mimetypes, base64
 
-from datetime import datetime
-
+from datetime import date
 
 from weasyprint import HTML
 
@@ -26,7 +25,7 @@ class FundingMemberController(BaseController):
 		super().__init__(application)
 		self.static: StaticFileHandler = self.application.static
 
-	@GET('/welfarefunding/documentmember/by/id/get/<id>', role=['user'])
+	@GET('/welfarefunding/documentmember/by/id/get/<id>', role=['FundingMember'])
 	async def getDocumentMember(self, request, id):
 		model = await self.session.select(FundingMember, 'WHERE uid = ?', parameter=[int(id)], isRelated=True)
 		if len(model) == 0: return Error('Member does not exist.')
@@ -64,7 +63,7 @@ class FundingMemberController(BaseController):
 		for key,value in data.items() :
 			if value is None:
 				data[key] = ''
-  
+   
 		age = await self.calculateAge(model.applyDate, model.birthday)
 		ageG1 = await self.calculateAge(model.applyDate, model.birthdayG1)
 		subDistrictG1 = model.subDistrictIDG1
@@ -112,6 +111,9 @@ class FundingMemberController(BaseController):
 	async def calculateAge(self, applyDate, birthday):
 		print(applyDate)
 		print(birthday)
+		today = date.today()
+		print(today)
+		print(today.year)
 		age = ''
 		try:
 			age = applyDate.year - birthday.year - ((applyDate.month, applyDate.day) < (birthday.month, birthday.day))
@@ -134,7 +136,7 @@ class FundingMemberController(BaseController):
 		elif moo == 7:
 			return 'บ้านทรัพย์สมบูรณ์'
 	
-	@GET('/welfarefunding/documentsavinglist/by/id/get/<id>', role=['user'])
+	@GET('/welfarefunding/documentsavinglist/by/id/get/<id>', role=['FundingMember'])
 	async def getDocumentSavingList(self, request, id):
 		print('-----------------', id)
 		model = await self.session.select(SavingFund, 'WHERE uid = ? ORDER BY id ASC', parameter=[int(id)], isRelated=True)

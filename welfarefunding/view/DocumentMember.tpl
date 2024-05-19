@@ -169,7 +169,7 @@
                    <div style="display: flex; text-indent: 30pt;">ในการนี้ ข้าพเจ้าได้แนบสำเนาบัตรประชาชนของตนเองและผู้รับผลประโยชน์มาพร้อมนี้</div>
                     <div class="signed">
                         <div style="display: flex; justify-content: center;">
-                            ลงชื่อ<div class="line" style="width: 60%;">{{uid.firstName}} {{uid.lastName}}</div>ผู้สมัคร
+                            ลงชื่อ<div class="line" style="width: 60%;"></div>ผู้สมัคร
                         </div>
                         <div style="display: flex; justify-content: center;">
                             ( <div class="line"style="width: 50%;">{{uid.firstName}} {{uid.lastName}}</div> )
@@ -187,7 +187,7 @@
                     </div>
                     <div class="signed">
                         <div style="display: flex; justify-content: center;">
-                            คณะกรรมการประจำชุมชน/เทศบาล<div class="line" style="width: 20%;"></div>
+                            คณะกรรมการประจำชุมชน<div class="line" style="width: 20%;">ตำบลทรัพย์อนันต์</div>
                         </div>
                         <div style="display: flex; justify-content: center;">
                             ลงวันที่<div class="line" style="width: 40%;"></div>

@@ -15,6 +15,7 @@ class WelfareType(Record):
 			label="ชื่อสวัสดิการ",
 			isRequired=True,
 			isTable=True,
+			isSearch=True,
 			order="1.0"
 		)
 	)

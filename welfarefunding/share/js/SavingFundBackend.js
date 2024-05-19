@@ -8,7 +8,7 @@ const SavingFundBackend = function(main, parent) {
 	this.limit = 10;
 	this.filter = {};
 
-	object.role = ['Saving'];
+	object.role = ['Audit'];
 	object.restURL = 'welfarefunding/savingfund';
 
 	this.renderTableView = async function(modelName, config = {}){

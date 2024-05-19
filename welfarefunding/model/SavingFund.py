@@ -51,6 +51,7 @@ class SavingFund(Record):
         input=DateInput(
             label="วัน/เดือน/ปีที่ทำการออม",
             isRequired=True,
+            isSearch=True,
             order="2.0"
         )
     )

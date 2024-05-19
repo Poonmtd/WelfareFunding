@@ -22,7 +22,7 @@ class WelfareApplianceController(BaseController):
     def __init__(self, application):
         super().__init__(application)
 
-    @GET('/welfarefunding/documentappliance/by/id/get/<id>', role=['user'])
+    @GET('/welfarefunding/documentappliance/by/id/get/<id>', role=['Welfare'])
     async def getDocumentAppliance(self, request, id):
         model = await self.session.select(WelfareAppliance, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
         if len(model) == 0: return Error('Member does not exist.')

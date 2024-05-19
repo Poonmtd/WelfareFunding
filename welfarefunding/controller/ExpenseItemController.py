@@ -12,6 +12,8 @@ from sanic import response
 import os, string, random
 from weasyprint import HTML
 
+from typing import List
+
 from gaimon.model.UserGroup import UserGroup
 from gaimon.model.User import User
 
@@ -20,7 +22,7 @@ class ExpenseItemController(BaseController):
     def __init__(self, application):
         super().__init__(application)
 
-    @GET('/welfarefunding/documentexpense/by/id/get/<id>', role=['user'])
+    @GET('/welfarefunding/documentexpense/by/id/get/<id>', role=['Audit'])
     async def getDocumentExpense(self, request, id):
         model = await self.session.select(ExpenseItem, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
         if len(model) == 0: return Error('Member does not exist.')

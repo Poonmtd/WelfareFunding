@@ -52,6 +52,7 @@ class WelfareAppliance(Record):
 		input=DateInput(
 			label="วัน/เดือน/ปี ที่ทำการเบิกสวัสดิการ",
 			isRequired=True,
+            isSearch=True,
 			order="3.1"
 		)
 	)

@@ -14,6 +14,7 @@ class IncomeType(Record):
 			label="ประเภทรายรับ",
 			isRequired=True,
 			isTable=True,
+			isSearch=True,
 			order="1.0"
 		)
 	)

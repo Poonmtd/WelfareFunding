@@ -28,7 +28,7 @@ class FundDocumentController(BaseController):
     def __init__(self, application):
         super().__init__(application)
 
-    @GET('/welfarefunding/documentfundperyear/by/id/get/<id>', role=['user'])
+    @GET('/welfarefunding/documentfundperyear/by/id/get/<id>', role=['FundDocument'])
     async def getDocumentFundPerYear(self, request, id):
         model = await self.session.select(FundDocument, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
         if len(model) == 0: return Error('Member does not exist.')
@@ -74,7 +74,7 @@ class FundDocumentController(BaseController):
         font = self.renderer.render(font, {})
         return font
     
-    @GET('/welfarefunding/testcalculate/by/id/get/<id>', role=['user'])
+    @GET('/welfarefunding/testcalculate/by/id/get/<id>', role=['FundDocument'])
     async def getDocumentTestCalculate(self, request, id):
         model = await self.session.select(FundDocument, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
         if len(model) == 0: return Error('Member does not exist.')
@@ -270,7 +270,7 @@ class FundDocumentController(BaseController):
         models:List[FundingMember] = await self.session.select(FundingMember, clause, parameter=[0,endDate])
         
         clauseAll = 'WHERE isDrop IN (?,?)'
-        models_all:list[FundingMember] = await self.session.select(FundingMember, clauseAll, parameter=[0,1])
+        models_all:List[FundingMember] = await self.session.select(FundingMember, clauseAll, parameter=[0,1])
         
         typeMember_dict: Dict[str, float] = {}
         typeMemberAll_dict: Dict[str, float] = {}
@@ -328,11 +328,13 @@ class FundDocumentController(BaseController):
         # differenceTime = today.year-applyDate.year
         age = ''
         try : 
+            if birthday.year > endday.year:
+                birthday.year += 543
             age = endday.year - birthday.year - ((endday.month, endday.day) < (birthday.month, birthday.day))
         except: age = 0
         return age
 
-    @GET('/welfarefunding/transferrequestform/by/id/get/<id>', role=['user'])
+    @GET('/welfarefunding/transferrequestform/by/id/get/<id>', role=['FundDocument'])
     async def getDocumentTransferRequestForm(self, request, id):
         model = await self.session.select(FundDocument, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
         if len(model) == 0: return Error('Member does not exist.')
@@ -361,7 +363,7 @@ class FundDocumentController(BaseController):
         print('--------------- GENERATE PDF FINISHED ---------------')
         return pathUpload
     
-    @GET('/welfarefunding/complaintletter/by/id/get/<id>', role=['user'])
+    @GET('/welfarefunding/complaintletter/by/id/get/<id>', role=['FundDocument'])
     async def getDocumentComplaintLetter(self, request, id):
         model = await self.session.select(FundDocument, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
         if len(model) == 0: return Error('Member does not exist.')
@@ -390,7 +392,7 @@ class FundDocumentController(BaseController):
         print('--------------- GENERATE PDF FINISHED ---------------')
         return pathUpload
     
-    @GET('/welfarefunding/requestbudget/by/id/get/<id>', role=['user'])
+    @GET('/welfarefunding/requestbudget/by/id/get/<id>', role=['FundDocument'])
     async def getDocumentRequestBudget(self, request, id):
         model = await self.session.select(FundDocument, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
         if len(model) == 0: return Error('Member does not exist.')

@@ -17,13 +17,15 @@ import os, string, random, mimetypes, base64
 
 from gaimon.model.UserGroup import UserGroup
 from gaimon.model.User import User
+from typing import List
+
 
 @BASE(SavingFund, "/welfarefunding/savingfund", "welfarefunding.SavingFund")
 class SavingFundController(BaseController):
     def __init__(self, application):
         super().__init__(application)
 
-    @GET('/welfarefunding/documentsaving/by/id/get/<id>', role=['user'])
+    @GET('/welfarefunding/documentsaving/by/id/get/<id>', role=['Audit'])
     async def getDocumentSaving(self, request, id):
         model = await self.session.select(SavingFund, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
         if len(model) == 0: return Error('Member does not exist.')
