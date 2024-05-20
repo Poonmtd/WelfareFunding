@@ -16,6 +16,7 @@ class BudgetFund(Record):
 	budgetFundDate = DateColumn(
 		input=DateInput(
 			label="วัน/เดือน/ปีที่ทำการยื่นของบ",
+			isSearch=True,
 			isRequired=True,
 			order="1.0"
 		)
@@ -26,6 +27,7 @@ class BudgetFund(Record):
 			label="ประเภทของงบประมาณ",
 			isRequired=True,
 			isTable=True,
+			isSearch=True,
 			enum=BudgetType,
 			order="1.1"
 		)

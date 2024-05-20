@@ -138,7 +138,7 @@
                 <div style="display: flex; width: 100%; justify-content: center;">ข้าพเจ้า<div class="line" style="width: 40%;">{{{member.firstName}}} {{{member.lastName}}}</div></div>
                 <!-- <div>ที่อยู่เลขที่......... หมู่ที่......... ตรอก/ถนน......... ตำบล.........
                 อำเภอ......... จังหวัด......... โทร.........</div> -->
-                <div style="display: flex; width: 100%; justify-content: center;">ได้รับเงินจาก<div class="line" style="width: 30%;">{{rolename.firstName}}  {{rolename.lastName}}</div></div>
+                <div style="display: flex; width: 100%; justify-content: center;">ได้รับเงินจาก<div class="line" style="width: 30%;">{{roleAudit.firstName}}  {{roleAudit.lastName}}</div></div>
                 <div style="font-weight: 600; margin-top: 20pt;">ตามรายละเอียดดังนี้</div>
             </div>
             <div class="billWelfare">
@@ -233,16 +233,16 @@
                 </div> -->
                 <div style="display: flex; flex-direction: row; justify-content: space-around;">
                     <div style="width: 100%;">
-                        <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 40%;">{{memberID.firstName}}  {{memberID.lastName}}</div>ผู้รับเงิน</div>
-                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 30%;">{{memberID.firstName}}  {{memberID.lastName}}</div>)</div>
+                        <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 40%;">{{{member.firstName}}} {{{member.lastName}}}</div>ผู้รับเงิน</div>
+                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 30%;">{{{member.firstName}}} {{{member.lastName}}}</div>)</div>
                     </div>
                     <div style="width: 100%;">
-                        <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 40%;">{{rolename.firstName}}  {{rolename.lastName}}</div>ผู้จ่ายเงิน</div>
-                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 30%;">{{rolename.firstName}}  {{rolename.lastName}}</div>)</div>
+                        <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 40%;">{{roleAudit.firstName}}  {{roleAudit.lastName}}</div>ผู้จ่ายเงิน</div>
+                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 30%;">{{roleAudit.firstName}}  {{roleAudit.lastName}}</div>)</div>
                     </div>
                 </div>
-                <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 30%;"></div>พยาน</div>
-                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 20%;"></div>)</div>
+                <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 30%;">{{rolenamechairman.firstName}}  {{rolenamechairman.lastName}}</div>พยาน</div>
+                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 20%;">{{rolenamechairman.firstName}}  {{rolenamechairman.lastName}}</div>)</div>
             </div>
         </div>  
     </body>

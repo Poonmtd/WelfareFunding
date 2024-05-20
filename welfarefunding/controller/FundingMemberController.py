@@ -9,16 +9,17 @@ from gaimon.core.RESTResponse import(
 from gaimon.core.StaticFileHandler import StaticFileHandler
 from welfarefunding.model.FundingMember import FundingMember
 from welfarefunding.model.SavingFund import SavingFund
-from gaimon.model.User import User
+from typing import List, Dict
 
 import os, string, random, mimetypes, base64
 
-from datetime import datetime
-
+from datetime import date
 
 from weasyprint import HTML
 
 from sanic import response
+from gaimon.model.UserGroup import UserGroup
+from gaimon.model.User import User
 
 @BASE(FundingMember, "/welfarefunding/fundingmember", "welfarefunding.FundingMember")
 class FundingMemberController(BaseController):
@@ -26,7 +27,7 @@ class FundingMemberController(BaseController):
 		super().__init__(application)
 		self.static: StaticFileHandler = self.application.static
 
-	@GET('/welfarefunding/documentmember/by/id/get/<id>', role=['user'])
+	@GET('/welfarefunding/documentmember/by/id/get/<id>', role=['FundingMember'])
 	async def getDocumentMember(self, request, id):
 		model = await self.session.select(FundingMember, 'WHERE uid = ?', parameter=[int(id)], isRelated=True)
 		if len(model) == 0: return Error('Member does not exist.')
@@ -64,7 +65,7 @@ class FundingMemberController(BaseController):
 		for key,value in data.items() :
 			if value is None:
 				data[key] = ''
-  
+   
 		age = await self.calculateAge(model.applyDate, model.birthday)
 		ageG1 = await self.calculateAge(model.applyDate, model.birthdayG1)
 		subDistrictG1 = model.subDistrictIDG1
@@ -73,6 +74,19 @@ class FundingMemberController(BaseController):
 		else :
 			communityG1 = ''
 		community = await self.calculateCommunity(model.moo)
+
+		nameMember = 'ทะเบียน'
+		roleFundingMember = ''
+		try: 
+			roleFundingMember = await self.getuserrole(nameMember)
+		except: roleFundingMember = ''
+		namechairman = 'ประธาน'
+		rolenamechairman = ''
+		try: 
+			rolenamechairman = await self.getuserrole(namechairman)
+		except: rolenamechairman = ''
+		data['roleFundingMember'] = roleFundingMember
+		data['rolenamechairman'] = rolenamechairman
 		data['age'] = age
 		data['community'] = community
 		data['ageG1'] = ageG1
@@ -112,8 +126,11 @@ class FundingMemberController(BaseController):
 	async def calculateAge(self, applyDate, birthday):
 		print(applyDate)
 		print(birthday)
+		today = date.today()
+		print(today)
+		print(today.year)
 		age = ''
-		try:
+		try: 
 			age = applyDate.year - birthday.year - ((applyDate.month, applyDate.day) < (birthday.month, birthday.day))
 		except: age = ''
 		return age
@@ -134,7 +151,7 @@ class FundingMemberController(BaseController):
 		elif moo == 7:
 			return 'บ้านทรัพย์สมบูรณ์'
 	
-	@GET('/welfarefunding/documentsavinglist/by/id/get/<id>', role=['user'])
+	@GET('/welfarefunding/documentsavinglist/by/id/get/<id>', role=['FundingMember'])
 	async def getDocumentSavingList(self, request, id):
 		print('-----------------', id)
 		model = await self.session.select(SavingFund, 'WHERE uid = ? ORDER BY id ASC', parameter=[int(id)], isRelated=True)
@@ -167,3 +184,17 @@ class FundingMemberController(BaseController):
 		pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
 		print('--------------- GENERATE PDF FINISHED ---------------')
 		return pathUpload
+
+	async def getuserrole(self,data):
+		print('name role get')
+		print(data)
+		group = await self.session.select(UserGroup, 'WHERE name LIKE ?',parameter=[data],limit=1)
+		if len(group) == 0: 
+			return Error('')
+		print(group[0].id)
+		user:List[User] = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
+		user = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
+		user = user[0]
+		data = user.toDict()
+		# print('--------------------------------',data)
+		return data

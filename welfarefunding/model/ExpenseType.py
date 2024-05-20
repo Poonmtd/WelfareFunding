@@ -15,6 +15,7 @@ class ExpenseType(Record):
 			label="ประเภทรายจ่าย",
 			isRequired=True,
 			isTable=True,
+   			isSearch=True,
 			order="1.0"
 		)
 	)

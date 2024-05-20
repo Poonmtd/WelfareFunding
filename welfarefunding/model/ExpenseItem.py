@@ -29,6 +29,7 @@ class ExpenseItem(Record):
 		input=DateInput(
 			label="วัน/เดือน/ปี",
 			isRequired=True,
+            isSearch=True,
 			order="2.0"
 		)
 	)

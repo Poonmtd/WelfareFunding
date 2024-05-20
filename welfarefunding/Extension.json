@@ -6,7 +6,9 @@
 	"role" : [
 		"FundingMember",
 		"Welfare",
-		"Audit"
+		"Audit",
+		"AboutFund",
+		"FundDocument"
 	],
 	"backend" : {
 		"script" : [

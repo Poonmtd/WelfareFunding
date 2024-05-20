@@ -19,6 +19,7 @@ class WelfareCondition(Record):
 			label="ชื่อสวัสดิการ",
 			isRequired=True,
 			isTable=True,
+			isSearch=True,
 			order="1.0"
 		)
 	)
@@ -66,7 +67,10 @@ class WelfareCondition(Record):
 
 	def check(self, member:FundingMember) -> bool:
 		print('-------------check' , member)
-		if not self.checkRight(member): return False
+		if not self.checkRight(member): 
+			print('right false')
+			return False
+      	# return False
 		return self.checkPayment(member)
  
 	def checkRight(self, member:FundingMember) -> bool:

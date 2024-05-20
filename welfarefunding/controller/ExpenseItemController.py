@@ -12,6 +12,8 @@ from sanic import response
 import os, string, random
 from weasyprint import HTML
 
+from typing import List
+
 from gaimon.model.UserGroup import UserGroup
 from gaimon.model.User import User
 
@@ -20,15 +22,27 @@ class ExpenseItemController(BaseController):
     def __init__(self, application):
         super().__init__(application)
 
-    @GET('/welfarefunding/documentexpense/by/id/get/<id>', role=['user'])
+    @GET('/welfarefunding/documentexpense/by/id/get/<id>', role=['Audit'])
     async def getDocumentExpense(self, request, id):
         model = await self.session.select(ExpenseItem, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
         if len(model) == 0: return Error('Member does not exist.')
         model = model[0]
         data = model.toDict()
-        namerole = 'เหรัญญิก'
-        user = await self.getuserrole(namerole)
-        data['rolename'] = user
+        nameroleAudit = 'เหรัญญิก'
+        userAudit = ''
+        # user = await self.getuserrole(namerole)
+        try:
+            userAudit = await self.getuserrole(nameroleAudit)
+        except : userAudit = ''
+        data['roleAudit'] = userAudit
+        rolenamechairman = 'ประธาน'
+        userchairman = ''
+        try:
+            userchairman = await self.getuserrole(rolenamechairman)
+        except : userchairman = ''
+        
+        data['userchairman'] = userchairman
+        
         date = model.PaymentDate.day
         month = model.PaymentDate.month
         if month == 1: month = 'มกราคม'
@@ -54,6 +68,7 @@ class ExpenseItemController(BaseController):
         return await response.file(path)
     
     async def generateDocumentExpensePDF(self, data):
+        print(data)
         font = await self.getFont()
         template = self.theme.getTemplate('welfarefunding/DocumentExpense.tpl')
         data['font'] = font

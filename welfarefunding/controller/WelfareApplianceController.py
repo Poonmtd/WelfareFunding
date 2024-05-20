@@ -22,15 +22,30 @@ class WelfareApplianceController(BaseController):
     def __init__(self, application):
         super().__init__(application)
 
-    @GET('/welfarefunding/documentappliance/by/id/get/<id>', role=['user'])
+    @GET('/welfarefunding/documentappliance/by/id/get/<id>', role=['Welfare'])
     async def getDocumentAppliance(self, request, id):
         model = await self.session.select(WelfareAppliance, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
         if len(model) == 0: return Error('Member does not exist.')
         model = model[0]
         data = model.toDict()
-        namerole = 'เหรัญญิก'
-        user = await self.getuserrole(namerole)
-        data['rolename'] = user
+        # namerole = 'เหรัญญิก'
+        # user = await self.getuserrole(namerole)
+        # data['rolename'] = user
+        nameAudit = 'เหรัญญิก'
+        roleAudit = ''
+        try: 
+            roleAudit = await self.getuserrole(nameAudit)
+        except: roleAudit = ''
+		# user = await self.getuserrole(namerole)
+        data['roleAudit'] = roleAudit
+        
+        namechairman = 'ประธาน'
+        rolenamechairman = ''
+        try: 
+            rolenamechairman = await self.getuserrole(namechairman)
+        except: rolenamechairman = ''
+        data['rolenamechairman'] = rolenamechairman
+        
         date = model.ApplianceDate.day
         month = model.ApplianceDate.month
         if month == 1: month = 'มกราคม'

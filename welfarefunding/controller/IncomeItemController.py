@@ -24,15 +24,34 @@ class IncomeItemController(BaseController):
     def __init__(self, application):
         super().__init__(application)
          
-    @GET('/welfarefunding/documentincome/by/id/get/<id>', role=['user'])
+    @GET('/welfarefunding/documentincome/by/id/get/<id>', role=['Audit'])
     async def getDocumentIncome(self, request, id):
         model = await self.session.select(IncomeItem, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
         if len(model) == 0: return Error('Member does not exist.')
         model = model[0]
         data = model.toDict()
         namerole = 'เหรัญญิก'
-        user = await self.getuserrole(namerole)
+        user = ''
+        try:
+            user = await self.getuserrole(namerole)
+        except: user = ''
+        # user = await self.getuserrole(namerole)
         data['rolename'] = user
+        # nameAudit = 'เหรัญญิก'
+        # roleroleAudit = ''
+        # try: 
+        #     roleroleAudit = await self.getuserrole(nameAudit)
+        # except: roleroleAudit = ''
+        
+        # namechairman = 'ประธาน'
+        # rolenamechairman = ''
+        # try: 
+        #     rolenamechairman = await self.getuserrole(namechairman)
+        # except: rolenamechairman = ''
+        
+        # data['roleAudit'] = roleroleAudit
+        # data['roleAudit'] = rolenamechairman
+        
         date = model.PaymentDate.day
         month = model.PaymentDate.month
         if month == 1: month = 'มกราคม'
