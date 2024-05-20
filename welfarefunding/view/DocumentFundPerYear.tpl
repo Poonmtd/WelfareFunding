@@ -638,7 +638,7 @@
                 </div>
                 <div style="width: 50%; margin-bottom: 5pt; margin-left: 10pt; display: flex;">อื่นๆ<div class="line" style="width: 50%;"></div>บาท</div>
             </div>
-            <div style="margin-top: 20pt; font-weight: 600; display: flex;">6. สวัสดิการที่จัดให้กับสมาชิกมี<div class="line" style="width: 10%;"></div>ประเภท อะไรบ้าง (ยอดสะสม)</div>
+            <div style="margin-top: 20pt; font-weight: 600; display: flex;">5. สวัสดิการที่จัดให้กับสมาชิกมี<div class="line" style="width: 10%;"></div>ประเภท อะไรบ้าง (ยอดสะสม)</div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
                 <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
                     <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
@@ -789,6 +789,159 @@
                     <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
                 </div>
             </div>
+            <div style="margin-top: 20pt; font-weight: 600; display: flex;">6. สวัสดิการที่จัดให้กับสมาชิกมี<div class="line" style="width: 10%;"></div>ประเภท อะไรบ้าง</div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%;">สวัสดิการเกี่ยวกับเด็กแรกเกิด/คลอดบุตร</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%;">สวัสดิการเกี่ยวกับการเจ็บป่วย/รักษาพยาบาล</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%;">สวัสดิการเกี่ยวกับผู้สูงอายุ</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%;">สวัสดิการกรณีเสียชีวิต</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%;">สวัสดิการค่าใช้จ่ายเกี่ยวกับงานศพ</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%;">สวัสดิการคนด้อยโอกาส/พิการ</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+        </div>
+        <div class="document">
+            <div style="display: flex; margin-left: 15pt; width: 100%; margin-top: 20pt;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%;">สวัสดิการเพื่อพัฒนาอาชีพ</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%;">สวัสดิการเพื่อการศึกษา</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%;">สวัสดิการประเพณีวัฒนธรรม</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%;">สวัสดิการเพื่อที่อยู่อาศัย (ช่อม/สร้าง)</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%;">สวัสดิการช่วยเหลือผู้ประสบภัยพิบัติ</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%;">สวัสดิการสนับสนุนกิจกรรมสาธารณะประโยชน์</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%;">สวัสดิการสนับสนุนด้านทรัพยากรธรรมชาติเเละสิ่งเเวดล้อม</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%; display: flex;">สวัสดิการอื่นๆ<div class="line" style="width: 50%;"></div></div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%; display: flex;">สวัสดิการอื่นๆ<div class="line" style="width: 50%;"></div></div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                </div>
+            </div>
             <div style="margin-top: 20pt; display: flex;"><div style="font-weight: 600;">7. กองทุนสวัสดิการได้สนับสนุนกิจกรรมต่างๆ ของชุมชน</div><div>(ตอบได้มากกว่า 1 ข้อ/ในรอบปีที่ผ่านมามีการจ่ายสวัสดิการ</div></div>
             <div>ผลการดำเนินงาน)</div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -807,9 +960,7 @@
                 </svg>
                 <div style="width: 100%; display: flex;">กิจกรรมด้านประเพณีวัฒนธรรม/ศาสนา ในเรื่อง<div class="line" style="width: 50%;"></div></div>
             </div>
-        </div>
-        <div class="document">
-            <div style="display: flex; margin-left: 15pt; width: 100%; margin-top: 20pt;">
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
                 <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
                     <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
                 </svg>
@@ -838,6 +989,206 @@
                     </div>
                 </div> -->
             </div>
+            <!-- <div style="margin-top: 20pt; display: flex;"><div style="font-weight: 600; display: flex; width: 100%;">8. คณะกรรมการกองทุน มีจำนวน<div class="line" style="width: 10%;"></div>คน</div></div>
+            <div style="margin-left: 10pt; margin-top: 10pt;">8.1 องค์ประกอบด้วยคณะกรรมการ (ตอบได้มากกว่า 1 ข้อ)</div>
+            <div style="display: flex;">
+                <div style="display: flex; margin-left: 15pt; width: 80%;">
+                    <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                    </svg>
+                    <div style="width: 100%; display: flex; margin-left: 5pt;">ผู้เเทนสมาชิก</div>
+                </div>
+                <div style="display: flex; margin-left: 15pt; width: 100%;">
+                    <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                    </svg>
+                    <div style="width: 100%; display: flex; margin-left: 5pt;">ผู้เเทนองค์กรปกครองส่วนท้องถิ่น</div>
+                </div>
+                <div style="display: flex; margin-left: 15pt; width: 100%;">
+                    <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                    </svg>
+                    <div style="width: 100%; display: flex; margin-left: 5pt;">กำนัน/ผู้ใหญ่บ้าน</div>
+                </div>
+            </div>
+            <div style="display: flex;">
+                <div style="display: flex; margin-left: 15pt; width: 80%;">
+                    <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                    </svg>
+                    <div style="width: 100%; display: flex; margin-left: 5pt;">พระ</div>
+                </div>
+                <div style="display: flex; margin-left: 15pt; width: 100%;">
+                    <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                    </svg>
+                    <div style="width: 100%; display: flex; margin-left: 5pt;">ผู้ทรงคุณวุฒิในชุมชน</div>
+                </div>
+                <div style="display: flex; margin-left: 15pt; width: 100%;">
+                    <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                    </svg>
+                    <div style="width: 100%; display: flex; margin-left: 5pt;">อื่นๆ<div class="line" style="width: 70%;"></div></div>
+                </div>
+            </div>
+            <div style="margin-left: 10pt; margin-top: 10pt;">8.2 รายชื่อคณะกรรมการกองทุน</div>
+            <div class="executive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;">ลำดับที่</th>
+                            <th style="width: 30%;">ชื่อ-นามสกุล</th>
+                            <th style="width: 20%;">ตำเเหน่งใน<br>กองทุน</th>
+                            <th style="width: 20%;">ตำเเหน่งในชุมชน</th>
+                            <th style="width: 18%;">หมายเลขโทรศัพท์</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>สมพิศ  หนูขวัญ</td>
+                            <td>ประธานฯ</td>
+                            <td>ตัวแทนสมาชิก ม.4</td>
+                            <td>0892319075</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>จงใจ  จอดประสงค์</td>
+                            <td>รองประธานฯ</td>
+                            <td>ตัวแทนสมาชิก ม.7</td>
+                            <td>0872835976</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>สุภาวดี  ชุมพูนุช</td>
+                            <td>เหรัญญิกฯ</td>
+                            <td>ตัวแทนสมาชิก ม.4</td>
+                            <td>0937459339</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>ธวัชชัย  เมฆหมอก</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.1</td>
+                            <td>0828188969</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>ดารุณี  เมฆหมอก</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.1</td>
+                            <td>0937587484</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>ขนิษฐา  อารีราษฎ์</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.1</td>
+                            <td>0625412811</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>จำรัส  นุ้ยมาก</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.2</td>
+                            <td>0986704725</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>สุนิพร  อินทวาด</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.2</td>
+                            <td>0817924050</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>พัชรียา  ดำภูผา</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.2</td>
+                            <td>0884438358</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>โสภา  วรรณเผือก</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.3</td>
+                            <td>0822803019</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>อัจฉราพร  ด้วงเผือก</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.3</td>
+                            <td>0613029686</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>ประเสริฐ  จินดามณี</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.4</td>
+                            <td>0878886272</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>บัญหาร  กิ้มเซียะ</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.5</td>
+                            <td>0987102935</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>มนฑา  นุชพรหม</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.5</td>
+                            <td>0828134789</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>นันทิกานต์  เมฆหมอก</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.6</td>
+                            <td>0622434997</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>มนเฑียร  จันทดี</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.6</td>
+                            <td>0817883096</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>สมศรี  ดำภูผา</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.7</td>
+                            <td>0623151035</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>อังขณา  บัวสารบรรณ์</td>
+                            <td>กรรมการ</td>
+                            <td>ตัวแทนสมาชิก ม.7</td>
+                            <td>0872722849</td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td>เตือนใจ  พุ่มสร้าง</td>
+                            <td>เลขานุการฯ</td>
+                            <td>ตัวแทนสมาชิก ม.3</td>
+                            <td>0638684613</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> -->
+        </div>
+        <div class="document">
             <div style="margin-top: 20pt; display: flex;"><div style="font-weight: 600; display: flex; width: 100%;">8. คณะกรรมการกองทุน มีจำนวน<div class="line" style="width: 10%;"></div>คน</div></div>
             <div style="margin-left: 10pt; margin-top: 10pt;">8.1 องค์ประกอบด้วยคณะกรรมการ (ตอบได้มากกว่า 1 ข้อ)</div>
             <div style="display: flex;">
@@ -1807,6 +2158,94 @@
             <div style="margin-left: 10pt; margin-top: 10pt;">12.3 ภาคเอกชน</div>
             <div style="margin-left: 15pt; display: flex;">1. <div class="line" style="width: 80%;"></div></div>
             <div style="margin-left: 15pt; display: flex;">2. <div class="line" style="width: 80%;"></div></div>
+            <div style="margin-top: 20pt; display: flex; font-weight: 600;">13. มีแผนการพัฒนากองทุนสวัสดิการชุมชน</div>
+            <div style="margin-left: 10pt; margin-top: 10pt;">13.1 มีแผนการพัฒนากองทุนสวัสดิการชุมชน</div>
+            <div class="executive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;">ลำดับ</th>
+                            <th>แผนงาน/กิจกรรม</th>
+                            <th>วิธีการ</th>
+                            <th>ผลการดำเนินงาน</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-left: 10pt;">หมายเหตุ : สามารถจัดทำเป็นเอกสารเเนบได้</div>
+            <div style="margin-left: 10pt; margin-top: 10pt;">13.2 มีแผนการพัฒนากองทุนสวัสดิการชุมชนร่วมกับองค์กรเเละ/หรือภาคอื่นๆ</div>
+            <div class="executive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;">ลำดับ</th>
+                            <th>แผนงาน/กิจกรรม</th>
+                            <th>วิธีการ</th>
+                            <th>ผลการดำเนินงาน</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-left: 10pt;">หมายเหตุ : สามารถจัดทำเป็นเอกสารเเนบได้</div>
+            <div style="margin-left: 10pt; margin-top: 10pt;">13.3 มีแผนการพัฒนากองทุนสวัสดิการชุมชนและริเริ่มการทำแผนด้านสังคม (รอบที่ 3) หรือ มีแผนการพัฒนาด้านสังคม (รอบที่ 4 ขึ้นไป)</div>
+            <div class="executive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;">ลำดับ</th>
+                            <th>แผนงาน/กิจกรรม</th>
+                            <th>วิธีการ</th>
+                            <th>ผลการดำเนินงาน</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-left: 10pt;">หมายเหตุ : สามารถจัดทำเป็นเอกสารเเนบได้</div>
+        </div>
+        <div class="document">
+            <div style="margin-top: 20pt; display: flex; font-weight: 600;">14. ปัญหาอุปสรรคในการดำเนินงาน เเละ เเนวทางเเก้ไข</div>
         </div>
     </body>
 </html>
