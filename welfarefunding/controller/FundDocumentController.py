@@ -275,6 +275,8 @@ class FundDocumentController(BaseController):
         
         # combined_data = [(income_type,paymentAmount) for income_type,paymentAmount in income_dict.items()]
         # print(income_dict)
+        
+        
         return income_dict
         
         # return Success(income_dict)
@@ -302,8 +304,12 @@ class FundDocumentController(BaseController):
             
             expense_dict.setdefault(expense_type,0.00)
             expense_dict[expense_type] += paymentAmount ## if ธนาคารหมู่บ้านต้องไปอยู่ใน รายจ่าย
-            expense_dict['รวมรายจ่าย'] += paymentAmount
-            expense_dict['ค่าใช้จ่าย'] += paymentAmount
+            if (expense_type == 1) or (expense_type == 2):
+                expense_dict['รวมรายจ่าย'] += paymentAmount
+                expense_dict['รายจ่าย'] += paymentAmount
+            else :
+                expense_dict['รวมรายจ่าย'] += paymentAmount
+                expense_dict['ค่าใช้จ่าย'] += paymentAmount
             
         for welfare in models_welfareAppliance :
             expense_type = 'จ่ายสวัสดิการให้สมาชิก'

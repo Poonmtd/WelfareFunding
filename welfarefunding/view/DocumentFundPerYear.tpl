@@ -870,8 +870,8 @@
                 <div style="width: 15pt;"></div>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%; display: flex; font-weight: 600;">รวม</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนรวมสะสม}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนเงินรวมสะสม}}</div>บาท</div>
                 </div>
             </div>
             <!-- <div style="margin-top: 20pt; font-weight: 600; display: flex;">6. สวัสดิการที่จัดให้กับสมาชิกมี<div class="line" style="width: 10%;">{{calculateWelfareAppliance.จำนวนสวัสดิการ}}</div>ประเภท อะไรบ้าง</div>
@@ -1162,8 +1162,8 @@
                 <div style="width: 15pt;"></div>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%; display: flex; font-weight: 600;">รวม</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนรวม}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนเงินรวม}}</div>บาท</div>
                 </div>
             </div>
             <div style="margin-top: 20pt; display: flex;"><div style="font-weight: 600;">7. กองทุนสวัสดิการได้สนับสนุนกิจกรรมต่างๆ ของชุมชน</div><div>(ตอบได้มากกว่า 1 ข้อ/ในรอบปีที่ผ่านมามีการจ่ายสวัสดิการ</div></div>
@@ -2486,10 +2486,10 @@
                     ลงชื่อ<div class="line" style="width: 40%;"></div>
                 </div>
                 <div style="display: flex; ">
-                    ( <div class="line"style="width: 40%;"></div> ) ผู้รวบรวมข้อมูล
+                    ( <div class="line"style="width: 40%;">{{usersecretary.firstName}}  {{usersecretary.lastName}}</div> ) ผู้รวบรวมข้อมูล
                 </div>
                 <div style="display: flex;">
-                    ตำเเหน่ง<div class="line" style="width: 40%;"></div>
+                    ตำเเหน่ง<div class="line" style="width: 40%;">เลขานุการ</div>
                 </div>
                 <div style="display: flex;">
                     วันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ. <div class="line" style="width: 10%;"></div>
@@ -2500,10 +2500,10 @@
                     ลงชื่อ<div class="line" style="width: 40%;"></div>
                 </div>
                 <div style="display: flex; ">
-                    ( <div class="line"style="width: 40%;"></div> ) ประธาน/รองประธานกองทุนระดับตำบล/เทศบาล/เขต
+                    ( <div class="line"style="width: 40%;">{{userchairman.firstName}}  {{userchairman.lastName}}</div> ) ประธาน/รองประธานกองทุนระดับตำบล/เทศบาล/เขต
                 </div>
                 <div style="display: flex;">
-                    ตำเเหน่ง<div class="line" style="width: 40%;"></div>
+                    ตำเเหน่ง<div class="line" style="width: 40%;">ประธานกองทุนสวัสดิการชุมชน</div>
                 </div>
                 <div style="display: flex;">
                     วันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ. <div class="line" style="width: 10%;"></div>
