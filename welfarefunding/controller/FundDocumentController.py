@@ -15,6 +15,9 @@ from welfarefunding.model.WelfareAppliance import WelfareAppliance
 from welfarefunding.model.AboutFund import AboutFund
 from welfarefunding.model.FundingMember import FundingMember
 from welfarefunding.model.VulnerableGroup import VulnerableGroup
+from welfarefunding.model.AboutFund import AboutFund
+from gaimon.model.UserGroup import UserGroup
+from gaimon.model.User import User
 
 from sanic import response
 import os, string, random
@@ -45,6 +48,23 @@ class FundDocumentController(BaseController):
         date_end = datetime.strptime(data['endYear'], '%Y-%m-%d')
         print('date start------------------',date_start)
         font = await self.getFont()
+        #role ต่างๆ
+        rolenamechairman = 'ประธาน'
+        userchairman, addresschairman = '',''
+        try:
+            userchairman,addresschairman  = await self.getuserrole(rolenamechairman)
+        except : userchairman,addresschairman = '',''
+        
+        rolenameCoordinator = 'ผู้ประสานงาน'
+        userCoordinator, addressCoordinator = '',''
+        try:
+            userCoordinator,addressCoordinator  = await self.getuserrole(rolenameCoordinator)
+        except : userCoordinator,addressCoordinator = '',''
+        
+        # userRole = await self.getAllUserRloe()
+        
+        
+        
         calculateIncome = await self.calculateIncome(date_end)
         calculateExpense = await self.calculateExpense(date_start,date_end)
         calculateWelfareAppliance, calculateAllwelfareAppliance = await self.calculateWelfareAppliance(date_start,date_end)
@@ -57,6 +77,17 @@ class FundDocumentController(BaseController):
         data['calculateAllWelfareAppliance'] = calculateAllwelfareAppliance
         data['calculateTypeMember'] = calculateTypeMember
         data['calculateAllTypeMember'] = calculateAllTypeMember
+        #กองทุน
+        
+        #ประธาน
+        data['userchairman'] = userchairman
+        data['addresschairman'] = addresschairman
+        #ประสานงาน
+        data['userCoordinator'] = userCoordinator
+        data['addressCoordinator'] = addressCoordinator
+        #Alluser
+        # data['alluser'] = userRole
+        
         html = self.renderer.render(template, data)
         letters = string.ascii_lowercase
         fileName = ''.join(random.choice(letters) for i in range(20))
@@ -66,6 +97,7 @@ class FundDocumentController(BaseController):
         html = HTML(string=html)
         html.write_pdf(pathFile)
         pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
+        print('---------------------------------',data)
         print('--------------- GENERATE PDF FINISHED ---------------')
         return pathUpload
     
@@ -74,48 +106,103 @@ class FundDocumentController(BaseController):
         font = self.renderer.render(font, {})
         return font
     
-    @GET('/welfarefunding/testcalculate/by/id/get/<id>', role=['FundDocument'])
-    async def getDocumentTestCalculate(self, request, id):
-        model = await self.session.select(FundDocument, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
-        if len(model) == 0: return Error('Member does not exist.')
-        model = model[0]
-        data = model.toDict()
-        path = await self.generateDocumentTestCalculatePDF(data)
-        model.path = path
-        await self.session.update(model)
-        path = f"{self.resourcePath}upload/{path}"
-        return await response.file(path)
+    async def getuserrole(self,data):
+        print('name role get')
+        group = await self.session.select(UserGroup, 'WHERE name LIKE ?',parameter=[data],limit=1)
+        if len(group) == 0: return Error('')
+        print(group[0].id)
+        user:List[User] = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
+        # user = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
+        user = user[0]
+        datauser:List[FundingMember] = await self.session.select(FundingMember, 'WHERE uid = ?', parameter=[user.id])
+        datauser = datauser[0]
+        data = user.toDict()
+        userdata = datauser.toDict()
+        
+        subDistrict = datauser.subDistrictID
+        community = ''
+        if subDistrict == 'ทรัพย์อนันต์' :
+            community = await self.calculateCommunity(datauser.moo)
+        else :
+            community = ''        
+        
+        userdata['community'] = community
+		# print('--------------------------------',data)
+        return data,userdata
     
-    async def generateDocumentTestCalculatePDF(self, data):
-        date_start = datetime.strptime(data['startYear'], '%Y-%m-%d')
-        date_end =datetime.strptime(data['endYear'], '%Y-%m-%d')
-        font = await self.getFont()
-        calculateIncome = await self.calculateIncome(date_end)
-        calculateExpense = await self.calculateExpense(date_start,date_end)
-        calculateWelfareAppliance, calculateAllwelfareAppliance = await self.calculateWelfareAppliance(date_start,date_end)
-        calculateTypeMember, calculateAllTypeMember = await self.CalculateTypeMember(date_start,date_end)
-        template = self.theme.getTemplate('welfarefunding/TestCalculate.tpl')
-        data['font'] = font
-        data['calculateIncome'] = calculateIncome 
-        data['calculateExpense'] = calculateExpense 
-        data['calculateWelfareAppliance'] = calculateWelfareAppliance 
-        data['calculateAllWelfareAppliance'] = calculateAllwelfareAppliance
-        data['calculateTypeMember'] = calculateTypeMember
-        data['calculateAllTypeMember'] = calculateAllTypeMember
-        html = self.renderer.render(template, data)
-        letters = string.ascii_lowercase
-        fileName = ''.join(random.choice(letters) for i in range(20))
-        path = self.resourcePath + "upload/welfarefunding/document"
-        os.makedirs(path, exist_ok=True)
-        pathFile = path + "/%s.pdf" % (fileName)
-        html = HTML(string=html)
-        html.write_pdf(pathFile)
-        pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
-        print('--------------- GENERATE PDF FINISHED ---------------')
-        print(calculateTypeMember)
-        print(data)
-        print('------------------------------------------------------')
-        return pathUpload
+    async def calculateCommunity(self, moo):
+        if moo == 1: return 'บ้านนาเมือง'
+        elif moo == 2: return 'บ้านนาหวาน'
+        elif moo == 3: return 'บ้านแก่งเพกา'
+        elif moo == 4: return 'บ้านเกาะอม'
+        elif moo == 5: return 'บ้านนาโครงช้าง'
+        elif moo == 6: return 'บ้านทรัพย์อนันต์'
+        elif moo == 7: return 'บ้านทรัพย์สมบูรณ์'
+        
+    # async def getAllUserRloe(self) :
+    #     user:List[User] = await self.session.select(User, 'WHERE gid != ?', parameter=[-1])
+    #     # datauser:List[FundingMember] = await self.session.select(FundingMember, 'WHERE uid = ?', parameter=[user.id])
+    #     datauser = datauser[0]
+    #     data = user.toDict()
+    #     userdata = datauser.toDict()
+    #     return data
+    
+    # async def getuserrole(self,data):
+    #     group = await self.session.select(UserGroup, 'WHERE name LIKE ?',parameter=[data],limit=1)
+    #     if len(group) == 0: return Error('')
+    #     print(group[0].id)
+    #     user:List[User] = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
+    #     user = user[0]
+    #     datauser:List[FundingMember] = await self.session.select(FundingMember, 'WHERE uid = ?', parameter=[user.id])
+    #     datauser = datauser[0]
+    #     datauser1 = datauser.toDict()
+    #     data = user.toDict()
+    #     print('user id::', user.id)
+    #     print('data:',datauser1)
+    #     return data
+    ##############################################################################################################################
+    # @GET('/welfarefunding/testcalculate/by/id/get/<id>', role=['FundDocument'])
+    # async def getDocumentTestCalculate(self, request, id):
+    #     model = await self.session.select(FundDocument, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)
+    #     if len(model) == 0: return Error('Member does not exist.')
+    #     model = model[0]
+    #     data = model.toDict()
+    #     path = await self.generateDocumentTestCalculatePDF(data)
+    #     model.path = path
+    #     await self.session.update(model)
+    #     path = f"{self.resourcePath}upload/{path}"
+    #     return await response.file(path)
+    
+    # async def generateDocumentTestCalculatePDF(self, data):
+    #     date_start = datetime.strptime(data['startYear'], '%Y-%m-%d')
+    #     date_end =datetime.strptime(data['endYear'], '%Y-%m-%d')
+    #     font = await self.getFont()
+    #     calculateIncome = await self.calculateIncome(date_end)
+    #     calculateExpense = await self.calculateExpense(date_start,date_end)
+    #     calculateWelfareAppliance, calculateAllwelfareAppliance = await self.calculateWelfareAppliance(date_start,date_end)
+    #     calculateTypeMember, calculateAllTypeMember = await self.CalculateTypeMember(date_start,date_end)
+    #     template = self.theme.getTemplate('welfarefunding/TestCalculate.tpl')
+    #     data['font'] = font
+    #     data['calculateIncome'] = calculateIncome 
+    #     data['calculateExpense'] = calculateExpense 
+    #     data['calculateWelfareAppliance'] = calculateWelfareAppliance 
+    #     data['calculateAllWelfareAppliance'] = calculateAllwelfareAppliance
+    #     data['calculateTypeMember'] = calculateTypeMember
+    #     data['calculateAllTypeMember'] = calculateAllTypeMember
+    #     html = self.renderer.render(template, data)
+    #     letters = string.ascii_lowercase
+    #     fileName = ''.join(random.choice(letters) for i in range(20))
+    #     path = self.resourcePath + "upload/welfarefunding/document"
+    #     os.makedirs(path, exist_ok=True)
+    #     pathFile = path + "/%s.pdf" % (fileName)
+    #     html = HTML(string=html)
+    #     html.write_pdf(pathFile)
+    #     pathUpload = "welfarefunding/document/%s.pdf" % (fileName)
+    #     print('--------------- GENERATE PDF FINISHED ---------------')
+    #     print(calculateTypeMember)
+    #     print(data)
+    #     print('------------------------------------------------------')
+    #     return pathUpload
     
     @GET("/welfarefunding/incomeitem/get/all/income")
     async def getIncomeItemOption(self, request) :
@@ -333,7 +420,8 @@ class FundDocumentController(BaseController):
             age = endday.year - birthday.year - ((endday.month, endday.day) < (birthday.month, birthday.day))
         except: age = 0
         return age
-
+    
+    
     @GET('/welfarefunding/transferrequestform/by/id/get/<id>', role=['FundDocument'])
     async def getDocumentTransferRequestForm(self, request, id):
         model = await self.session.select(FundDocument, 'WHERE id = ?', parameter=[int(id)], isRelated=True, limit=1)

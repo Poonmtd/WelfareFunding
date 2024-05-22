@@ -8,6 +8,7 @@ from gaimon.core.RESTResponse import(
 )
 from welfarefunding.model.WelfareAppliance import WelfareAppliance
 from welfarefunding.model.WelfareCondition import WelfareCondition
+from welfarefunding.model.FundingMember import FundingMember
 
 from gaimon.model.UserGroup import UserGroup
 from gaimon.model.User import User
@@ -96,8 +97,10 @@ class WelfareApplianceController(BaseController):
         if len(group) == 0: return Error('')
         print(group[0].id)
         user:List[User] = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
-        user = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
         user = user[0]
         data = user.toDict()
-		# print('--------------------------------',data)
         return data
+    
+    
+
+

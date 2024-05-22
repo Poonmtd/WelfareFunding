@@ -124,6 +124,7 @@
     </style>
     <body>
         <div class="document">
+            {{thaibaht_text}}
             <div class="topic">ใบสำคัญจ่ายเงิน</div>
             <div style="text-align: center;">
                 <div style="margin-top: 10pt; display: flex; justify-content: center;">กองทุนสวัสดิการชุมชน<div class="line" style="width: 20%;">ตำบลทรัพย์อนันต์</div></div>

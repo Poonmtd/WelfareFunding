@@ -105,7 +105,7 @@ class IncomeItemController(BaseController):
             return Error('')
         print(group[0].id)
         user:List[User] = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
-        user = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
+        # user = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
         user = user[0]
         data = user.toDict()
         # print('--------------------------------',data)

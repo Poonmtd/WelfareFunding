@@ -119,7 +119,7 @@
             <div class="topic" style="margin-top: 20pt;">1. แบบเเสดงสถานะกองทุน</div>
             <div style="font-weight: 600; text-align: center; margin-top: 20pt;">
                 <div>แบบเเสดงสถานะกองทุนสวัสดิการชุมชน</div>
-                <div style="display: flex; justify-content: center;">ตำบล/เทศบาล<div class="line" style="width: 30%;">ตำบลทรัพย์อนันต์</div></div>
+                <div style="display: flex; justify-content: center;">ตำบล/เทศบาล<div class="line" style="width: 30%;">ทรัพย์อนันต์</div></div>
                 <div style="display: flex; justify-content: center;">อำเภอ<div class="line" style="width: 10%;">ท่าเเซะ</div>จังหวัด<div class="line" style="width: 10%;">ชุมพร</div></div>
             </div>
             <div>
@@ -141,42 +141,42 @@
                     </div>
                 </div>
                 <div>
-                    <div style="font-weight: 600; display: flex;">ชื่อประธานกองทุน<div class="line" style="width: 60%;"></div></div>
+                    <div style="font-weight: 600; display: flex;">ชื่อประธานกองทุน<div class="line" style="width: 60%;">{{userchairman.firstName}} {{userchairman.lastName}}</div></div>
                     <div style="display: flex;">
-                        ที่ตั้งเลขที่<div class="line" style="width: 10%;"></div>หมู่บ้าน<div class="line"style="width: 10%;" ></div>หมู่ที่<div class="line" style="width: 10%;"></div>ตรอก/ซอย<div class="line"style="width: 10%;" ></div>
-                        ถนน<div class="line"style="width: 10%;" ></div>
+                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">{{addresschairman.addressNumber}}</div>หมู่บ้าน<div class="line"style="width: 10%;" >{{addresschairman.community}}</div>หมู่ที่<div class="line" style="width: 10%;">{{addresschairman.moo}}</div>ตรอก/ซอย<div class="line"style="width: 10%;" >{{addresschairman.alley}}</div>
+                        ถนน<div class="line"style="width: 10%;" >{{addresschairman.road}}</div>
                     </div>
                     <div style="display: flex;">
-                        ตำบล/เเขวง<div class="line" style="width: 15%;"></div>อำเภอ/เขต<div class="line" style="width: 15%;"></div>
-                        จังหวัด<div class="line" style="width: 15%;"></div>รหัสไปรษณีย์<div class="line" style="width: 10%;"></div>
+                        ตำบล/เเขวง<div class="line" style="width: 15%;">{{addresschairman.subDistrictID}}</div>อำเภอ/เขต<div class="line" style="width: 15%;">{{addresschairman.districtID}}</div>
+                        จังหวัด<div class="line" style="width: 15%;">{{addresschairman.province}}</div>รหัสไปรษณีย์<div class="line" style="width: 10%;">{{addresschairman.postalCode}}</div>
                     </div>
                     <div style="display: flex;">
                         โทรศัพท์<div class="line" style="width: 15%;"></div>
-                        โทรศัพท์มือถือ<div class="line" style="width: 15%;"></div>
+                        โทรศัพท์มือถือ<div class="line" style="width: 15%;">{{addresschairman.telephoneNumber}}</div>
                         โทรสาร<div class="line" style="width: 15%;"></div>
-                        อีเมล/เว็บไซต์<div class="line" style="width: 15%;"></div>
+                        อีเมล/เว็บไซต์<div class="line" style="width: 15%;">{{userchairman.email}}</div>
                     </div>
                 </div>
                 <div>
-                    <div style="font-weight: 600; display: flex;">ชื่อผู้ประสานงาน<div class="line" style="width: 60%;"></div></div>
+                    <div style="font-weight: 600; display: flex;">ชื่อผู้ประสานงาน<div class="line" style="width: 60%;">{{userCoordinator.firstName}}  {{userCoordinator.lastName}}</div></div>
                     <div style="display: flex;">
-                        ที่ตั้งเลขที่<div class="line" style="width: 10%;"></div>หมู่บ้าน<div class="line"style="width: 10%;" ></div>หมู่ที่<div class="line" style="width: 10%;"></div>ตรอก/ซอย<div class="line"style="width: 10%;" ></div>
-                        ถนน<div class="line"style="width: 10%;" ></div>
+                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">{{addressCoordinator.addressNumber}}</div>หมู่บ้าน<div class="line"style="width: 10%;" >{{addressCoordinator.community}}</div>หมู่ที่<div class="line" style="width: 10%;">{{addressCoordinator.moo}}</div>ตรอก/ซอย<div class="line"style="width: 10%;" >{{addressCoordinator.alley}}</div>
+                        ถนน<div class="line"style="width: 10%;" >{{addressCoordinator.road}}</div>
                     </div>
                     <div style="display: flex;">
-                        ตำบล/เเขวง<div class="line" style="width: 15%;"></div>อำเภอ/เขต<div class="line" style="width: 15%;"></div>
-                        จังหวัด<div class="line" style="width: 15%;"></div>รหัสไปรษณีย์<div class="line" style="width: 10%;"></div>
+                        ตำบล/เเขวง<div class="line" style="width: 15%;">{{addressCoordinator.subDistrictID}}</div>อำเภอ/เขต<div class="line" style="width: 15%;">{{addressCoordinator.districtID}}</div>
+                        จังหวัด<div class="line" style="width: 15%;">{{addressCoordinator.province}}</div>รหัสไปรษณีย์<div class="line" style="width: 10%;">{{addressCoordinator.postalCode}}</div>
                     </div>
                     <div style="display: flex;">
                         โทรศัพท์<div class="line" style="width: 15%;"></div>
-                        โทรศัพท์มือถือ<div class="line" style="width: 15%;"></div>
+                        โทรศัพท์มือถือ<div class="line" style="width: 15%;">{{addressCoordinator.telephoneNumber}}</div>
                         โทรสาร<div class="line" style="width: 15%;"></div>
-                        อีเมล/เว็บไซต์<div class="line" style="width: 15%;"></div>
+                        อีเมล/เว็บไซต์<div class="line" style="width: 15%;">{{userCoordinator.email}}</div>
                     </div>
                 </div>
             </div>
             <div style="margin-top: 20pt;">
-                <div style="display: flex;"><p style="font-weight: 600; margin-right: 5pt;">2. ก่อตั้งเมื่อ</p>วันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ<div class="line" style="width: 10%;"></div></div>
+                <div style="display: flex;"><p style="font-weight: 600; margin-right: 5pt;">2. ก่อตั้งเมื่อ</p>วันที่<div class="line" style="width: 10%;">1</div>เดือน<div class="line" style="width: 15%;">มกราคม</div>พ.ศ<div class="line" style="width: 10%;">2549</div></div>
                 <div style="display: flex;"><p style="font-weight: 600;">ชื่อองค์กรที่สนับสนุนการจัดตั้ง</p><div class="line" style="width: 20%;"></div></div>
                 <div><p style="font-weight: 600;">วัตถุประสงค์ของการจัดตั้งกลุ่ม/กองทุน</p></div>
                 <div class="line" style="width: 80%; text-align: start;">1. ส่งเสริมให้สมาชิกรู้จักออมเงินเพื่อเบ่งปันช่วยเหลือซึ่งกันเเละกัน</div>
@@ -319,8 +319,8 @@
                     <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
                 </svg>
                 <div style="width: 100%;">
-                    <div style="display: flex; width: 100%;">สมาชิกมาจากจำนวน<div class="line" style="width: 10%;"></div>หมู่บ้าน/ชุมชน</div>
-                    <div style="display: flex;">จากจำนวนหมู่บ้าน/ชุมชนทั้งหมดในตำบล/เทศบาล/เขต ทั้งหมดจำนวน<div class="line" style="width: 10%;"></div>หมู่บ้าน/ชุมชน</div>
+                    <div style="display: flex; width: 100%;">สมาชิกมาจากจำนวน<div class="line" style="width: 10%;">7</div>หมู่บ้าน/ชุมชน</div>
+                    <div style="display: flex;">จากจำนวนหมู่บ้าน/ชุมชนทั้งหมดในตำบล/เทศบาล/เขต ทั้งหมดจำนวน<div class="line" style="width: 10%;">7</div>หมู่บ้าน/ชุมชน</div>
                 </div>
             </div>
             <div style="margin-top: 20pt; font-weight: 600;">4. ข้อมูลกองทุนสวัสดิการชุมชน</div>
@@ -645,8 +645,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการเกี่ยวกับเด็กแรกเกิด/คลอดบุตร</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ1}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.1}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -655,8 +655,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการเกี่ยวกับการเจ็บป่วย/รักษาพยาบาล</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ2}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.2}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -665,8 +665,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการเกี่ยวกับผู้สูงอายุ</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ3}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.3}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -675,8 +675,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการกรณีเสียชีวิต</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ4}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.4}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -685,8 +685,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการค่าใช้จ่ายเกี่ยวกับงานศพ</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ5}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.5}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -695,8 +695,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการคนด้อยโอกาส/พิการ</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ6}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.6}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -705,8 +705,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการเพื่อพัฒนาอาชีพ</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ7}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.7}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -715,8 +715,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการเพื่อการศึกษา</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ8}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.8}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -725,8 +725,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการประเพณีวัฒนธรรม</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ9}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.9}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -735,8 +735,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการเพื่อที่อยู่อาศัย (ช่อม/สร้าง)</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ10}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.10}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -745,8 +745,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการช่วยเหลือผู้ประสบภัยพิบัติ</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ11}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.11}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -755,8 +755,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการสนับสนุนกิจกรรมสาธารณะประโยชน์</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ12}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.12}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -765,8 +765,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการสนับสนุนด้านทรัพยากรธรรมชาติเเละสิ่งเเวดล้อม</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ13}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.13}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -774,9 +774,9 @@
                     <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
                 </svg>
                 <div style="display: flex; width: 100%;">
-                    <div style="width: 100%; display: flex;">สวัสดิการอื่นๆ<div class="line" style="width: 50%;"></div></div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 100%; display: flex;">สวัสดิการอื่นๆ<div class="line" style="width: 50%;">ประชาสัมพันธ์</div></div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ14}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.14}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -784,9 +784,19 @@
                     <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
                 </svg>
                 <div style="display: flex; width: 100%;">
-                    <div style="width: 100%; display: flex;">สวัสดิการอื่นๆ<div class="line" style="width: 50%;"></div></div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 100%; display: flex;">สวัสดิการอื่นๆ<div class="line" style="width: 50%;">ตอบแทนองค์กร</div></div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ15}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.15}}</div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%; display: flex;">สวัสดิการอื่นๆ<div class="line" style="width: 50%;">Covid-19</div></div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.จำนวนคนของ16}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.16}}</div>บาท</div>
                 </div>
             </div>
             <div style="margin-top: 20pt; font-weight: 600; display: flex;">6. สวัสดิการที่จัดให้กับสมาชิกมี<div class="line" style="width: 10%;"></div>ประเภท อะไรบ้าง</div>
@@ -796,8 +806,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการเกี่ยวกับเด็กแรกเกิด/คลอดบุตร</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ1}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.1}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -806,8 +816,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการเกี่ยวกับการเจ็บป่วย/รักษาพยาบาล</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ2}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.2}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -816,8 +826,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการเกี่ยวกับผู้สูงอายุ</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ3}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.3}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -826,8 +836,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการกรณีเสียชีวิต</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ4}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.4}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -836,8 +846,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการค่าใช้จ่ายเกี่ยวกับงานศพ</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ5}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.5}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -846,8 +856,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการคนด้อยโอกาส/พิการ</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ6}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.6}}</div>บาท</div>
                 </div>
             </div>
         </div>
@@ -858,8 +868,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการเพื่อพัฒนาอาชีพ</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ7}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.7}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -868,8 +878,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการเพื่อการศึกษา</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ8}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.8}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -878,8 +888,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการประเพณีวัฒนธรรม</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ9}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.9}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -888,8 +898,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการเพื่อที่อยู่อาศัย (ช่อม/สร้าง)</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ10}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.10}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -898,8 +908,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการช่วยเหลือผู้ประสบภัยพิบัติ</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ11}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.11}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -908,8 +918,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการสนับสนุนกิจกรรมสาธารณะประโยชน์</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ12}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.12}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -918,8 +928,8 @@
                 </svg>
                 <div style="display: flex; width: 100%;">
                     <div style="width: 100%;">สวัสดิการสนับสนุนด้านทรัพยากรธรรมชาติเเละสิ่งเเวดล้อม</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ13}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.13}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -927,9 +937,9 @@
                     <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
                 </svg>
                 <div style="display: flex; width: 100%;">
-                    <div style="width: 100%; display: flex;">สวัสดิการอื่นๆ<div class="line" style="width: 50%;"></div></div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 100%; display: flex;">สวัสดิการอื่นๆ<div class="line" style="width: 50%;">ประชาสัมพันธ์</div></div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ14}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.14}}</div>บาท</div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
@@ -937,9 +947,19 @@
                     <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
                 </svg>
                 <div style="display: flex; width: 100%;">
-                    <div style="width: 100%; display: flex;">สวัสดิการอื่นๆ<div class="line" style="width: 50%;"></div></div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>คน</div>
-                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;"></div>บาท</div>
+                    <div style="width: 100%; display: flex;">สวัสดิการอื่นๆ<div class="line" style="width: 50%;">ตอบแทนองค์กร</div></div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ15}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.15}}</div>บาท</div>
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 15pt; width: 100%;">
+                <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
+                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
+                </svg>
+                <div style="display: flex; width: 100%;">
+                    <div style="width: 100%; display: flex;">สวัสดิการอื่นๆ<div class="line" style="width: 50%;">Covid-19</div></div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.จำนวนคนของ16}}</div>คน</div>
+                    <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateWelfareAppliance.16}}</div>บาท</div>
                 </div>
             </div>
             <div style="margin-top: 20pt; display: flex;"><div style="font-weight: 600;">7. กองทุนสวัสดิการได้สนับสนุนกิจกรรมต่างๆ ของชุมชน</div><div>(ตอบได้มากกว่า 1 ข้อ/ในรอบปีที่ผ่านมามีการจ่ายสวัสดิการ</div></div>
