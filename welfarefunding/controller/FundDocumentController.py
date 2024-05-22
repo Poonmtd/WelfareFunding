@@ -67,9 +67,7 @@ class FundDocumentController(BaseController):
             usersecretary,addresssecretary  = await self.getuserrole(rolenamesecretary)
         except : usersecretary,addresssecretary = '',''
         
-        # userRole = await self.getAllUserRloe()
-        
-        
+        userRole = await self.getALLUserrole()
         
         calculateIncome = await self.calculateIncome(date_end)
         calculateExpense = await self.calculateExpense(date_start,date_end)
@@ -147,6 +145,20 @@ class FundDocumentController(BaseController):
         elif moo == 5: return 'บ้านนาโครงช้าง'
         elif moo == 6: return 'บ้านทรัพย์อนันต์'
         elif moo == 7: return 'บ้านทรัพย์สมบูรณ์'
+        
+    async def getALLUserrole(self):        
+        users:List[User] = await self.session.select(User, 'WHERE gid != ?', parameter=[-1])
+        mergedData = []
+        for user in users:
+            usermembers:List[FundingMember] = await self.session.select(FundingMember,'WHERE uid = ?',parameter = [user.id])
+            userDict = user.toDict()
+            for member in usermembers:
+                memberDict = member.toDict()
+                mergedUserDict = {**userDict, **memberDict}
+                mergedData.append(mergedUserDict)
+        print(mergedData)
+        return users
+
         
     # async def getAllUserRloe(self) :
     #     user:List[User] = await self.session.select(User, 'WHERE gid != ?', parameter=[-1])
@@ -357,7 +369,16 @@ class FundDocumentController(BaseController):
             applianceAll_dict.setdefault('จำนวนคนของ'+welfare_type, 0.00)
             applianceAll_dict['จำนวนคนของ'+welfare_type] += 1
         
-        return appliancs_dict, applianceAll_dict
+        countAppliance = (len(appliancs_dict)/2)-1
+        print('---------------------------------------------',appliancs_dict)
+        countApplianceAll = (len(applianceAll_dict)/2)-1
+        appliancs_dict.setdefault('จำนวนสวัสดิการ',0.00)
+        appliancs_dict['จำนวนสวัสดิการ'] = countAppliance
+        
+        applianceAll_dict.setdefault('จำนวนสวัสดิการสะสม',0.00)
+        applianceAll_dict['จำนวนสวัสดิการสะสม'] = countApplianceAll
+        
+        return appliancs_dict, applianceAll_dict,
     
     async def CalculateTypeMember(self, stareDate:datetime, endDate:datetime):
         print("-----------------------------------TEST TYPE-----------------------------------------------------")
@@ -418,9 +439,9 @@ class FundDocumentController(BaseController):
         return typeMember_dict ,typeMemberAll_dict
     
     async def calculateAge(self, birthday ,endday):
-        print("-----------------------------------TEST AGE-----------------------------------------------------")
+        # print("-----------------------------------TEST AGE-----------------------------------------------------")
         # today = datetime.now()
-        print("----------------------------------------",endday)
+        # print("----------------------------------------",endday)
         # differenceTime = today.year-applyDate.year
         age = ''
         try : 
@@ -429,7 +450,6 @@ class FundDocumentController(BaseController):
             age = endday.year - birthday.year - ((endday.month, endday.day) < (birthday.month, birthday.day))
         except: age = 0
         return age
-    
     
     @GET('/welfarefunding/transferrequestform/by/id/get/<id>', role=['FundDocument'])
     async def getDocumentTransferRequestForm(self, request, id):

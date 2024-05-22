@@ -638,7 +638,7 @@
                 </div>
                 <div style="width: 50%; margin-bottom: 5pt; margin-left: 10pt; display: flex;">อื่นๆ<div class="line" style="width: 50%;"></div>บาท</div>
             </div>
-            <div style="margin-top: 20pt; font-weight: 600; display: flex;">5. สวัสดิการที่จัดให้กับสมาชิกมี<div class="line" style="width: 10%;"></div>ประเภท อะไรบ้าง (ยอดสะสม)</div>
+            <div style="margin-top: 20pt; font-weight: 600; display: flex;">5. สวัสดิการที่จัดให้กับสมาชิกมี<div class="line" style="width: 10%;">{{calculateAllWelfareAppliance.จำนวนสวัสดิการสะสม}}</div>ประเภท อะไรบ้าง (ยอดสะสม)</div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
                 <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
                     <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
@@ -799,7 +799,7 @@
                     <div style="width: 60%; display: flex;">จำนวน<div class="line" style="width: 50%;">{{calculateAllWelfareAppliance.16}}</div>บาท</div>
                 </div>
             </div>
-            <div style="margin-top: 20pt; font-weight: 600; display: flex;">6. สวัสดิการที่จัดให้กับสมาชิกมี<div class="line" style="width: 10%;"></div>ประเภท อะไรบ้าง</div>
+            <div style="margin-top: 20pt; font-weight: 600; display: flex;">6. สวัสดิการที่จัดให้กับสมาชิกมี<div class="line" style="width: 10%;">{{calculateWelfareAppliance.จำนวนสวัสดิการ}}</div>ประเภท อะไรบ้าง</div>
             <div style="display: flex; margin-left: 15pt; width: 100%;">
                 <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
                     <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
