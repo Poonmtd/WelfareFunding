@@ -61,6 +61,12 @@ class FundDocumentController(BaseController):
             userCoordinator,addressCoordinator  = await self.getuserrole(rolenameCoordinator)
         except : userCoordinator,addressCoordinator = '',''
         
+        rolenamesecretary = 'เลขานุการ'
+        usersecretary, addresssecretary = '',''
+        try:
+            usersecretary,addresssecretary  = await self.getuserrole(rolenamesecretary)
+        except : usersecretary,addresssecretary = '',''
+        
         # userRole = await self.getAllUserRloe()
         
         
@@ -85,6 +91,9 @@ class FundDocumentController(BaseController):
         #ประสานงาน
         data['userCoordinator'] = userCoordinator
         data['addressCoordinator'] = addressCoordinator
+        #เลขานุการ
+        data['usersecretary'] = usersecretary
+        data['addresssecretary'] = addresssecretary
         #Alluser
         # data['alluser'] = userRole
         
