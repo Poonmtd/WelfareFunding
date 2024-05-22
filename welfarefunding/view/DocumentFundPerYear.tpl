@@ -241,7 +241,7 @@
             <div style="display: flex;">องค์กรชุมชน/คณะทำงานพิจารณาโครงการของภาคฯ รอบเเรกเมื่อวันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ<div class="line" style="width: 10%;"></div></div>
             <div style="display: flex;">จำนวนสมาชิกทั้งหมดเดิม<div class="line" style="width: 15%;"></div>คน จำนวนสมาชิกครบปีเดิม<div class="line" style="width: 15%;"></div>คน</div>
             <div style="display: flex;">จำนวนสมาชิกที่เสนอรับการสมทบรอบนี้<div class="line" style="width: 15%;"></div>คน</div>
-            <div style="display: flex;">(สมาชิกครบ 1 ปี ณ วันที่<div class="line" style="width: 10%;">30</div>เดือน<div class="line" style="width: 15%;">กันยายน</div>พ.ศ.<div class="line" style="width: 10%;"></div>)</div>
+            <div style="display: flex;">(สมาชิกครบ 1 ปี ณ วันที่<div class="line" style="width: 10%;">30</div>เดือน<div class="line" style="width: 15%;">กันยายน</div>พ.ศ.<div class="line" style="width: 10%;">{{year}}</div>)</div>
             <div style="display: flex; width: 100%; margin-left: 15pt;">
                 <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
                     <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
@@ -254,7 +254,7 @@
             <div style="display: flex;">องค์กรชุมชน/คณะทำงานพิจารณาโครงการของภาคฯ รอบเเรกเมื่อวันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ<div class="line" style="width: 10%;"></div></div>
             <div style="display: flex;">จำนวนสมาชิกทั้งหมดเดิม<div class="line" style="width: 15%;"></div>คน จำนวนสมาชิกครบปีเดิม<div class="line" style="width: 15%;"></div>คน</div>
             <div style="display: flex;">จำนวนสมาชิกที่เสนอรับการสมทบรอบนี้<div class="line" style="width: 15%;"></div>คน</div>
-            <div style="display: flex;">(สมาชิกครบ 1 ปี ณ วันที่<div class="line" style="width: 10%;">30</div>เดือน<div class="line" style="width: 15%;">กันยายน</div>พ.ศ.<div class="line" style="width: 10%;"></div>)</div>
+            <div style="display: flex;">(สมาชิกครบ 1 ปี ณ วันที่<div class="line" style="width: 10%;">30</div>เดือน<div class="line" style="width: 15%;">กันยายน</div>พ.ศ.<div class="line" style="width: 10%;">{{year}}</div>)</div>
             <div style="display: flex; width: 100%; margin-left: 15pt;">
                 <svg style="margin-top: 2pt;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt"><title>checkbox-blank-outline</title>
                     <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
@@ -270,7 +270,7 @@
             <div style="display: flex;">พิจารณาโครงการของภาคฯ รอบ<div class="line" style="width: 10%;"></div>ณ วันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ.<div class="line" style="width: 10%;"></div></div>
             <div style="display: flex;">จำนวนสมาชิกทั้งหมดเดิม<div class="line" style="width: 15%;"></div>คน จำนวนสมาชิกครบปีเดิม<div class="line" style="width: 15%;"></div>คน</div>
             <div style="display: flex;">จำนวนสมาชิกที่เสนอรับการสมทบรอบนี้<div class="line" style="width: 15%;"></div>คน</div>
-            <div style="display: flex;">(สมาชิกครบ 1 ปี ณ วันที่<div class="line" style="width: 10%;">30</div>เดือน<div class="line" style="width: 15%;">กันยายน</div>พ.ศ.<div class="line" style="width: 10%;"></div>)</div>
+            <div style="display: flex;">(สมาชิกครบ 1 ปี ณ วันที่<div class="line" style="width: 10%;">30</div>เดือน<div class="line" style="width: 15%;">กันยายน</div>พ.ศ.<div class="line" style="width: 10%;">{{year}}</div>)</div>
             <div style="margin-left: 10pt; margin-top: 10pt;">3.3 ลักษณะของสมาชิก</div>
             <div class="vaulnerableTable" style="width: 80%;  margin-left: auto; margin-right: auto; margin-top: 10pt;">
                 <table>
@@ -1413,7 +1413,7 @@
             </div> -->
         </div>
         <div class="document">
-            <div style="margin-top: 20pt; display: flex;"><div style="font-weight: 600; display: flex; width: 100%;">8. คณะกรรมการกองทุน มีจำนวน<div class="line" style="width: 10%;"></div>คน</div></div>
+            <div style="margin-top: 20pt; display: flex;"><div style="font-weight: 600; display: flex; width: 100%;">8. คณะกรรมการกองทุน มีจำนวน<div class="line" style="width: 10%;">19</div>คน</div></div>
             <div style="margin-left: 10pt; margin-top: 10pt;">8.1 องค์ประกอบด้วยคณะกรรมการ (ตอบได้มากกว่า 1 ข้อ)</div>
             <div style="display: flex;">
                 <div style="display: flex; margin-left: 15pt; width: 80%;">
@@ -1976,7 +1976,7 @@
         </div>
         <div class="document">
             <div style="margin-top: 20pt; font-weight: 600;">10. รายงานฐานะการเงินกองทุนสวัสดิการชุมชน</div>
-            <div style="display: flex; margin-left: 10pt;">ยอดเงินคงเหลือ ณ วันที่<div class="line" style="width: 10%;"></div>เดือน<div class="line" style="width: 15%;"></div>พ.ศ<div class="line" style="width: 10%;"></div></div>
+            <div style="display: flex; margin-left: 10pt;">ยอดเงินคงเหลือ ณ วันที่<div class="line" style="width: 10%;">{{date}}</div>เดือน<div class="line" style="width: 15%;">{{month}}</div>พ.ศ<div class="line" style="width: 10%;">{{year}}</div></div>
             <div class="financeTable" style="margin-top: 20pt;">
                 <table style="width: 100%;">
                     <thead>
@@ -2034,8 +2034,8 @@
                             <td>องค์กรปกครองส่วนท้องถิ่น (อบต./เทศบาล/อบจ.)</td>
                             <td>{{calculateIncome.300}}</td>
                             <td></td>
-                            <td><div style="display: flex;">เงินลงทุนอื่นๆ<div class="line" style="width: 50%;"></div></div></td>
-                            <td></td>
+                            <td><div style="display: flex;">เงินลงทุนอื่นๆ<div class="line" style="width: 50%;">ธนาคารหมู่บ้าน</div></div></td>
+                            <td>{{calculateIncome.1}}</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -2043,7 +2043,7 @@
                             <td>{{calculateIncome.400}}</td>
                             <td></td>
                             <td><div style="display: flex;">อื่นๆ<div class="line" style="width: 50%;"></div></div></td>
-                            <td></td>
+                            <td>{{calculateIncome.2}}</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -2072,42 +2072,42 @@
                         </tr>
                         <tr>
                             <td>ค่าธรรมเนียมเเรกเข้า/ค่าสมัคร</td>
-                            <td></td>
+                            <td>{{calculateIncome.1}}</td>
                             <td></td>
                             <td>ค่าตอบเเทนคนงาน</td>
-                            <td></td>
+                            <td>{{calculateIncome.3}}</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td>เงินบริจาก</td>
-                            <td></td>
+                            <td>เงินบริจาค</td>
+                            <td>{{calculateIncome.2}}</td>
                             <td></td>
                             <td>ค่าพาหนะ</td>
-                            <td></td>
+                            <td>{{calculateIncome.4}}</td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>ดอกเบี้ยเงินฝากธนาคาร</td>
-                            <td></td>
+                            <td>{{calculateIncome.3}}</td>
                             <td></td>
                             <td>ค่าเอกสาร/เครื่องเขียน</td>
-                            <td></td>
+                            <td>{{calculateIncome.5}}</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td><div style="display: flex;">เงินรายได้อื่นๆ<div class="line" style="width: 50%;"></div></div></td>
-                            <td></td>
+                            <td><div style="display: flex;">เงินรายได้อื่นๆ<div class="line" style="width: 50%;">สลากธกส.</div></div></td>
+                            <td>{{calculateIncome.4}}</td>
                             <td></td>
                             <td>ค่ากิจกรรม/ประชุม</td>
-                            <td></td>
+                            <td>{{calculateIncome.6}}</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td><div style="display: flex;">เงินรายได้อื่นๆ<div class="line" style="width: 50%;"></div></div></td>
-                            <td></td>
+                            <td><div style="display: flex;">เงินรายได้อื่นๆ<div class="line" style="width: 50%;">ดอกเบี้ยบริหาร</div></div></td>
+                            <td>{{calculateIncome.5}}</td>
                             <td></td>
                             <td><div style="display: flex;">รายจ่ายอื่นๆ<div class="line" style="width: 50%;"></div></div></td>
-                            <td></td>
+                            <td>{{calculateIncome.7}}</td>
                             <td></td>
                         </tr>
                         <tr>

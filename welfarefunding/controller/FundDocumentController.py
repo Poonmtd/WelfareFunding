@@ -48,6 +48,28 @@ class FundDocumentController(BaseController):
         date_end = datetime.strptime(data['endYear'], '%Y-%m-%d')
         print('date start------------------',date_start)
         font = await self.getFont()
+        
+        date = date_end.day
+        month = date_end.month
+        if month == 1: month = 'มกราคม'
+        elif month == 2: month = 'กุมภาพันธ์'
+        elif month == 3: month = 'มีนาคม'
+        elif month == 4: month = 'เมษายน'
+        elif month == 5: month = 'พฤษภาคม'
+        elif month == 6: month = 'มิถุนายน'
+        elif month == 7: month = 'กรกฎาคม'
+        elif month == 8: month = 'สิงหาคม'
+        elif month == 9: month = 'กันยายน'
+        elif month == 10: month = 'ตุลาคม'
+        elif month == 11: month = 'พฤศจิกายน'
+        elif month == 12: month = 'ธันวาคม'
+        year = date_end.year + 543
+        data['date'] = date
+        data['month'] = month
+        data['year'] = year
+        
+        
+        
         #role ต่างๆ
         rolenamechairman = 'ประธาน'
         userchairman, addresschairman = '',''
@@ -365,6 +387,10 @@ class FundDocumentController(BaseController):
             appliancs_dict.setdefault('จำนวนคนของ'+welfare_type, 0.00)
             appliancs_dict['จำนวนคนของ'+welfare_type] += 1  
             
+            appliancs_dict['จำนวนคนรวม'] += 1
+            appliancs_dict['จำนวนเงินรวม'] += paymentAmount
+            
+            
         for appliance_all in models_all:
             welfare_type = str(appliance_all.welfareType)
             paymentAmount = appliance_all.Amount
@@ -374,6 +400,9 @@ class FundDocumentController(BaseController):
             
             applianceAll_dict.setdefault('จำนวนคนของ'+welfare_type, 0.00)
             applianceAll_dict['จำนวนคนของ'+welfare_type] += 1
+            
+            applianceAll_dict['จำนวนคนรวมสะสม'] += 1
+            applianceAll_dict['จำนวนเงินรวมสะสม'] += paymentAmount
         
         countAppliance = (len(appliancs_dict)/2)-1
         print('---------------------------------------------',appliancs_dict)
