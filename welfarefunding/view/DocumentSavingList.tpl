@@ -117,7 +117,7 @@
                         <tr>
                             <th rowspan="2">ครั้งที่</th>
                             <th rowspan="2">วัน เดือน ปี</th>
-                            <th colspan="2">เงินสมทบ <br>.........บาท</th>
+                            <th colspan="2">เงินสมทบ <br> 365 บาท</th>
                             <th rowspan="2">จำนวนเงิน</th>
                             <th rowspan="2">เหรัญญิก</th>
                             <th rowspan="2">หมายเหตุ</th>
@@ -130,7 +130,7 @@
                     <tbody>
                         {{#savingList}}
                         <tr>
-                            <td></td>
+                            <td>{{order}}</td>
                             <td>{{savingDate}}</td>
                             <td>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15pt" ><title>checkbox-blank-outline</title>

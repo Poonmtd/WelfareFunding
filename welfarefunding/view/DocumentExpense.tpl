@@ -233,16 +233,16 @@
                 </div> -->
                 <div style="display: flex; flex-direction: row; justify-content: space-around;">
                     <div style="width: 100%;">
-                        <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 40%;">{{memberID.firstName}}  {{memberID.lastName}}</div>ผู้รับเงิน</div>
-                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 30%;">{{memberID.firstName}}  {{memberID.lastName}}</div>)</div>
+                        <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 60%;"></div>ผู้รับเงิน</div>
+                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 80%;">{{memberID.firstName}}  {{memberID.lastName}}</div>)</div>
                     </div>
                     <div style="width: 100%;">
-                        <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 40%;">{{roleAudit.firstName}}  {{roleAudit.lastName}}</div>ผู้จ่ายเงิน</div>
-                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 30%;">{{roleAudit.firstName}}  {{roleAudit.lastName}}</div>)</div>
+                        <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 60%;"></div>ผู้จ่ายเงิน</div>
+                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 80%;">{{roleAudit.firstName}}  {{roleAudit.lastName}}</div>)</div>
                     </div>
                 </div>
-                <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 30%;">{{userchairman.firstName}}  {{userchairman.lastName}}</div>พยาน</div>
-                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 20%;">{{userchairman.firstName}}  {{userchairman.lastName}}</div>)</div>
+                <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 30%;"></div>พยาน</div>
+                        <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 40%;">{{userchairman.firstName}}  {{userchairman.lastName}}</div>)</div>
             </div>
         </div>  
     </body>

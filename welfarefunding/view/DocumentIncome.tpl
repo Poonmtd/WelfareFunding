@@ -209,8 +209,8 @@
                 <br>................/................/................
             </div> -->
             
-            <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 40%;">{{rolename.firstName}}  {{rolename.lastName}}</div>ผู้รับเงิน</div>
-            <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 30%;">{{rolename.firstName}}  {{rolename.lastName}}</div>)</div>
+            <div style="display: flex; width: 100%; margin-top: 50pt; justify-content: center;">ลงชื่อ<div class="line" style="width: 40%;"></div>ผู้รับเงิน</div>
+            <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;">(<div class="line" style="width: 50%;">{{rolename.firstName}}  {{rolename.lastName}}</div>)</div>
             <div style="width: 100%; display: flex; justify-content: center; margin-top: 5pt;"><div class="line" style="width: 10%;">{{{date}}}</div>/ <div class="line" style="width: 15%;">{{{month}}}</div>/ <div class="line" style="width: 10%;">{{{year}}}</div></div>
         </div>  
     </body>
