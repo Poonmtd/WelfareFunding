@@ -133,7 +133,7 @@
                 <div style="font-weight: 600; display: flex;">1. ชื่อกลุ่ม/กองทุน<div class="line" style="width: 20%;">ตำบลทรัพย์อนันต์</div></div>
                 <div style="display: flex; flex-direction: column;">
                     <div style="display: flex;">
-                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">119</div>หมู่บ้าน<div class="line"style="width: 10%;" >เกาะอม</div>หมู่ที่<div class="line" style="width: 10%;">4</div>ตรอก/ซอย<div class="line"style="width: 10%;" >-</div>
+                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">119</div>หมู่บ้าน<div class="line"style="width: 20%;" >เกาะอม</div>หมู่ที่<div class="line" style="width: 10%;">4</div>ตรอก/ซอย<div class="line"style="width: 10%;" >-</div>
                         ถนน<div class="line"style="width: 10%;" >-</div>
                     </div>
                     <div style="display: flex;">
@@ -150,7 +150,7 @@
                 <div>
                     <div style="font-weight: 600; display: flex;">ชื่อประธานกองทุน<div class="line" style="width: 60%;">{{userchairman.firstName}} {{userchairman.lastName}}</div></div>
                     <div style="display: flex;">
-                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">{{addresschairman.addressNumber}}</div>หมู่บ้าน<div class="line"style="width: 10%;" >{{addresschairman.community}}</div>หมู่ที่<div class="line" style="width: 10%;">{{addresschairman.moo}}</div>ตรอก/ซอย<div class="line"style="width: 10%;" >{{addresschairman.alley}}</div>
+                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">{{addresschairman.addressNumber}}</div>หมู่บ้าน<div class="line"style="width: 20%;" >{{addresschairman.community}}</div>หมู่ที่<div class="line" style="width: 10%;">{{addresschairman.moo}}</div>ตรอก/ซอย<div class="line"style="width: 10%;" >{{addresschairman.alley}}</div>
                         ถนน<div class="line"style="width: 10%;" >{{addresschairman.road}}</div>
                     </div>
                     <div style="display: flex;">
@@ -167,7 +167,7 @@
                 <div>
                     <div style="font-weight: 600; display: flex;">ชื่อผู้ประสานงาน<div class="line" style="width: 60%;">{{userCoordinator.firstName}}  {{userCoordinator.lastName}}</div></div>
                     <div style="display: flex;">
-                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">{{addressCoordinator.addressNumber}}</div>หมู่บ้าน<div class="line"style="width: 10%;" >{{addressCoordinator.community}}</div>หมู่ที่<div class="line" style="width: 10%;">{{addressCoordinator.moo}}</div>ตรอก/ซอย<div class="line"style="width: 10%;" >{{addressCoordinator.alley}}</div>
+                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">{{addressCoordinator.addressNumber}}</div>หมู่บ้าน<div class="line"style="width: 20%;" >{{addressCoordinator.community}}</div>หมู่ที่<div class="line" style="width: 10%;">{{addressCoordinator.moo}}</div>ตรอก/ซอย<div class="line"style="width: 10%;" >{{addressCoordinator.alley}}</div>
                         ถนน<div class="line"style="width: 10%;" >{{addressCoordinator.road}}</div>
                     </div>
                     <div style="display: flex;">
@@ -2144,7 +2144,7 @@
                 </svg>
                 <div style="width: 90%;">
                     <div style="width: 100%; display: flex;">งานด้านวิสาหกกิจชุมชน</div>
-                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">testttt</div></div>
+                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">-</div></div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%; margin-top: 10pt;">
@@ -2153,7 +2153,7 @@
                 </svg>
                 <div style="width: 90%;">
                     <div style="width: 100%; display: flex;">งานด้านสภาองค์กรชุมชน</div>
-                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">testttt</div></div>
+                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">-</div></div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%; margin-top: 10pt;">
@@ -2162,7 +2162,7 @@
                 </svg>
                 <div style="width: 90%;">
                     <div style="width: 100%; display: flex;">งานด้านแผนชุมชน</div>
-                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">testttt</div></div>
+                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">-</div></div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%; margin-top: 10pt;">
@@ -2171,7 +2171,7 @@
                 </svg>
                 <div style="width: 90%;">
                     <div style="width: 100%; display: flex;">งานด้านที่ดินทำกินและที่อยู่อาศัย</div>
-                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">testttt</div></div>
+                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">-</div></div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%; margin-top: 10pt;">
@@ -2180,7 +2180,7 @@
                 </svg>
                 <div style="width: 90%;">
                     <div style="width: 100%; display: flex;">งานด้านการจัดการทรัพยากรธรรมชาติเเละสิ่งเเวดล้อม</div>
-                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">testttt</div></div>
+                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">-</div></div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%; margin-top: 10pt;">
@@ -2189,7 +2189,7 @@
                 </svg>
                 <div style="width: 90%;">
                     <div style="width: 100%; display: flex;">งานด้านเกษตรกรรมยั่งยืน</div>
-                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">testttt</div></div>
+                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">-</div></div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%; margin-top: 10pt;">
@@ -2198,7 +2198,7 @@
                 </svg>
                 <div style="width: 90%;">
                     <div style="width: 100%; display: flex;">งานด้านศูนย์การเรียนรู้ท้องถิ่น</div>
-                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">testttt</div></div>
+                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">-</div></div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%; margin-top: 10pt;">
@@ -2207,7 +2207,7 @@
                 </svg>
                 <div style="width: 90%;">
                     <div style="width: 100%; display: flex;">งานด้านสุขภาพ/สาธารณสุข</div>
-                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">testttt</div></div>
+                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">-</div></div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%; margin-top: 10pt;">
@@ -2216,7 +2216,7 @@
                 </svg>
                 <div style="width: 90%;">
                     <div style="width: 100%; display: flex;">งานด้านการป้องกันเเละเเก้ไขปัญหายาเสพติด</div>
-                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">testttt</div></div>
+                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">-</div></div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%; margin-top: 10pt;">
@@ -2225,7 +2225,7 @@
                 </svg>
                 <div style="width: 90%;">
                     <div style="width: 100%; display: flex;">งานด้านอนุรักษ์วัฒนธรรม/ประเพณี/ศาสนา</div>
-                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">testttt</div></div>
+                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">-</div></div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%; margin-top: 10pt;">
@@ -2234,7 +2234,7 @@
                 </svg>
                 <div style="width: 90%;">
                     <div style="width: 100%; display: flex;">งานด้านเยาวชน/ผู้สูงอายุ/ผู้ด้อยโอกาส</div>
-                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">testttt</div></div>
+                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">-</div></div>
                 </div>
             </div>
             <div style="display: flex; margin-left: 15pt; width: 100%; margin-top: 10pt;">
@@ -2243,7 +2243,7 @@
                 </svg>
                 <div style="width: 90%;">
                     <div style="width: 100%; display: flex;">อื่นๆ</div>
-                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">testttt</div></div>
+                    <div style="display: flex;"><div class="line" style="width: 100%; text-align: start;">-</div></div>
                 </div>
             </div>
             <div style="margin-top: 20pt; display: flex;"><p>12. การสนับสนุนจากหน่วยงานต่างๆ</p>(ตอบได้มากกว่า 1 ข้อ ในรอบปี)</div>

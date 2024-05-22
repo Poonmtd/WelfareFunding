@@ -82,7 +82,7 @@ const BudgetFundBackend = function(main, parent) {
 				await OPEN_FILE(blob);
 			}
 			// console.log(record.record.statusRecord);
-			console.log("testttt");
+			console.log("-");
 			console.log(record.record.budgetType);
 			//ON PROCESS
 			if(record.record.statusRecord.color == "YELLOW"){
