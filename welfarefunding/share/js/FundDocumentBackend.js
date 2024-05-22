@@ -14,8 +14,8 @@ const FundDocumentBackend = function(main, parent) {
 	this.renderTableView = async function(modelName, config={}){
 		config.hasAvatar = false;
 		config.operation = [
-			{label: 'เอกสารกองทุน', ID: 'pdf', icon: 'welfarefunding.PDF'},
-			{label: 'ภาษี', ID: 'tax', icon: 'welfarefunding.PDF'}
+			{label: 'เอกสารกองทุน', ID: 'pdf', icon: 'welfarefunding.PDF'}
+			// ,{label: 'ภาษี', ID: 'tax', icon: 'welfarefunding.PDF'}
 			// {label: 'ลองคำนวณ', ID: 'calculate', icon: 'welfarefunding.PDF'},
 			// {label: 'แบบประสงค์ขอโอน', ID: 'transfer', icon: 'welfarefunding.PDF'},
 			// {label: 'หนังสือร้องเรียน', ID: 'complaint', icon: 'welfarefunding.PDF'},
@@ -29,10 +29,10 @@ const FundDocumentBackend = function(main, parent) {
 				let blob = await  GET(`welfarefunding/documentfundperyear/by/id/get/${record.record.id}`, undefined, 'blob');
 				await OPEN_FILE(blob);
 			}
-			record.dom.tax.onclick = async function(){
-				let blob = await  GET(`welfarefunding/taxdocument/by/id/get/${record.record.id}`, undefined, 'blob');
-				await OPEN_FILE(blob);
-			}
+			// record.dom.tax.onclick = async function(){
+			// 	let blob = await  GET(`welfarefunding/taxdocument/by/id/get/${record.record.id}`, undefined, 'blob');
+			// 	await OPEN_FILE(blob);
+			// }
 			// record.dom.calculate.onclick = async function(){
 			// 	let blob = await GET(`welfarefunding/testcalculate/by/id/get/${record.record.id}`, undefined, 'blob');
 			// 	await OPEN_FILE(blob);
