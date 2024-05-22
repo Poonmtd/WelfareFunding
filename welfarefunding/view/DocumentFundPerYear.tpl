@@ -133,7 +133,7 @@
                 <div style="font-weight: 600; display: flex;">1. ชื่อกลุ่ม/กองทุน<div class="line" style="width: 20%;">ตำบลทรัพย์อนันต์</div></div>
                 <div style="display: flex; flex-direction: column;">
                     <div style="display: flex;">
-                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">119</div>หมู่บ้าน<div class="line"style="width: 10%;" >เกาะอม</div>หมู่ที่<div class="line" style="width: 10%;">4</div>ตรอก/ซอย<div class="line"style="width: 10%;" >-</div>
+                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">119</div>หมู่บ้าน<div class="line"style="width: 20%;" >เกาะอม</div>หมู่ที่<div class="line" style="width: 10%;">4</div>ตรอก/ซอย<div class="line"style="width: 10%;" >-</div>
                         ถนน<div class="line"style="width: 10%;" >-</div>
                     </div>
                     <div style="display: flex;">
@@ -150,7 +150,7 @@
                 <div>
                     <div style="font-weight: 600; display: flex;">ชื่อประธานกองทุน<div class="line" style="width: 60%;">{{userchairman.firstName}} {{userchairman.lastName}}</div></div>
                     <div style="display: flex;">
-                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">{{addresschairman.addressNumber}}</div>หมู่บ้าน<div class="line"style="width: 10%;" >{{addresschairman.community}}</div>หมู่ที่<div class="line" style="width: 10%;">{{addresschairman.moo}}</div>ตรอก/ซอย<div class="line"style="width: 10%;" >{{addresschairman.alley}}</div>
+                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">{{addresschairman.addressNumber}}</div>หมู่บ้าน<div class="line"style="width: 20%;" >{{addresschairman.community}}</div>หมู่ที่<div class="line" style="width: 10%;">{{addresschairman.moo}}</div>ตรอก/ซอย<div class="line"style="width: 10%;" >{{addresschairman.alley}}</div>
                         ถนน<div class="line"style="width: 10%;" >{{addresschairman.road}}</div>
                     </div>
                     <div style="display: flex;">
@@ -167,7 +167,7 @@
                 <div>
                     <div style="font-weight: 600; display: flex;">ชื่อผู้ประสานงาน<div class="line" style="width: 60%;">{{userCoordinator.firstName}}  {{userCoordinator.lastName}}</div></div>
                     <div style="display: flex;">
-                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">{{addressCoordinator.addressNumber}}</div>หมู่บ้าน<div class="line"style="width: 10%;" >{{addressCoordinator.community}}</div>หมู่ที่<div class="line" style="width: 10%;">{{addressCoordinator.moo}}</div>ตรอก/ซอย<div class="line"style="width: 10%;" >{{addressCoordinator.alley}}</div>
+                        ที่ตั้งเลขที่<div class="line" style="width: 10%;">{{addressCoordinator.addressNumber}}</div>หมู่บ้าน<div class="line"style="width: 20%;" >{{addressCoordinator.community}}</div>หมู่ที่<div class="line" style="width: 10%;">{{addressCoordinator.moo}}</div>ตรอก/ซอย<div class="line"style="width: 10%;" >{{addressCoordinator.alley}}</div>
                         ถนน<div class="line"style="width: 10%;" >{{addressCoordinator.road}}</div>
                     </div>
                     <div style="display: flex;">
