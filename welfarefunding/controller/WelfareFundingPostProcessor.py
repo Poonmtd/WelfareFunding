@@ -148,10 +148,13 @@ class WelfareFundingPostProcessor (PostProcessDecorator) :
   data = response.data['result']['data']
   idList = ', '.join([str(i['id']) for i in data])
   if len(idList): clause = f"WHERE uid IN ({idList})"
+  print(clause)
   model = await self.session.select(FundingMember, clause)
   modelDict = {i.uid: i.toDict() for i in model}
   for item in data:
    if item['id'] not in modelDict: continue
-   del modelDict[item['id']]['id']
-   item.update(modelDict[item['id']])
+   try:
+    del modelDict[item['id']]['id']
+    item.update(modelDict[item['id']])
+   except: pass
   return response

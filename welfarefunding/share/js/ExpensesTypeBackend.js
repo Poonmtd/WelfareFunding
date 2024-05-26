@@ -11,6 +11,7 @@ const ExpensesTypeBackend = function(main, parent) {
 	object.role = ['Audit'];
 	object.restURL = 'welfarefunding/expensetype';
 
+
 	this.renderTableView = async function(modelName, config = {}){
 		config.hasAvatar = false;
 		await AbstractPage.prototype.renderTable.call(this, modelName, config);

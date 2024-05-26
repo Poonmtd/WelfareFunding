@@ -14,5 +14,6 @@ const IncomeTypeBackend = function(main, parent) {
 	this.renderTableView = async function(modelName, config = {}){
 		config.hasAvatar = false;
 		await AbstractPage.prototype.renderTable.call(this, modelName, config);
+		
 	}
 }
