@@ -190,7 +190,7 @@ class FundingMemberController(BaseController):
 	async def getuserrole(self,data):
 		print('name role get')
 		print(data)
-		group = await self.session.select(UserGroup, 'WHERE name LIKE ?',parameter=[data],limit=1)
+		group = await self.session.select(UserGroup, 'WHERE name LIKE ? AND isDrop = 0',parameter=[data],limit=1)
 		if len(group) == 0: 
 			return Error('')
 		print(group[0].id)
