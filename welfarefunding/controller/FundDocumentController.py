@@ -89,8 +89,6 @@ class FundDocumentController(BaseController):
             usersecretary,addresssecretary  = await self.getuserrole(rolenamesecretary)
         except : usersecretary,addresssecretary = '',''
         
-        userRole = await self.getALLUserrole()
-        
         calculateIncome = await self.calculateIncome(date_end)
         calculateExpense = await self.calculateExpense(date_start,date_end)
         calculateWelfareAppliance, calculateAllwelfareAppliance = await self.calculateWelfareAppliance(date_start,date_end)
@@ -137,7 +135,7 @@ class FundDocumentController(BaseController):
     
     async def getuserrole(self,data):
         print('name role get')
-        group = await self.session.select(UserGroup, 'WHERE name LIKE ?',parameter=[data],limit=1)
+        group = await self.session.select(UserGroup, 'WHERE name LIKE ? AND isDrop = 0',parameter=[data],limit=1)
         if len(group) == 0: return Error('')
         print(group[0].id)
         user:List[User] = await self.session.select(User, 'WHERE gid = ?', parameter=[group[0].id])
@@ -167,19 +165,6 @@ class FundDocumentController(BaseController):
         elif moo == 5: return 'บ้านนาโครงช้าง'
         elif moo == 6: return 'บ้านทรัพย์อนันต์'
         elif moo == 7: return 'บ้านทรัพย์สมบูรณ์'
-        
-    async def getALLUserrole(self):        
-        users:List[User] = await self.session.select(User, 'WHERE gid != ?', parameter=[-1])
-        mergedData = []
-        for user in users:
-            usermembers:List[FundingMember] = await self.session.select(FundingMember,'WHERE uid = ?',parameter = [user.id])
-            userDict = user.toDict()
-            for member in usermembers:
-                memberDict = member.toDict()
-                mergedUserDict = {**userDict, **memberDict}
-                mergedData.append(mergedUserDict)
-        print(mergedData)
-        return users
 
         
     # async def getAllUserRloe(self) :

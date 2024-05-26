@@ -201,7 +201,7 @@ const FundDocumentBackend = function(main, parent) {
         config.operation = [
             { label: 'เอกสารกองทุน', ID: 'pdf', icon: 'welfarefunding.PDF' },
             // { label: 'SyncUp s->l', ID: 'syncUp', icon: 'welfarefunding.PDF' },
-            { label: 'SyncDown l->s', ID: 'calculate', icon: 'welfarefunding.PDF' }
+            // { label: 'SyncDown l->s', ID: 'calculate', icon: 'welfarefunding.PDF' }
         ];
         let table = await AbstractPage.prototype.renderTable.call(this, modelName, config);
         for (let i in table.records) {
@@ -226,52 +226,52 @@ const FundDocumentBackend = function(main, parent) {
             //     }
             // };
 
-            record.dom.calculate.onclick = async function() {
-                try {
-                    const backupCommand = 'sudo -u postgres pg_dump welfarefunding > welfarefunding.sql';
+            // record.dom.calculate.onclick = async function() {
+            //     try {
+            //         const backupCommand = 'sudo -u postgres pg_dump welfarefunding > welfarefunding.sql';
     
-					// Step 2: Copy the backup file to a remote server
-					const scpCommand = 'sudo scp welfarefunding.sql administrator@ximplesoft.com:Projects/WelfareFunding';
+			// 		// Step 2: Copy the backup file to a remote server
+			// 		const scpCommand = 'sudo scp welfarefunding.sql administrator@ximplesoft.com:Projects/WelfareFunding';
 
-					// Step 3: Restore the database from the backup
-					const restoreCommand = 'sudo -u postgres psql -d welfare -f welfarefunding.sql';
+			// 		// Step 3: Restore the database from the backup
+			// 		const restoreCommand = 'sudo -u postgres psql -d welfare -f welfarefunding.sql';
 
-					// Execute the commands sequentially
-					const { exec } = require('child_process');
+			// 		// Execute the commands sequentially
+			// 		const { exec } = require('child_process');
 
-					// Backup the database
-					exec(backupCommand, (error1, stdout1, stderr1) => {
-						if (error1) {
-							console.error(`Error backing up database: ${error1.message}`);
-							return;
-						}
-						console.log(`Backup stdout: ${stdout1}`);
-						console.error(`Backup stderr: ${stderr1}`);
+			// 		// Backup the database
+			// 		exec(backupCommand, (error1, stdout1, stderr1) => {
+			// 			if (error1) {
+			// 				console.error(`Error backing up database: ${error1.message}`);
+			// 				return;
+			// 			}
+			// 			console.log(`Backup stdout: ${stdout1}`);
+			// 			console.error(`Backup stderr: ${stderr1}`);
 						
-						// Copy the backup file
-						exec(scpCommand, {stdio: 'inherit'}, (error2, stdout2, stderr2) => {
-							if (error2) {
-								console.error(`Error copying file: ${error2.message}`);
-								return;
-							}
-							console.log(`SCP stdout: ${stdout2}`);
-							console.error(`SCP stderr: ${stderr2}`);
+			// 			// Copy the backup file
+			// 			exec(scpCommand, {stdio: 'inherit'}, (error2, stdout2, stderr2) => {
+			// 				if (error2) {
+			// 					console.error(`Error copying file: ${error2.message}`);
+			// 					return;
+			// 				}
+			// 				console.log(`SCP stdout: ${stdout2}`);
+			// 				console.error(`SCP stderr: ${stderr2}`);
 							
-							// Restore the database
-							exec(restoreCommand, (error3, stdout3, stderr3) => {
-								if (error3) {
-									console.error(`Error restoring database: ${error3.message}`);
-									return;
-								}
-								console.log(`Restore stdout: ${stdout3}`);
-								console.error(`Restore stderr: ${stderr3}`);
-							});
-						});
-					});
-                } catch (error) {
-                    console.error('Error synchronizing database:', error);
-                }
-            };
+			// 				// Restore the database
+			// 				exec(restoreCommand, (error3, stdout3, stderr3) => {
+			// 					if (error3) {
+			// 						console.error(`Error restoring database: ${error3.message}`);
+			// 						return;
+			// 					}
+			// 					console.log(`Restore stdout: ${stdout3}`);
+			// 					console.error(`Restore stderr: ${stderr3}`);
+			// 				});
+			// 			});
+			// 		});
+            //     } catch (error) {
+            //         console.error('Error synchronizing database:', error);
+            //     }
+            // };
         }
     };
 };

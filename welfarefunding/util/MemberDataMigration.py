@@ -29,11 +29,11 @@ class MemberDataMigration:
 		connection = None
   
 		try:
-			connection = psycopg2.connect(user='nagaUser',
-									password='11223344',
+			connection = psycopg2.connect(user='gaimon',
+									password='1234',
 									host='localhost',
 									port='5432',
-									database='welfare')
+									database='welfarefunding')
 			# print(connection)
 			cursor = connection.cursor()
 			# raw = []
