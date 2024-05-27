@@ -31,8 +31,14 @@ class SavingFundController(BaseController):
         if len(model) == 0: return Error('Member does not exist.')
         model = model[0] 
         data = model.toDict()
+        # namerole = 'เหรัญญิก'
+        # user = await self.getuserrole(namerole)
+        # data['rolename'] = user
         namerole = 'เหรัญญิก'
-        user = await self.getuserrole(namerole)
+        user = ''
+        try:
+            user = await self.getuserrole(namerole)
+        except: user = ''
         data['rolename'] = user
         date = model.savingDate.day
         month = model.savingDate.month
